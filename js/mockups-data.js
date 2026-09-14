@@ -1,6 +1,6 @@
 /**
  * БАЗА ДАННЫХ МАКЕТОВ САЙТОВ
- * Единый реестр всех макетов в репозитории Mockup Hub.
+ * Реестр ваших реальных макетов в каталоге Mockup Hub.
  */
 
 const MOCKUPS_DATA = [
@@ -49,17 +49,6 @@ const MOCKUPS_DATA = [
     featured: false,
     emoji: "🛋️"
   },
-  {
-    id: "furniture-modern",
-    title: "Nordic Wood — Студия авторской мебели из массива",
-    category: "Мебель",
-    folder: "furniture-modern",
-    description: "Премиальный лендинг фабрики скандинавской мебели из массива дуба и бука. Обеденные столы Live Edge и дизайнерские лаунж-кресла.",
-    tags: ["Мебель", "Интерьер", "Массив", "Сканди"],
-    preview: "",
-    featured: false,
-    emoji: "🪵"
-  },
 
   // ===================== ДЕТСКИЕ ПРАЗДНИКИ & СЛАЙМЫ =====================
   {
@@ -94,41 +83,6 @@ const MOCKUPS_DATA = [
     preview: "",
     featured: false,
     emoji: "🧪"
-  },
-
-  // ===================== ДРУГИЕ НАПРАВЛЕНИЯ =====================
-  {
-    id: "realty-luxury",
-    title: "Aura Residence — Клубный дом премиум-класса",
-    category: "Недвижимость",
-    folder: "realty-luxury",
-    description: "Элитный жилой комплекс на 48 приватных апартаментов с панорамными видами, консьержем 24/7 и приватным парком.",
-    tags: ["Недвижимость", "Архитектура", "Премиум", "Инвестиции"],
-    preview: "",
-    featured: false,
-    emoji: "🏢"
-  },
-  {
-    id: "auto-detailing",
-    title: "Apex Detailing — Премиальный центр автоухода",
-    category: "Авто",
-    folder: "auto-detailing",
-    description: "Студия детейлинга: профессиональная оклейка полиуретановыми пленками SunTek / Llumar, полировка и керамика 9H.",
-    tags: ["Авто", "Детейлинг", "Услуги", "Пленка"],
-    preview: "",
-    featured: false,
-    emoji: "🏎️"
-  },
-  {
-    id: "coffee-roastery",
-    title: "Black Roast — Крафтовая обжарка specialty кофе",
-    category: "Рестораны & Кафе",
-    folder: "coffee-roastery",
-    description: "Атмосферный сайт кофейни и интернет-магазин свежеобжаренного зерна из Эфиопии, Колумбии и Кении с доставкой.",
-    tags: ["Кафе", "Кофе", "E-commerce", "Доставка"],
-    preview: "",
-    featured: false,
-    emoji: "☕"
   }
 ];
 
@@ -136,8 +90,5 @@ const MOCKUPS_DATA = [
 const CATEGORIES_LIST = [
   "Все",
   "Мебель",
-  "Детские праздники",
-  "Недвижимость",
-  "Авто",
-  "Рестораны & Кафе"
+  "Детские праздники"
 ];
