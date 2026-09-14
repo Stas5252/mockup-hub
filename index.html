@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Галерея макетов сайтов | Mockup Studio</title>
+  <meta name="description" content="Каталог готовых дизайн-макетов и прототипов сайтов. Прямые ссылки для демонстрации клиентам.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Фоновый градиент / сетка -->
+  <div class="bg-grid"></div>
+
+  <!-- Верхняя панель / Навигация -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-badge">PRO</span>
+        <span class="logo-title">MOCKUP<b>HUB</b></span>
+      </a>
+
+      <div class="header-center">
+        <div class="search-box">
+          <svg class="icon search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="searchInput" placeholder="Поиск по названию, нише или тегам..." autocomplete="off">
+          <button id="clearSearch" class="btn-clear" aria-label="Очистить поиск" style="display: none;">&times;</button>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <span class="counter-badge" id="mockupsCount">Всего: 0</span>
+        <button id="themeToggle" class="btn-icon" title="Переключить тему (светлая/темная)">
+          <svg class="icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Hero Секция -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-chip">Витрина готовых проектов & демонстрация клиентам</div>
+        <h1 class="hero-title">Каталог интерактивных<br>макетов сайтов</h1>
+        <p class="hero-desc">
+          Единая база готовых решений для демонстрации заказчикам. Копируйте прямую ссылку на конкретный макет в 1 клик и отправляйте клиенту без лишних репозиториев.
+        </p>
+
+        <!-- Быстрая панель категорий -->
+        <div class="categories-bar" id="categoriesBar">
+          <!-- Генерируется из JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция карточек проектов -->
+    <section class="catalog-section">
+      <div class="container">
+        <div class="catalog-header">
+          <div class="active-filter-label" id="filterStatusLabel">
+            Показаны все макеты
+          </div>
+          <div class="catalog-sort">
+            <label for="sortSelect">Сортировка:</label>
+            <select id="sortSelect" class="select-input">
+              <option value="default">По умолчанию</option>
+              <option value="name-asc">По названию (А-Я)</option>
+              <option value="category">По категории</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Сетка карточек -->
+        <div class="mockups-grid" id="mockupsGrid">
+          <!-- Карточки генерируются динамически через js/app.js -->
+        </div>
+
+        <!-- Состояние пустого поиска -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+          <div class="empty-icon">📂</div>
+          <h3 class="empty-title">Ничего не найдено</h3>
+          <p class="empty-text">Попробуйте изменить запрос или выбрать другую категорию</p>
+          <button class="btn btn-secondary" id="resetFiltersBtn">Сбросить фильтры</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Информационный футер -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-info">
+        <div class="footer-logo">MOCKUP<b>HUB</b></div>
+        <p class="footer-subtext">Все макеты размещены в едином репозитории. Автономная работа на GitHub Pages.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#categoriesBar" class="footer-link">К категориям</a>
+        <a href="viewer.html" class="footer-link">Режим инспектора (Viewer)</a>
+        <a href="https://github.com" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Всплывающий тост для уведомления о копировании -->
+  <div id="toast" class="toast" role="alert" aria-live="assertive">
+    <div class="toast-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <div class="toast-content">
+      <div class="toast-title">Ссылка скопирована!</div>
+      <div class="toast-message" id="toastMessage">Прямая ссылка готова для отправки клиенту</div>
+    </div>
+  </div>
+
+  <!-- Быстрый предпросмотр в модалке -->
+  <div id="previewModal" class="modal">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-window">
+      <div class="modal-header">
+        <div class="modal-info">
+          <span class="modal-badge" id="modalCategory">Мебель</span>
+          <h3 class="modal-title" id="modalTitle">Название макета</h3>
+        </div>
+        <div class="modal-controls">
+          <!-- Переключатели разрешения -->
+          <div class="device-switcher">
+            <button class="btn-device active" data-width="100%" title="Десктоп">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </button>
+            <button class="btn-device" data-width="768px" title="Планшет (768px)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </button>
+            <button class="btn-device" data-width="375px" title="Смартфон (375px)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+          <button id="modalCopyBtn" class="btn btn-secondary btn-sm" title="Копировать прямую ссылку">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>Копировать</span>
+          </button>
+          <a id="modalExternalLink" href="#" target="_blank" class="btn btn-primary btn-sm" title="Открыть на весь экран">
+            <span>Открыть сайт</span>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+          <button class="modal-close" id="modalClose" aria-label="Закрыть">&times;</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="iframe-container" id="iframeContainer">
+          <iframe id="previewIframe" src="about:blank" title="Предпросмотр макета" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Скрипты -->
+  <script src="js/mockups-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

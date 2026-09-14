@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Инспектор макетов | Device Mockup Viewer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-top: #111116;
+      --bg-stage: #0a0a0c;
+      --border: #262630;
+      --text: #ffffff;
+      --text-muted: #888899;
+      --accent: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg-stage);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .topbar {
+      height: 56px;
+      background: var(--bg-top);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      gap: 12px;
+      z-index: 10;
+    }
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .back-btn {
+      color: var(--text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      transition: 0.2s;
+    }
+    .back-btn:hover {
+      color: #fff;
+      border-color: #444;
+    }
+    .select-site {
+      background: #181820;
+      border: 1px solid var(--border);
+      color: #fff;
+      font-family: inherit;
+      font-size: 13px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      outline: none;
+      cursor: pointer;
+      max-width: 260px;
+    }
+    .device-group {
+      display: flex;
+      background: #181820;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px;
+      gap: 2px;
+    }
+    .device-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.15s;
+    }
+    .device-btn:hover { color: #fff; }
+    .device-btn.active {
+      background: #fff;
+      color: #000;
+    }
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .action-btn {
+      background: #181820;
+      border: 1px solid var(--border);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .action-btn:hover {
+      border-color: #555;
+    }
+    .action-btn.primary {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+    }
+    .action-btn.primary:hover {
+      background: #ddd;
+    }
+    .stage {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow: hidden;
+      background-image: radial-gradient(#222 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .viewport-wrapper {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+      transition: max-width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #fff;
+    }
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: #fff;
+      color: #000;
+      font-weight: 600;
+      font-size: 13px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1000;
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-left">
+      <a href="index.html" class="back-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Каталог
+      </a>
+      <select id="siteSelect" class="select-site">
+        <!-- Заполняется динамически -->
+      </select>
+    </div>
+
+    <div class="device-group">
+      <button class="device-btn active" data-width="100%" data-height="100%">
+        🖥️ Десктоп
+      </button>
+      <button class="device-btn" data-width="1024px" data-height="100%">
+        💻 Ноутбук
+      </button>
+      <button class="device-btn" data-width="768px" data-height="100%">
+        📱 Планшет
+      </button>
+      <button class="device-btn" data-width="375px" data-height="812px">
+        📱 Мобильный
+      </button>
+    </div>
+
+    <div class="topbar-right">
+      <button id="reloadBtn" class="action-btn" title="Перезагрузить страницу">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+      </button>
+      <button id="copyUrlBtn" class="action-btn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        Копировать ссылку
+      </button>
+      <a id="openTabBtn" href="#" target="_blank" class="action-btn primary">
+        Открыть в новой вкладке ↗
+      </a>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="viewport-wrapper" id="viewportWrapper">
+      <iframe id="viewerFrame" src="about:blank"></iframe>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Ссылка скопирована в буфер!</div>
+
+  <script src="js/mockups-data.js"></script>
+  <script>
+    const siteSelect = document.getElementById("siteSelect");
+    const viewerFrame = document.getElementById("viewerFrame");
+    const viewportWrapper = document.getElementById("viewportWrapper");
+    const deviceButtons = document.querySelectorAll(".device-btn");
+    const openTabBtn = document.getElementById("openTabBtn");
+    const copyUrlBtn = document.getElementById("copyUrlBtn");
+    const reloadBtn = document.getElementById("reloadBtn");
+    const toast = document.getElementById("toast");
+
+    // Заполнение селекта макетов
+    MOCKUPS_DATA.forEach(mockup => {
+      const opt = document.createElement("option");
+      opt.value = mockup.folder;
+      opt.textContent = `[${mockup.category}] ${mockup.title}`;
+      siteSelect.appendChild(opt);
+    });
+
+    // Определение стартового сайта из параметров URL (?site=furniture-modern)
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialSite = urlParams.get("site") || (MOCKUPS_DATA[0] ? MOCKUPS_DATA[0].folder : "");
+
+    if (initialSite) {
+      siteSelect.value = initialSite;
+    }
+
+    function updateIframe() {
+      const folder = siteSelect.value;
+      const fullUrl = new URL(`mockups/${folder}/index.html`, window.location.href).href;
+      viewerFrame.src = fullUrl;
+      openTabBtn.href = fullUrl;
+    }
+
+    siteSelect.addEventListener("change", updateIframe);
+    reloadBtn.addEventListener("click", () => {
+      viewerFrame.src = viewerFrame.src;
+    });
+
+    // Переключение устройств
+    deviceButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        deviceButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        viewportWrapper.style.maxWidth = btn.getAttribute("data-width");
+        viewportWrapper.style.height = btn.getAttribute("data-height");
+      });
+    });
+
+    // Копирование ссылки
+    copyUrlBtn.addEventListener("click", () => {
+      const fullUrl = openTabBtn.href;
+      navigator.clipboard.writeText(fullUrl).then(() => {
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2500);
+      });
+    });
+
+    updateIframe();
+  </script>
+</body>
+</html>

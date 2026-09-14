@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шаблон нового макета | Mockup Template</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1013;
+      --card: #181920;
+      --text: #f0f2f5;
+      --muted: #8c92a4;
+      --accent: #3b82f6;
+      --border: #262934;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--accent);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+    p.lead {
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+    .steps-list {
+      margin-left: 20px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+    .steps-list li {
+      margin-bottom: 8px;
+    }
+    code {
+      background: #111217;
+      border: 1px solid #2d3142;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #93c5fd;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      margin-top: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <span class="tag">Шаблон-заготовка</span>
+      <h1>Новый макет сайта</h1>
+      <p class="lead">Скопируйте эту папку <code>mockups/_template</code> в новую папку, например <code>mockups/my-new-site</code></p>
+    </div>
+
+    <div class="card">
+      <h2>Как быстро добавить этот макет в витрину:</h2>
+      <ol class="steps-list">
+        <li>Замените содержимое этого файла версткой вашего сайта (HTML, CSS, JS).</li>
+        <li>Откройте файл <code>js/mockups-data.js</code> в корне проекта.</li>
+        <li>Добавьте запись с названием вашей новой папки и нужной категорией:
+          <pre style="margin-top: 10px; background: #0b0c10; padding: 14px; border-radius: 8px; overflow-x: auto;"><code>{
+  id: "my-new-site",
+  title: "Название вашего сайта",
+  category: "Мебель", // или Недвижимость, Авто, Услуги...
+  folder: "my-new-site",
+  description: "Краткое описание макета для карточки",
+  tags: ["Лендинг", "Дизайн"],
+  emoji: "✨"
+}</code></pre>
+        </li>
+        <li>Сохраните файл. Макет моментально появится в каталоге с готовой ссылкой!</li>
+      </ol>
+      <a href="../../index.html" class="btn">Вернуться в главный каталог</a>
+    </div>
+  </div>
+</body>
+</html>
