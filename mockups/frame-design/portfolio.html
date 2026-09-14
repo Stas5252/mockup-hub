@@ -1,0 +1,3084 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <title>Портфолио проектов — FRAME DESIGN | Кухни и гардеробные</title>
+
+  <meta name="description" content="Галерея реализованных интерьеров Frame Design: радиусные кухни с латунью, витрины с подсветкой, встроенные гардеробные и зеркальные панно.">
+  <meta property="og:title" content="Портфолио проектов — FRAME DESIGN | Кухни и гардеробные">
+  <meta property="og:description" content="Галерея реализованных интерьеров Frame Design: радиусные кухни с латунью, витрины с подсветкой, встроенные гардеробные и зеркальные панно.">
+  <meta property="og:url" content="https://stas5252.github.io/frame-design/portfolio.html">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://stas5252.github.io/frame-design/portfolio.html">
+  
+  <!-- Open Graph / Social Meta Tags -->
+  <meta property="og:image" content="https://stas5252.github.io/frame-design/images/showroom-kitchen-island-dark.jpg">
+  <meta property="og:site_name" content="FRAME DESIGN">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#141416">
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://stas5252.github.io/frame-design/" },
+      { "@type": "ListItem", "position": 2, "name": "Портфолио", "item": "https://stas5252.github.io/frame-design/portfolio.html" }
+    ]
+  }
+  </script>
+
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://static.tildacdn.com/css/fonts-tildasans.css" type="text/css" media="all">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --t-headline-font: 'TildaSans', Arial, sans-serif;
+      --t-text-font: 'TildaSans', Arial, sans-serif;
+      --chocolate-deep: #1f1208;
+      --chocolate: #2d1a10;
+      --chocolate-soft: #3d2618;
+      --graphite: #141416;
+      --graphite-soft: #1f1f22;
+      --cream: #f5ecd9;
+      --cream-soft: #ebe0c8;
+      --cream-muted: #b8a888;
+      --brass: #b8965a;
+      --brass-light: #d4b078;
+      --brass-soft: rgba(184, 150, 90, 0.5);
+      --brass-glow: rgba(184, 150, 90, 0.35);
+      --text-light: #f5ecd9;
+      --text-muted: #8a7e6a;
+      --text-dim: #5a5246;
+      --border: rgba(184, 150, 90, 0.18);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--graphite);
+      color: var(--text-light);
+      font-family: var(--t-text-font);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .fd-page { position: relative; width: 100%; min-height: 100vh; }
+
+    /* HEADER */
+    .fd-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(20, 20, 22, 0.7);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+      transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s;
+    }
+    .fd-header__inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    .fd-logo {
+      font-family: var(--t-headline-font);
+      font-size: 26px;
+      letter-spacing: 6px;
+      color: var(--brass);
+      font-weight: 500;
+      flex-shrink: 0;
+      text-decoration: none;
+      text-shadow: 0 0 24px var(--brass-glow);
+      transition: text-shadow 0.5s;
+      position: relative;
+    }
+    .fd-logo::before {
+      content: '';
+      position: absolute;
+      left: -16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 4px;
+      background: var(--brass);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--brass-glow);
+    }
+    .fd-logo:hover {
+      text-shadow: 0 0 10px var(--brass-light), 0 0 24px var(--brass-glow), 0 0 48px var(--brass-glow);
+    }
+    .fd-logo span {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 8px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      text-shadow: none;
+      font-weight: 400;
+    }
+    .fd-header__right {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-left: auto;
+    }
+    .fd-nav-right {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .fd-nav__link {
+      font-family: var(--t-text-font);
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: 500;
+      color: var(--text-light);
+      text-transform: uppercase;
+      text-decoration: none;
+      position: relative;
+      cursor: pointer;
+      padding: 6px 0;
+      transition: color 0.3s;
+    }
+    .fd-nav__link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 1px;
+      background: var(--brass);
+      box-shadow: 0 0 10px var(--brass-glow);
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), left 0.4s;
+    }
+    .fd-nav__link:hover, .fd-nav__link.active { color: var(--brass); }
+    .fd-nav__link:hover::after, .fd-nav__link.active::after { width: 100%; left: 0; }
+
+    .fd-nav__link--has-dropdown { position: relative; }
+    .fd-nav__link--has-dropdown::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-right: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+      transform: rotate(45deg);
+      margin-left: 10px;
+      vertical-align: middle;
+      margin-bottom: 3px;
+      transition: transform 0.3s;
+    }
+    .fd-nav__link--has-dropdown:hover::before { transform: rotate(-135deg); margin-bottom: -1px; }
+    .fd-dropdown {
+      position: absolute;
+      top: calc(100% + 20px);
+      right: 0;
+      background: rgba(20, 20, 22, 0.98);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      padding: 24px 32px;
+      min-width: 240px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.7), 0 0 40px rgba(184, 150, 90, 0.08);
+    }
+    .fd-nav__link--has-dropdown:hover .fd-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+    .fd-dropdown__item {
+      display: block;
+      padding: 12px 0;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--text-light);
+      text-transform: uppercase;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(184, 150, 90, 0.08);
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+    .fd-dropdown__item:hover { color: var(--brass); padding-left: 12px; text-shadow: 0 0 12px var(--brass-glow); }
+
+    .fd-cta {
+      font-family: var(--t-text-font);
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: 600;
+      padding: 14px 26px;
+      border: 1px solid var(--brass);
+      color: var(--brass);
+      background: transparent;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.4s;
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+    .fd-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--brass);
+      transform: translateY(100%);
+      transition: transform 0.4s;
+      z-index: -1;
+    }
+    .fd-cta:hover { color: var(--graphite); box-shadow: 0 8px 24px rgba(184, 150, 90, 0.25), 0 0 30px var(--brass-glow); }
+    .fd-cta:hover::before { transform: translateY(0); }
+
+    /* BURGER & MOBILE DRAWER */
+    .fd-burger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 32px;
+      height: 20px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1000;
+      position: relative;
+    }
+    .fd-burger-btn span { width: 100%; height: 2px; background: var(--brass); transition: all 0.3s; }
+    .fd-burger-btn.is-active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .fd-burger-btn.is-active span:nth-child(2) { opacity: 0; }
+    .fd-burger-btn.is-active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    .fd-mobile-drawer {
+      position: fixed;
+      inset: 0;
+      background: #141416;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 28px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s;
+    }
+    .fd-mobile-drawer.is-open { opacity: 1; visibility: visible; }
+    .fd-mobile-link {
+      font-family: var(--t-headline-font);
+      font-size: 28px;
+      font-style: normal;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 2px;
+      transition: color 0.3s;
+    }
+    .fd-mobile-link:hover, .fd-mobile-link.active { color: var(--brass); }
+
+    /* HERO */
+    .fd-hero {
+      position: relative;
+      min-height: 75vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 180px 48px 90px;
+      overflow: hidden;
+      background: var(--graphite);
+    }
+    .fd-hero__bg {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-image: url('images/kitchen-island-brass.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+      transform: scale(1.05);
+      filter: brightness(0.6);
+    }
+    .fd-hero__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg,
+        var(--graphite) 0%,
+        rgba(20, 20, 22, 0.94) 25%,
+        rgba(20, 20, 22, 0.65) 60%,
+        rgba(20, 20, 22, 0.85) 100%
+      );
+    }
+    .fd-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(20, 20, 22, 0.4) 0%, transparent 40%, rgba(20, 20, 22, 0.95) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .fd-hero__inner {
+      position: relative;
+      z-index: 3;
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .fd-eyebrow {
+      font-family: var(--t-text-font);
+      font-size: 11px;
+      letter-spacing: 4px;
+      font-weight: 500;
+      color: var(--brass);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .fd-eyebrow::before {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--brass);
+      box-shadow: 0 0 10px var(--brass-glow);
+    }
+    .fd-hero__title {
+      font-family: var(--t-headline-font);
+      font-size: clamp(38px, 5.5vw, 76px);
+      line-height: 1.05;
+      color: var(--cream);
+      font-weight: 400;
+      margin-bottom: 32px;
+      max-width: 960px;
+      letter-spacing: -0.5px;
+      font-style: normal;
+    }
+    .fd-hero__title--accent {
+      color: var(--brass);
+      font-style: normal;
+      font-weight: 500;
+      display: inline-block;
+    }
+    .fd-hero__subtitle {
+      font-family: var(--t-text-font);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: var(--cream-muted);
+      margin-bottom: 44px;
+      max-width: 640px;
+      letter-spacing: 0.3px;
+    }
+
+    /* FILTER BAR */
+    .fd-filters-section {
+      background: var(--graphite);
+      padding: 30px 48px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 76px;
+      z-index: 50;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .fd-filters-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 4px;
+    }
+    .fd-filters-inner::-webkit-scrollbar { display: none; }
+    .fd-filter-btn {
+      font-family: var(--t-text-font);
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border: 1px solid var(--border);
+      color: var(--cream-muted);
+      background: transparent;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.3s;
+    }
+    .fd-filter-btn:hover, .fd-filter-btn.is-active {
+      border-color: var(--brass);
+      background: var(--brass);
+      color: var(--graphite);
+      box-shadow: 0 0 20px var(--brass-glow);
+    }
+
+    /* GALLERY GRID */
+    .fd-gallery {
+      position: relative;
+      padding: 100px 48px;
+      background: var(--chocolate-deep);
+      background-image:
+        repeating-linear-gradient(90deg, transparent 0, transparent 48px, rgba(0,0,0,0.12) 48px, rgba(0,0,0,0.12) 49px),
+        radial-gradient(ellipse at 50% 0%, rgba(184, 150, 90, 0.08) 0%, transparent 60%);
+    }
+    .fd-gallery__inner {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .fd-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+    }
+    .fd-project-card {
+      background: var(--graphite);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s;
+    }
+    .fd-project-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--brass);
+      opacity: 0;
+      transition: opacity 0.5s;
+      z-index: 3;
+      pointer-events: none;
+    }
+    .fd-project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 40px rgba(184, 150, 90, 0.2);
+    }
+    .fd-project-card:hover::before { opacity: 1; }
+    .fd-project-card__img {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background: var(--chocolate);
+    }
+    .fd-project-card__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s;
+      filter: grayscale(20%) brightness(0.9);
+    }
+    .fd-project-card:hover .fd-project-card__img img {
+      transform: scale(1.1);
+      filter: grayscale(0%) brightness(1);
+    }
+    .fd-project-card__badge {
+      position: absolute;
+      top: 18px; left: 18px;
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      padding: 6px 12px;
+      background: rgba(20, 20, 22, 0.9);
+      border: 1px solid var(--border);
+      color: var(--brass);
+      text-transform: uppercase;
+      font-weight: 600;
+      z-index: 2;
+    }
+    .fd-project-card__body {
+      padding: 28px 24px;
+      background: linear-gradient(180deg, var(--graphite) 0%, var(--graphite-soft) 100%);
+    }
+    .fd-project-card__title {
+      font-family: var(--t-headline-font);
+      font-size: 22px;
+      color: var(--cream);
+      font-style: normal;
+      margin-bottom: 8px;
+    }
+    .fd-project-card__meta {
+      font-size: 12px;
+      color: var(--brass);
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .fd-project-card__desc {
+      font-size: 13px;
+      color: var(--cream-muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .fd-project-card__link {
+      font-family: var(--t-text-font);
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--brass);
+      text-transform: uppercase;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* MODAL */
+    .fd-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 15, 17, 0.95);
+      backdrop-filter: blur(20px);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s;
+    }
+    .fd-modal-overlay.is-active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .fd-modal-content {
+      max-width: 1000px;
+      width: 100%;
+      background: var(--graphite);
+      border: 1px solid var(--brass);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.9), 0 0 60px rgba(184, 150, 90, 0.2);
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      position: relative;
+      overflow: hidden;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .fd-modal-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      width: 40px; height: 40px;
+      background: rgba(20, 20, 22, 0.8);
+      border: 1px solid var(--border);
+      color: var(--cream);
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: all 0.3s;
+    }
+    .fd-modal-close:hover {
+      border-color: var(--brass);
+      color: var(--brass);
+      background: var(--chocolate);
+    }
+    .fd-modal-img {
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+      object-fit: cover;
+    }
+    .fd-modal-info {
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .fd-modal-title {
+      font-family: var(--t-headline-font);
+      font-size: 32px;
+      color: var(--cream);
+      font-style: normal;
+      margin-bottom: 12px;
+    }
+    .fd-modal-specs {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 24px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    .fd-spec-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      gap: 12px;
+    }
+    .fd-spec-label { color: var(--cream-muted); }
+    .fd-spec-val { color: var(--cream); font-weight: 500; text-align: right; }
+
+    /* BUTTONS */
+    .fd-btn {
+      font-family: var(--t-text-font);
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      font-weight: 600;
+      padding: 20px 40px;
+      border: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .fd-btn--primary {
+      background: var(--brass);
+      color: var(--graphite);
+      box-shadow: 0 8px 32px rgba(184, 150, 90, 0.3);
+    }
+    
+    .fd-btn--outline {
+      background: rgba(255, 255, 255, 0.04) !important;
+      color: var(--cream) !important;
+      border: 1px solid rgba(184, 150, 90, 0.5) !important;
+      text-decoration: none !important;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+    .fd-btn--outline:hover {
+      background: rgba(184, 150, 90, 0.15) !important;
+      border-color: var(--brass) !important;
+      color: var(--brass-light) !important;
+      box-shadow: 0 0 25px rgba(184, 150, 90, 0.35) !important;
+      transform: translateY(-2px);
+    }
+
+    .fd-btn--primary:hover {
+      background: var(--brass-light);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(184, 150, 90, 0.45), 0 0 50px var(--brass-glow);
+    }
+    .fd-btn__arrow {
+      display: inline-block;
+      width: 16px;
+      height: 1.5px;
+      background: currentColor;
+      position: relative;
+      transition: width 0.3s;
+    }
+    .fd-btn:hover .fd-btn__arrow { width: 22px; }
+    .fd-btn__arrow::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: -4px;
+      width: 8px;
+      height: 8px;
+      border-top: 1.5px solid currentColor;
+      border-right: 1.5px solid currentColor;
+      transform: rotate(45deg);
+    }
+
+    /* FOOTER */
+    .fd-footer {
+      background: var(--graphite);
+      padding: 100px 48px 50px;
+      border-top: 1px solid var(--border);
+      position: relative;
+    }
+    .fd-footer__inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 80px;
+      margin-bottom: 60px;
+    }
+    .fd-footer__logo {
+      font-family: var(--t-headline-font);
+      font-size: 28px;
+      letter-spacing: 6px;
+      color: var(--brass);
+      font-weight: 500;
+      margin-bottom: 24px;
+      text-shadow: 0 0 24px var(--brass-glow);
+      font-style: normal;
+    }
+    .fd-footer__logo span {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 8px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      font-style: normal;
+      font-weight: 400;
+    }
+    .fd-footer__about {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--cream-muted);
+      margin-bottom: 24px;
+      max-width: 420px;
+    }
+    .fd-footer__socials { display: flex; gap: 14px; }
+    .fd-social {
+      width: 36px; height: 36px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      color: var(--cream-muted);
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.4s;
+    }
+    .fd-social:hover {
+      border-color: var(--brass);
+      background: var(--brass);
+      color: var(--graphite);
+      box-shadow: 0 0 24px var(--brass-glow);
+      transform: translateY(-2px);
+    }
+    .fd-footer__col-title {
+      font-size: 11px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      color: var(--brass);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .fd-footer__contact {
+      font-family: var(--t-headline-font);
+      font-size: 22px;
+      font-style: normal;
+      color: var(--cream);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+    .fd-footer__bottom {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding-top: 36px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--cream-muted);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    
+/* HERO IMMEDIATE ENTRANCE */
+.fd-hero .fd-fade {
+  opacity: 1;
+  transform: translateY(0);
+  animation: heroFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.fd-hero__inner .fd-fade:nth-child(1) { animation-delay: 0.05s; }
+.fd-hero__inner .fd-fade:nth-child(2) { animation-delay: 0.2s; }
+.fd-hero__inner .fd-fade:nth-child(3) { animation-delay: 0.35s; }
+.fd-hero__inner .fd-fade:nth-child(4) { animation-delay: 0.5s; }
+.fd-hero__features .fd-fade:nth-child(1) { animation-delay: 0.4s; }
+.fd-hero__features .fd-fade:nth-child(2) { animation-delay: 0.55s; }
+.fd-hero__features .fd-fade:nth-child(3) { animation-delay: 0.7s; }
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ANIMATIONS */
+    .fd-fade {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fd-fade.is-visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1200px) {
+      .fd-grid { grid-template-columns: repeat(2, 1fr); }
+      .fd-modal-content { grid-template-columns: 1fr; }
+      .fd-modal-img { max-height: 350px; }
+      .fd-nav-right { gap: 20px; }
+    }
+    @media (max-width: 960px) {
+      .fd-header__inner { padding: 0 24px; }
+      .fd-hero, .fd-gallery, .fd-footer { padding: 90px 24px; }
+      .fd-filters-section { padding: 20px 24px; top: 68px; }
+      .fd-footer__inner { grid-template-columns: 1fr; gap: 50px; }
+      .fd-nav-right { display: none; }
+      .fd-burger-btn { display: flex; }
+    }
+    @media (max-width: 640px) {
+      .fd-grid { grid-template-columns: 1fr; }
+      .fd-btn { width: 100%; justify-content: center; }
+      .fd-modal-content { padding: 0; }
+      .fd-modal-info { padding: 24px 20px; }
+      .fd-footer__bottom { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  
+/* TEL / EMAIL LINK OVERRIDES FOR MOBILE SAFARI */
+a[href^="tel"],
+a[href^="mailto"],
+.fd-footer__contact,
+.fd-phone-link {
+  color: var(--cream) !important;
+  -webkit-text-fill-color: var(--cream) !important;
+  text-decoration: none !important;
+  font-family: inherit;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+a[href^="tel"]:hover,
+a[href^="mailto"]:hover,
+.fd-footer__contact:hover,
+.fd-phone-link:hover {
+  color: var(--brass) !important;
+  -webkit-text-fill-color: var(--brass) !important;
+  text-shadow: 0 0 14px var(--brass-glow);
+}
+
+
+/* ========================================================
+   UNIFIED MOBILE RESPONSIVE MASTER RULES (PIXEL PERFECT)
+   ======================================================== */
+@media (max-width: 960px) {
+  .fd-header {
+    padding: 14px 0 !important;
+  }
+  .fd-header__inner {
+    padding: 0 20px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  .fd-header__right {
+    margin-left: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+  }
+  .fd-nav-right {
+    display: none !important;
+  }
+  .fd-cta {
+    display: none !important;
+  }
+  .fd-burger-btn {
+    display: flex !important;
+  }
+
+  /* HERO PADDING & CLEARANCE - NEVER OVERLAPS WITH HEADER */
+  .fd-hero {
+    padding: 130px 20px 60px !important;
+    min-height: auto !important;
+  }
+  .fd-hero__eyebrow {
+    font-size: 10px !important;
+    letter-spacing: 2.5px !important;
+    margin-bottom: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+  .fd-hero__eyebrow::before {
+    width: 24px !important;
+  }
+  .fd-hero__title {
+    font-size: clamp(26px, 7vw, 36px) !important;
+    line-height: 1.15 !important;
+    margin-bottom: 20px !important;
+    font-style: normal !important;
+  }
+  .fd-hero__subtitle {
+    font-size: 13px !important;
+    line-height: 1.7 !important;
+    margin-bottom: 28px !important;
+    max-width: 100% !important;
+  }
+  .fd-hero__buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+  .fd-hero__buttons .fd-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 16px 20px !important;
+    font-size: 11px !important;
+  }
+  .fd-hero__features {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    margin-top: 40px !important;
+    padding-top: 30px !important;
+  }
+
+  /* SECTIONS */
+  .fd-about, .fd-categories, .fd-invite, .fd-salon-exp, .fd-central-wall, .fd-specs, .fd-steps, .fd-contacts-section, .fd-portfolio-section, .fd-tech-pillars {
+    padding: 60px 20px !important;
+  }
+  .fd-about__inner {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  .fd-about__images {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .fd-stats {
+    padding: 50px 20px !important;
+  }
+  .fd-stats__inner {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+  .fd-stat {
+    padding: 16px 10px !important;
+    text-align: center !important;
+  }
+  .fd-stat__num {
+    font-size: 40px !important;
+  }
+  .fd-categories__grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .fd-invite__card {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    padding: 40px 20px !important;
+    text-align: center !important;
+    gap: 30px !important;
+  }
+  .fd-invite__eyebrow {
+    justify-content: center !important;
+  }
+  .fd-invite__seal {
+    margin: 0 auto !important;
+    width: 130px !important;
+    height: 130px !important;
+  }
+  .fd-footer {
+    padding: 60px 20px 30px !important;
+  }
+  .fd-footer__inner {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  
+  /* CONTACTS / MAP / FORM */
+  .fd-contacts-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+  .fd-contact-card {
+    padding: 30px 20px !important;
+  }
+  .fd-book-form {
+    padding: 30px 20px !important;
+  }
+  .fd-route-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+  .fd-route-btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  .fd-map-wrap iframe {
+    height: 320px !important;
+  }
+
+  /* PORTFOLIO GRID & FILTERS */
+  .fd-portfolio-filters {
+    display: flex !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    padding-bottom: 12px !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 10px !important;
+  }
+  .fd-portfolio-filters::-webkit-scrollbar { display: none; }
+  .fd-filter-btn {
+    flex-shrink: 0 !important;
+    padding: 10px 18px !important;
+    font-size: 11px !important;
+  }
+  .fd-portfolio-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  /* TECHNOLOGIES HUD SCANNER */
+  .fd-scanner-box {
+    height: 280px !important;
+  }
+  .fd-tech-pillars-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .fd-logo {
+    font-size: 20px !important;
+    letter-spacing: 4px !important;
+  }
+  .fd-logo::before {
+    left: -12px !important;
+    width: 3px !important;
+    height: 3px !important;
+  }
+  .fd-logo span {
+    font-size: 7px !important;
+    letter-spacing: 5px !important;
+  }
+  .fd-stats__inner {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* 100% FULL-SCREEN VIEWPORT HERO (PC, TABLET, MOBILE) */
+.fd-hero {
+  position: relative;
+  height: 100dvh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 120px 48px 60px;
+  overflow: hidden;
+  background: var(--graphite);
+}
+
+@media (max-width: 960px) {
+  .fd-hero {
+    height: 100dvh !important;
+    min-height: 100svh !important;
+    max-height: 100dvh !important;
+    padding: 85px 20px 35px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    box-sizing: border-box !important;
+  }
+  .fd-hero__inner {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  .fd-hero__eyebrow {
+    font-size: 10px !important;
+    letter-spacing: 2px !important;
+    margin-bottom: 12px !important;
+  }
+  .fd-hero__title {
+    font-size: clamp(24px, 6.5vw, 32px) !important;
+    line-height: 1.15 !important;
+    margin-bottom: 14px !important;
+  }
+  .fd-hero__subtitle {
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 20px !important;
+    max-width: 100% !important;
+    opacity: 0.85;
+  }
+  .fd-hero__buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 10px !important;
+    margin-bottom: 0 !important;
+  }
+  .fd-hero__buttons .fd-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 14px 18px !important;
+    font-size: 10px !important;
+    letter-spacing: 2px !important;
+  }
+  .fd-hero__features {
+    display: none !important;
+  }
+}
+
+
+    .fd-project-card__count {
+      position: absolute;
+      top: 18px; right: 18px;
+      font-size: 9px;
+      letter-spacing: 2px;
+      padding: 6px 10px;
+      background: rgba(20, 20, 22, 0.85);
+      border: 1px solid var(--border);
+      color: var(--cream-muted);
+      text-transform: uppercase;
+      font-weight: 500;
+      z-index: 2;
+      backdrop-filter: blur(8px);
+    }
+
+    .fd-modal-media {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: #0d0d0f;
+      height: 100%;
+      min-height: 420px;
+    }
+    .fd-modal-img-wrap {
+      position: relative;
+      flex: 1;
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #0d0d0f;
+    }
+    .fd-modal-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.25s ease;
+    }
+    .fd-modal-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background: rgba(20, 20, 22, 0.75);
+      border: 1px solid var(--border);
+      color: var(--cream);
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 5;
+      transition: all 0.3s;
+      backdrop-filter: blur(8px);
+    }
+    .fd-modal-nav-btn:hover {
+      background: var(--brass);
+      color: var(--graphite);
+      border-color: var(--brass);
+      box-shadow: 0 0 15px var(--brass-glow);
+    }
+    .fd-modal-nav-btn--prev { left: 16px; }
+    .fd-modal-nav-btn--next { right: 16px; }
+    .fd-modal-thumbs {
+      display: flex;
+      gap: 10px;
+      padding: 12px 16px;
+      background: rgba(15, 15, 17, 0.95);
+      border-top: 1px solid var(--border);
+      overflow-x: auto;
+    }
+    .fd-modal-thumb {
+      width: 70px;
+      height: 52px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      opacity: 0.5;
+      transition: all 0.3s;
+      flex-shrink: 0;
+    }
+    .fd-modal-thumb:hover, .fd-modal-thumb.is-active {
+      opacity: 1;
+      border-color: var(--brass);
+      box-shadow: 0 0 12px var(--brass-glow);
+    }
+
+</style>
+
+  <noscript>
+    <style>
+      /* Без JS блоки .fd-fade никогда не получат is-visible — показываем их сразу. */
+      .fd-fade { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
+  <link rel="stylesheet" href="assets/fd-common.css?v=20260828i">
+</head>
+<body>
+  <a class="fd-skip-link" href="#main-content">Перейти к содержимому</a>
+
+<div class="fd-page">
+
+  <!-- HEADER -->
+  <header class="fd-header">
+    <div class="fd-header__inner">
+      <a href="index.html" class="fd-logo"><img src="images/frame-logo-white.png" alt="FRAME DESIGN" class="fd-logo__img" width="760" height="938" decoding="async"></a>
+      <div class="fd-header__contacts">
+        <div class="fd-header__social-btns">
+          <a href="mailto:info@framedesign.ru" class="fd-head-btn fd-head-btn--mail" title="Написать на Email" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="19" height="19"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+          <a href="https://web.max.ru/461819052" target="_blank" rel="noopener noreferrer" class="fd-head-btn fd-head-btn--max" title="MAX" aria-label="MAX">
+            <svg viewBox="0 0 24 24" width="19" height="19"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C7.03 3 3 7.03 3 12c0 1.94.61 3.73 1.66 5.2L3.2 21.2a.6.6 0 0 0 .76.76l3.96-1.44A8.96 8.96 0 0 0 12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>
+          </a>
+          <a href="https://t.me/+79005686827" target="_blank" rel="noopener noreferrer" class="fd-head-btn fd-head-btn--tg" title="Написать в Telegram" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" width="19" height="19"><path d="M2.1 10.8l18.4-7.2c.8-.3 1.7.4 1.4 1.2l-3.2 15.1c-.2.8-1.1 1.1-1.7.6l-5.1-4.2-2.5 2.4c-.4.4-1.1.2-1.2-.4l-.9-5.9 10.6-9.6L6.2 14.1l-4.1-1.4c-.8-.3-.8-1.4 0-1.9z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="fd-header__right">
+        <nav class="fd-nav-right">
+          <a href="about.html" class="fd-nav__link">О нас</a>
+          <a href="salon.html" class="fd-nav__link">Наш салон</a>
+          <a href="designers.html" class="fd-nav__link">Дизайнерам</a>
+          <a href="technologies.html" class="fd-nav__link">Технологии</a>
+          <a href="portfolio.html" class="fd-nav__link active">Портфолио</a>
+          <a href="contacts.html" class="fd-nav__link">Контакты</a>
+        </nav>
+        <a href="#book" class="fd-cta">Записаться в салон</a>
+        <button class="fd-burger-btn" id="burgerBtn" aria-label="Открыть меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="fd-mobile-drawer" id="mobileDrawer">
+    <a href="index.html" class="fd-mobile-link" onclick="closeDrawer()">Главная</a>
+    <a href="about.html" class="fd-mobile-link" onclick="closeDrawer()">О нас</a>
+    <a href="salon.html" class="fd-mobile-link" onclick="closeDrawer()">Наш салон</a>
+    <a href="designers.html" class="fd-mobile-link" onclick="closeDrawer()">Дизайнерам</a>
+    <a href="technologies.html" class="fd-mobile-link" onclick="closeDrawer()">Технологии</a>
+    <a href="portfolio.html" class="fd-mobile-link active" onclick="closeDrawer()">Портфолио</a>
+    <a href="contacts.html" class="fd-mobile-link" onclick="closeDrawer()">Контакты</a>
+    <a href="#book" class="fd-btn fd-btn--primary" style="margin-top: 20px;" onclick="closeDrawer()">
+      Записаться в салон <span class="fd-btn__arrow"></span>
+    </a>
+      <div class="fd-mobile-contacts" style="margin-top: 28px; display: flex; gap: 14px; align-items: center; justify-content: center;">
+      <a href="mailto:info@framedesign.ru" class="fd-head-btn fd-head-btn--mail" aria-label="Email">
+        <svg viewBox="0 0 24 24" width="19" height="19"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </a>
+      <a href="https://web.max.ru/461819052" target="_blank" rel="noopener noreferrer" class="fd-head-btn fd-head-btn--max" aria-label="MAX">
+        <svg viewBox="0 0 24 24" width="19" height="19"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C7.03 3 3 7.03 3 12c0 1.94.61 3.73 1.66 5.2L3.2 21.2a.6.6 0 0 0 .76.76l3.96-1.44A8.96 8.96 0 0 0 12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>
+      </a>
+      <a href="https://t.me/+79005686827" target="_blank" rel="noopener noreferrer" class="fd-head-btn fd-head-btn--tg" aria-label="Telegram">
+        <svg viewBox="0 0 24 24" width="19" height="19"><path d="M2.1 10.8l18.4-7.2c.8-.3 1.7.4 1.4 1.2l-3.2 15.1c-.2.8-1.1 1.1-1.7.6l-5.1-4.2-2.5 2.4c-.4.4-1.1.2-1.2-.4l-.9-5.9 10.6-9.6L6.2 14.1l-4.1-1.4c-.8-.3-.8-1.4 0-1.9z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <main id="main-content" tabindex="-1">
+
+  <!-- HERO -->
+  <section class="fd-hero">
+    <div class="fd-hero__bg"></div>
+    <div class="fd-hero__inner">
+      <div class="fd-eyebrow fd-fade">Реализованные объекты · Frame Design</div>
+      <h1 class="fd-hero__title fd-fade">
+        Каждый проект —<br>
+        <span class="fd-hero__title--accent">манифест точности и</span> авторского стиля
+      </h1>
+      <p class="fd-hero__subtitle fd-fade">
+        Посмотрите галерею выполненных работ: авторские кухни, встроенные прихожие и шкафы, мебель для спален и премиальные решения для санузлов.
+      </p>
+    </div>
+  </section>
+
+      <!-- FILTER BAR -->
+  <section class="fd-filters-section">
+    <div class="fd-filters-inner" role="group" aria-label="Фильтр проектов по категориям">
+      <button type="button" class="fd-filter-btn is-active" data-filter="all" aria-pressed="true">Все проекты</button>
+      <button type="button" class="fd-filter-btn" data-filter="kitchen" aria-pressed="false">Кухни</button>
+      <button type="button" class="fd-filter-btn" data-filter="hallway" aria-pressed="false">Прихожие и гардеробные</button>
+      <button type="button" class="fd-filter-btn" data-filter="bedroom" aria-pressed="false">Спальни</button>
+      <button type="button" class="fd-filter-btn" data-filter="bathroom" aria-pressed="false">Санузлы</button>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="fd-gallery" aria-labelledby="gallery-heading">
+    <div class="fd-gallery__inner">
+      <h2 id="gallery-heading" class="fd-visually-hidden">Реализованные проекты</h2>
+      <div class="fd-grid">
+        <!-- 1. Кухня с мраморным островом -->
+        <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(1)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_1_1.png" alt="Кухня с мраморным островом — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Кухня с мраморным островом</h3>
+            <div class="fd-project-card__meta">Кварцевый агломерат · Остров с баром · Премиум фурнитура</div>
+            <p class="fd-project-card__desc">Элегантная кухня в современном стиле с выразительным мраморным островом, барной зоной и встроенной варочной поверхностью.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 2. Угловая кухня с рифлёными фасадами -->
+        <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(2)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_2_1.png" alt="Угловая кухня с рифлёными фасадами — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Угловая кухня с рифлёными фасадами</h3>
+            <div class="fd-project-card__meta">Рифлёная фрезеровка · Радиусный угол · Латунные ручки</div>
+            <p class="fd-project-card__desc">Элегантная угловая кухня с выразительной вертикальной фрезеровкой, витринными секциями и тёплой подсветкой.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 3. Современная кухня с островом -->
+        <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(3)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_3_1.png" alt="Современная кухня с островом — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Современная кухня с островом</h3>
+            <div class="fd-project-card__meta">Остров с обеденной зоной · Керамогранит · Интегрированные ручки</div>
+            <p class="fd-project-card__desc">Кухня с островом объединяет зону приготовления, хранения и общения. Продуманная планировка и встроенная техника.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 4. Кухня с островом в неоклассике -->
+        <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(4)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_4_1.png" alt="Кухня с островом в неоклассике — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Кухня с островом в неоклассике</h3>
+            <div class="fd-project-card__meta">Неоклассика · Витрины с подсветкой · Blum</div>
+            <p class="fd-project-card__desc">Элегантная кухня с островом, витринами с подсветкой и мягкой теплой палитрой. Премиальные материалы.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 5. Современная кухня с тёплой подсветкой -->
+        <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(5)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_5_1.png" alt="Современная кухня с тёплой подсветкой — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Современная кухня с тёплой подсветкой</h3>
+            <div class="fd-project-card__meta">Рифлёный фасад · Тёплая LED-подсветка · Латунь</div>
+            <p class="fd-project-card__desc">Лаконичный дизайн, сочетание фактур, стеклянные витрины и тёплая подсветка создают атмосферу уюта.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 6. Кухня в классическом стиле -->
+        <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(6)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_6_1.png" alt="Кухня в классическом стиле — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Кухня в классическом стиле</h3>
+            <div class="fd-project-card__meta">Эмаль с патиной · Декоративная вытяжка · Остров</div>
+            <p class="fd-project-card__desc">Классическая кухня с декоративной вытяжкой, патинированными элементами, островом и натуральным камнем.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 7. Кухня с фасадами из натуральной ржавчины -->
+        <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(7)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_7_1.png" alt="Кухня с фасадами из натуральной ржавчины — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Кухня с фасадами из натуральной ржавчины</h3>
+            <div class="fd-project-card__meta">Натуральная ржавчина · Графитовая эмаль · LED-подсветка</div>
+            <p class="fd-project-card__desc">Выразительные верхние фасады из натуральной ржавчины, графитовая столешница и лаконичная нижняя база.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 8. Современная кухня в минималистичном стиле -->
+        <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(8)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_8_1.png" alt="Современная кухня в минималистичном стиле — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Современная кухня в минималистичном стиле</h3>
+            <div class="fd-project-card__meta">Белая матовая эмаль · Искусственный камень · Встроенная техника Bosch</div>
+            <p class="fd-project-card__desc">Чистые линии, отсутствие лишних деталей, встроенная техника и нейтральная палитра для ощущения простора.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 9. Угловая кухня с витриной и подсветкой -->
+        <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(9)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_9_1.png" alt="Угловая кухня с витриной и подсветкой — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Угловая кухня с витриной и подсветкой</h3>
+            <div class="fd-project-card__meta">Шпон в витрине · Кварцевый агломерат · Угловая компоновка</div>
+            <p class="fd-project-card__desc">Современная угловая кухня с теплой встроенной подсветкой, витриной для декора и лаконичными фасадами.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 10. Минималистичная кухня в древесной текстуре -->
+        <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(10)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_10_1.jpeg" alt="Минималистичная кухня в древесной текстуре — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Минималистичная кухня в древесной текстуре</h3>
+            <div class="fd-project-card__meta">Шпон дуба · Матовый лак · Кварцевый агломерат</div>
+            <p class="fd-project-card__desc">Тёплые древесные фасады в шпоне дуба, светлая каменная столешница и мягкая скрытая подсветка.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 11. Кухня с контрастными фасадами -->
+        <div class="fd-project-card fd-fade" data-cat="kitchen" onclick="openModal(11)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Кухня</div>
+            <img src="images/portfolio/kitchen/kuhnya_11_1.jpeg" alt="Кухня с контрастными фасадами — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Кухня с контрастными фасадами</h3>
+            <div class="fd-project-card__meta">Эмаль глянец · Шпон орех · Кварц под мрамор</div>
+            <p class="fd-project-card__desc">Глянцевые верхние фасады, благородная древесная текстура ореха и мягкая архитектурная подсветка.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 12. Гардеробная с островом и ванной -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(12)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Гардеробная</div>
+            <img src="images/portfolio/hallway/prihozhaya_1_1.png" alt="Гардеробная с островом и ванной — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Гардеробная с островом и ванной</h3>
+            <div class="fd-project-card__meta">Тонированное стекло · Шпон под тёплый орех · Остров для аксессуаров</div>
+            <p class="fd-project-card__desc">Остеклённые шкафы в алюминиевом профиле, тёплая LED-подсветка и центральный остров для аксессуаров.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 13. Остров-витрина для гардеробной -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(13)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Гардеробная</div>
+            <img src="images/portfolio/hallway/prihozhaya_2_1.png" alt="Остров-витрина для гардеробной — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Остров-витрина для гардеробной</h3>
+            <div class="fd-project-card__meta">Шпон ореха · Закалённое стекло · Органайзеры с мягкой отделкой</div>
+            <p class="fd-project-card__desc">Центральный остров с прозрачной стеклянной столешницей и бархатными ячейками для часов и украшений.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 14. Входная группа со шпоном и зеркалом -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(14)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_3_1.png" alt="Входная группа со шпоном и зеркалом — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Входная группа со шпоном и зеркалом</h3>
+            <div class="fd-project-card__meta">Шпон дуба · Ростовое зеркало с подсветкой · Консоль</div>
+            <p class="fd-project-card__desc">Панели из натурального шпона дуба, парящая консоль и ростовое зеркало с мягким контурным светом.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 15. Встроенный шкаф с мягкой зоной -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(15)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_4_1.png" alt="Встроенный шкаф с мягкой зоной — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Встроенный шкаф с мягкой зоной</h3>
+            <div class="fd-project-card__meta">Мягкая ниша с банкеткой · Фасады в потолок · Blum</div>
+            <p class="fd-project-card__desc">Встроенная композиция с мягкой банкеткой, крючками для одежды и закрытыми шкафами в потолок.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 16. Прихожая с латунными акцентами -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(16)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_5_1.png" alt="Прихожая с латунными акцентами — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Прихожая с латунными акцентами</h3>
+            <div class="fd-project-card__meta">Латунный профиль · Шпон ореха · Подсветка полок</div>
+            <p class="fd-project-card__desc">Гардеробный шкаф с вертикальными латунными ручками-профилями и открытыми нишами с подсветкой.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 17. Шкаф в потолок с рифлёными деталями -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(17)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_6_1.png" alt="Шкаф в потолок с рифлёными деталями — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Шкаф в потолок с рифлёными деталями</h3>
+            <div class="fd-project-card__meta">Рифлёная фрезеровка · Фасады 2.8 м · Выпрямители</div>
+            <p class="fd-project-card__desc">Монолитный встроенный шкаф с тонкой вертикальной фрезеровкой и секциями для верхней одежды.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 18. Скрытая гардеробная система -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(18)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_7_1.png" alt="Скрытая гардеробная система — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Скрытая гардеробная система</h3>
+            <div class="fd-project-card__meta">Фасады без ручек · Tip-On · Шелковисто-матовая эмаль</div>
+            <p class="fd-project-card__desc">Минималистичная система шкафов без ручек, создающая ощущение абсолютной чистоты пространства.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 19. Прихожая с консолью и подсветкой -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(19)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_8_1.png" alt="Прихожая с консолью и подсветкой — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Прихожая с консолью и подсветкой</h3>
+            <div class="fd-project-card__meta">Парящая консоль · Кварц · Зеркало с подсветкой</div>
+            <p class="fd-project-card__desc">Парящая консольная тумба с кварцевой столешницей и дизайнерским зеркалом с контурной подсветкой.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 20. Шкаф с открытой гардеробной нишей -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(20)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_9_1.png" alt="Шкаф с открытой гардеробной нишей — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Шкаф с открытой гардеробной нишей</h3>
+            <div class="fd-project-card__meta">Графит · Массив дуба · Вентилируемая ниша</div>
+            <p class="fd-project-card__desc">Встроенная открытая вешалка с сиденьем из массива дуба и вместительными закрытыми пеналами.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 21. Радиусный шкаф для холла -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(21)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_10_1.png" alt="Радиусный шкаф для холла — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Радиусный шкаф для холла</h3>
+            <div class="fd-project-card__meta">Радиусные фасады · Гнутый МДФ · Blum</div>
+            <p class="fd-project-card__desc">Плавное радиусное окончание шкафа для удобного и безопасного движения в холле.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 22. Зеркальный гардеробный шкаф -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(22)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_11_1.png" alt="Зеркальный гардеробный шкаф — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Зеркальный гардеробный шкаф</h3>
+            <div class="fd-project-card__meta">Зеркало Ultra Clear · Армировка · Blum</div>
+            <p class="fd-project-card__desc">Ростовые зеркальные фасады Ultra Clear без оптических искажений для визуального расширения коридора.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 23. Гардеробный комплекс со стеновыми панелями -->
+        <div class="fd-project-card fd-fade" data-cat="hallway" onclick="openModal(23)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Прихожая</div>
+            <img src="images/portfolio/hallway/prihozhaya_12_1.png" alt="Гардеробный комплекс со стеновыми панелями — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Гардеробный комплекс со стеновыми панелями</h3>
+            <div class="fd-project-card__meta">Стеновые панели · Шпон ореха · Скрытый монтаж</div>
+            <p class="fd-project-card__desc">Единый ансамбль со стеновыми панелями, консолью из ореха и скрытыми гардеробными секциями.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 24. ТВ зона с подвесной тумбой -->
+        <div class="fd-project-card fd-fade" data-cat="bedroom" onclick="openModal(24)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Спальня</div>
+            <img src="images/portfolio/bedroom/spalnya_1_1.png" alt="ТВ зона с подвесной тумбой — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">ТВ зона с подвесной тумбой</h3>
+            <div class="fd-project-card__meta">Рифлёная фрезеровка · Подвесной монтаж · Столик с зеркалом</div>
+            <p class="fd-project-card__desc">Подвесная тумба с рифлёной фрезеровкой, тёплая подсветка и туалетный столик с зеркалом в едином ансамбле.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 25. Шкаф с зеркальными вставками -->
+        <div class="fd-project-card fd-fade" data-cat="bedroom" onclick="openModal(25)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Спальня</div>
+            <img src="images/portfolio/bedroom/spalnya_2_1.png" alt="Шкаф с зеркальными вставками — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Шкаф с зеркальными вставками</h3>
+            <div class="fd-project-card__meta">Зеркальные вставки · Декоративные панели · Тёплый свет</div>
+            <p class="fd-project-card__desc">Встроенный шкаф с вертикальными зеркальными вставками и мягким ритмом фасадов в потолок.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 26. Комплексное решение для спальни -->
+        <div class="fd-project-card fd-fade" data-cat="bedroom" onclick="openModal(26)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Спальня</div>
+            <img src="images/portfolio/bedroom/spalnya_3_1.png" alt="Комплексное решение для спальни — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Комплексное решение для спальни</h3>
+            <div class="fd-project-card__meta">Ручки-кольца латунь · Шкаф + столик · Комплексный проект</div>
+            <p class="fd-project-card__desc">Гармоничное сочетание шкафа с дизайнерскими ручками-кольцами, прикроватной зоны и туалетного столика.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 27. Шкаф с декоративной геометрией -->
+        <div class="fd-project-card fd-fade" data-cat="bedroom" onclick="openModal(27)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Спальня</div>
+            <img src="images/portfolio/bedroom/spalnya_4_1.png" alt="Шкаф с декоративной геометрией — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Шкаф с декоративной геометрией</h3>
+            <div class="fd-project-card__meta">Ажурная геометрия · Неоклассика · Петли с доводчиками</div>
+            <p class="fd-project-card__desc">Распашной 4-створчатый шкаф с выразительными ажурными накладками и декоративной геометрией.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 28. Подвесная ТВ-зона с мягкой подсветкой -->
+        <div class="fd-project-card fd-fade" data-cat="bedroom" onclick="openModal(28)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Спальня</div>
+            <img src="images/portfolio/bedroom/spalnya_5_1.png" alt="Подвесная ТВ-зона с мягкой подсветкой — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Подвесная ТВ-зона с мягкой подсветкой</h3>
+            <div class="fd-project-card__meta">Парящая конструкция · Декор под камень · Контурная LED-подсветка</div>
+            <p class="fd-project-card__desc">Подвесная тумба с акцентным боковым модулем, столешницей под камень и тёплой подсветкой.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 29. Детская комната с игровой антресолью -->
+        <div class="fd-project-card fd-fade" data-cat="bedroom" onclick="openModal(29)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Детская / Спальня</div>
+            <img src="images/portfolio/bedroom/spalnya_6_1.png" alt="Детская комната с игровой антресолью — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Детская комната с игровой антресолью</h3>
+            <div class="fd-project-card__meta">Игровая антресоль · Лестница с ящиками · Пастельная гамма</div>
+            <p class="fd-project-card__desc">Многоуровневый детский комплекс с игровой антресолью, лестницей-комодом и спальной зоной.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 30. Шкаф в стиле конструктора -->
+        <div class="fd-project-card fd-fade" data-cat="bedroom" onclick="openModal(30)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Детская / Спальня</div>
+            <img src="images/portfolio/bedroom/spalnya_7_1.png" alt="Шкаф в стиле конструктора — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Шкаф в стиле конструктора</h3>
+            <div class="fd-project-card__meta">Фасады в стиле конструктора · 3D-накладки · Системы плавного хода</div>
+            <p class="fd-project-card__desc">Яркий детский шкаф с объёмными круглыми накладками в стиле конструктора для игрушек и одежды.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 31. Тумба с каннелюрами и круглым зеркалом -->
+        <div class="fd-project-card fd-fade" data-cat="bathroom" onclick="openModal(31)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Санузел</div>
+            <img src="images/portfolio/bathroom/sanuzel_1_1.png" alt="Тумба с каннелюрами и круглым зеркалом — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Тумба с каннелюрами и круглым зеркалом</h3>
+            <div class="fd-project-card__meta">Каннелюры · Интегрированная раковина · Латунный профиль</div>
+            <p class="fd-project-card__desc">Подвесная тумба с каннелюрами, латунными акцентами, каменной столешницей и круглым зеркалом.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 32. Стильная постирочная зона -->
+        <div class="fd-project-card fd-fade" data-cat="bathroom" onclick="openModal(32)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Санузел</div>
+            <img src="images/portfolio/bathroom/sanuzel_2_1.png" alt="Стильная постирочная зона — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Стильная постирочная зона</h3>
+            <div class="fd-project-card__meta">МДФ с фрезеровкой · Ниша под технику Haier · Полки и корзины</div>
+            <p class="fd-project-card__desc">Встроенная мебель под стиральную и сушильную машины со скрытым монтажом, открытыми полками и подсветкой.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 33. Тумба с арочным зеркалом -->
+        <div class="fd-project-card fd-fade" data-cat="bathroom" onclick="openModal(33)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Санузел</div>
+            <img src="images/portfolio/bathroom/sanuzel_3_1.png" alt="Тумба с арочным зеркалом — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Тумба с арочным зеркалом</h3>
+            <div class="fd-project-card__meta">Филёнчатые фасады · Кварц с мрамором · Арочное зеркало</div>
+            <p class="fd-project-card__desc">Зона умывания с контурной подсветкой арочного зеркала, рифлёной панелью и латунью.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 34. Ванная с синими жалюзийными фасадами -->
+        <div class="fd-project-card fd-fade" data-cat="bathroom" onclick="openModal(34)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Санузел</div>
+            <img src="images/portfolio/bathroom/sanuzel_4_1.png" alt="Ванная с синими жалюзийными фасадами — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Ванная с синими жалюзийными фасадами</h3>
+            <div class="fd-project-card__meta">Жалюзийные фасады · Кварц с мрамором · Овальное зеркало</div>
+            <p class="fd-project-card__desc">Выразительная композиция с жалюзийными фасадами цвета индиго, накладной раковиной и овальным зеркалом.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+
+        <!-- 35. Стильная ванная-постирочная -->
+        <div class="fd-project-card fd-fade" data-cat="bathroom" onclick="openModal(35)">
+          <div class="fd-project-card__img">
+            <div class="fd-project-card__badge">Санузел</div>
+            <img src="images/portfolio/bathroom/sanuzel_5_1.png" alt="Стильная ванная-постирочная — Frame Design" loading="lazy" decoding="async">
+          </div>
+          <div class="fd-project-card__body">
+            <h3 class="fd-project-card__title">Стильная ванная-постирочная</h3>
+            <div class="fd-project-card__meta">Рифлёные фасады и шпон · Керамогранит · Техника Bosch / LG</div>
+            <p class="fd-project-card__desc">Подвесная тумба с накладной чашей, встроенные ниши со шпоном и скрытая зона постирочной.</p>
+            <div class="fd-project-card__link">Подробнее о проекте <span class="fd-btn__arrow"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL QUICK VIEW -->
+  <div class="fd-modal-overlay" id="projectModal" onclick="if(event.target === this) closeModal()">
+    <div class="fd-modal-content">
+      <button class="fd-modal-close" onclick="closeModal()" aria-label="Закрыть">✕</button>
+      
+      <div class="fd-modal-media">
+        <div class="fd-modal-img-wrap">
+          <img id="modalImg" class="fd-modal-img" alt="Проект">
+          <button type="button" class="fd-modal-nav-btn fd-modal-nav-btn--prev" id="modalPrevBtn" onclick="prevModalPhoto(event)" aria-label="Предыдущее фото">‹</button>
+          <button type="button" class="fd-modal-nav-btn fd-modal-nav-btn--next" id="modalNextBtn" onclick="nextModalPhoto(event)" aria-label="Следующее фото">›</button>
+        </div>
+        <div id="modalThumbs" class="fd-modal-thumbs"></div>
+      </div>
+
+      <div class="fd-modal-info">
+        <div id="modalCat" style="font-size: 11px; letter-spacing: 3px; color: var(--brass); text-transform: uppercase; font-weight: 600; margin-bottom: 8px;"></div>
+        <h3 id="modalTitle" class="fd-modal-title"></h3>
+        <p id="modalDesc" style="font-size: 14px; color: var(--cream-muted); line-height: 1.7;"></p>
+        
+        <div class="fd-modal-specs" id="modalSpecs"></div>
+
+        <a href="contacts.html#book" class="fd-btn fd-btn--primary" style="width: 100%; justify-content: center;">
+          Рассчитать аналогичный проект <span class="fd-btn__arrow"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ЗАПИСЬ В САЛОН -->
+  <section class="fd-booking" id="book">
+    <div class="fd-booking__inner">
+      <div class="fd-booking__intro fd-fade">
+        <div class="fd-booking__eyebrow">Личная встреча</div>
+        <h2 class="fd-booking__title">Записаться <span>в салон</span></h2>
+        <p class="fd-booking__text">
+          Ведущий дизайнер выделит для вас персональное время, покажет образцы фасадов и покрытий вживую
+          и поможет составить предварительный расчёт проекта.
+        </p>
+        <ul class="fd-booking__list">
+          <li>200+ образцов фасадов, металлов и покрытий в экспозиции</li>
+          <li>Предварительный расчёт под ваш проект и бюджет</li>
+          </ul>
+        <div class="fd-booking__contacts">
+          <a href="tel:+79005686827">+7 (900) 568-68-27</a>
+          <span>г. Калининград, ул. Баранова, 34, 6 этаж</span>
+          <span>Пн – Сб: 10:00 – 20:00</span>
+        </div>
+      </div>
+
+      <form class="fd-booking__form fd-fade" novalidate>
+        <div class="fd-booking__form-title">Заказать звонок</div>
+        <label class="fd-visually-hidden" for="fd-name">Ваше имя</label>
+        <input type="text" id="fd-name" class="fd-field" name="name" placeholder="Ваше имя" autocomplete="name" required>
+        <label class="fd-visually-hidden" for="fd-phone">Номер телефона</label>
+        <input type="tel" id="fd-phone" class="fd-field" name="phone" placeholder="Телефон (+7...)" autocomplete="tel" required>
+        <label class="fd-visually-hidden" for="fd-topic">Интересующее направление</label>
+        <select id="fd-topic" class="fd-field" name="topic">
+          <option value="" disabled selected>Интересующее направление</option>
+          <option value="kitchen">Кухни</option>
+          <option value="hallway">Прихожие и шкафы</option>
+          <option value="bedroom">Спальни</option>
+          <option value="bathroom">Санузлы</option>
+          <option value="complex">Комплексная меблировка</option>
+          <option value="designer">Сотрудничество для дизайнеров</option>
+        </select>
+        <label class="fd-visually-hidden" for="fd-when">Удобный день и время</label>
+        <input type="text" id="fd-when" class="fd-field" name="when" placeholder="Удобный день и время">
+        <button type="submit" class="fd-btn fd-btn--primary fd-booking__submit">
+          Заказать звонок <span class="fd-btn__arrow"></span>
+        </button>
+        <p class="fd-booking__note">
+          Нажимая кнопку, вы соглашаетесь на обработку персональных данных.
+        </p>
+        <div class="fd-booking__done">
+          Спасибо! Заявка принята — мы перезвоним вам в течение 15 минут.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  </main>
+
+  <footer class="fd-footer">
+    <div class="fd-footer__inner">
+      <div class="fd-fade">
+        <a href="index.html" class="fd-footer__logo"><img src="images/frame-logo-white.png" alt="FRAME DESIGN" class="fd-logo__img" width="760" height="938" decoding="async"></a>
+        <p class="fd-footer__about">
+          Индивидуальная мебель премиум-класса с собственным высокоточным производством.
+        </p>
+        <div class="fd-footer__socials">
+          <a href="mailto:info@framedesign.ru" class="fd-head-btn fd-head-btn--mail" title="Написать на Email" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="19" height="19"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+          <a href="https://web.max.ru/461819052" target="_blank" rel="noopener noreferrer" class="fd-head-btn fd-head-btn--max" title="MAX" aria-label="MAX">
+            <svg viewBox="0 0 24 24" width="19" height="19"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C7.03 3 3 7.03 3 12c0 1.94.61 3.73 1.66 5.2L3.2 21.2a.6.6 0 0 0 .76.76l3.96-1.44A8.96 8.96 0 0 0 12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg>
+          </a>
+          <a href="https://t.me/+79005686827" target="_blank" rel="noopener noreferrer" class="fd-head-btn fd-head-btn--tg" title="Написать в Telegram" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" width="19" height="19"><path d="M2.1 10.8l18.4-7.2c.8-.3 1.7.4 1.4 1.2l-3.2 15.1c-.2.8-1.1 1.1-1.7.6l-5.1-4.2-2.5 2.4c-.4.4-1.1.2-1.2-.4l-.9-5.9 10.6-9.6L6.2 14.1l-4.1-1.4c-.8-.3-.8-1.4 0-1.9z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="fd-fade">
+        <div class="fd-footer__col-title">Контакты</div>
+        <a href="tel:+79005686827" class="fd-footer__contact fd-phone-link" style="display:block;">+7 (900) 568-68-27</a>
+        <a href="mailto:info@framedesign.ru" class="fd-footer__contact fd-phone-link" style="display:block; font-size: 16px; margin-bottom: 20px;">info@framedesign.ru</a>
+        <div style="font-size: 11px; letter-spacing: 2px; color: var(--cream-muted); text-transform: uppercase; margin-bottom: 8px;">Адрес салона</div>
+        <div style="color: var(--cream); font-size: 14px;">г. Калининград, ул. Баранова, 34, 6 этаж</div>
+      </div>
+    </div>
+    <div class="fd-footer__bottom">
+      <div>© FRAME DESIGN 2026 · Все права защищены</div>
+      <div>Галерея реализованных объектов</div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- INTERACTIVE SCRIPTS -->
+<script>
+const projectData = {
+  "1": {
+    "title": "Кухня с мраморным островом",
+    "cat": "Кухни на заказ",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_1_1.png"
+    ],
+    "desc": "Элегантная кухня в современном стиле с выразительным мраморным островом, барной зоной, встроенной варочной поверхностью с вытяжкой и мягкой архитектурной подсветкой.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль матовая, витрины в алюминиевом профиле"
+      },
+      {
+        "label": "Столешница и фартук:",
+        "val": "Кварцевый агломерат с мраморным рисунком"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Премиальная фурнитура с доводчиками"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Остров с варочной поверхностью, интегрированная вытяжка, барные места"
+      }
+    ]
+  },
+  "2": {
+    "title": "Угловая кухня с рифлёными фасадами",
+    "cat": "Кухни на заказ",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_2_1.png"
+    ],
+    "desc": "Элегантная угловая кухня с выразительной вертикальной фрезеровкой, витринными секциями и тёплой интегрированной подсветкой.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль, декоративная рифлёная фрезеровка"
+      },
+      {
+        "label": "Столешница:",
+        "val": "кварцевый агломерат светлого оттенка"
+      },
+      {
+        "label": "Витрины:",
+        "val": "стекло, встроенная LED-подсветка"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "латунные ручки, скрытые механизмы"
+      },
+      {
+        "label": "Особенности:",
+        "val": "радиусный внутренний угол, высокие пеналы"
+      }
+    ]
+  },
+  "3": {
+    "title": "Современная кухня с островом",
+    "cat": "Мебель на заказ",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_3_1.png"
+    ],
+    "desc": "Эстетичное и функциональное решение для комфортной жизни. Кухня с островом объединяет зону приготовления, хранения и общения. Продуманная планировка, качественные материалы и встроенная техника создают удобное и стильное пространство, в котором приятно проводить время с семьей и друзьями.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ в эмали, матовое покрытие"
+      },
+      {
+        "label": "Столешница и остров:",
+        "val": "Искусственный камень (кварц)"
+      },
+      {
+        "label": "Фартук:",
+        "val": "Керамогранит с рисунком под мрамор"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Интегрированные ручки, петли с доводчиками"
+      },
+      {
+        "label": "Встроенная техника:",
+        "val": "Bosch / Samsung / LG (или аналог, по вашему выбору)"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Остров с обеденной зоной, витрины с подсветкой, индивидуальные размеры и конфигурация"
+      }
+    ]
+  },
+  "4": {
+    "title": "Кухня с островом в неоклассике",
+    "cat": "Кухни на заказ",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_4_1.png"
+    ],
+    "desc": "Элегантная кухня с островом, витринами с подсветкой и мягкой теплой палитрой. Композиция сочетает классические фасады, современную эргономику и премиальные материалы.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль матовая"
+      },
+      {
+        "label": "Столешница:",
+        "val": "Кварцевый агломерат"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Blum с доводчиками"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Остров, витрины с подсветкой"
+      }
+    ]
+  },
+  "5": {
+    "title": "Современная кухня с тёплой подсветкой",
+    "cat": "Мебель на заказ",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_5_1.png"
+    ],
+    "desc": "Стильное и функциональное пространство, в котором продумана каждая деталь. Лаконичный дизайн, сочетание фактур и тёплая подсветка создают уютную атмосферу и подчёркивают премиальное качество материалов. Кухня изготавливается по индивидуальным размерам и идеально вписывается в ваш интерьер.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ в эмали, рифлёный фасад, стеклянные витрины с подсветкой"
+      },
+      {
+        "label": "Столешница и фартук:",
+        "val": "Искусственный камень с мраморной текстурой"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Интегрированные ручки и ручки в цвете латунь"
+      },
+      {
+        "label": "Внутреннее наполнение:",
+        "val": "Выдвижные ящики, полки, встроенная техника (по проекту)"
+      },
+      {
+        "label": "Дополнительно:",
+        "val": "LED-подсветка, стеклянные витрины, встроенная техника"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Индивидуальные размеры, любая конфигурация, сочетание материалов и цветов"
+      }
+    ]
+  },
+  "6": {
+    "title": "Кухня в классическом стиле",
+    "cat": "Мебель на заказ",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_6_1.png"
+    ],
+    "desc": "Изысканное сочетание элегантности, функциональности и премиального качества. Классическая кухня создаёт атмосферу уюта и статуса, подчёркивая безупречный вкус. Продуманная эргономика, натуральные материалы и внимание к деталям делают её идеальным решением для вашего дома.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ в эмали с патиной, декоративные элементы"
+      },
+      {
+        "label": "Столешница:",
+        "val": "Натуральный камень или кварцевый агломерат"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Премиальная фурнитура (латунь, бронза, состаренное серебро)"
+      },
+      {
+        "label": "Дополнительно:",
+        "val": "Витрины с подсветкой, декоративная вытяжка, остров, встроенная техника"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Индивидуальные размеры, любая конфигурация, сочетание материалов и цвета"
+      }
+    ]
+  },
+  "7": {
+    "title": "Кухня с фасадами из натуральной ржавчины",
+    "cat": "Кухни на заказ",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_7_1.png"
+    ],
+    "desc": "Современная кухня с выразительными верхними фасадами из натуральной ржавчины, тёплой подсветкой, графитовой столешницей и лаконичной нижней базой. Решение для интерьеров с характером и глубокой фактурой материалов.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "Верх — натуральная ржавчина, низ — эмаль матовая"
+      },
+      {
+        "label": "Столешница:",
+        "val": "Компакт-плита / камень в графитовом оттенке"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Скрытые системы открывания, интегрированная техника"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Тёплая LED-подсветка, индустриальная эстетика, выразительная фактура"
+      }
+    ]
+  },
+  "8": {
+    "title": "Современная кухня в минималистичном стиле",
+    "cat": "Мебель на заказ",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_8_1.png"
+    ],
+    "desc": "Функциональная и лаконичная кухня, которая идеально вписывается в современный интерьер. Продуманная планировка, качественные материалы и встроенная техника обеспечивают удобство в повседневной жизни. Чистые линии, отсутствие лишних деталей и нейтральная цветовая палитра создают ощущение простора и гармонии.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ в эмали, матовое покрытие"
+      },
+      {
+        "label": "Столешница и фартук:",
+        "val": "Искусственный камень в светлом оттенке"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Интегрированные ручки, доводчики"
+      },
+      {
+        "label": "Встроенная техника:",
+        "val": "Bosch (или аналог, по вашему выбору)"
+      },
+      {
+        "label": "Внутреннее наполнение:",
+        "val": "Выдвижные ящики, полки, органайзеры"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Индивидуальные размеры, любая конфигурация, сочетание материалов и цветов"
+      }
+    ]
+  },
+  "9": {
+    "title": "Угловая кухня с витриной и подсветкой",
+    "cat": "Кухни на заказ",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_9_1.png"
+    ],
+    "desc": "Современная угловая кухня с теплой встроенной подсветкой, витриной для декора и лаконичной композицией фасадов. Идеальное решение для светлого и уютного интерьера.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль матовая, шпон в витрине"
+      },
+      {
+        "label": "Столешница:",
+        "val": "Кварцевый агломерат светлого оттенка"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Петли и направляющие с доводчиками"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Витрина с подсветкой, угловая компоновка"
+      }
+    ]
+  },
+  "10": {
+    "title": "Минималистичная кухня в древесной текстуре",
+    "cat": "Кухни на заказ",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_10_1.jpeg"
+    ],
+    "desc": "Лаконичная кухня с теплыми древесными фасадами, светлой столешницей и встроенной техникой. Спокойная эстетика, продуманная эргономика и мягкая подсветка делают пространство уютным и функциональным.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ в шпоне дуба, матовый лак"
+      },
+      {
+        "label": "Столешница:",
+        "val": "Кварцевый агломерат светлого оттенка"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Blum с доводчиками"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Интегрированные ручки, скрытая подсветка, встроенная техника"
+      }
+    ]
+  },
+  "11": {
+    "title": "Кухня с контрастными фасадами",
+    "cat": "Кухни на заказ",
+    "images": [
+      "images/portfolio/kitchen/kuhnya_11_1.jpeg"
+    ],
+    "desc": "Современная кухня с глянцевыми верхними фасадами, тёплой древесной текстурой нижнего яруса и мягкой архитектурной подсветкой.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль глянец, шпон орех"
+      },
+      {
+        "label": "Столешница:",
+        "val": "Кварцевый агломерат под мрамор"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Интегрированная подсветка, направляющие Blum"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Витрина с подсветкой, латунная фурнитура"
+      }
+    ]
+  },
+  "12": {
+    "title": "Гардеробная с островом и ванной",
+    "cat": "Гардеробные на заказ",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_1_1.png"
+    ],
+    "desc": "Просторная гардеробная с остеклёнными шкафами, тёплой встроенной подсветкой и центральным островом для хранения аксессуаров. В перспективе — приватный вход в ванную комнату.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "тонированное стекло, алюминиевый профиль"
+      },
+      {
+        "label": "Внутреннее наполнение:",
+        "val": "шпон под тёплый орех, выдвижные модули"
+      },
+      {
+        "label": "Подсветка:",
+        "val": "встроенная LED, тёплый свет"
+      },
+      {
+        "label": "Особенности:",
+        "val": "остров для аксессуаров, симметричная композиция"
+      }
+    ]
+  },
+  "13": {
+    "title": "Остров-витрина для гардеробной",
+    "cat": "Гардеробные на заказ",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_2_1.png"
+    ],
+    "desc": "Центральный остров с прозрачной столешницей и индивидуальными органайзерами для часов, украшений, очков и аксессуаров.",
+    "specs": [
+      {
+        "label": "Отделка корпуса:",
+        "val": "шпон в оттенке ореха"
+      },
+      {
+        "label": "Столешница:",
+        "val": "закалённое прозрачное стекло"
+      },
+      {
+        "label": "Органайзеры:",
+        "val": "индивидуальные ячейки, мягкая отделка"
+      },
+      {
+        "label": "Подсветка:",
+        "val": "встроенная LED, тёплый свет"
+      },
+      {
+        "label": "Особенности:",
+        "val": "двусторонний доступ, скрытые ящики"
+      }
+    ]
+  },
+  "14": {
+    "title": "Входная группа со шпоном и зеркалом",
+    "cat": "Прихожие на заказ",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_3_1.png"
+    ],
+    "desc": "Стильная прихожая с панелями из натурального шпона, парящей консолью и ростовым зеркалом с мягкой фоновой подсветкой.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "Натуральный шпон дуба, матовая эмаль"
+      },
+      {
+        "label": "Столешница:",
+        "val": "Шпон дуба"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Blum Tip-On"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Ростовое зеркало с LED-контуром, скрытый гардероб для верхней одежды"
+      }
+    ]
+  },
+  "15": {
+    "title": "Встроенный шкаф с мягкой зоной",
+    "cat": "Прихожие на заказ",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_4_1.png"
+    ],
+    "desc": "Встроенная композиция с уютной тактильной банкеткой, вешалкой для одежды и вместительными шкафами до потолка.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль матовая, тактильная ткань банкетки"
+      },
+      {
+        "label": "Столешница:",
+        "val": "Матовая эмаль"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Blum с плавным закрыванием"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Мягкая ниша с крючками, антресоли полного открывания"
+      }
+    ]
+  },
+  "16": {
+    "title": "Прихожая с латунными акцентами",
+    "cat": "Прихожие на заказ",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_5_1.png"
+    ],
+    "desc": "Элегантный гардероб с вертикальной латунной фурнитурой, подсветкой открытых полок и фактурными фасадами.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ матовая эмаль, латунный профиль"
+      },
+      {
+        "label": "Столешница:",
+        "val": "Шпон ореха"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Латунные ручки-профили, петли Blum"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Открытые ниши для декора, встроенная подсветка полок"
+      }
+    ]
+  },
+  "17": {
+    "title": "Шкаф в потолок с рифлёными деталями",
+    "cat": "Шкафы на заказ",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_6_1.png"
+    ],
+    "desc": "Монолитный встроенный шкаф с вертикальной фрезеровкой и функциональным разделением на секции для верхней одежды и обуви.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль матовая с тонкой фрезеровкой"
+      },
+      {
+        "label": "Корпус:",
+        "val": "ЛДСП премиум Egger"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Blum Clip Top Blumotion"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Фасады высотой 2.8 м с выпрямителями, бесшумные доводчики"
+      }
+    ]
+  },
+  "18": {
+    "title": "Скрытая гардеробная система",
+    "cat": "Гардеробные на заказ",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_7_1.png"
+    ],
+    "desc": "Минималистичная система шкафов без видимых ручек, визуально растворяющаяся в интерьере прихожей.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль шелковисто-матовая"
+      },
+      {
+        "label": "Корпус:",
+        "val": "ЛДСП влагостойкий Egger"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Система открывания Tip-On"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Абсолютно гладкие фасады, скрытые торцевые профили"
+      }
+    ]
+  },
+  "19": {
+    "title": "Прихожая с консолью и подсветкой",
+    "cat": "Прихожие на заказ",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_8_1.png"
+    ],
+    "desc": "Композиция с парящей консольной тумбой, зеркальной панелью и тёплым декоративным светом.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль, зеркальное полотно осветленное"
+      },
+      {
+        "label": "Столешница:",
+        "val": "Кварцевый агломерат"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Направляющие Blum Movento"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Подвесная консоль со скрытым крепежом, контурный свет"
+      }
+    ]
+  },
+  "20": {
+    "title": "Шкаф с открытой гардеробной нишей",
+    "cat": "Прихожие на заказ",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_9_1.png"
+    ],
+    "desc": "Практичное решение со встроенной открытой вешалкой, деревянной банкеткой и закрытыми секциями хранения.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль графит, натуральный дуб"
+      },
+      {
+        "label": "Столешница / сиденье:",
+        "val": "Массив дуба"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Blum с доводчиками"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Ниша для обуви с вентиляцией, прочные металлические крючки"
+      }
+    ]
+  },
+  "21": {
+    "title": "Радиусный шкаф для холла",
+    "cat": "Шкафы на заказ",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_10_1.png"
+    ],
+    "desc": "Шкаф с плавным радиусным окончанием для комфортного и безопасного движения в зоне коридора.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "Гнутый МДФ в матовой эмали"
+      },
+      {
+        "label": "Корпус:",
+        "val": "ЛДСП Egger"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Специальные радиусные петли Blum"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Идеальная геометрия радиусных фасадов, отсутствие острых углов"
+      }
+    ]
+  },
+  "22": {
+    "title": "Зеркальный гардеробный шкаф",
+    "cat": "Шкафы на заказ",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_11_1.png"
+    ],
+    "desc": "Шкаф с ростовыми зеркальными фасадами Ultra Clear, визуально увеличивающий коридор в два раза.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "Осветленное зеркало серебро с безопасной армировкой"
+      },
+      {
+        "label": "Корпус:",
+        "val": "ЛДСП Egger влагостойкий"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Усиленные петли Blum"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Осветленные зеркала без искажений, интегрированная подсветка"
+      }
+    ]
+  },
+  "23": {
+    "title": "Гардеробный комплекс со стеновыми панелями",
+    "cat": "Гардеробные на заказ",
+    "images": [
+      "images/portfolio/hallway/prihozhaya_12_1.png"
+    ],
+    "desc": "Комплексное оформление входной зоны стеновыми панелями, подсветкой и вместительными шкафами для гардероба.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль, шпонированные панели"
+      },
+      {
+        "label": "Столешница:",
+        "val": "Шпон ореха"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Blum скрытого монтажа"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Единое бесшовное пространство со стеновыми панелями"
+      }
+    ]
+  },
+  "24": {
+    "title": "ТВ зона с подвесной тумбой",
+    "cat": "Мебель на заказ",
+    "images": [
+      "images/portfolio/bedroom/spalnya_1_1.png"
+    ],
+    "desc": "Элегантное решение для спальни, в котором подвесная тумба, подсветка и туалетный столик объединены в единую композицию. Лаконичные формы, тёплая световая атмосфера и премиальные материалы создают ощущение уюта и завершённости интерьера.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль, рифлёная фрезеровка"
+      },
+      {
+        "label": "Столешница:",
+        "val": "МДФ в эмали / декоративная отделка"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Система открывания с доводчиками Blum"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Подвесной монтаж, интегрированная подсветка, зеркало с туалетным столиком"
+      }
+    ]
+  },
+  "25": {
+    "title": "Шкаф с зеркальными вставками",
+    "cat": "Спальни на заказ",
+    "images": [
+      "images/portfolio/bedroom/spalnya_2_1.png"
+    ],
+    "desc": "Элегантный встроенный шкаф с вертикальными зеркальными вставками, мягким ритмом фасадов и теплой атмосферой премиальной спальни.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль матовая, зеркальные вставки"
+      },
+      {
+        "label": "Отделка стен:",
+        "val": "Декоративные панели, мягкая текстура"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Blum, скрытый монтаж"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Вертикальный ритм фасадов, теплый свет, интеграция в интерьер"
+      }
+    ]
+  },
+  "26": {
+    "title": "Комплексное решение для спальни",
+    "cat": "Мебель на заказ",
+    "images": [
+      "images/portfolio/bedroom/spalnya_3_1.png"
+    ],
+    "desc": "Гармоничное сочетание шкафа, прикроватной зоны и туалетного столика создаёт уютное и функциональное пространство. Индивидуальный дизайн, качественные материалы и продуманные детали — для вашего комфорта каждый день.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ в эмали, матовая отделка"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Интегрированные ручки, декоративные кольца (латунь/золото)"
+      },
+      {
+        "label": "Дополнительно:",
+        "val": "Кровать, прикроватные тумбы, туалетный столик, зеркало с подсветкой"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Индивидуальные размеры, любая конфигурация, комплексное оснащение спальни"
+      }
+    ]
+  },
+  "27": {
+    "title": "Шкаф с декоративной геометрией",
+    "cat": "Шкафы на заказ",
+    "images": [
+      "images/portfolio/bedroom/spalnya_4_1.png"
+    ],
+    "desc": "Элегантный распашной шкаф с выразительными ажурными фасадами, выполненный для светлой спальни в неоклассическом стиле. Лёгкий орнамент придаёт интерьеру индивидуальность и создаёт эффект авторского предмета мебели.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль матовая, декоративная фрезеровка"
+      },
+      {
+        "label": "Вставки:",
+        "val": "Ажурный геометрический декор"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Премиальные петли с доводчиками"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Индивидуальный рисунок фасадов, интеграция в интерьер спальни"
+      }
+    ]
+  },
+  "28": {
+    "title": "Подвесная ТВ-зона с мягкой подсветкой",
+    "cat": "ТВ-зоны и тумбы на заказ",
+    "images": [
+      "images/portfolio/bedroom/spalnya_5_1.png"
+    ],
+    "desc": "Элегантная композиция для спальни с подвесной тумбой, акцентным боковым модулем и тёплой контурной подсветкой, создающей атмосферу комфорта и уюта.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль матовая, декоративная столешница"
+      },
+      {
+        "label": "Столешница:",
+        "val": "Тёмный декор под камень"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Blum Tip-On / скрытый монтаж"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Парящая конструкция, LED-подсветка, ТВ-зона"
+      }
+    ]
+  },
+  "29": {
+    "title": "Детская комната с игровой антресолью",
+    "cat": "Детские комнаты на заказ",
+    "images": [
+      "images/portfolio/bedroom/spalnya_6_1.png"
+    ],
+    "desc": "Продуманное пространство для ребёнка с уютной спальной зоной, встроенным хранением, игровой нишей и мягкой тёплой подсветкой.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль матовая, декоративные зеркальные вставки"
+      },
+      {
+        "label": "Корпус:",
+        "val": "ЛДСП премиум-класса, кромка в цвет"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Игровая зона под кроватью, лестница с хранением, интегрированная подсветка"
+      },
+      {
+        "label": "Стиль:",
+        "val": "Современная детская в мягкой пастельной гамме"
+      }
+    ]
+  },
+  "30": {
+    "title": "Шкаф в стиле конструктора",
+    "cat": "Детская мебель на заказ",
+    "images": [
+      "images/portfolio/bedroom/spalnya_7_1.png"
+    ],
+    "desc": "Яркий детский шкаф с графичными фасадами, вдохновлёнными формой конструктора. Продуман для хранения одежды, игрушек и книг, создаёт в комнате игровой характер и остаётся удобным в повседневном использовании.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль матовая"
+      },
+      {
+        "label": "Корпус:",
+        "val": "ЛДСП / МДФ в тёплом нейтральном тоне"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Петли и системы плавного закрывания"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Декоративные накладки, индивидуальная цветовая композиция"
+      }
+    ]
+  },
+  "31": {
+    "title": "Тумба с каннелюрами и круглым зеркалом",
+    "cat": "Мебель для ванной",
+    "images": [
+      "images/portfolio/bathroom/sanuzel_1_1.png"
+    ],
+    "desc": "Подвесная тумба для ванной с выразительными каннелюрами, встроенной подсветкой, латунными акцентами и круглым зеркалом. Элегантное решение для современного премиального интерьера.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль матовая, каннелюры, латунный профиль"
+      },
+      {
+        "label": "Столешница:",
+        "val": "Искусственный камень с интегрированной раковиной"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Blum Legrabox / Tip-On"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Подсветка витрины, декоративные вставки, зеркало с подсветкой"
+      }
+    ]
+  },
+  "32": {
+    "title": "Стильная постирочная зона",
+    "cat": "Мебель на заказ",
+    "images": [
+      "images/portfolio/bathroom/sanuzel_2_1.png"
+    ],
+    "desc": "Продуманное решение для удобной и эстетичной организации пространства. Встроенная мебель позволяет разместить стиральную и сушильную машины, предусмотреть системы хранения и сохранить ощущение порядка даже в небольшом помещении. Сочетание фактур, качественных материалов и тёплой подсветки делает пространство не только функциональным, но и стильным.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ в эмали с фрезеровкой"
+      },
+      {
+        "label": "Внутреннее наполнение:",
+        "val": "Открытые полки, корзины для хранения, индивидуальные отсеки"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Петли с доводчиками, скрытый монтаж"
+      },
+      {
+        "label": "Встроенная техника:",
+        "val": "Haier (или аналог, по вашему выбору)"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Индивидуальные размеры, эргономичное расположение, LED-подсветка, сочетание материалов"
+      }
+    ]
+  },
+  "33": {
+    "title": "Тумба с арочным зеркалом",
+    "cat": "Ванные комнаты на заказ",
+    "images": [
+      "images/portfolio/bathroom/sanuzel_3_1.png"
+    ],
+    "desc": "Элегантная зона умывания с подсветкой по контуру зеркала, рифлёной стеновой панелью и тёплыми латунными акцентами.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль матовая, филёнка"
+      },
+      {
+        "label": "Столешница:",
+        "val": "Кварцевый агломерат с мраморным рисунком"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Петли и направляющие с доводчиками"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Арочное зеркало с подсветкой, латунная сантехника"
+      }
+    ]
+  },
+  "34": {
+    "title": "Ванная с синими жалюзийными фасадами",
+    "cat": "Мебель для ванной на заказ",
+    "images": [
+      "images/portfolio/bathroom/sanuzel_4_1.png"
+    ],
+    "desc": "Компактная и выразительная композиция для ванной комнаты с жалюзийными фасадами, мраморной отделкой и тёплой декоративной подсветкой.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ эмаль матовая, жалюзийный профиль"
+      },
+      {
+        "label": "Столешница:",
+        "val": "Кварц с мраморным рисунком"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Петли с доводчиками, встроенное хранение"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Овальное зеркало с подсветкой, латунные акценты"
+      }
+    ]
+  },
+  "35": {
+    "title": "Стильная ванная-постирочная",
+    "cat": "Мебель на заказ",
+    "images": [
+      "images/portfolio/bathroom/sanuzel_5_1.png"
+    ],
+    "desc": "Продуманное пространство, где эстетика сочетается с максимальной функциональностью. Встроенная мебель позволяет компактно разместить стиральную и сушильную машины, системы хранения и все необходимые детали. Тёплая подсветка, премиальные материалы и лаконичный дизайн создают атмосферу уюта и порядка даже в небольшом помещении.",
+    "specs": [
+      {
+        "label": "Материалы фасадов:",
+        "val": "МДФ в эмали, рифлёные фасады, шпон (по проекту)"
+      },
+      {
+        "label": "Столешница и фартук:",
+        "val": "Натуральный камень или керамогранит"
+      },
+      {
+        "label": "Фурнитура:",
+        "val": "Интегрированные ручки, доводчики, премиальная фурнитура"
+      },
+      {
+        "label": "Встроенная техника:",
+        "val": "Bosch / LG / Haier (или аналог, по вашему выбору)"
+      },
+      {
+        "label": "Внутреннее наполнение:",
+        "val": "Открытые полки, корзины, системы хранения"
+      },
+      {
+        "label": "Дополнительно:",
+        "val": "LED-подсветка, зеркало с подсветкой, встроенные ниши"
+      },
+      {
+        "label": "Особенности:",
+        "val": "Индивидуальные размеры, любая конфигурация, сочетание материалов и цветов"
+      }
+    ]
+  }
+};
+
+let currentProjectId = null;
+let currentPhotoIndex = 0;
+
+function openModal(id) {
+  const p = projectData[id];
+  if (!p) return;
+  currentProjectId = id;
+  currentPhotoIndex = 0;
+
+  document.getElementById('modalTitle').textContent = p.title;
+  document.getElementById('modalCat').textContent = p.cat;
+  document.getElementById('modalDesc').textContent = p.desc;
+
+  const specsContainer = document.getElementById('modalSpecs');
+  if (specsContainer && p.specs) {
+    specsContainer.innerHTML = p.specs.map(s => `
+      <div class="fd-spec-row">
+        <span class="fd-spec-label">${s.label}</span>
+        <span class="fd-spec-val">${s.val}</span>
+      </div>
+    `).join('');
+  }
+
+  updateModalImage();
+
+  const modal = document.getElementById('projectModal');
+  modal.classList.add('is-active');
+  document.body.style.overflow = 'hidden';
+}
+
+function updateModalImage() {
+  const p = projectData[currentProjectId];
+  if (!p || !p.images || !p.images.length) return;
+
+  const modalImg = document.getElementById('modalImg');
+  modalImg.style.opacity = '0.3';
+  setTimeout(() => {
+    modalImg.src = p.images[currentPhotoIndex];
+    modalImg.alt = p.title + ' — Frame Design';
+    modalImg.style.opacity = '1';
+  }, 80);
+
+  const prevBtn = document.getElementById('modalPrevBtn');
+  const nextBtn = document.getElementById('modalNextBtn');
+  const thumbsContainer = document.getElementById('modalThumbs');
+
+  if (p.images.length > 1) {
+    if (prevBtn) prevBtn.style.display = 'flex';
+    if (nextBtn) nextBtn.style.display = 'flex';
+    if (thumbsContainer) {
+      thumbsContainer.style.display = 'flex';
+      thumbsContainer.innerHTML = p.images.map((img, idx) => `
+        <img src="${img}" class="fd-modal-thumb ${idx === currentPhotoIndex ? 'is-active' : ''}"
+             onclick="setModalPhoto(${idx})" alt="${p.title} фото ${idx + 1}">
+      `).join('');
+    }
+  } else {
+    if (prevBtn) prevBtn.style.display = 'none';
+    if (nextBtn) nextBtn.style.display = 'none';
+    if (thumbsContainer) thumbsContainer.style.display = 'none';
+  }
+}
+
+function setModalPhoto(index) {
+  const p = projectData[currentProjectId];
+  if (!p || index < 0 || index >= p.images.length) return;
+  currentPhotoIndex = index;
+  updateModalImage();
+}
+
+function nextModalPhoto(e) {
+  if (e) e.stopPropagation();
+  const p = projectData[currentProjectId];
+  if (!p || !p.images || p.images.length <= 1) return;
+  currentPhotoIndex = (currentPhotoIndex + 1) % p.images.length;
+  updateModalImage();
+}
+
+function prevModalPhoto(e) {
+  if (e) e.stopPropagation();
+  const p = projectData[currentProjectId];
+  if (!p || !p.images || p.images.length <= 1) return;
+  currentPhotoIndex = (currentPhotoIndex - 1 + p.images.length) % p.images.length;
+  updateModalImage();
+}
+
+function closeModal() {
+  const modal = document.getElementById('projectModal');
+  modal.classList.remove('is-active');
+  document.body.style.overflow = '';
+}
+
+// Keyboard navigation in modal
+document.addEventListener('keydown', (e) => {
+  const modal = document.getElementById('projectModal');
+  if (!modal || !modal.classList.contains('is-active')) return;
+  if (e.key === 'Escape') closeModal();
+  if (e.key === 'ArrowRight') nextModalPhoto();
+  if (e.key === 'ArrowLeft') prevModalPhoto();
+});
+
+// Category filter
+document.querySelectorAll('.fd-filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.fd-filter-btn').forEach(b => {
+      b.classList.remove('is-active');
+      b.setAttribute('aria-pressed', 'false');
+    });
+    btn.classList.add('is-active');
+    btn.setAttribute('aria-pressed', 'true');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.fd-project-card').forEach(card => {
+      if (f === 'all' || card.dataset.cat === f) {
+        card.style.display = '';
+        card.classList.add('is-visible');
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+// Mobile Drawer
+const burgerBtn = document.getElementById('burgerBtn');
+const mobileDrawer = document.getElementById('mobileDrawer');
+if (burgerBtn && mobileDrawer) {
+  burgerBtn.addEventListener('click', () => {
+    burgerBtn.classList.toggle('is-active');
+    mobileDrawer.classList.toggle('is-open');
+    document.body.style.overflow = mobileDrawer.classList.contains('is-open') ? 'hidden' : '';
+  });
+}
+window.closeDrawer = function() {
+  if (burgerBtn && mobileDrawer) {
+    burgerBtn.classList.remove('is-active');
+    mobileDrawer.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+};
+
+// Header scroll
+const header = document.querySelector('.fd-header');
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 50) {
+    header.style.background = 'rgba(20, 20, 22, 0.94)';
+  } else {
+    header.style.background = 'rgba(20, 20, 22, 0.7)';
+  }
+}, { passive: true });
+
+// Fade In Observer
+const fadeElements = document.querySelectorAll('.fd-fade');
+document.querySelectorAll('.fd-hero .fd-fade').forEach((el, index) => {
+  setTimeout(() => el.classList.add('is-visible'), index * 80);
+});
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+fadeElements.forEach(el => observer.observe(el));
+</script>
+<script src="assets/fd-common.js?v=20260828i" defer></script>
+</body>
+</html>

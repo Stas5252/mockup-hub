@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" height="100%">
+  <defs>
+    <!-- Архитектурная сетка миллиметровки -->
+    <pattern id="gridPattern" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#252932" stroke-width="0.75" opacity="0.6"/>
+    </pattern>
+    <pattern id="gridMajor" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="url(#gridPattern)"/>
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#363c48" stroke-width="1.2" opacity="0.8"/>
+    </pattern>
+    <!-- Маркеры стрелок для размеров -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#c69255"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#64b5f6"/>
+    </marker>
+  </defs>
+
+  <!-- Фон чертежа (Темно-графитовый нордический блюпринт) -->
+  <rect width="1200" height="700" fill="#15171c"/>
+  <rect width="1200" height="700" fill="url(#gridMajor)"/>
+
+  <!-- Внешняя рамка чертежа по ГОСТ / Nordic standard -->
+  <rect x="25" y="25" width="1150" height="650" fill="none" stroke="#3a404d" stroke-width="2"/>
+  <rect x="30" y="30" width="1140" height="640" fill="none" stroke="#2a2e37" stroke-width="1"/>
+
+  <!-- Заголовок схемы -->
+  <g transform="translate(60, 65)">
+    <text x="0" y="0" fill="#ffffff" font-family="'Inter', sans-serif" font-size="16" font-weight="700" letter-spacing="2">ИНЖЕНЕРНЫЙ ЧЕРТЕЖ ПРИВЯЗОК И РОЗЕТОК</text>
+    <text x="0" y="20" fill="#8c92a4" font-family="'Inter', sans-serif" font-size="11" letter-spacing="1">ФАБРИКА LeMARI (г. Вологда) • СКАНДИНАВСКАЯ СЕРИЯ • МАСШТАБ 1:20</text>
+  </g>
+
+  <!-- Пол и стена -->
+  <!-- Линия чистого пола 0.000 -->
+  <line x1="80" y1="580" x2="1050" y2="580" stroke="#e2e3e7" stroke-width="3"/>
+  <text x="1055" y="585" fill="#e2e3e7" font-family="'Inter', monospace" font-size="12" font-weight="700">±0.000 (Чистый пол)</text>
+  <!-- Линия потолка +2.600 -->
+  <line x1="80" y1="120" x2="1050" y2="120" stroke="#8c92a4" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="1055" y="125" fill="#8c92a4" font-family="'Inter', monospace" font-size="12">+2.600 (Уровень потолка)</text>
+
+  <!-- КУХОННЫЙ ГАРНИТУР (Фронтальная проекция) -->
+  <!-- Нижние базы (цоколь 100 мм, шкафы 760 мм, столешница 40 мм -> высота 860 мм) -->
+  <!-- Координата Y пола = 580. Y столешницы = 408 (172px = 860mm при масштабе 1px = 5mm) -->
+  
+  <!-- Цоколь 100 мм -->
+  <rect x="180" y="560" width="760" height="20" fill="#1c1f26" stroke="#485060" stroke-width="1.5"/>
+  <text x="540" y="574" fill="#6e7687" font-family="'Inter', sans-serif" font-size="10" text-anchor="middle">Цоколь H=100 мм (влагостойкий с уплотнителем)</text>
+
+  <!-- Нижние секции (Мойка 600, Посудомойка 600, Ящики 800, Варочная/Духовка 600, Пенал 600) -->
+  <!-- Секция 1: Мойка 600 -->
+  <rect x="180" y="420" width="140" height="140" fill="#20242c" stroke="#566073" stroke-width="1.5"/>
+  <text x="250" y="495" fill="#a0a8ba" font-family="'Inter', sans-serif" font-size="11" text-anchor="middle">Мойка 600 мм</text>
+  
+  <!-- Секция 2: Встраиваемая ПММ 600 -->
+  <rect x="320" y="420" width="140" height="140" fill="#20242c" stroke="#566073" stroke-width="1.5"/>
+  <text x="390" y="495" fill="#a0a8ba" font-family="'Inter', sans-serif" font-size="11" text-anchor="middle">ПММ 600 мм</text>
+
+  <!-- Секция 3: Выдвижные ящики Blum Legrabox 800 -->
+  <rect x="460" y="420" width="180" height="140" fill="#20242c" stroke="#566073" stroke-width="1.5"/>
+  <line x1="460" y1="466" x2="640" y2="466" stroke="#3d4452" stroke-width="1"/>
+  <line x1="460" y1="513" x2="640" y2="513" stroke="#3d4452" stroke-width="1"/>
+  <text x="550" y="495" fill="#a0a8ba" font-family="'Inter', sans-serif" font-size="11" text-anchor="middle">Ящики Blum 800 мм</text>
+
+  <!-- Секция 4: Варочная поверхность и духовой шкаф 600 -->
+  <rect x="640" y="420" width="140" height="140" fill="#20242c" stroke="#566073" stroke-width="1.5"/>
+  <rect x="655" y="435" width="110" height="110" fill="#181a20" stroke="#c69255" stroke-width="1" stroke-dasharray="4 2"/>
+  <text x="710" y="495" fill="#c69255" font-family="'Inter', sans-serif" font-size="11" text-anchor="middle">Духовка / Индукция</text>
+
+  <!-- Секция 5: Пенал под встраиваемый холодильник 600 (на всю высоту до потолка) -->
+  <rect x="780" y="125" width="160" height="455" fill="#1c2028" stroke="#566073" stroke-width="2"/>
+  <line x1="780" y1="360" x2="940" y2="360" stroke="#3d4452" stroke-width="1"/>
+  <line x1="780" y1="200" x2="940" y2="200" stroke="#3d4452" stroke-width="1"/>
+  <text x="860" y="320" fill="#a0a8ba" font-family="'Inter', sans-serif" font-size="12" text-anchor="middle" font-weight="600">Пенал-холодильник</text>
+  <text x="860" y="340" fill="#6e7687" font-family="'Inter', sans-serif" font-size="10" text-anchor="middle">600 × 2600 мм</text>
+
+  <!-- Столешница (Камень / Компакт / Постформинг) H=40 мм -->
+  <rect x="175" y="408" width="610" height="12" fill="#c69255" stroke="#e0a96d" stroke-width="1.5"/>
+  <text x="480" y="400" fill="#e0a96d" font-family="'Inter', sans-serif" font-size="11" font-weight="700">Столешница (высота 860 мм) • Бесшовный стык</text>
+
+  <!-- ФАРТУК (Высота 600 мм: от Y=408 до Y=288) -->
+  <rect x="180" y="288" width="600" height="120" fill="#1a1c22" stroke="#2e3340" stroke-width="1" stroke-dasharray="6 6"/>
+  <text x="480" y="350" fill="#4d5566" font-family="'Inter', sans-serif" font-size="12" text-anchor="middle" letter-spacing="3">ЗОНА ФАРТУКА (H=600 мм)</text>
+
+  <!-- НАВЕСНЫЕ ШКАФЫ (Высота 720 мм: от Y=288 до Y=200) -->
+  <rect x="180" y="200" width="600" height="88" fill="#20242c" stroke="#566073" stroke-width="1.5"/>
+  <line x1="330" y1="200" x2="330" y2="288" stroke="#3d4452" stroke-width="1"/>
+  <line x1="480" y1="200" x2="480" y2="288" stroke="#3d4452" stroke-width="1"/>
+  <line x1="630" y1="200" x2="630" y2="288" stroke="#3d4452" stroke-width="1"/>
+  <text x="480" y="248" fill="#a0a8ba" font-family="'Inter', sans-serif" font-size="11" text-anchor="middle">Навесные шкафы (Blum Aventos HK/HF) H=720 мм</text>
+
+  <!-- АНТРЕСОЛИ ПОД ПОТОЛОК (Высота от Y=200 до Y=125 = 75px = 380 мм) -->
+  <rect x="180" y="125" width="600" height="75" fill="#252a34" stroke="#566073" stroke-width="1.5"/>
+  <line x1="380" y1="125" x2="380" y2="200" stroke="#3d4452" stroke-width="1"/>
+  <line x1="580" y1="125" x2="580" y2="200" stroke="#3d4452" stroke-width="1"/>
+  <text x="480" y="165" fill="#c4cad6" font-family="'Inter', sans-serif" font-size="11" text-anchor="middle">Антресольный ряд (Tip-On) • Без зазоров к потолку</text>
+  <line x1="180" y1="125" x2="940" y2="125" stroke="#64b5f6" stroke-width="2"/>
+  <text x="560" y="115" fill="#64b5f6" font-family="'Inter', sans-serif" font-size="10" text-anchor="middle">Теневой зазор 10 мм к натяжному / гипсокартонному потолку</text>
+
+  <!-- ВСТРАИВАЕМЫЕ ЭЛЕКТРОТОЧКИ И РОЗЕТКИ (Инженерная разметка 220V) -->
+  <!-- Символ розетки: кружок с двумя отверстиями и меткой 220V -->
+  <!-- 1. Розетка вытяжки (H=2150 мм -> Y=150) -->
+  <g transform="translate(710, 160)">
+    <circle cx="0" cy="0" r="12" fill="#d32f2f" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="-4" cy="0" r="2" fill="#ffffff"/>
+    <circle cx="4" cy="0" r="2" fill="#ffffff"/>
+    <line x1="14" y1="0" x2="55" y2="-15" stroke="#d32f2f" stroke-width="1.5"/>
+    <rect x="55" y="-27" width="130" height="22" rx="3" fill="#2b1b1b" stroke="#d32f2f" stroke-width="1"/>
+    <text x="62" y="-12" fill="#ff8a80" font-family="'Inter', monospace" font-size="10" font-weight="700">ВЫТЯЖКА: h=2150 мм</text>
+  </g>
+
+  <!-- 2. Блок розеток фартука левый (Чайник/кофеварка H=1050 мм -> Y=370) -->
+  <g transform="translate(250, 370)">
+    <rect x="-18" y="-10" width="36" height="20" rx="4" fill="#1976d2" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="-8" cy="0" r="2" fill="#ffffff"/>
+    <circle cx="8" cy="0" r="2" fill="#ffffff"/>
+    <line x1="0" y1="-12" x2="0" y2="-30" stroke="#1976d2" stroke-width="1.5"/>
+    <rect x="-70" y="-52" width="140" height="22" rx="3" fill="#142336" stroke="#1976d2" stroke-width="1"/>
+    <text x="0" y="-37" fill="#90caf9" font-family="'Inter', monospace" font-size="10" font-weight="700" text-anchor="middle">ФАРТУК: h=1050 мм (2×220V)</text>
+  </g>
+
+  <!-- 3. Блок розеток фартука правый (Миксер/блендер H=1050 мм -> Y=370) -->
+  <g transform="translate(560, 370)">
+    <rect x="-18" y="-10" width="36" height="20" rx="4" fill="#1976d2" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="-8" cy="0" r="2" fill="#ffffff"/>
+    <circle cx="8" cy="0" r="2" fill="#ffffff"/>
+    <line x1="0" y1="-12" x2="0" y2="-30" stroke="#1976d2" stroke-width="1.5"/>
+    <rect x="-70" y="-52" width="140" height="22" rx="3" fill="#142336" stroke="#1976d2" stroke-width="1"/>
+    <text x="0" y="-37" fill="#90caf9" font-family="'Inter', monospace" font-size="10" font-weight="700" text-anchor="middle">ФАРТУК: h=1050 мм (2×220V)</text>
+  </g>
+
+  <!-- 4. Розетка ПММ и измельчителя (в цоколе H=100 мм -> Y=560) -->
+  <g transform="translate(250, 560)">
+    <circle cx="0" cy="0" r="10" fill="#388e3c" stroke="#ffffff" stroke-width="1.5"/>
+    <line x1="0" y1="12" x2="0" y2="30" stroke="#388e3c" stroke-width="1.5"/>
+    <rect x="-65" y="30" width="130" height="22" rx="3" fill="#132918" stroke="#388e3c" stroke-width="1"/>
+    <text x="0" y="45" fill="#a5d6a7" font-family="'Inter', monospace" font-size="10" font-weight="700" text-anchor="middle">ПММ: h=100 мм (в базе)</text>
+  </g>
+
+  <!-- 5. Силовая розетка индукции и духовки (H=600 мм -> Y=460) -->
+  <g transform="translate(710, 545)">
+    <rect x="-14" y="-8" width="28" height="16" rx="3" fill="#f57c00" stroke="#ffffff" stroke-width="1.5"/>
+    <line x1="0" y1="10" x2="0" y2="40" stroke="#f57c00" stroke-width="1.5"/>
+    <rect x="-75" y="40" width="150" height="22" rx="3" fill="#332010" stroke="#f57c00" stroke-width="1"/>
+    <text x="0" y="55" fill="#ffcc80" font-family="'Inter', monospace" font-size="10" font-weight="700" text-anchor="middle">ИНДУКЦИЯ 380/220V: h=100 мм</text>
+  </g>
+
+  <!-- 6. Розетка холодильника (H=400 мм в пенале) -->
+  <g transform="translate(860, 500)">
+    <circle cx="0" cy="0" r="10" fill="#7b1fa2" stroke="#ffffff" stroke-width="1.5"/>
+    <line x1="12" y1="0" x2="40" y2="0" stroke="#7b1fa2" stroke-width="1.5"/>
+    <rect x="40" y="-11" width="140" height="22" rx="3" fill="#24102e" stroke="#7b1fa2" stroke-width="1"/>
+    <text x="48" y="4" fill="#ce93d8" font-family="'Inter', monospace" font-size="10" font-weight="700">ХОЛОДИЛЬНИК: h=400 мм</text>
+  </g>
+
+  <!-- РАЗМЕРНЫЕ ЦЕПОЧКИ СЛЕВА (ВЫСОТЫ) -->
+  <!-- Высота 860 мм (пол - столешница) -->
+  <g transform="translate(130, 0)">
+    <line x1="0" y1="580" x2="0" y2="408" stroke="#c69255" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <line x1="-15" y1="580" x2="15" y2="580" stroke="#c69255" stroke-width="1"/>
+    <line x1="-15" y1="408" x2="15" y2="408" stroke="#c69255" stroke-width="1"/>
+    <text x="-12" y="498" fill="#c69255" font-family="'Inter', monospace" font-size="12" font-weight="700" text-anchor="end">860 мм</text>
+  </g>
+
+  <!-- Высота фартука 600 мм -->
+  <g transform="translate(130, 0)">
+    <line x1="0" y1="408" x2="0" y2="288" stroke="#c69255" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <line x1="-15" y1="288" x2="15" y2="288" stroke="#c69255" stroke-width="1"/>
+    <text x="-12" y="352" fill="#c69255" font-family="'Inter', monospace" font-size="12" font-weight="700" text-anchor="end">600 мм</text>
+  </g>
+
+  <!-- Высота навесных шкафов 720 мм -->
+  <g transform="translate(130, 0)">
+    <line x1="0" y1="288" x2="0" y2="200" stroke="#c69255" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <line x1="-15" y1="200" x2="15" y2="200" stroke="#c69255" stroke-width="1"/>
+    <text x="-12" y="248" fill="#c69255" font-family="'Inter', monospace" font-size="12" font-weight="700" text-anchor="end">720 мм</text>
+  </g>
+
+  <!-- Полная высота гарнитура 2600 мм -->
+  <g transform="translate(80, 0)">
+    <line x1="0" y1="580" x2="0" y2="125" stroke="#e2e3e7" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <line x1="-15" y1="125" x2="15" y2="125" stroke="#e2e3e7" stroke-width="1"/>
+    <text x="-12" y="350" fill="#ffffff" font-family="'Inter', monospace" font-size="13" font-weight="800" text-anchor="end">2600 мм</text>
+  </g>
+
+  <!-- ШТАМП ЧЕРТЕЖА В ПРАВОМ НИЖНЕМ УГЛУ -->
+  <g transform="translate(830, 580)">
+    <rect x="0" y="0" width="330" height="85" fill="#181b22" stroke="#3e4554" stroke-width="1.5"/>
+    <line x1="0" y1="28" x2="330" y2="28" stroke="#2e3340" stroke-width="1"/>
+    <line x1="0" y1="56" x2="330" y2="56" stroke="#2e3340" stroke-width="1"/>
+    <line x1="140" y1="0" x2="140" y2="85" stroke="#2e3340" stroke-width="1"/>
+    
+    <text x="10" y="19" fill="#8c92a4" font-family="'Inter', sans-serif" font-size="10">ПРЕДПРИЯТИЕ:</text>
+    <text x="150" y="19" fill="#ffffff" font-family="'Inter', sans-serif" font-size="11" font-weight="700">Фабрика LeMARI (Вологда)</text>
+
+    <text x="10" y="46" fill="#8c92a4" font-family="'Inter', sans-serif" font-size="10">СТАНДАРТ:</text>
+    <text x="150" y="46" fill="#c69255" font-family="'Inter', sans-serif" font-size="10" font-weight="700">NORDIC ERGONOMICS (Blum)</text>
+
+    <text x="10" y="73" fill="#8c92a4" font-family="'Inter', sans-serif" font-size="10">КОНТРОЛЬ:</text>
+    <text x="150" y="73" fill="#4caf50" font-family="'Inter', sans-serif" font-size="10" font-weight="700">✓ ПРОВЕРЕНО LEGO-АРХИТЕКТОРОМ</text>
+  </g>
+</svg>
