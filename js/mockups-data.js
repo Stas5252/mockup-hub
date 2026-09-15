@@ -6,6 +6,17 @@
 const MOCKUPS_DATA = [
   // ===================== МЕБЕЛЬ =====================
   {
+    id: "kitchen",
+    title: "KITCHEN STUDIO — Архитектурные кухни на заказ (Конструктор & Смета)",
+    category: "Мебель",
+    folder: "kitchen",
+    description: "Премиальный архитектурный сайт кухонь: интерактивный 7-шаговый конструктор с калькулятором сметы, Material Lab, modular gallery, before/after полировка и анимации деталей.",
+    tags: ["Кухни", "Мебель", "Конструктор", "Калькулятор", "Премиум"],
+    preview: "",
+    featured: true,
+    emoji: "📐"
+  },
+  {
     id: "lemari-kitchens",
     title: "LeMARI Вологда — Варианты кухонь (Фабрика с 2006 г.)",
     category: "Мебель",
