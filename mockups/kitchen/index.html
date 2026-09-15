@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" class="is-loading">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +9,8 @@
   <!-- Шрифты: Instrument Serif, Archivo, Space Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   
-  <!-- GSAP & ScrollTrigger -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
   <style>
     /* ============================================================
        ДИЗАЙН-СИСТЕМА: MILK & CHARCOAL ARCHITECTURAL EDITORIAL
@@ -28,466 +24,490 @@
       --clay: #d8b8a0;
       --line: rgba(25, 25, 22, 0.14);
       --line-light: rgba(241, 239, 233, 0.15);
-      --ease: cubic-bezier(0.76, 0, 0.24, 1);
       --font-display: 'Instrument Serif', Georgia, serif;
       --font-grotesk: 'Archivo', system-ui, -apple-system, sans-serif;
       --font-mono: 'Space Mono', ui-monospace, monospace;
-      --marg: 24px;
+      --ease: cubic-bezier(0.76, 0, 0.24, 1);
     }
-    @media (min-width: 1024px) { :root { --marg: 64px; } }
-    @media (min-width: 1920px) { :root { --marg: 96px; } }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; }
-    html, body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      background: var(--milk);
+      padding: 0;
+      border-radius: 0 !important;
+    }
+
+    html, body {
+      background-color: var(--milk);
       color: var(--charcoal);
       font-family: var(--font-grotesk);
       -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
       overflow-x: hidden;
+      width: 100%;
     }
-    html.is-loading, html.is-loading body { overflow: hidden; }
 
-    /* Сетка и базовые контейнеры */
+    /* Контейнер Shell */
     .shell {
       width: 100%;
-      max-width: 1680px;
+      max-width: 1560px;
       margin-inline: auto;
-      padding-inline: var(--marg);
+      padding-inline: 24px;
     }
+    @media (min-width: 1024px) {
+      .shell { padding-inline: 64px; }
+    }
+
+    /* Сетка 12 колонок с полными явными стилями */
     .grid12 {
       display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
+      grid-template-columns: repeat(12, 1fr);
       gap: 24px;
+      width: 100%;
     }
-    @media (max-width: 767px) {
-      .grid12 { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+    @media (max-width: 900px) {
+      .grid12 {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    .col-12 { grid-column: span 12; }
+    .col-8  { grid-column: span 8; }
+    .col-7  { grid-column: span 7; }
+    .col-6  { grid-column: span 6; }
+    .col-5  { grid-column: span 5; }
+    .col-4  { grid-column: span 4; }
+    .col-3  { grid-column: span 3; }
+
+    @media (max-width: 900px) {
+      .col-12, .col-8, .col-7, .col-6, .col-5, .col-4, .col-3 {
+        grid-column: span 1 !important;
+      }
     }
 
     /* Типографика */
     .display {
       font-family: var(--font-display);
       font-weight: 400;
-      line-height: 0.88;
+      line-height: 0.92;
       letter-spacing: -0.02em;
       text-transform: uppercase;
     }
-    .h1 { font-size: clamp(42px, 9.4vw, 150px); }
-    .h2 { font-size: clamp(34px, 6.6vw, 104px); }
-    .h3 { font-size: clamp(24px, 3vw, 46px); }
-    .lede { font-size: clamp(16px, 1.25vw, 21px); line-height: 1.45; max-width: 46ch; }
+    .h1 { font-size: clamp(38px, 8vw, 118px); }
+    .h2 { font-size: clamp(32px, 5.5vw, 84px); }
+    .h3 { font-size: clamp(24px, 3.2vw, 44px); }
+    .lede {
+      font-size: clamp(15px, 1.2vw, 19px);
+      line-height: 1.55;
+      max-width: 52ch;
+      color: inherit;
+    }
     .tech {
       font-family: var(--font-mono);
       font-size: 11px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
     }
-    .vtech { writing-mode: vertical-rl; text-orientation: mixed; }
-    .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
-
-    .rule { height: 1px; background: var(--line); width: 100%; }
-    .mask { display: block; overflow: hidden; }
-    .mask > * { display: block; will-change: transform; }
+    .num {
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+    }
+    .text-11 { font-size: 11px; }
+    .text-12 { font-size: 12px; }
+    .text-14 { font-size: 14px; }
+    .text-15 { font-size: 15px; }
+    .text-22 { font-size: 22px; }
+    .text-28 { font-size: 28px; }
+    .opacity-50 { opacity: 0.5; }
+    .opacity-60 { opacity: 0.6; }
+    .opacity-70 { opacity: 0.7; }
+    .opacity-80 { opacity: 0.8; }
 
     a { color: inherit; text-decoration: none; }
     button { font: inherit; background: none; border: none; cursor: pointer; }
-    :focus-visible { outline: 2px solid var(--brick); outline-offset: 4px; }
+    img { max-width: 100%; height: auto; display: block; }
 
-    /* Кастомный курсор (только десктоп) */
-    @media (hover: hover) and (pointer: fine) {
-      .cursor-hide, .cursor-hide * { cursor: none !important; }
-    }
-    #customCursor {
-      pointer-events: none;
-      position: fixed;
-      left: 0;
-      top: 0;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: width 0.3s ease, height 0.3s ease, opacity 0.2s ease;
-      display: none;
-    }
-    @media (hover: hover) and (pointer: fine) {
-      #customCursor { display: flex; align-items: center; justify-content: center; }
-    }
-    .cursor-box {
-      background: var(--charcoal);
-      color: var(--milk);
-      width: 8px;
-      height: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: width 0.4s var(--ease), height 0.4s var(--ease);
-    }
-    .cursor-box.has-label {
-      width: 78px;
-      height: 78px;
-    }
-    .cursor-label {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-    }
-    .cursor-box.has-label .cursor-label { opacity: 1; }
-
-    /* Preloader */
-    #preloader {
-      position: fixed;
-      inset: 0;
-      z-index: 10000;
-      background: var(--milk);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transition: opacity 0.6s var(--ease);
-    }
-    .preloader-sub {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      opacity: 0;
-      animation: fadeIn 0.8s 0.2s forwards;
-    }
-    .preloader-line {
-      width: 140px;
-      height: 1px;
-      background: var(--charcoal);
-      margin-top: 16px;
-      transform: scaleX(0);
-      transform-origin: left;
-      animation: expandLine 1.4s 0.3s var(--ease) forwards;
-    }
-    @keyframes fadeIn { to { opacity: 0.85; } }
-    @keyframes expandLine { to { transform: scaleX(1); } }
-
-    /* Хедер */
+    /* ============================================================
+       ХЕДЕР
+       ============================================================ */
     header {
       position: fixed;
       inset-x: 0;
       top: 0;
       z-index: 1000;
-      padding: 24px 0;
+      padding: 20px 0;
       color: var(--milk);
-      transition: padding 0.5s var(--ease), background-color 0.5s var(--ease), color 0.5s var(--ease);
+      transition: background-color 0.3s ease, padding 0.3s ease, color 0.3s ease;
     }
-    header.compact {
-      background: rgba(241, 239, 233, 0.96);
-      padding: 14px 0;
+    header.scrolled {
+      background: rgba(241, 239, 233, 0.97);
       color: var(--charcoal);
-      backdrop-filter: blur(8px);
+      padding: 14px 0;
       border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
     }
     .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
     }
     .logo {
       font-family: var(--font-display);
-      font-size: 20px;
-      line-height: 1;
-      letter-spacing: 0.04em;
+      font-size: 22px;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-    }
-    nav.main-nav {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-    @media (max-width: 1023px) { nav.main-nav { display: none; } }
-    .nav-item {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      opacity: 0.8;
-      transition: opacity 0.2s;
-    }
-    .nav-item:hover { opacity: 1; }
-    .header-btn {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 12px 20px;
-      border: 1px solid rgba(241, 239, 233, 0.4);
-      color: inherit;
-      transition: all 0.3s;
       white-space: nowrap;
     }
-    header.compact .header-btn {
-      border-color: rgba(25, 25, 22, 0.3);
+    .logo b {
+      font-family: var(--font-grotesk);
+      font-weight: 700;
+      font-size: 15px;
+      margin-left: 2px;
+      opacity: 0.75;
     }
-    .header-btn:hover {
-      background: var(--milk);
-      color: var(--charcoal);
-      border-color: var(--milk);
+    nav.nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
     }
-    header.compact .header-btn:hover {
-      background: var(--charcoal);
-      color: var(--milk);
+    @media (max-width: 1024px) {
+      nav.nav-links { display: none; }
+    }
+    .nav-link {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+    .nav-link:hover { opacity: 1; }
+    .header-cta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 10px 18px;
+      border: 1px solid rgba(241, 239, 233, 0.4);
+      color: inherit;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    header.scrolled .header-cta {
       border-color: var(--charcoal);
     }
-
-    /* Hero */
-    .hero {
-      position: relative;
-      height: 100svh;
-      overflow: hidden;
+    .header-cta:hover {
+      background: var(--milk);
+      color: var(--charcoal);
+    }
+    header.scrolled .header-cta:hover {
       background: var(--charcoal);
       color: var(--milk);
+    }
+
+    /* ============================================================
+       HERO СЕКЦИЯ
+       ============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
+      padding-top: 120px;
+      padding-bottom: 56px;
+      background-color: var(--charcoal);
+      color: var(--milk);
+      overflow: hidden;
     }
-    .hero-media {
+    .hero-bg {
       position: absolute;
-      inset: -4%;
+      inset: 0;
       background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=85');
       background-size: cover;
       background-position: center;
-      will-change: transform;
+      opacity: 0.88;
     }
-    .hero-gradient {
+    .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(190deg, rgba(25,25,22,0.48) 0%, rgba(25,25,22,0.12) 42%, rgba(25,25,22,0.65) 100%);
+      background: linear-gradient(180deg, rgba(25,25,22,0.4) 0%, rgba(25,25,22,0.7) 100%);
     }
     .hero-content {
       position: relative;
       z-index: 2;
-      padding-bottom: 56px;
     }
-    .hero-meta-tag {
-      position: absolute;
-      left: 0;
-      top: 26vh;
+    .hero-tagline {
       font-family: var(--font-mono);
       font-size: 11px;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      opacity: 0.7;
-      writing-mode: vertical-rl;
+      color: var(--clay);
+      margin-bottom: 16px;
+      display: block;
     }
-    @media (max-width: 1023px) { .hero-meta-tag { display: none; } }
     .hero-title {
-      max-width: 16ch;
+      max-width: 15ch;
       margin-bottom: 24px;
+    }
+    .hero-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      border-top: 1px solid rgba(241, 239, 233, 0.2);
+      padding-top: 24px;
     }
     .hero-actions {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
-    /* Кнопки в техническом стиле */
+    /* Кнопки */
     .btn-solid-light {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      padding: 14px 28px;
+      gap: 10px;
       background: var(--milk);
       color: var(--charcoal);
       font-family: var(--font-mono);
       font-size: 11px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      transition: background-color 0.4s;
+      padding: 14px 26px;
+      font-weight: 700;
+      transition: background 0.3s;
     }
     .btn-solid-light:hover { background: var(--clay); }
+    .btn-outline-light {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(241, 239, 233, 0.4);
+      color: var(--milk);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 14px 24px;
+      transition: border-color 0.2s;
+    }
+    .btn-outline-light:hover { border-color: var(--milk); }
+
     .btn-solid-dark {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      padding: 14px 28px;
+      gap: 10px;
       background: var(--charcoal);
       color: var(--milk);
       font-family: var(--font-mono);
       font-size: 11px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      transition: background-color 0.4s;
+      padding: 14px 26px;
+      font-weight: 700;
+      transition: background 0.3s;
     }
     .btn-solid-dark:hover { background: var(--brick); }
-    .btn-underline {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      border-bottom: 1px solid rgba(241, 239, 233, 0.4);
-      padding-bottom: 4px;
-      transition: border-color 0.2s;
-    }
-    .btn-underline:hover { border-color: var(--milk); }
-    .btn-underline-dark {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      border-bottom: 1px solid rgba(25, 25, 22, 0.4);
-      padding-bottom: 4px;
-      transition: border-color 0.2s;
-    }
-    .btn-underline-dark:hover { border-color: var(--charcoal); }
 
-    /* Секция: ВСЁ РЕШАЮТ ДЕТАЛИ */
+    /* ============================================================
+       СЕКЦИЯ: ДЕТАЛИ
+       ============================================================ */
     .details-section {
+      padding: 80px 0;
       background: var(--milk);
-      padding: 120px 0;
-      position: relative;
     }
-    .details-box {
-      position: relative;
-      height: 70vh;
-      min-height: 520px;
-      background: url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=1800&q=85') center/cover;
-      overflow: hidden;
+    .details-header {
+      margin-bottom: 40px;
     }
-    .details-title-wrap {
-      position: absolute;
-      top: 40px;
-      left: var(--marg);
-      z-index: 5;
-      color: var(--milk);
-      mix-blend-difference: difference;
+    .details-card-wrap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
-    .callout {
-      position: absolute;
-      background: rgba(25, 25, 22, 0.88);
-      color: var(--milk);
-      border: 1px solid rgba(241, 239, 233, 0.2);
-      padding: 16px 20px;
-      backdrop-filter: blur(8px);
+    @media (max-width: 800px) {
+      .details-card-wrap { grid-template-columns: 1fr; }
     }
-    .callout-1 { top: 38%; left: 8%; }
-    .callout-2 { top: 28%; right: 8%; }
-    .callout-3 { bottom: 12%; left: 24%; }
-    @media (max-width: 768px) {
-      .callout { position: relative; margin: 10px; left: 0 !important; top: 0 !important; right: 0 !important; bottom: 0 !important; }
-      .details-box { height: auto; padding: 20px; }
-    }
-
-    /* Секция: ДВА ПУТИ ПОКУПКИ */
-    .two-paths {
-      display: flex;
-      min-height: 80vh;
-    }
-    @media (max-width: 1023px) { .two-paths { flex-direction: column; } }
-    .path-card {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
-      min-height: 480px;
+    .detail-card {
+      border: 1px solid var(--line);
+      background: #eae7df;
+      padding: 32px 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 48px var(--marg);
-      color: var(--milk);
-      transition: flex-grow 0.7s var(--ease);
+      min-height: 200px;
+      transition: border-color 0.2s, background-color 0.2s;
     }
-    .path-card:hover { flex-grow: 1.4; }
-    .path-bg {
+    .detail-card:hover {
+      border-color: var(--charcoal);
+      background: #fff;
+    }
+    .detail-val {
+      font-family: var(--font-display);
+      font-size: 38px;
+      line-height: 1;
+      margin-bottom: 12px;
+      color: var(--brick);
+    }
+    .detail-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .detail-desc {
+      font-size: 14px;
+      opacity: 0.75;
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       СЕКЦИЯ: ДВА ПУТИ
+       ============================================================ */
+    .paths-section {
+      background: var(--charcoal);
+      color: var(--milk);
+      padding: 80px 0;
+    }
+    .paths-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+    @media (max-width: 800px) {
+      .paths-grid { grid-template-columns: 1fr; }
+    }
+    .path-card {
+      position: relative;
+      background: #232320;
+      border: 1px solid rgba(241, 239, 233, 0.15);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 380px;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .path-card:hover {
+      border-color: rgba(241, 239, 233, 0.6);
+    }
+    .path-card-bg {
       position: absolute;
       inset: 0;
       background-size: cover;
       background-position: center;
-      transition: transform 1s var(--ease);
-      z-index: 0;
+      opacity: 0.22;
+      transition: transform 0.8s var(--ease), opacity 0.3s;
     }
-    .path-card:hover .path-bg { transform: scale(1.05); }
-    .path-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(25, 25, 22, 0.6);
-      transition: background-color 0.5s ease;
-      z-index: 1;
+    .path-card:hover .path-card-bg {
+      transform: scale(1.04);
+      opacity: 0.32;
     }
-    .path-card:hover .path-overlay { background: rgba(25, 25, 22, 0.45); }
-    .path-content { position: relative; z-index: 2; }
-
-    /* Секция: ИНДИВИДУАЛЬНЫЙ ПРОЕКТ (7 ЭТАПОВ) */
-    .individual-section {
-      background: var(--milk);
-      padding: 120px 0;
+    .path-card-content {
       position: relative;
+      z-index: 2;
+    }
+
+    /* ============================================================
+       СЕКЦИЯ: ИНДИВИДУАЛЬНЫЙ ПРОЕКТ (BLUEPRINT & СТАДИИ)
+       ============================================================ */
+    .blueprint-section {
+      padding: 80px 0;
+      background: var(--milk);
+      border-top: 1px solid var(--line);
     }
     .blueprint-box {
       border: 1px solid var(--line);
       background: #eae7df;
-      padding: 48px;
-      position: relative;
-      overflow: hidden;
-      margin-top: 48px;
+      padding: 32px 24px;
+      margin-top: 36px;
     }
     .blueprint-svg {
       width: 100%;
       height: auto;
-      max-height: 420px;
+      max-height: 360px;
+      display: block;
     }
-    .stages-list {
-      list-style: none;
+    .stages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
       margin-top: 32px;
     }
     .stage-item {
       display: flex;
       align-items: baseline;
       gap: 12px;
-      padding: 8px 0;
-      border-bottom: 1px solid var(--line);
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid var(--line);
     }
 
-    /* Секция: МОДУЛЬНЫЕ РЕШЕНИЯ (HORIZONTAL GALLERY) */
+    /* ============================================================
+       СЕКЦИЯ: МОДУЛЬНЫЕ РЕШЕНИЯ
+       ============================================================ */
     .modular-section {
+      padding: 80px 0;
       background: var(--charcoal);
       color: var(--milk);
-      padding: 100px 0;
     }
     .modular-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
-      margin-top: 48px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
     }
     .modular-card {
       border: 1px solid rgba(241, 239, 233, 0.15);
-      transition: border-color 0.3s, transform 0.3s;
+      background: #20201d;
+      transition: transform 0.25s, border-color 0.25s;
     }
     .modular-card:hover {
-      border-color: rgba(241, 239, 233, 0.5);
       transform: translateY(-4px);
+      border-color: rgba(241, 239, 233, 0.5);
     }
     .modular-img {
       width: 100%;
       aspect-ratio: 16 / 10;
       object-fit: cover;
-      background: #262622;
-      display: block;
+      background: #151512;
     }
-    .modular-info {
+    .modular-body {
       padding: 24px;
     }
+    .modular-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(241, 239, 233, 0.12);
+      padding-top: 14px;
+      margin-top: 16px;
+    }
 
-    /* Секция: ПОЛИРОВКА (BEFORE / AFTER SLIDER) */
+    /* ============================================================
+       СЕКЦИЯ: ПОЛИРОВКА (BEFORE / AFTER)
+       ============================================================ */
     .craft-section {
-      background: var(--charcoal);
+      padding: 80px 0;
+      background: #232320;
       color: var(--milk);
-      padding: 100px 0;
-      position: relative;
     }
     .compare-container {
       position: relative;
       width: 100%;
-      height: 60vh;
-      min-height: 440px;
+      height: 50vh;
+      min-height: 380px;
       overflow: hidden;
-      margin-top: 48px;
+      margin-top: 36px;
       border: 1px solid rgba(241, 239, 233, 0.2);
     }
     .compare-img {
@@ -515,114 +535,125 @@
       z-index: 10;
     }
 
-    /* Секция: MATERIAL LAB */
+    /* ============================================================
+       СЕКЦИЯ: MATERIAL LAB
+       ============================================================ */
     .materials-section {
+      padding: 80px 0;
       background: #e7e2d7;
-      padding: 100px 0;
     }
     .materials-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1px;
-      background: var(--line);
-      margin-top: 48px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 40px;
     }
     .material-item {
       background: var(--milk);
       position: relative;
       aspect-ratio: 4 / 5;
       overflow: hidden;
-      cursor: pointer;
+      border: 1px solid var(--line);
     }
     .material-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.8s var(--ease);
+      transition: transform 0.6s var(--ease);
     }
-    .material-item:hover .material-img { transform: scale(1.1); }
-    .material-badge {
+    .material-item:hover .material-img { transform: scale(1.08); }
+    .material-caption {
       position: absolute;
       bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 20px;
-      background: linear-gradient(to top, rgba(25, 25, 22, 0.8), transparent);
+      inset-x: 0;
+      padding: 20px 16px;
+      background: linear-gradient(to top, rgba(25, 25, 22, 0.85), transparent);
       color: var(--milk);
     }
 
-    /* Секция: ПРОЦЕСС */
+    /* ============================================================
+       СЕКЦИЯ: ПРОЦЕСС
+       ============================================================ */
     .process-section {
+      padding: 80px 0;
       background: var(--milk);
-      padding: 100px 0;
     }
     .process-step {
       display: grid;
-      grid-template-columns: 80px 1.5fr 2fr;
-      padding: 32px 0;
+      grid-template-columns: 80px 1fr 1.5fr;
+      gap: 20px;
+      padding: 24px 0;
       border-bottom: 1px solid var(--line);
       align-items: baseline;
     }
     @media (max-width: 768px) {
-      .process-step { grid-template-columns: 1fr; gap: 8px; }
+      .process-step {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
     }
 
     /* ============================================================
-       ИНТЕРАКТИВНЫЙ 7-ШАГОВЫЙ КОНСТРУКТОР И КАЛЬКУЛЯТОР
+       ИНТЕРАКТИВНЫЙ 7-ШАГОВЫЙ КОНСТРУКТОР
        ============================================================ */
     .constructor-section {
+      padding: 80px 0;
       background: #eae6dd;
-      padding: 100px 0;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
     .constructor-nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 8px;
       border-bottom: 1px solid var(--line);
-      padding-bottom: 20px;
-      margin-bottom: 40px;
+      padding-bottom: 16px;
+      margin-bottom: 32px;
     }
     .step-btn {
       font-family: var(--font-mono);
       font-size: 11px;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       padding: 8px 14px;
       border: 1px solid transparent;
       color: var(--charcoal);
-      opacity: 0.45;
+      opacity: 0.5;
+      background: transparent;
       transition: all 0.2s;
     }
     .step-btn.active {
       opacity: 1;
       border-color: var(--charcoal);
       background: var(--milk);
+      font-weight: 700;
     }
-    .step-btn:hover { opacity: 0.85; }
+    .step-btn:hover { opacity: 0.9; }
 
-    .constructor-body {
+    .constructor-layout {
       display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 48px;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 36px;
     }
-    @media (max-width: 1023px) {
-      .constructor-body { grid-template-columns: 1fr; }
+    @media (max-width: 900px) {
+      .constructor-layout { grid-template-columns: 1fr; }
     }
 
-    .shape-grid, .mood-grid {
+    .options-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 12px;
     }
+    @media (max-width: 600px) {
+      .options-grid { grid-template-columns: 1fr; }
+    }
     .option-card {
       background: var(--milk);
       border: 1px solid var(--line);
-      padding: 20px;
-      text-align: left;
+      padding: 16px;
       cursor: pointer;
-      transition: all 0.2s;
+      text-align: left;
+      transition: border-color 0.2s, background 0.2s;
     }
     .option-card:hover { border-color: var(--charcoal); }
     .option-card.selected {
@@ -631,7 +662,7 @@
     }
 
     .range-group {
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
     .range-label {
       display: flex;
@@ -648,240 +679,228 @@
       cursor: pointer;
     }
 
-    /* Sticky сметный блок справа */
-    .estimator-sticky {
+    .sticky-card {
       position: sticky;
-      top: 100px;
+      top: 90px;
       background: var(--milk);
       border: 1px solid var(--line);
-      padding: 32px;
+      padding: 24px;
     }
-    .price-value {
+    .price-headline {
       font-family: var(--font-mono);
-      font-size: clamp(28px, 3.2vw, 48px);
+      font-size: clamp(24px, 3vw, 42px);
       font-weight: 700;
       color: var(--charcoal);
       margin: 8px 0;
     }
 
-    /* Футер */
+    /* ============================================================
+       ФУТЕР
+       ============================================================ */
     footer {
       background: var(--charcoal);
       color: var(--milk);
-      padding: 80px 0 36px;
-      border-top: 1px solid rgba(241, 239, 233, 0.15);
+      padding: 64px 0 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 32px;
+    }
+    @media (max-width: 800px) {
+      .footer-grid { grid-template-columns: 1fr; }
     }
     .footer-bottom {
       border-top: 1px solid rgba(241, 239, 233, 0.12);
       padding-top: 24px;
-      margin-top: 60px;
+      margin-top: 48px;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
+      gap: 12px;
       font-family: var(--font-mono);
       font-size: 11px;
       opacity: 0.6;
     }
   </style>
 </head>
-<body class="cursor-hide">
-
-  <!-- Кастомный курсор -->
-  <div id="customCursor">
-    <div class="cursor-box" id="cursorBox">
-      <span class="cursor-label" id="cursorLabel"></span>
-    </div>
-  </div>
-
-  <!-- Preloader «Собираем пространство…» -->
-  <div id="preloader">
-    <span class="preloader-sub">Собираем пространство…</span>
-    <div class="preloader-line"></div>
-  </div>
+<body>
 
   <!-- Хедер -->
   <header id="mainHeader">
     <div class="shell header-inner">
       <a href="#" class="logo">KITCHEN<b>STUDIO</b></a>
       
-      <nav class="main-nav">
-        <a href="#individual" class="nav-item">Индивидуальные кухни</a>
-        <a href="#modular" class="nav-item">Модульные решения</a>
-        <a href="#materials" class="nav-item">Материалы</a>
-        <a href="#projects" class="nav-item">Проекты</a>
-        <a href="#process" class="nav-item">Процесс</a>
+      <nav class="nav-links">
+        <a href="#details" class="nav-link">Детали</a>
+        <a href="#paths" class="nav-link">Два пути</a>
+        <a href="#individual" class="nav-link">Индивидуальные</a>
+        <a href="#modular" class="nav-link">Модульные</a>
+        <a href="#materials" class="nav-link">Материалы</a>
+        <a href="#process" class="nav-link">Процесс</a>
       </nav>
 
-      <div style="display: flex; align-items: center; gap: 16px;">
-        <a href="#constructor" class="header-btn">Рассчитать кухню ↗</a>
-      </div>
+      <a href="#constructor" class="header-cta">Рассчитать кухню ↗</a>
     </div>
   </header>
 
-  <!-- 10 · HERO СЕКЦИЯ -->
+  <!-- HERO СЕКЦИЯ -->
   <section class="hero" id="hero">
-    <div class="hero-media" id="heroMedia"></div>
-    <div class="hero-gradient"></div>
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
     
     <div class="shell hero-content">
-      <span class="hero-meta-tag">Индивидуальное производство кухонь</span>
+      <span class="hero-tagline">Индивидуальное производство кухонь</span>
 
       <h1 class="display h1 hero-title">
-        <span class="mask"><span class="hero-text-line">Кухня,</span></span>
-        <span class="mask"><span class="hero-text-line" style="padding-left: 8%;">собранная</span></span>
-        <span class="mask"><span class="hero-text-line">под вас.</span></span>
+        Кухня, собранная под вас.
       </h1>
 
-      <div class="grid12 items-end" style="margin-top: 24px;">
-        <p class="lede col-span-12 lg:col-span-6" style="opacity: 0.9;">
-          Проектируем и производим кухни под конкретное пространство, привычки и характер дома. От миллиметровых замеров до установки фурнитуры с пожизненной гарантией.
+      <div class="hero-footer">
+        <p class="lede" style="max-width: 50ch;">
+          Проектируем и производим кухни под конкретное пространство, привычки и характер дома. От лазерных замеров до установки фурнитуры с пожизненной гарантией.
         </p>
-        <div class="col-span-12 lg:col-span-6 flex justify-end hero-actions" style="margin-top: 16px;">
+
+        <div class="hero-actions">
           <a href="#constructor" class="btn-solid-light">Создать свою кухню ↗</a>
-          <a href="#projects" class="btn-underline" style="color: var(--milk);">Смотреть проекты</a>
+          <a href="#modular" class="btn-outline-light">Модульные системы</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 11 · «ВСЁ РЕШАЮТ ДЕТАЛИ» -->
+  <!-- СЕКЦИЯ: ВСЁ РЕШАЮТ ДЕТАЛИ -->
   <section class="details-section" id="details">
     <div class="shell">
-      <div class="details-box" data-cursor="Изучить">
-        <div class="details-title-wrap">
-          <h2 class="display h2">
-            <span>Всё решают</span><br>
-            <span style="padding-left: 14%;">детали.</span>
-          </h2>
+      <div class="details-header">
+        <span class="tech" style="color: var(--brick); margin-bottom: 8px; display: block;">Инженерная точность</span>
+        <h2 class="display h2">Всё решают детали.</h2>
+      </div>
+
+      <div class="details-card-wrap">
+        <div class="detail-card">
+          <div>
+            <div class="detail-val">2 мм</div>
+            <div class="detail-title">Точность изготовления</div>
+          </div>
+          <p class="detail-desc">ЧПУ-фрезеровка и раскрой на немецком оборудовании гарантируют идеальные технологические зазоры без перекосов.</p>
         </div>
 
-        <div class="callout callout-1">
-          <div class="display" style="font-size: 32px; line-height: 1;">2 мм</div>
-          <div class="tech" style="margin-top: 4px; opacity: 0.8;">Точность изготовления корпуса</div>
+        <div class="detail-card">
+          <div>
+            <div class="detail-val">Soft close</div>
+            <div class="detail-title">Плавное закрывание</div>
+          </div>
+          <p class="detail-desc">Фурнитура Blum с интегрированными демпферами обеспечивает бесшумное и мягкое движение тяжелых фасадов.</p>
         </div>
 
-        <div class="callout callout-2">
-          <div class="display" style="font-size: 32px; line-height: 1;">Soft close</div>
-          <div class="tech" style="margin-top: 4px; opacity: 0.8;">Бесшумное доведение фасадов</div>
-        </div>
-
-        <div class="callout callout-3">
-          <div class="display" style="font-size: 32px; line-height: 1;">Individual size</div>
-          <div class="tech" style="margin-top: 4px; opacity: 0.8;">Проектирование под геометрию стен</div>
+        <div class="detail-card">
+          <div>
+            <div class="detail-val">Individual</div>
+            <div class="detail-title">Индивидуальный размер</div>
+          </div>
+          <p class="detail-desc">Гарнитур проектируется под конкретную геометрию стен без видимых фальшпанелей и щелей под потолком.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 12 · ДВА ПУТИ ПОКУПКИ -->
-  <section class="two-paths" id="paths">
-    <!-- Путь 01: Индивидуальный проект -->
-    <a href="#individual" class="path-card" data-cursor="Открыть">
-      <div class="path-bg" style="background-image: url('https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=1400&q=80');"></div>
-      <div class="path-overlay"></div>
-      <div class="path-content">
-        <span class="num text-[12px] tracking-[0.14em] opacity-80">01</span>
+  <!-- СЕКЦИЯ: ДВА ПУТИ ПОКУПКИ -->
+  <section class="paths-section" id="paths">
+    <div class="shell">
+      <div style="border-bottom: 1px solid rgba(241, 239, 233, 0.15); padding-bottom: 20px;">
+        <span class="tech" style="color: var(--clay); display: block; margin-bottom: 6px;">Форматы сотрудничества</span>
+        <h2 class="display h2">Два пути к вашей кухне</h2>
       </div>
-      <div class="path-content">
-        <h2 class="display text-[clamp(34px,5vw,80px)]">Индивидуальный<br>проект</h2>
-        <p style="margin-top: 14px; max-width: 40ch; font-size: 15px; opacity: 0.85;">
-          Создаём кухню с нуля под архитектуру помещения, расположение коммуникаций и привычки вашей семьи.
-        </p>
-        <span class="tech" style="display: inline-block; margin-top: 20px; border-bottom: 1px solid rgba(241,239,233,0.5); padding-bottom: 2px;">
-          Начать проект →
-        </span>
-      </div>
-    </a>
 
-    <!-- Путь 02: Модульные решения -->
-    <a href="#modular" class="path-card" data-cursor="Открыть">
-      <div class="path-bg" style="background-image: url('https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=1400&q=80');"></div>
-      <div class="path-overlay"></div>
-      <div class="path-content">
-        <span class="num text-[12px] tracking-[0.14em] opacity-80">02</span>
+      <div class="paths-grid">
+        <!-- 01 Индивидуальный проект -->
+        <div class="path-card">
+          <div class="path-card-bg" style="background-image: url('https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=1200&q=80');"></div>
+          <div class="path-card-content">
+            <span class="num text-12 opacity-70">01 / УСЛУГА</span>
+            <h3 class="display" style="font-size: 38px; margin: 12px 0 8px;">Индивидуальный проект</h3>
+            <p style="font-size: 15px; opacity: 0.85; max-width: 44ch;">
+              Создаем кухню с нуля под архитектуру помещения, расположение коммуникаций, ниш и высоту потолков.
+            </p>
+          </div>
+          <div class="path-card-content" style="margin-top: 24px;">
+            <a href="#constructor" class="btn-solid-light">Начать индивидуальный проект →</a>
+          </div>
+        </div>
+
+        <!-- 02 Модульные решения -->
+        <div class="path-card">
+          <div class="path-card-bg" style="background-image: url('https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=1200&q=80');"></div>
+          <div class="path-card-content">
+            <span class="num text-12 opacity-70">02 / СИСТЕМА</span>
+            <h3 class="display" style="font-size: 38px; margin: 12px 0 8px;">Модульные решения</h3>
+            <p style="font-size: 15px; opacity: 0.85; max-width: 44ch;">
+              Готовые скандинавские архитектурные системы, которые быстро адаптируются под габариты вашей комнаты.
+            </p>
+          </div>
+          <div class="path-card-content" style="margin-top: 24px;">
+            <a href="#modular" class="btn-outline-light">Выбрать модуль из каталога →</a>
+          </div>
+        </div>
       </div>
-      <div class="path-content">
-        <h2 class="display text-[clamp(34px,5vw,80px)]">Модульные<br>решения</h2>
-        <p style="margin-top: 14px; max-width: 40ch; font-size: 15px; opacity: 0.85;">
-          Готовые скандинавские архитектурные системы, которые быстро адаптируются под габариты вашей комнаты.
-        </p>
-        <span class="tech" style="display: inline-block; margin-top: 20px; border-bottom: 1px solid rgba(241,239,233,0.5); padding-bottom: 2px;">
-          Выбрать решение →
-        </span>
-      </div>
-    </a>
+    </div>
   </section>
 
-  <!-- 13 · ИНДИВИДУАЛЬНЫЙ ПРОЕКТ: 7 ЭТАПОВ СБОРКИ -->
-  <section class="individual-section" id="individual">
+  <!-- СЕКЦИЯ: ИНДИВИДУАЛЬНЫЙ ПРОЕКТ (7 ЭТАПОВ) -->
+  <section class="blueprint-section" id="individual">
     <div class="shell">
-      <div class="grid12 items-baseline">
-        <div class="col-span-12 lg:col-span-7">
-          <span class="tech" style="color: var(--brick); margin-bottom: 12px; display: block;">Архитектурный стандарт</span>
-          <h2 class="display h2">Ваше пространство.<br><span style="padding-left: 10%; color: var(--brick);">Наша система.</span></h2>
-        </div>
-        <div class="col-span-12 lg:col-span-5">
-          <p class="lede">Мы не подгоняем помещение под готовую стандартную коробку. Мы проектируем гарнитур под конкретные стены, ниши и сценарии жизни.</p>
-        </div>
-      </div>
+      <span class="tech" style="color: var(--brick); margin-bottom: 8px; display: block;">Архитектурный стандарт</span>
+      <h2 class="display h2">Ваше пространство. Наша система.</h2>
+      <p class="lede" style="margin-top: 12px;">Мы не подгоняем помещение под готовую коробку. Мы проектируем гарнитур под конкретные стены, ниши и сценарии жизни.</p>
 
-      <!-- Чертёжный Blueprint слой -->
       <div class="blueprint-box">
-        <svg class="blueprint-svg" viewBox="0 0 1200 450" fill="none">
-          <!-- Сетка и габаритные линии -->
-          <line x1="80" y1="380" x2="1120" y2="380" stroke="#9A3028" stroke-width="1.5" stroke-dasharray="8 4" />
-          <line x1="80" y1="80" x2="80" y2="380" stroke="#9A3028" stroke-width="1.5" stroke-dasharray="8 4" />
-          <text x="560" y="405" fill="#9A3028" font-family="monospace" font-size="12">L = 4200 мм</text>
-          <text x="20" y="240" fill="#9A3028" font-family="monospace" font-size="12" transform="rotate(-90 20,240)">H = 2700 мм</text>
+        <svg class="blueprint-svg" viewBox="0 0 1100 380" fill="none">
+          <line x1="60" y1="330" x2="1040" y2="330" stroke="#9A3028" stroke-width="1.5" stroke-dasharray="8 4" />
+          <line x1="60" y1="50" x2="60" y2="330" stroke="#9A3028" stroke-width="1.5" stroke-dasharray="8 4" />
+          <text x="520" y="355" fill="#9A3028" font-family="monospace" font-size="12">L = 4200 мм</text>
+          <text x="25" y="200" fill="#9A3028" font-family="monospace" font-size="12" transform="rotate(-90 25,200)">H = 2700 мм</text>
 
-          <!-- Корпуса шкафов -->
-          <rect x="120" y="140" width="180" height="240" stroke="#191916" stroke-width="2" fill="rgba(25,25,22,0.03)" />
-          <rect x="300" y="140" width="180" height="240" stroke="#191916" stroke-width="2" fill="rgba(25,25,22,0.03)" />
-          <rect x="480" y="140" width="240" height="240" stroke="#191916" stroke-width="2" fill="rgba(25,25,22,0.03)" />
-          <rect x="720" y="140" width="180" height="240" stroke="#191916" stroke-width="2" fill="rgba(25,25,22,0.03)" />
-          <rect x="900" y="140" width="180" height="240" stroke="#191916" stroke-width="2" fill="rgba(25,25,22,0.03)" />
+          <rect x="100" y="120" width="160" height="210" stroke="#191916" stroke-width="2" fill="rgba(25,25,22,0.03)" />
+          <rect x="260" y="120" width="160" height="210" stroke="#191916" stroke-width="2" fill="rgba(25,25,22,0.03)" />
+          <rect x="420" y="120" width="220" height="210" stroke="#191916" stroke-width="2" fill="rgba(25,25,22,0.03)" />
+          <rect x="640" y="120" width="160" height="210" stroke="#191916" stroke-width="2" fill="rgba(25,25,22,0.03)" />
+          <rect x="800" y="120" width="160" height="210" stroke="#191916" stroke-width="2" fill="rgba(25,25,22,0.03)" />
 
-          <!-- Верхний антресольный ярус -->
-          <rect x="120" y="40" width="960" height="80" stroke="#191916" stroke-width="1.5" stroke-dasharray="4 4" />
-          <text x="540" y="86" fill="#191916" font-family="monospace" font-size="11" opacity="0.6">АНТРЕСОЛЬНЫЙ ЯРУС</text>
+          <rect x="100" y="40" width="860" height="70" stroke="#191916" stroke-width="1.5" stroke-dasharray="4 4" />
+          <text x="470" y="80" fill="#191916" font-family="monospace" font-size="11" opacity="0.6">АНТРЕСОЛЬНЫЙ ЯРУС В ПОТОЛОК</text>
         </svg>
 
-        <div class="grid12 items-center" style="margin-top: 32px;">
-          <div class="col-span-12 lg:col-span-7">
-            <ul class="stages-list">
-              <li class="stage-item"><span class="num">01</span><span class="tech">Пустое помещение и лазерный замер плоскостей</span></li>
-              <li class="stage-item"><span class="num">02</span><span class="tech">Архитектурная схема коммуникаций и розеток</span></li>
-              <li class="stage-item"><span class="num">03</span><span class="tech">3D-прототипирование эргономики и хранения</span></li>
-              <li class="stage-item"><span class="num">04</span><span class="tech">Подбор натурального шпона, камня и фактур</span></li>
-              <li class="stage-item"><span class="num">05</span><span class="tech">Фрезеровка и ЧПУ-раскрой на немецких станках</span></li>
-              <li class="stage-item"><span class="num">06</span><span class="tech">Контрольная тестовая сборка на производстве</span></li>
-              <li class="stage-item"><span class="num">07</span><span class="tech" style="color: var(--brick); font-weight: 700;">Финальный монтаж и передача ключей</span></li>
-            </ul>
-          </div>
-          <div class="col-span-12 lg:col-span-5 text-right">
-            <a href="#constructor" class="btn-solid-dark">Собрать свою конфигурацию →</a>
-          </div>
+        <div class="stages-grid">
+          <div class="stage-item"><span class="num">01</span><span class="tech">Лазерный 3D-замер геометрии</span></div>
+          <div class="stage-item"><span class="num">02</span><span class="tech">План розеток и вентиляции</span></div>
+          <div class="stage-item"><span class="num">03</span><span class="tech">Прототип зон хранения</span></div>
+          <div class="stage-item"><span class="num">04</span><span class="tech">Подбор шпона и камня</span></div>
+          <div class="stage-item"><span class="num">05</span><span class="tech">ЧПУ-раскрой на станках</span></div>
+          <div class="stage-item"><span class="num">06</span><span class="tech">Контрольная сборка в цеху</span></div>
+          <div class="stage-item" style="border-color: var(--brick); background: #fff;"><span class="num" style="color: var(--brick);">07</span><span class="tech" style="color: var(--brick); font-weight: 700;">Монтаж и передача ключей</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 14 · МОДУЛЬНЫЕ РЕШЕНИЯ -->
+  <!-- СЕКЦИЯ: МОДУЛЬНЫЕ РЕШЕНИЯ -->
   <section class="modular-section" id="modular">
     <div class="shell">
-      <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid rgba(241,239,233,0.15); padding-bottom: 24px;">
-        <h2 class="display text-[clamp(28px,3.6vw,64px)]">Модульные решения</h2>
-        <span class="tech" style="opacity: 0.6;">4 базовые системы · адаптация под размер</span>
+      <div style="border-bottom: 1px solid rgba(241, 239, 233, 0.15); padding-bottom: 20px;">
+        <span class="tech" style="opacity: 0.6; display: block; margin-bottom: 6px;">Готовые системы</span>
+        <h2 class="display h2">Модульные решения</h2>
       </div>
 
       <div class="modular-grid">
         <!-- 01 Linea -->
         <div class="modular-card">
-          <img src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=900&q=80" alt="Кухня Linea" class="modular-img">
-          <div class="modular-info">
-            <span class="num text-[11px] opacity-60">01 / СИСТЕМА</span>
-            <h3 class="display" style="font-size: 32px; margin: 6px 0;">Linea</h3>
-            <p class="tech" style="opacity: 0.7; margin-bottom: 18px;">3 конфигурации · 12 вариантов отделки</p>
-            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(241,239,233,0.15); padding-top: 14px;">
+          <img src="https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=800&q=80" alt="Кухня Linea" class="modular-img">
+          <div class="modular-body">
+            <span class="num text-11 opacity-60">01 / СИСТЕМА</span>
+            <h3 class="display" style="font-size: 30px; margin: 4px 0 8px;">Linea</h3>
+            <p class="tech" style="opacity: 0.7;">3 конфигурации · 12 вариантов отделки</p>
+            <div class="modular-footer">
               <span class="num">от 285 000 ₽</span>
               <a href="#constructor" class="tech" style="border-bottom: 1px solid rgba(241,239,233,0.4);">Настроить →</a>
             </div>
@@ -890,12 +909,12 @@
 
         <!-- 02 Forma -->
         <div class="modular-card">
-          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&q=80" alt="Кухня Forma" class="modular-img">
-          <div class="modular-info">
-            <span class="num text-[11px] opacity-60">02 / СИСТЕМА</span>
-            <h3 class="display" style="font-size: 32px; margin: 6px 0;">Forma</h3>
-            <p class="tech" style="opacity: 0.7; margin-bottom: 18px;">4 конфигурации · 9 вариантов отделки</p>
-            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(241,239,233,0.15); padding-top: 14px;">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Кухня Forma" class="modular-img">
+          <div class="modular-body">
+            <span class="num text-11 opacity-60">02 / СИСТЕМА</span>
+            <h3 class="display" style="font-size: 30px; margin: 4px 0 8px;">Forma</h3>
+            <p class="tech" style="opacity: 0.7;">4 конфигурации · 9 вариантов отделки</p>
+            <div class="modular-footer">
               <span class="num">от 340 000 ₽</span>
               <a href="#constructor" class="tech" style="border-bottom: 1px solid rgba(241,239,233,0.4);">Настроить →</a>
             </div>
@@ -904,12 +923,12 @@
 
         <!-- 03 Casa -->
         <div class="modular-card">
-          <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=900&q=80" alt="Кухня Casa" class="modular-img">
-          <div class="modular-info">
-            <span class="num text-[11px] opacity-60">03 / СИСТЕМА</span>
-            <h3 class="display" style="font-size: 32px; margin: 6px 0;">Casa</h3>
-            <p class="tech" style="opacity: 0.7; margin-bottom: 18px;">2 конфигурации · 14 вариантов отделки</p>
-            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(241,239,233,0.15); padding-top: 14px;">
+          <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=800&q=80" alt="Кухня Casa" class="modular-img">
+          <div class="modular-body">
+            <span class="num text-11 opacity-60">03 / СИСТЕМА</span>
+            <h3 class="display" style="font-size: 30px; margin: 4px 0 8px;">Casa</h3>
+            <p class="tech" style="opacity: 0.7;">2 конфигурации · 14 вариантов отделки</p>
+            <div class="modular-footer">
               <span class="num">от 420 000 ₽</span>
               <a href="#constructor" class="tech" style="border-bottom: 1px solid rgba(241,239,233,0.4);">Настроить →</a>
             </div>
@@ -918,12 +937,12 @@
 
         <!-- 04 Frame -->
         <div class="modular-card">
-          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=900&q=80" alt="Кухня Frame" class="modular-img">
-          <div class="modular-info">
-            <span class="num text-[11px] opacity-60">04 / СИСТЕМА</span>
-            <h3 class="display" style="font-size: 32px; margin: 6px 0;">Frame</h3>
-            <p class="tech" style="opacity: 0.7; margin-bottom: 18px;">3 конфигурации · 8 вариантов отделки</p>
-            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(241,239,233,0.15); padding-top: 14px;">
+          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80" alt="Кухня Frame" class="modular-img">
+          <div class="modular-body">
+            <span class="num text-11 opacity-60">04 / СИСТЕМА</span>
+            <h3 class="display" style="font-size: 30px; margin: 4px 0 8px;">Frame</h3>
+            <p class="tech" style="opacity: 0.7;">3 конфигурации · 8 вариантов отделки</p>
+            <div class="modular-footer">
               <span class="num">от 480 000 ₽</span>
               <a href="#constructor" class="tech" style="border-bottom: 1px solid rgba(241,239,233,0.4);">Настроить →</a>
             </div>
@@ -933,168 +952,120 @@
     </div>
   </section>
 
-  <!-- 15 · ФИРМЕННАЯ СЦЕНА: ПОЛИРОВКА -->
+  <!-- СЕКЦИЯ: ПОЛИРОВКА -->
   <section class="craft-section">
     <div class="shell">
-      <h2 class="display text-[clamp(28px,4.4vw,76px)] leading-tight">
-        <span>Мы замечаем то,</span><br>
-        <span>что обычно замечают</span><br>
-        <span style="padding-left: 12%; color: var(--clay);">только после установки.</span>
+      <span class="tech" style="color: var(--clay); margin-bottom: 8px; display: block;">Мастерство обработки</span>
+      <h2 class="display h2">
+        Мы замечаем то, что обычно замечают только после установки.
       </h2>
 
-      <!-- Интерактивный Before/After слайдер -->
       <div class="compare-container">
-        <!-- После (полированная поверхность) -->
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85" alt="Шлифованная столешница" class="compare-img">
+        <!-- Чистовая обработка -->
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=85" alt="Шлифованная поверхность" class="compare-img">
         
-        <!-- До (необработанный срез) -->
+        <!-- Черновой срез -->
         <div class="compare-overlay" id="compareOverlay">
-          <img src="https://images.unsplash.com/photo-1588854337236-6889d631faa8?w=1600&q=85" alt="Черновой срез" class="compare-img" style="width: 100vw; max-width: none;">
+          <img src="https://images.unsplash.com/photo-1588854337236-6889d631faa8?w=1600&q=85" alt="Черновой материал" class="compare-img" style="width: 100vw; max-width: none;">
         </div>
 
         <input type="range" min="0" max="100" value="50" class="compare-range" id="compareRange">
         
-        <div style="position: absolute; bottom: 20px; left: 24px; z-index: 5;" class="tech">
+        <div style="position: absolute; bottom: 16px; left: 20px; z-index: 5;" class="tech">
           ← Потяните ползунок для сравнения обработки
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 16 · ПРОЕКТЫ: EDITORIAL КОМПОЗИЦИЯ -->
-  <section class="details-section" id="projects" style="background: var(--milk);">
-    <div class="shell">
-      <h2 class="display h2">
-        <span>Не рендеры.</span><br>
-        <span style="padding-left: 16%;">Реальные дома.</span>
-      </h2>
-
-      <div class="grid12 items-start" style="margin-top: 56px;">
-        <div class="col-span-12 lg:col-span-7">
-          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80" alt="Проект ЖК Приморский" style="width: 100%; aspect-ratio: 4/3; object-fit: cover;">
-          <div style="display: flex; justify-content: space-between; margin-top: 14px;">
-            <div>
-              <h3 class="display text-[28px]">Кухня с островом / ЖК «Набережный»</h3>
-              <p class="tech opacity-70">28 м² · шпон мореного дуба, кварцевый агломерат</p>
-            </div>
-            <span class="num text-[14px]">2026</span>
-          </div>
-        </div>
-
-        <div class="col-span-12 lg:col-span-5" style="display: flex; flex-direction: column; gap: 32px;">
-          <div>
-            <img src="https://images.unsplash.com/photo-1588854337224-b1531e21b79f?w=800&q=80" alt="Макро стыка камня и шпона" style="width: 100%; aspect-ratio: 1; object-fit: cover;">
-            <p class="tech mt-2 opacity-60">Макро · прецизионный стык 45°</p>
-          </div>
-          <p class="lede">Каждый узел спроектирован так, чтобы фасад сохранял геометрию при перепадах влажности, а столешница выдерживала максимальные нагрузки.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 17 · MATERIAL LAB -->
+  <!-- СЕКЦИЯ: MATERIAL LAB -->
   <section class="materials-section" id="materials">
     <div class="shell">
-      <h2 class="display h2">
-        <span>Потрогать нельзя.</span><br>
-        <span style="padding-left: 10%;">Рассмотреть — да.</span>
-      </h2>
+      <span class="tech" style="color: var(--brick); margin-bottom: 8px; display: block;">Библиотека фактур</span>
+      <h2 class="display h2">Потрогать нельзя. Рассмотреть — да.</h2>
 
       <div class="materials-grid">
         <div class="material-item">
-          <img src="https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?w=800&q=80" alt="Дуб" class="material-img">
-          <div class="material-badge">
-            <span class="display text-[24px]">Дуб</span>
+          <img src="https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?w=700&q=80" alt="Дуб" class="material-img">
+          <div class="material-caption">
+            <span class="display text-22">Дуб</span>
             <div class="tech opacity-80">Натуральный шпон, брашировка</div>
           </div>
         </div>
         <div class="material-item">
-          <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=800&q=80" alt="Камень" class="material-img">
-          <div class="material-badge">
-            <span class="display text-[24px]">Камень</span>
+          <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=700&q=80" alt="Камень" class="material-img">
+          <div class="material-caption">
+            <span class="display text-22">Камень</span>
             <div class="tech opacity-80">Кварцевый агломерат / керамика</div>
           </div>
         </div>
         <div class="material-item">
-          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80" alt="Эмаль" class="material-img">
-          <div class="material-badge">
-            <span class="display text-[24px]">Эмаль</span>
-            <div class="tech opacity-80">Глубокая матовая, 7 слоев покрытия</div>
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=700&q=80" alt="Эмаль" class="material-img">
+          <div class="material-caption">
+            <span class="display text-22">Эмаль</span>
+            <div class="tech opacity-80">Глубокая матовая, 7 слоев</div>
           </div>
         </div>
         <div class="material-item">
-          <img src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?w=800&q=80" alt="Металл" class="material-img">
-          <div class="material-badge">
-            <span class="display text-[24px]">Металл</span>
-            <div class="tech opacity-80">Анодированный алюминиевый профиль</div>
-          </div>
-        </div>
-        <div class="material-item">
-          <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80" alt="Фурнитура" class="material-img">
-          <div class="material-badge">
-            <span class="display text-[24px]">Фурнитура</span>
-            <div class="tech opacity-80">Blum / Hettich с пожизненной гарантией</div>
-          </div>
-        </div>
-        <div class="material-item">
-          <img src="https://images.unsplash.com/photo-1588854337236-6889d631faa8?w=800&q=80" alt="Столешницы" class="material-img">
-          <div class="material-badge">
-            <span class="display text-[24px]">Столешницы</span>
-            <div class="tech opacity-80">Компакт-ламинат и спек</div>
+          <img src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?w=700&q=80" alt="Металл" class="material-img">
+          <div class="material-caption">
+            <span class="display text-22">Металл</span>
+            <div class="tech opacity-80">Анодированный профиль</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 18 · ПРОЦЕСС: КАК МЫ СОБИРАЕМ -->
+  <!-- СЕКЦИЯ: ПРОЦЕСС -->
   <section class="process-section" id="process">
     <div class="shell">
-      <h2 class="display h2" style="margin-bottom: 32px;">Как мы собираем</h2>
+      <span class="tech" style="color: var(--brick); margin-bottom: 8px; display: block;">Регламент работ</span>
+      <h2 class="display h2" style="margin-bottom: 24px;">Как мы собираем</h2>
       
       <div class="process-step">
-        <span class="num text-[13px] opacity-50">01</span>
-        <h3 class="display text-[32px]">Знакомимся</h3>
+        <span class="num text-14 opacity-50">01</span>
+        <h3 class="display text-28">Знакомимся</h3>
         <p class="lede">Вы рассказываете о помещении, привычках и задачах. Мы определяем бюджетные рамки и базовую архитектуру.</p>
       </div>
 
       <div class="process-step">
-        <span class="num text-[13px] opacity-50">02</span>
-        <h3 class="display text-[32px]">Замеряем</h3>
+        <span class="num text-14 opacity-50">02</span>
+        <h3 class="display text-28">Замеряем</h3>
         <p class="lede">Лазерное 3D-сканирование углов, вентиляции, фановых труб и уровня пола с точностью до 1 мм.</p>
       </div>
 
       <div class="process-step">
-        <span class="num text-[13px] opacity-50">03</span>
-        <h3 class="display text-[32px]">Проектируем</h3>
-        <p class="lede">Продумываем эргономичный треугольник готовки, удобные зоны хранения и интеграцию бытовой техники.</p>
+        <span class="num text-14 opacity-50">03</span>
+        <h3 class="display text-28">Проектируем</h3>
+        <p class="lede">Продумываем эргономичный треугольник готовки, удобные зоны хранения и интеграцию техники.</p>
       </div>
 
       <div class="process-step">
-        <span class="num text-[13px] opacity-50">04</span>
-        <h3 class="display text-[32px]">Производим</h3>
-        <p class="lede">Распил, кромление PUR-клеем и присадка на собственном высокоточном оборудовании за 25–35 рабочих дней.</p>
+        <span class="num text-14 opacity-50">04</span>
+        <h3 class="display text-28">Производим</h3>
+        <p class="lede">Распил, кромление PUR-клеем и присадка на высокоточном оборудовании за 25–35 рабочих дней.</p>
       </div>
 
       <div class="process-step">
-        <span class="num text-[13px] opacity-50">05</span>
-        <h3 class="display text-[32px]">Устанавливаем</h3>
+        <span class="num text-14 opacity-50">05</span>
+        <h3 class="display text-28">Устанавливаем</h3>
         <p class="lede">Штатная бригада монтажников собирает мебель за 1–2 дня с подключением техники и уборкой клинингом.</p>
       </div>
 
       <div class="process-step">
-        <span class="num text-[13px] opacity-50">06</span>
-        <h3 class="display text-[32px]" style="color: var(--brick);">Готово.</h3>
+        <span class="num text-14 opacity-50">06</span>
+        <h3 class="display text-28" style="color: var(--brick);">Готово.</h3>
         <p class="lede">Вы получаете гарантийный паспорт и кухню, которая будет служить десятилетиями.</p>
       </div>
     </div>
   </section>
 
-  <!-- 20 · ИНТЕРАКТИВНЫЙ 7-ШАГОВЫЙ КОНСТРУКТОР И КАЛЬКУЛЯТОР -->
+  <!-- ИНТЕРАКТИВНЫЙ 7-ШАГОВЫЙ КОНСТРУКТОР И КАЛЬКУЛЯТОР -->
   <section class="constructor-section" id="constructor">
     <div class="shell">
       <div style="margin-bottom: 24px;">
-        <span class="tech" style="color: var(--brick);">Интерактивный расчет</span>
+        <span class="tech" style="color: var(--brick); margin-bottom: 6px; display: block;">Интерактивный расчет</span>
         <h2 class="display h2">Конструктор кухни</h2>
       </div>
 
@@ -1109,35 +1080,35 @@
         <button class="step-btn" data-step="6">07 ВАША КУХНЯ</button>
       </nav>
 
-      <div class="constructor-body">
+      <div class="constructor-layout">
         <!-- Левая колонка с активным шагом -->
-        <div class="constructor-interactive">
+        <div>
           
           <!-- Шаг 0: Форма -->
           <div class="step-panel" id="panel-0">
-            <h3 class="display h3" style="margin-bottom: 20px;">Какая форма кухни вам подходит?</h3>
-            <div class="shape-grid">
+            <h3 class="display h3" style="margin-bottom: 16px;">Какая форма кухни вам подходит?</h3>
+            <div class="options-grid">
               <div class="option-card" data-key="shape" data-val="line">
-                <svg viewBox="0 0 96 40" style="width: 100%; height: 40px;" fill="none">
-                  <path d="M8 32 H88" stroke="#191916" stroke-width="4"/>
+                <svg viewBox="0 0 96 36" style="width: 100%; height: 36px;" fill="none">
+                  <path d="M8 28 H88" stroke="#191916" stroke-width="4"/>
                 </svg>
                 <div class="tech" style="margin-top: 8px;">Прямая (линейная)</div>
               </div>
               <div class="option-card selected" data-key="shape" data-val="l">
-                <svg viewBox="0 0 96 40" style="width: 100%; height: 40px;" fill="none">
-                  <path d="M8 32 H88 M88 32 V8" stroke="#191916" stroke-width="4"/>
+                <svg viewBox="0 0 96 36" style="width: 100%; height: 36px;" fill="none">
+                  <path d="M8 28 H88 M88 28 V8" stroke="#191916" stroke-width="4"/>
                 </svg>
                 <div class="tech" style="margin-top: 8px;">Г-образная (угловая)</div>
               </div>
               <div class="option-card" data-key="shape" data-val="u">
-                <svg viewBox="0 0 96 40" style="width: 100%; height: 40px;" fill="none">
-                  <path d="M8 8 V32 M8 32 H88 M88 32 V8" stroke="#191916" stroke-width="4"/>
+                <svg viewBox="0 0 96 36" style="width: 100%; height: 36px;" fill="none">
+                  <path d="M8 8 V28 M8 28 H88 M88 28 V8" stroke="#191916" stroke-width="4"/>
                 </svg>
                 <div class="tech" style="margin-top: 8px;">П-образная</div>
               </div>
               <div class="option-card" data-key="shape" data-val="island">
-                <svg viewBox="0 0 96 40" style="width: 100%; height: 40px;" fill="none">
-                  <path d="M8 32 H88 M28 14 H68" stroke="#191916" stroke-width="4"/>
+                <svg viewBox="0 0 96 36" style="width: 100%; height: 36px;" fill="none">
+                  <path d="M8 28 H88 M28 12 H68" stroke="#191916" stroke-width="4"/>
                 </svg>
                 <div class="tech" style="margin-top: 8px;">С отдельным островом</div>
               </div>
@@ -1146,7 +1117,7 @@
 
           <!-- Шаг 1: Размеры -->
           <div class="step-panel" id="panel-1" style="display: none;">
-            <h3 class="display h3" style="margin-bottom: 20px;">Размеры помещения</h3>
+            <h3 class="display h3" style="margin-bottom: 16px;">Размеры помещения</h3>
             <div class="range-group">
               <div class="range-label">
                 <span>Ширина стены (мм)</span>
@@ -1171,92 +1142,92 @@
               <input type="range" min="2400" max="3600" step="50" value="2700" class="range-slider" id="slider-height">
             </div>
 
-            <div class="tech" style="opacity: 0.7; margin-top: 16px;">
+            <div class="tech" style="opacity: 0.7;">
               Расчётная длина фронта: <span class="num" id="linearMetersBadge">4.8 п.м.</span>
             </div>
           </div>
 
           <!-- Шаг 2: Характер -->
           <div class="step-panel" id="panel-2" style="display: none;">
-            <h3 class="display h3" style="margin-bottom: 20px;">Характер интерьера</h3>
-            <div class="mood-grid">
+            <h3 class="display h3" style="margin-bottom: 16px;">Характер интерьера</h3>
+            <div class="options-grid">
               <div class="option-card selected" data-key="mood" data-val="natural">
                 <div class="display" style="font-size: 24px;">Natural</div>
-                <div class="tech opacity-70 mt-1">Тёплый дуб, тактильный камень</div>
+                <div class="tech" style="opacity: 0.7; margin-top: 4px;">Тёплый дуб, тактильный камень</div>
               </div>
               <div class="option-card" data-key="mood" data-val="minimal">
                 <div class="display" style="font-size: 24px;">Minimal</div>
-                <div class="tech opacity-70 mt-1">Чистые плоскости, матовая эмаль</div>
+                <div class="tech" style="opacity: 0.7; margin-top: 4px;">Чистые плоскости, матовая эмаль</div>
               </div>
               <div class="option-card" data-key="mood" data-val="warm">
                 <div class="display" style="font-size: 24px;">Warm</div>
-                <div class="tech opacity-70 mt-1">Глина, спелые терракотовые тона</div>
+                <div class="tech" style="opacity: 0.7; margin-top: 4px;">Глина, терракотовые тона</div>
               </div>
               <div class="option-card" data-key="mood" data-val="graphic">
                 <div class="display" style="font-size: 24px;">Graphic</div>
-                <div class="tech opacity-70 mt-1">Контрастный графит и алюминий</div>
+                <div class="tech" style="opacity: 0.7; margin-top: 4px;">Контрастный графит и алюминий</div>
               </div>
             </div>
           </div>
 
           <!-- Шаг 3: Фасады -->
           <div class="step-panel" id="panel-3" style="display: none;">
-            <h3 class="display h3" style="margin-bottom: 20px;">Материал фасадов</h3>
-            <div class="shape-grid">
+            <h3 class="display h3" style="margin-bottom: 16px;">Материал фасадов</h3>
+            <div class="options-grid">
               <div class="option-card selected" data-key="facade" data-val="oak">
                 <div class="tech" style="color: var(--brick);">Премиум</div>
                 <div class="display" style="font-size: 22px; margin: 4px 0;">Дуб (шпон)</div>
-                <div class="tech opacity-60">Коэффициент k: 1.24</div>
+                <div class="tech" style="opacity: 0.6;">Коэффициент k: 1.24</div>
               </div>
               <div class="option-card" data-key="facade" data-val="enamelMatte">
                 <div class="tech" style="color: var(--brick);">База</div>
                 <div class="display" style="font-size: 22px; margin: 4px 0;">Матовая эмаль</div>
-                <div class="tech opacity-60">Коэффициент k: 1.00</div>
+                <div class="tech" style="opacity: 0.6;">Коэффициент k: 1.00</div>
               </div>
               <div class="option-card" data-key="facade" data-val="veneerSmoked">
                 <div class="tech" style="color: var(--brick);">Авторский</div>
                 <div class="display" style="font-size: 22px; margin: 4px 0;">Шпон тонированный</div>
-                <div class="tech opacity-60">Коэффициент k: 1.38</div>
+                <div class="tech" style="opacity: 0.6;">Коэффициент k: 1.38</div>
               </div>
               <div class="option-card" data-key="facade" data-val="stoneLook">
                 <div class="tech" style="color: var(--brick);">Эксклюзив</div>
                 <div class="display" style="font-size: 22px; margin: 4px 0;">Камень / спек</div>
-                <div class="tech opacity-60">Коэффициент k: 1.52</div>
+                <div class="tech" style="opacity: 0.6;">Коэффициент k: 1.52</div>
               </div>
             </div>
           </div>
 
           <!-- Шаг 4: Столешница -->
           <div class="step-panel" id="panel-4" style="display: none;">
-            <h3 class="display h3" style="margin-bottom: 20px;">Столешница</h3>
+            <h3 class="display h3" style="margin-bottom: 16px;">Столешница</h3>
             <div style="display: flex; flex-direction: column; gap: 10px;">
               <div class="option-card selected" data-key="worktop" data-val="stone" style="display: flex; justify-content: space-between; align-items: center;">
                 <div>
-                  <div class="display" style="font-size: 24px;">Кварцевый камень</div>
-                  <div class="tech opacity-60">Антибактериальный, устойчив к ножам и пятнам</div>
+                  <div class="display" style="font-size: 22px;">Кварцевый камень</div>
+                  <div class="tech" style="opacity: 0.6;">Антибактериальный, устойчив к ножам</div>
                 </div>
-                <span class="num text-[15px]">38 000 ₽/м²</span>
+                <span class="num text-15">38 000 ₽/м²</span>
               </div>
               <div class="option-card" data-key="worktop" data-val="compact" style="display: flex; justify-content: space-between; align-items: center;">
                 <div>
-                  <div class="display" style="font-size: 24px;">Компакт-плита 12 мм</div>
-                  <div class="tech opacity-60">Сверхпрочный монолит с черным срезом</div>
+                  <div class="display" style="font-size: 22px;">Компакт-плита 12 мм</div>
+                  <div class="tech" style="opacity: 0.6;">Монолит со стильным черным срезом</div>
                 </div>
-                <span class="num text-[15px]">27 000 ₽/м²</span>
+                <span class="num text-15">27 000 ₽/м²</span>
               </div>
               <div class="option-card" data-key="worktop" data-val="wood" style="display: flex; justify-content: space-between; align-items: center;">
                 <div>
-                  <div class="display" style="font-size: 24px;">Массив дуба</div>
-                  <div class="tech opacity-60">Живая фактура, покрытие твердым маслом</div>
+                  <div class="display" style="font-size: 22px;">Массив дуба</div>
+                  <div class="tech" style="opacity: 0.6;">Живая фактура дерева под маслом</div>
                 </div>
-                <span class="num text-[15px]">21 000 ₽/м²</span>
+                <span class="num text-15">21 000 ₽/м²</span>
               </div>
             </div>
           </div>
 
           <!-- Шаг 5: Техника -->
           <div class="step-panel" id="panel-5" style="display: none;">
-            <h3 class="display h3" style="margin-bottom: 20px;">Встраиваемая техника</h3>
+            <h3 class="display h3" style="margin-bottom: 16px;">Встраиваемая техника</h3>
             <div style="display: flex; flex-direction: column; gap: 10px;">
               <label class="option-card" style="display: flex; justify-content: space-between; align-items: center;">
                 <span>Духовой шкаф (ниша + термоизоляция)</span>
@@ -1286,16 +1257,16 @@
             <h3 class="display h3" style="margin-bottom: 16px;">Ваша индивидуальная смета</h3>
             <div id="breakdownList" style="margin-bottom: 24px;"></div>
 
-            <form onsubmit="event.preventDefault(); alert('Спасибо! Заявка на проект принята в демо-режиме.');" style="background: var(--milk); padding: 24px; border: 1px solid var(--line);">
-              <div class="display text-[20px] mb-2">Зафиксировать расчет и забронировать замер</div>
+            <form onsubmit="event.preventDefault(); alert('Спасибо! Заявка на расчет принята в демо-режиме.');" style="background: var(--milk); padding: 24px; border: 1px solid var(--line);">
+              <div class="display" style="font-size: 20px; margin-bottom: 8px;">Зафиксировать расчет и забронировать замер</div>
               <input type="text" placeholder="Ваше имя" required style="width: 100%; height: 46px; padding: 0 14px; margin-bottom: 10px; border: 1px solid var(--line); background: #fff;">
               <input type="tel" placeholder="+7 (___) ___-__-__" required style="width: 100%; height: 46px; padding: 0 14px; margin-bottom: 14px; border: 1px solid var(--line); background: #fff;">
               <button type="submit" class="btn-solid-dark" style="width: 100%;">Получить детальный чертеж и 3D-эскиз</button>
             </form>
           </div>
 
-          <!-- Кнопки навигации -->
-          <div style="margin-top: 32px; display: flex; gap: 14px;">
+          <!-- Кнопки навигации по конструктору -->
+          <div style="margin-top: 28px; display: flex; gap: 14px;">
             <button id="prevBtn" class="tech" style="padding: 10px 18px; border: 1px solid var(--line); opacity: 0.5;" disabled>← Назад</button>
             <button id="nextBtn" class="tech" style="padding: 10px 18px; background: var(--charcoal); color: var(--milk);">Дальше →</button>
           </div>
@@ -1303,15 +1274,15 @@
 
         <!-- Правая колонка со sticky-сметой -->
         <div>
-          <div class="estimator-sticky">
+          <div class="sticky-card">
             <div style="width: 100%; aspect-ratio: 4/3; background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80'); background-size: cover; margin-bottom: 20px;"></div>
             
             <div class="tech" style="opacity: 0.6;">Ориентировочная стоимость</div>
-            <div class="price-value" id="priceTicker">от 420 000 ₽</div>
+            <div class="price-headline" id="priceTicker">от 420 000 ₽</div>
             <div class="tech" style="opacity: 0.6;" id="priceHighRange">до 490 000 ₽</div>
             
             <p class="tech" style="margin-top: 16px; opacity: 0.5; line-height: 1.6;">
-              Точная стоимость рассчитывается после замера помещения, согласования фурнитуры и 3D-моделирования.
+              Точная стоимость определяется после замера помещения, выбора фурнитуры и 3D-моделирования.
             </p>
           </div>
         </div>
@@ -1319,41 +1290,28 @@
     </div>
   </section>
 
-  <!-- 18.2 · ФИНАЛЬНЫЙ CTA -->
-  <section class="hero" style="min-height: 80vh; justify-content: center; background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1800&q=85'); background-size: cover; position: relative;">
-    <div style="position: absolute; inset: 0; background: rgba(25, 25, 22, 0.65);"></div>
-    <div class="shell" style="position: relative; z-index: 2;">
-      <h2 class="display h1" style="color: var(--milk);">
-        <span>Давайте</span><br>
-        <span style="padding-left: 10%; color: var(--clay);">соберём</span><br>
-        <span>вашу.</span>
-      </h2>
-      <a href="#constructor" class="btn-solid-light" style="margin-top: 28px;">Начать проект ↗</a>
-    </div>
-  </section>
-
-  <!-- Футер -->
+  <!-- ФУТЕР -->
   <footer>
     <div class="shell">
-      <div class="grid12">
-        <div class="col-span-12 lg:col-span-4">
-          <div class="display text-[26px]">KITCHEN STUDIO</div>
-          <p class="tech opacity-70" style="margin-top: 12px; max-width: 32ch; line-height: 1.6;">
+      <div class="footer-grid">
+        <div>
+          <div class="display" style="font-size: 26px;">KITCHEN STUDIO</div>
+          <p class="tech" style="opacity: 0.7; margin-top: 12px; max-width: 32ch; line-height: 1.6;">
             Архитектурное проектирование и собственное производство кухонь по индивидуальным размерам.
           </p>
         </div>
-        <div class="col-span-12 lg:col-span-4">
-          <div class="tech opacity-50 mb-2">Навигация</div>
-          <p><a href="#individual" class="tech opacity-80 hover:opacity-100">Индивидуальные кухни</a></p>
-          <p style="margin-top: 6px;"><a href="#modular" class="tech opacity-80 hover:opacity-100">Модульные решения</a></p>
-          <p style="margin-top: 6px;"><a href="#materials" class="tech opacity-80 hover:opacity-100">Material Lab</a></p>
-          <p style="margin-top: 6px;"><a href="#constructor" class="tech opacity-80 hover:opacity-100">Конструктор и расчет</a></p>
+        <div>
+          <div class="tech" style="opacity: 0.5; margin-bottom: 8px;">Навигация</div>
+          <p><a href="#details" class="tech" style="opacity: 0.8;">Детали проекта</a></p>
+          <p style="margin-top: 6px;"><a href="#modular" class="tech" style="opacity: 0.8;">Модульные решения</a></p>
+          <p style="margin-top: 6px;"><a href="#materials" class="tech" style="opacity: 0.8;">Материалы</a></p>
+          <p style="margin-top: 6px;"><a href="#constructor" class="tech" style="opacity: 0.8;">Конструктор кухни</a></p>
         </div>
-        <div class="col-span-12 lg:col-span-4">
-          <div class="tech opacity-50 mb-2">Контакты</div>
-          <div class="display text-[22px]">+7 (900) 000-00-00</div>
-          <div class="tech opacity-70 mt-1">Ежедневно 10:00 — 20:00</div>
-          <div class="tech opacity-70 mt-1">Telegram · WhatsApp</div>
+        <div>
+          <div class="tech" style="opacity: 0.5; margin-bottom: 8px;">Контакты</div>
+          <div class="display" style="font-size: 22px;">+7 (900) 000-00-00</div>
+          <div class="tech" style="opacity: 0.7; margin-top: 4px;">Ежедневно 10:00 — 20:00</div>
+          <div class="tech" style="opacity: 0.7; margin-top: 4px;">Telegram · WhatsApp</div>
         </div>
       </div>
 
@@ -1365,57 +1323,21 @@
   </footer>
 
   <!-- ============================================================
-       ИНТЕРАКТИВНЫЕ СКРИПТЫ: GSAP, КОНСТРУКТОР, КАЛЬКУЛЯТОР
+       СКРИПТЫ: КАЛЬКУЛЯТОР, СЛАЙДЕР, НАВИГАЦИЯ
        ============================================================ -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // 1. Прелоадер
-      setTimeout(() => {
-        const preloader = document.getElementById("preloader");
-        preloader.style.opacity = "0";
-        document.documentElement.classList.remove("is-loading");
-        setTimeout(() => preloader.style.display = "none", 600);
-      }, 900);
-
-      // 2. Хедер компактный при скролле
+      // 1. Компактный хедер при скролле
       const header = document.getElementById("mainHeader");
       window.addEventListener("scroll", () => {
         if (window.scrollY > 40) {
-          header.classList.add("compact");
+          header.classList.add("scrolled");
         } else {
-          header.classList.remove("compact");
+          header.classList.remove("scrolled");
         }
       });
 
-      // 3. Кастомный курсор
-      const cursor = document.getElementById("customCursor");
-      const cursorBox = document.getElementById("cursorBox");
-      const cursorLabel = document.getElementById("cursorLabel");
-      let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
-
-      window.addEventListener("pointermove", (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        const target = e.target.closest("[data-cursor]");
-        if (target) {
-          const label = target.getAttribute("data-cursor");
-          cursorBox.classList.add("has-label");
-          cursorLabel.textContent = label;
-        } else {
-          cursorBox.classList.remove("has-label");
-          cursorLabel.textContent = "";
-        }
-      });
-
-      function renderCursor() {
-        curX += (mouseX - curX) * 0.2;
-        curY += (mouseY - curY) * 0.2;
-        cursor.style.transform = `translate(${curX}px, ${curY}px) translate(-50%, -50%)`;
-        requestAnimationFrame(renderCursor);
-      }
-      renderCursor();
-
-      // 4. Before/After слайдер полировки
+      // 2. Before/After слайдер полировки
       const range = document.getElementById("compareRange");
       const overlay = document.getElementById("compareOverlay");
       if (range && overlay) {
@@ -1424,9 +1346,7 @@
         });
       }
 
-      // ============================================================
-      // 5. РАСЧЕТ И КОНСТРУКТОР (ПО ФОРМУЛАМ ИЗ LIB/PRICING.TS)
-      // ============================================================
+      // 3. Формулы и логика конструктора (по спецификации lib/pricing.ts)
       const BASE_PER_M = 96000;
       const FACADES = {
         oak: { label: "Дуб, шпон", k: 1.24 },
@@ -1499,43 +1419,21 @@
         };
       }
 
-      // Анимация бегущих цифр PriceTicker
-      let currentPriceVal = 420000;
-      function animatePrice(targetVal) {
-        const ticker = document.getElementById("priceTicker");
-        const start = currentPriceVal;
-        const diff = targetVal - start;
-        const duration = 500;
-        const startTime = performance.now();
-
-        function step(time) {
-          const progress = Math.min(1, (time - startTime) / duration);
-          const easeProgress = 1 - Math.pow(1 - progress, 3);
-          const current = Math.round((start + diff * easeProgress) / 1000) * 1000;
-          ticker.textContent = "от " + current.toLocaleString("ru-RU") + " ₽";
-          if (progress < 1) {
-            requestAnimationFrame(step);
-          } else {
-            currentPriceVal = targetVal;
-          }
-        }
-        requestAnimationFrame(step);
-      }
-
       function updateUI() {
         const est = calculateEstimate();
-        animatePrice(est.low);
+        document.getElementById("priceTicker").textContent = "от " + est.low.toLocaleString("ru-RU") + " ₽";
         document.getElementById("priceHighRange").textContent = "до " + est.high.toLocaleString("ru-RU") + " ₽";
         document.getElementById("linearMetersBadge").textContent = est.lm + " п.м.";
 
-        // Обновление сметы на шаге 6
         const breakdownEl = document.getElementById("breakdownList");
-        breakdownEl.innerHTML = est.lines.map(l => `
-          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding: 8px 0;" class="tech">
-            <span style="opacity: 0.7;">${l.label}</span>
-            <span class="num">${l.value.toLocaleString("ru-RU")} ₽</span>
-          </div>
-        `).join("");
+        if (breakdownEl) {
+          breakdownEl.innerHTML = est.lines.map(l => `
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding: 8px 0;" class="tech">
+              <span style="opacity: 0.7;">${l.label}</span>
+              <span class="num">${l.value.toLocaleString("ru-RU")} ₽</span>
+            </div>
+          `).join("");
+        }
       }
 
       // Переключение шагов
@@ -1562,7 +1460,8 @@
       nextBtn.addEventListener("click", () => {
         if (state.step < 6) setStep(state.step + 1);
         else {
-          document.querySelector("form input").focus();
+          const firstInput = document.querySelector("form input");
+          if (firstInput) firstInput.focus();
         }
       });
       prevBtn.addEventListener("click", () => {
