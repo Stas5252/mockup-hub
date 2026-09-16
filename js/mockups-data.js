@@ -105,6 +105,19 @@ const MOCKUPS_DATA = [
     preview: "",
     featured: true,
     emoji: "👑"
+  },
+
+  // ===================== ВЕДУЩИЕ & EVENT =====================
+  {
+    id: "artem-vlasov-awwwards",
+    title: "Артём Власов — Ведущий мероприятий (Awwwards Editorial)",
+    category: "Ведущие & Event",
+    folder: "artem-vlasov-awwwards",
+    description: "Авторский сайт ведущего мероприятий: эстетика Awwwards, параллакс, интерактивный календарь свободных дат на апрель 2026, видео-шоурил и прайс.",
+    tags: ["Ведущий", "Свадьбы", "Корпоративы", "Awwwards", "Календарь", "Премиум"],
+    preview: "",
+    featured: true,
+    emoji: "🎙️"
   }
 ];
 
@@ -112,5 +125,6 @@ const MOCKUPS_DATA = [
 const CATEGORIES_LIST = [
   "Все",
   "Мебель",
-  "Детские праздники"
+  "Детские праздники",
+  "Ведущие & Event"
 ];
