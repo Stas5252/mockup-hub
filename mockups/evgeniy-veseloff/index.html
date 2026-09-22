@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Евгений Царигородский — ведущий мероприятий</title>
+<style>
+  html,body{height:100%;margin:0;background:#0a0a0a;color:#f4f0e8;font-family:Arial,Helvetica,sans-serif}
+  .loader{min-height:100%;display:grid;place-items:center;text-align:center;padding:32px}
+  .loader b{display:block;font-size:clamp(30px,8vw,72px);line-height:.9;letter-spacing:-.06em;text-transform:uppercase}
+  .loader span{display:block;margin-top:14px;color:#aaa39b;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="loader"><div><b>Евгений<br>Царигородский</b><span>Загрузка макета</span></div></div>
+<script>
+(async function(){
+  const count = 39;
+  const parts = [];
+  for (let i = 0; i < count; i++) {
+    const name = String(i).padStart(3, "0");
+    const res = await fetch("chunks/part-" + name + ".html", { cache: "no-store" });
+    if (!res.ok) throw new Error("chunk " + name + " failed");
+    parts.push(await res.text());
+  }
+  const html = parts.join("");
+  document.open();
+  document.write(html);
+  document.close();
+})().catch(function(error){
+  document.body.innerHTML = '<div class="loader"><div><b>Ошибка загрузки</b><span>' + String(error.message || error) + '</span></div></div>';
+});
+</script>
+</body>
+</html>

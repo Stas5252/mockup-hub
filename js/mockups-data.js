@@ -118,6 +118,17 @@ const MOCKUPS_DATA = [
     preview: "",
     featured: true,
     emoji: "🎙️"
+  },
+  {
+    id: "evgeniy-veseloff",
+    title: "Евгений Царигородский — ведущий мероприятий",
+    category: "Ведущие & Event",
+    folder: "evgeniy-veseloff",
+    description: "Чистый iOS-адаптированный макет сайта ведущего: шоурил, галерея, форматы работы, квиз-заявка, пакеты, отзывы, FAQ и контакты.",
+    tags: ["Ведущий", "Event", "Шоурил", "Квиз", "Отзывы", "iOS"],
+    preview: "",
+    featured: true,
+    emoji: "EV"
   }
 ];
 
