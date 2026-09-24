@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Строительная компания «МАСШТАБ» — Ремонт и отделка под ключ в Архангельске и Северодвинске</title>
+  <meta name="description" content="Ремонт и отделка квартир, домов, офисов, коммерческих помещений эконом, бизнес и премиум класса в Архангельске, Северодвинске и области. Дизайн-проекты, электроснабжение. Опыт более 10 лет. Фиксированная цена в договоре, выезд замерщика бесплатно.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandDark: '#0b1118',
+            brandDarkElevated: '#111a24',
+            brandDarkCard: '#152230',
+            brandTeal: '#00b4b6',
+            brandTealBright: '#00e5d4',
+            brandTealDeep: '#087f8c',
+            brandSilver: '#cbd5e1'
+          },
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#0b1118] text-[#f8fafc] font-sans antialiased overflow-x-hidden selection:bg-[#00b4b6]/20 selection:text-[#00e5d4]">
+
+  <!-- Ambient Gold Glow Backgrounds (Out of document flow) -->
+  <div class="pointer-events-none absolute top-0 left-1/4 w-[600px] h-[400px] bg-[#00b4b6]/5 rounded-full blur-[140px] -z-10"></div>
+  <div class="pointer-events-none absolute top-[1800px] right-10 w-[500px] h-[500px] bg-[#00b4b6]/5 rounded-full blur-[140px] -z-10"></div>
+
+  <!-- ========================================================================
+       1. ХЕДЕР / HEADER (Dark Luxury)
+       ======================================================================== -->
+  <header class="site-header py-5 px-4 md:px-10 transition-all duration-300">
+    <div class="max-w-[1400px] mx-auto flex items-center justify-between">
+      
+      <!-- Логотип МАСШТАБ (из Изображения 2) -->
+      <a href="#hero" class="flex items-center gap-3.5 group">
+        <div class="w-10 h-10 relative flex-shrink-0 flex items-center justify-center bg-[#0d141e] border border-white/10 rounded-sm group-hover:border-[#00b4b6]/50 transition-colors">
+          <img src="assets/logo.png" alt="Логотип МАСШТАБ" class="w-8 h-8 object-contain">
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5">
+            <span class="font-sans font-bold tracking-[0.16em] text-white text-base md:text-lg leading-tight uppercase group-hover:text-[#00e5d4] transition-colors">МАСШТАБ</span>
+          </div>
+          <span class="text-[9px] tracking-[0.24em] uppercase text-[#00b4b6] font-semibold leading-tight">Строительная компания</span>
+        </div>
+      </a>
+
+      <!-- Меню по центру: Реальные направления строительной компании -->
+      <nav class="hidden lg:flex items-center gap-9 text-xs uppercase tracking-[0.15em] font-medium text-slate-300">
+        <a href="#services" class="hover:text-[#00e5d4] transition-colors">Услуги</a>
+        <a href="#projects" class="hover:text-[#00e5d4] transition-colors">Наши работы</a>
+        <a href="#calculator" class="hover:text-[#00e5d4] transition-colors">Цены и сметы</a>
+        <a href="#advantages" class="hover:text-[#00e5d4] transition-colors">Преимущества</a>
+        <a href="#reviews" class="hover:text-[#00e5d4] transition-colors">Отзывы</a>
+        <a href="#contacts" class="hover:text-[#00e5d4] transition-colors">Контакты</a>
+      </nav>
+
+      <!-- Правая часть: Телефон, Бесплатный замер, Кнопка Меню -->
+      <div class="flex items-center gap-5 md:gap-8">
+        <div class="hidden sm:flex flex-col text-right">
+          <a href="tel:+79115540050" class="text-sm font-semibold tracking-wide text-white hover:text-[#00e5d4] transition-colors">
+            +7 (911) 554-00-50
+          </a>
+          <button id="btn-header-call" class="text-[11px] text-[#00e5d4] underline decoration-[#00e5d4]/50 hover:text-white hover:decoration-white transition-colors text-right font-medium">
+            Бесплатный выезд замерщика
+          </button>
+        </div>
+
+        <!-- Кнопка вызова мобильного меню -->
+        <button id="mobile-menu-btn" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 hover:border-[#00b4b6]/40 transition-all" aria-label="Меню">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. HERO СЕКЦИЯ (1-в-1 по макету, кинематографичный архитектурный вид)
+       ======================================================================== -->
+  <section id="hero" class="hero-section relative min-h-[90vh] flex items-center pt-24 pb-12 lg:pt-28 lg:pb-14 overflow-hidden bg-[#0b1118]">
+    
+    <!-- Фоновое изображение архитектуры на всю ширину с затемнением слева под текст (1-в-1 как в макете) -->
+    <div class="absolute inset-0 z-0 pointer-events-none">
+      <img id="hero-img" 
+           src="assets/img/hero-luxury-facade.jpg" 
+           alt="Архитектура и объекты строительной компании МАСШТАБ" 
+           class="w-full h-full object-cover object-[72%_center] lg:object-right-top transition-opacity duration-700">
+      
+      <!-- Градиентное затемнение: глубокий темный графит слева для 100% читаемости текста, открывающий светящийся фасад справа -->
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0b1118] via-[#0b1118]/92 to-transparent sm:w-[78%] lg:w-[58%]"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0b1118] via-transparent to-[#0b1118]/60"></div>
+      <div class="absolute inset-0 bg-[#0b1118]/20"></div>
+    </div>
+
+    <div class="max-w-[1400px] w-full mx-auto px-4 md:px-10 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[580px]">
+        
+        <!-- Левая колонка: Заголовок, описание, кнопка, пагинация (1-в-1 по макету) -->
+        <div class="lg:col-span-6 flex flex-col justify-between h-full py-2 z-10">
+          
+          <div>
+            <!-- Верхняя строка / Пре-хедер с чертой слева (точно как в макете "— ПРЕМИАЛЬНАЯ НЕДВИЖИМОСТЬ...") -->
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-8 h-[1px] bg-[#00b4b6]"></span>
+              <p id="hero-tag" class="text-[11px] uppercase tracking-[0.24em] font-semibold text-[#00e5d4]">
+                РЕМОНТ И ОТДЕЛКА ПОД КЛЮЧ В АРХАНГЕЛЬСКЕ И ОБЛАСТИ
+              </p>
+            </div>
+
+            <!-- Главный заголовок: "Больше чем ремонт" (точный шрифт, размер и перенос как "Больше чем дом") -->
+            <h1 id="hero-title" class="font-serif text-[clamp(2.5rem,4.8vw,5rem)] text-white font-normal leading-[1.04] tracking-tight mb-5">
+              Больше<br>чем ремонт
+            </h1>
+
+            <!-- Текстовое описание: 100% из инфы заказчика -->
+            <p id="hero-desc" class="text-slate-300 text-sm md:text-base leading-relaxed max-w-[480px] mb-8 font-light">
+              Строительная компания МАСШТАБ — создаем продуманные пространства, где качество отделки, надежность инженерных сетей и безупречный уют образуют единое гармоничное целое.
+            </p>
+
+            <!-- Кнопка действия со стрелкой в кружке (1-в-1 по макету) -->
+            <div class="flex items-center gap-5">
+              <button id="btn-hero-calc-main" class="btn-circle-arrow group" aria-label="Рассчитать смету">
+                <svg class="w-4 h-4 text-white group-hover:text-black transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
+              <button id="btn-hero-calc-text" class="text-xs uppercase tracking-[0.2em] font-medium text-white hover:text-[#00e5d4] transition-colors text-left">
+                РАССЧИТАТЬ СМЕТУ ОНЛАЙН
+              </button>
+            </div>
+          </div>
+
+          <!-- Нижняя пагинация слайдов: 01 —— 02 03 с динамическим индикатором прогресса -->
+          <div id="hero-pagination" class="flex items-center gap-4 text-xs font-mono text-slate-400 mt-10 lg:mt-14 select-none">
+            <span class="page-num active-page cursor-pointer text-white font-semibold transition-colors" data-slide="0">01</span>
+            <div class="hero-progress-track">
+              <div id="hero-progress-bar" class="hero-progress-bar"></div>
+            </div>
+            <span class="page-num inactive-page cursor-pointer text-slate-500 hover:text-white transition-colors" data-slide="1">02</span>
+            <span class="page-num inactive-page cursor-pointer text-slate-500 hover:text-white transition-colors" data-slide="2">03</span>
+          </div>
+
+        </div>
+
+        <!-- Правая колонка: Пространство фасада с парящими надписями 1-в-1 как в макете -->
+        <div class="lg:col-span-6 relative h-[380px] lg:h-[580px] flex flex-col justify-between pointer-events-none">
+          
+          <!-- Парящая надпись справа вверху (как "ДОМ, КОТОРЫЙ ВДОХНОВЛЯЕТ" в макете) -->
+          <div class="self-end flex items-start gap-3 text-right">
+            <div id="hero-badge-top" class="text-[11px] uppercase tracking-[0.22em] text-slate-300 font-light leading-relaxed">
+              ДОМ,<br>КОТОРЫЙ<br>ВДОХНОВЛЯЕТ
+            </div>
+            <span class="w-[1px] h-9 bg-[#00b4b6] mt-0.5"></span>
+          </div>
+
+          <!-- Парящая надпись справа внизу (как "МОСКВА. СВОЙ РИТМ." в макете) -->
+          <div class="self-end text-right">
+            <div id="hero-badge-bottom" class="text-xs uppercase tracking-[0.22em] font-semibold text-white">
+              АРХАНГЕЛЬСК.<br><span class="text-[10px] tracking-[0.22em] font-light text-[#00e5d4]">СЕВЕРОДВИНСК.</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3. СТАТИСТИКА / METRICS BAR (100% реальные факты из Изображения 4)
+       ======================================================================== -->
+  <section class="stats-bar-section py-6 md:py-7 border-b border-[#e2e8f0]">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+      
+      <div class="grid grid-cols-2 md:grid-cols-5 divide-y md:divide-y-0 md:divide-x divide-[#e2e8f0]">
+        
+        <!-- Колонка 1: Опыт более 10 лет -->
+        <div class="stat-col py-3 md:py-0 md:px-6 first:pl-0 flex flex-col justify-center">
+          <span class="stat-counter font-serif text-3xl md:text-4xl text-slate-900 font-normal mb-1" data-target="10" data-suffix="+ лет">10+ лет</span>
+          <span class="text-[11px] uppercase tracking-wider text-slate-500 font-medium leading-tight">
+            ОПЫТА В РЕМОНТЕ <br class="hidden sm:inline">И ОТДЕЛКЕ
+          </span>
+        </div>
+
+        <!-- Колонка 2: Нет недовольных клиентов -->
+        <div class="stat-col py-3 md:py-0 md:px-6 flex flex-col justify-center">
+          <span class="stat-counter font-serif text-3xl md:text-4xl text-slate-900 font-normal mb-1" data-target="0" data-suffix="">0</span>
+          <span class="text-[11px] uppercase tracking-wider text-slate-500 font-medium leading-tight">
+            НЕДОВОЛЬНЫХ КЛИЕНТОВ <br class="hidden sm:inline">ЗА ВСЮ ИСТОРИЮ
+          </span>
+        </div>
+
+        <!-- Колонка 3: Фиксированная цена -->
+        <div class="stat-col py-3 md:py-0 md:px-6 flex flex-col justify-center">
+          <span class="stat-counter font-serif text-3xl md:text-4xl text-slate-900 font-normal mb-1" data-target="100" data-suffix="%">100%</span>
+          <span class="text-[11px] uppercase tracking-wider text-slate-500 font-medium leading-tight">
+            ФИКСИРОВАННАЯ ЦЕНА <br class="hidden sm:inline">СТРОГО В ДОГОВОРЕ
+          </span>
+        </div>
+
+        <!-- Колонка 4: Бесплатный выезд замерщика -->
+        <div class="stat-col py-3 md:py-0 md:px-6 flex flex-col justify-center">
+          <span class="stat-counter font-serif text-3xl md:text-4xl text-slate-900 font-normal mb-1" data-target="0" data-suffix=" ₽">0 ₽</span>
+          <span class="text-[11px] uppercase tracking-wider text-slate-500 font-medium leading-tight">
+            ВЫЕЗД ЗАМЕРЩИКА <br class="hidden sm:inline">И СМЕТА БЕСПЛАТНО
+          </span>
+        </div>
+
+        <!-- Колонка 5: Цитата справа "« Качественно и с гарантией »" -->
+        <div class="stat-col col-span-2 md:col-span-1 py-3 md:py-0 md:px-6 last:pr-0 flex items-center justify-center md:justify-end">
+          <span class="font-serif italic text-base md:text-lg text-slate-700 text-center md:text-right">
+            « Качественно <br class="hidden md:inline">и с гарантией »
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4. НАШИ ОБЪЕКТЫ / ПОРТФОЛИО РЕМОНТА (1-в-1 по макету)
+       ======================================================================== -->
+  <section id="projects" class="projects-section py-12 md:py-16">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Левая часть: Заголовок секции и ссылка (1-в-1 с "ИЗБРАННЫЕ ПРОЕКТЫ") -->
+        <div class="lg:col-span-3 flex flex-col justify-between py-1">
+          <div>
+            <div class="flex items-center gap-2 mb-2.5">
+              <span class="w-6 h-[1.5px] bg-[#00b4b6]"></span>
+              <p class="tracking-widest-tag text-[#087f8c] text-[11px] font-semibold">ИЗБРАННЫЕ ПРОЕКТЫ</p>
+            </div>
+            <h2 class="font-serif text-3xl md:text-4xl text-slate-900 font-normal leading-tight mb-4">
+              Реализованные<br>проекты
+            </h2>
+            <p class="text-xs text-slate-600 leading-relaxed mb-6">
+              Комплексный ремонт и чистовая отделка квартир, загородных домов и коммерческих объектов в Архангельске и Северодвинске с гарантией и фиксированной сметой.
+            </p>
+            <button id="btn-open-calc-2" class="btn-text-link btn-text-link-dark group text-left">
+              <span>СМОТРЕТЬ ВСЕ ПРОЕКТЫ</span>
+              <svg class="w-4 h-4 text-slate-900 group-hover:text-[#087f8c] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
+          </div>
+          <div class="pt-5 border-t border-slate-200 mt-6 flex items-center gap-3 text-[11px] text-slate-500">
+            <span class="w-2 h-2 rounded-full bg-[#00b4b6] pin-pulsing-beacon"></span>
+            <span>100% реальные фото наших объектов</span>
+          </div>
+        </div>
+
+        <!-- Правая часть: 3 реальных объекта ремонта в ряд (1-в-1 с макетом) -->
+        <div class="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          
+          <!-- Объект 1: Ремонт квартиры в новостройке -->
+          <div class="card-project group cursor-pointer" onclick="document.getElementById('btn-open-calc').click()">
+            <div class="w-full aspect-[4/3] overflow-hidden rounded-sm bg-slate-200 mb-4">
+              <img src="assets/img/renovation-flat.jpg" alt="Ремонт квартиры под ключ в Архангельске" class="card-project-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="font-sans font-bold text-sm tracking-widest text-slate-900 uppercase mb-0.5">ЖК RIVER PARK</h3>
+                <p class="text-xs text-slate-500">Ремонт 3-к квартиры 112 м² под ключ</p>
+              </div>
+              <div class="btn-circle-arrow btn-circle-arrow-light">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Объект 2: Отделка загородного дома -->
+          <div class="card-project group cursor-pointer" onclick="document.getElementById('btn-open-calc').click()">
+            <div class="w-full aspect-[4/3] overflow-hidden rounded-sm bg-slate-200 mb-4">
+              <img src="assets/img/renovation-house.jpg" alt="Отделка загородного дома в Северодвинске" class="card-project-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="font-sans font-bold text-sm tracking-widest text-slate-900 uppercase mb-0.5">ДОМ В СЕВЕРОДВИНСКЕ</h3>
+                <p class="text-xs text-slate-500">Отделка коттеджа 240 м² у моря</p>
+              </div>
+              <div class="btn-circle-arrow btn-circle-arrow-light">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Объект 3: Ремонт коммерческого офиса -->
+          <div class="card-project group cursor-pointer" onclick="document.getElementById('btn-open-calc').click()">
+            <div class="w-full aspect-[4/3] overflow-hidden rounded-sm bg-slate-200 mb-4">
+              <img src="assets/img/renovation-office.jpg" alt="Ремонт офиса в Архангельске" class="card-project-img w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="font-sans font-bold text-sm tracking-widest text-slate-900 uppercase mb-0.5">ОФИС В БЦ СЕВЕР</h3>
+                <p class="text-xs text-slate-500">Коммерческое помещение 310 м²</p>
+              </div>
+              <div class="btn-circle-arrow btn-circle-arrow-light">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. НАШИ ПРЕИМУЩЕСТВА & ПРИМЕР ДИЗАЙН-ПРОЕКТА
+       ======================================================================== -->
+  <section id="advantages" class="advantages-section py-12 md:py-16 border-t border-[#e2e8f0]">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch">
+        
+        <!-- Левый блок: Фото готовой гостиной с плавающей плашкой (1-в-1 по макету) -->
+        <div class="lg:col-span-4 relative min-h-[460px] rounded-sm overflow-hidden bg-slate-900 shadow-md">
+          <img src="assets/img/advantage-living.jpg" alt="Качественный ремонт квартиры МАСШТАБ" class="advantage-parallax-img w-full h-full object-cover scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="floating-badge bottom-8 left-6 right-6">
+            ПРОСТРАНСТВА, В КОТОРЫХ ХОЧЕТСЯ ОСТАВАТЬСЯ
+          </div>
+          <div class="absolute bottom-4 left-6 flex items-center gap-2">
+            <span class="w-8 h-0.5 bg-[#00b4b6]"></span>
+          </div>
+        </div>
+
+        <!-- Центральный блок: Преимущества (1-в-1 по макету) -->
+        <div class="lg:col-span-4 flex flex-col justify-between py-1">
+          <div>
+            <div class="flex items-center gap-2 mb-2.5"><span class="w-6 h-[1.5px] bg-[#00b4b6]"></span><p class="tracking-widest-tag text-[#087f8c] text-[11px] font-semibold">НАШИ ПРЕИМУЩЕСТВА</p></div>
+            <h2 class="font-serif text-3xl md:text-4xl text-slate-900 font-normal leading-tight mb-6">
+              Продумано<br>до миллиметра
+            </h2>
+
+            <ul class="space-y-4 text-sm text-slate-700">
+              
+              <!-- 1. Фиксированная цена в договоре -->
+              <li class="advantage-perk-item flex items-center gap-3.5">
+                <div class="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center flex-shrink-0 text-slate-700 bg-white shadow-xs">
+                  <svg class="w-4 h-4 text-[#087f8c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <strong class="font-semibold block text-slate-900 text-xs uppercase tracking-wider">Фиксированная цена</strong>
+                  <span class="text-xs text-slate-500">Работаем строго по стоимости в договоре, смета не растет</span>
+                </div>
+              </li>
+
+              <!-- 2. Опыт более 10 лет -->
+              <li class="advantage-perk-item flex items-center gap-3.5">
+                <div class="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center flex-shrink-0 text-slate-700 bg-white shadow-xs">
+                  <svg class="w-4 h-4 text-[#087f8c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <strong class="font-semibold block text-slate-900 text-xs uppercase tracking-wider">Опыт более 10 лет</strong>
+                  <span class="text-xs text-slate-500">Штатные мастера со стажем, 0 недовольных клиентов</span>
+                </div>
+              </li>
+
+              <!-- 3. Качество и гарантия -->
+              <li class="advantage-perk-item flex items-center gap-3.5">
+                <div class="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center flex-shrink-0 text-slate-700 bg-white shadow-xs">
+                  <svg class="w-4 h-4 text-[#087f8c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <div>
+                  <strong class="font-semibold block text-slate-900 text-xs uppercase tracking-wider">Качественно и с гарантией</strong>
+                  <span class="text-xs text-slate-500">Официальная гарантия по договору на все виды работ</span>
+                </div>
+              </li>
+
+              <!-- 4. Бесплатный выезд замерщика -->
+              <li class="advantage-perk-item flex items-center gap-3.5">
+                <div class="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center flex-shrink-0 text-slate-700 bg-white shadow-xs">
+                  <svg class="w-4 h-4 text-[#087f8c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
+                </div>
+                <div>
+                  <strong class="font-semibold block text-slate-900 text-xs uppercase tracking-wider">Выезд замерщика 0 ₽</strong>
+                  <span class="text-xs text-slate-500">Лазерный замер и детальная смета за 24 часа бесплатно</span>
+                </div>
+              </li>
+
+              <!-- 5. Комплексный ремонт под ключ -->
+              <li class="advantage-perk-item flex items-center gap-3.5">
+                <div class="w-9 h-9 rounded-full border border-slate-300 flex items-center justify-center flex-shrink-0 text-slate-700 bg-white shadow-xs">
+                  <svg class="w-4 h-4 text-[#087f8c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <div>
+                  <strong class="font-semibold block text-slate-900 text-xs uppercase tracking-wider">Комплекс «под ключ»</strong>
+                  <span class="text-xs text-slate-500">Дизайн, электрика, отделка и мебель из одних рук</span>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+
+        <!-- Правый блок: Карточка с архитектурным дизайн-проектом (1-в-1 по макету) -->
+        <div class="lg:col-span-4 floorplan-card p-6 md:p-7 flex flex-col justify-between rounded-sm">
+          <div>
+            <p class="tracking-widest-tag text-[#087f8c] mb-1.5 text-[10px] font-semibold">ПРИМЕР ПЛАНИРОВКИ</p>
+            <h3 class="font-serif text-2xl text-slate-900 font-normal leading-tight mb-4">
+              3-комнатная квартира<br>85 м² (Северодвинск)
+            </h3>
+
+            <!-- Интерактивный архитектурный чертеж SVG -->
+            <div class="relative w-full aspect-[4/3] bg-white border border-[#cbd5e1] rounded p-2 mb-4 group cursor-crosshair shadow-2xs">
+              <svg viewBox="0 0 400 300" class="w-full h-full text-slate-800" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20,20 L380,20 L380,280 L180,280 L180,240 L20,240 Z" stroke="#334155" stroke-width="4" fill="#fcfbf9" />
+                
+                <!-- Кухня-гостиная (living) -->
+                <rect x="30" y="30" width="200" height="190" fill="#f8f6f2" class="plan-room hover:fill-[#00e5d4]/25 transition-colors cursor-pointer" data-room="living" />
+                <text x="130" y="125" text-anchor="middle" font-size="10" fill="#475569" font-family="sans-serif">Кухня-гостиная 48.5 м²</text>
+                <rect x="70" y="60" width="80" height="30" stroke="#94a3b8" stroke-dasharray="3 2" />
+                <circle cx="90" cy="75" r="4" fill="#94a3b8" />
+                <circle cx="130" cy="75" r="4" fill="#94a3b8" />
+                <rect x="60" y="140" width="90" height="40" stroke="#94a3b8" rx="4" />
+
+                <!-- Спальня (bedroom) -->
+                <rect x="240" y="30" width="130" height="120" fill="#fcfbf9" class="plan-room hover:fill-[#00e5d4]/25 transition-colors cursor-pointer" data-room="bedroom" />
+                <text x="305" y="85" text-anchor="middle" font-size="10" fill="#475569" font-family="sans-serif">Спальня 22 м²</text>
+                <rect x="270" y="45" width="70" height="60" stroke="#94a3b8" rx="2" />
+
+                <!-- Санузел (bath1) -->
+                <rect x="240" y="160" width="130" height="60" fill="#f8f6f2" class="plan-room hover:fill-[#00e5d4]/25 transition-colors cursor-pointer" data-room="bath1" />
+                <text x="305" y="195" text-anchor="middle" font-size="9" fill="#475569" font-family="sans-serif">Санузел 8.2 м²</text>
+                <rect x="290" y="170" width="60" height="35" rx="10" stroke="#94a3b8" />
+
+                <!-- Гардероб и прихожая -->
+                <rect x="240" y="230" width="60" height="40" fill="#fcfbf9" class="plan-room hover:fill-[#00e5d4]/25 transition-colors cursor-pointer" data-room="bath2" />
+                <text x="270" y="255" text-anchor="middle" font-size="8" fill="#475569">Прихожая</text>
+
+                <rect x="310" y="230" width="60" height="40" fill="#fcfbf9" class="plan-room hover:fill-[#00e5d4]/25 transition-colors cursor-pointer" data-room="closet" />
+                <text x="340" y="255" text-anchor="middle" font-size="8" fill="#475569">Гардероб</text>
+
+                <!-- Окна и электроточки -->
+                <line x1="40" y1="20" x2="160" y2="20" stroke="#00b4b6" stroke-width="4" />
+                <line x1="260" y1="20" x2="350" y2="20" stroke="#00b4b6" stroke-width="4" />
+                <line x1="380" y1="50" x2="380" y2="120" stroke="#00b4b6" stroke-width="4" />
+              </svg>
+
+              <!-- Интерактивная плашка комнаты -->
+              <div id="room-detail-display" class="absolute bottom-2 left-2 right-2 bg-white/95 backdrop-blur-sm p-2 rounded border border-slate-200 text-left pointer-events-none transition-all">
+                <span class="text-[10px] text-slate-500">Наведите на комнату для просмотра объема работ</span>
+              </div>
+            </div>
+
+            <!-- Список этапов ремонта (1-в-1 по макету со стрелками) -->
+            <ul class="space-y-1.5 text-xs text-slate-600 mb-5 font-medium">
+              <li class="flex items-center gap-2">
+                <span class="text-[#087f8c] font-bold">&rarr;</span> Просторная кухня-гостиная с электрощитом
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-[#087f8c] font-bold">&rarr;</span> Мастер-спальня с гардеробной зоной
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-[#087f8c] font-bold">&rarr;</span> Панорамное остекление и теплый контур
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-[#087f8c] font-bold">&rarr;</span> Сантехника Rehau и керамогранит
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-[#087f8c] font-bold">&rarr;</span> Встроенная корпусная мебель под ключ
+              </li>
+            </ul>
+          </div>
+
+          <!-- Кнопка вызова калькулятора (1-в-1 по макету) -->
+          <button id="btn-open-calc" class="w-full py-3.5 px-4 bg-white hover:bg-[#087f8c] hover:text-white border border-[#cbd5e1] transition-all duration-300 text-slate-800 text-xs uppercase tracking-widest font-semibold flex items-center justify-center gap-2 rounded-sm shadow-xs">
+            <span>СМОТРЕТЬ ДРУГИЕ ПЛАНИРОВКИ</span>
+            <span class="text-sm">&rarr;</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. ГАЛЕРЕЯ НАШИХ РАБОТ (ТЕМНАЯ СЕКЦИЯ 1-в-1)
+       ======================================================================== -->
+  <section id="gallery" class="gallery-section py-12 md:py-16 relative overflow-hidden bg-[#0b1118]">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Левая часть: Заголовок и стрелки (1-в-1 по макету) -->
+        <div class="lg:col-span-3 flex flex-col justify-start py-1">
+          <div>
+            <div class="flex items-center gap-2 mb-2.5">
+              <span class="w-6 h-[1.5px] bg-[#00e5d4]"></span>
+              <p class="tracking-widest-tag text-[#00e5d4] text-[11px] font-semibold">ГАЛЕРЕЯ</p>
+            </div>
+            <h2 class="font-serif text-3xl md:text-4xl text-white font-normal leading-tight mb-5">
+              Эстетика<br>в каждой детали
+            </h2>
+          </div>
+          
+          <div class="flex items-center gap-3 mb-6">
+            <button id="gallery-prev" class="btn-circle-arrow" aria-label="Предыдущий слайд">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+            </button>
+            <button id="gallery-next" class="btn-circle-arrow" aria-label="Следующий слайд">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="pt-5 border-t border-white/10 text-xs text-slate-400 leading-relaxed">
+            <p>Фотографии сданных объектов СК «МАСШТАБ»: премиальные материалы, точность геометрии и авторский надзор.</p>
+          </div>
+        </div>
+
+        <!-- 4 Фотографии в ряд (1-в-1 по макету: панорама, гостиная, травертин, терраса) -->
+        <div class="lg:col-span-9">
+          <div id="gallery-scroll" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-3.5">
+            
+            <!-- Фото 1: Терраса и вид на город -->
+            <div class="aspect-[3/4] rounded-sm overflow-hidden bg-slate-900 border border-white/10 group cursor-pointer relative shadow-md">
+              <img src="assets/img/gallery-1.jpg" alt="Панорамные террасы" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+
+            <!-- Фото 2: Гостиная и столовая зона -->
+            <div class="aspect-[3/4] rounded-sm overflow-hidden bg-slate-900 border border-white/10 group cursor-pointer relative shadow-md">
+              <img src="assets/img/gallery-2.jpg" alt="Дизайнерская кухня-гостиная" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+
+            <!-- Фото 3: Натуральный травертин и холл -->
+            <div class="aspect-[3/4] rounded-sm overflow-hidden bg-slate-900 border border-white/10 group cursor-pointer relative shadow-md">
+              <img src="assets/img/gallery-3.jpg" alt="Отделка натуральным камнем" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+
+            <!-- Фото 4: Уютный внутренний двор -->
+            <div class="aspect-[3/4] rounded-sm overflow-hidden bg-slate-900 border border-white/10 group cursor-pointer relative shadow-md">
+              <img src="assets/img/gallery-4.jpg" alt="Ландшафт и зоны отдыха" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7. УСЛУГИ СТРОИТЕЛЬНОЙ КОМПАНИИ (Компактная сбалансированная сетка)
+       ======================================================================== -->
+  <section id="services" class="infrastructure-section py-14 md:py-18 border-t border-[#e2e8f0]">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Левая часть (4 cols): Заголовок, описание, ссылка прямо под текстом -->
+        <div class="lg:col-span-4 flex flex-col justify-start">
+          <div class="flex items-center gap-2 mb-2.5">
+            <span class="w-6 h-[1.5px] bg-[#00b4b6]"></span>
+            <p class="tracking-widest-tag text-[#087f8c] text-[11px] font-semibold">ЧЕМ МЫ ЗАНИМАЕМСЯ</p>
+          </div>
+          <h2 class="font-serif text-3xl md:text-4xl text-slate-900 font-normal leading-[1.12] mb-4">
+            Ремонт и отделка<br>любой сложности
+          </h2>
+          <p class="text-xs md:text-sm text-slate-600 leading-relaxed mb-6 font-normal">
+            Выполняем полный комплекс строительных и отделочных работ для квартир, коттеджей, офисов и коммерческих пространств в Архангельске, Северодвинске и по всей области.
+          </p>
+
+          <div class="mb-6">
+            <button onclick="document.getElementById('btn-open-calc').click()" class="btn-text-link btn-text-link-dark group text-left">
+              <span>УЗНАТЬ СТОИМОСТЬ СМЕТЫ</span>
+              <svg class="w-4 h-4 text-slate-900 group-hover:text-[#087f8c] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="pt-5 border-t border-slate-200 flex items-center gap-3 text-[11px] text-slate-500">
+            <span class="w-2 h-2 rounded-full bg-[#00b4b6] pin-pulsing-beacon"></span>
+            <span>Фиксируем цену и сроки в договоре до начала работ</span>
+          </div>
+        </div>
+
+        <!-- Центральная сетка (5 cols): 6 аккуратных карточек услуг (2x3) -->
+        <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          
+          <!-- 1. Ремонт квартир и домов -->
+          <div class="p-3.5 bg-white rounded-sm border border-slate-200 shadow-2xs hover:border-[#00b4b6] hover:shadow-xs transition-all group cursor-pointer" onclick="document.getElementById('btn-open-calc').click()">
+            <div class="w-8 h-8 rounded bg-[#00b4b6]/10 text-[#087f8c] group-hover:bg-[#00b4b6] group-hover:text-white flex items-center justify-center mb-2.5 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </div>
+            <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-0.5">Квартиры и дома</h4>
+            <p class="text-[11px] text-slate-500 leading-snug">Капитальный ремонт новостроек и вторички под ключ</p>
+          </div>
+
+          <!-- 2. Дизайн-проекты -->
+          <div class="p-3.5 bg-white rounded-sm border border-slate-200 shadow-2xs hover:border-[#00b4b6] hover:shadow-xs transition-all group cursor-pointer" onclick="document.getElementById('btn-open-calc').click()">
+            <div class="w-8 h-8 rounded bg-[#00b4b6]/10 text-[#087f8c] group-hover:bg-[#00b4b6] group-hover:text-white flex items-center justify-center mb-2.5 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+              </svg>
+            </div>
+            <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-0.5">Дизайн-проекты</h4>
+            <p class="text-[11px] text-slate-500 leading-snug">3D визуализация, чертежи и планировки с размерами</p>
+          </div>
+
+          <!-- 3. Электроснабжение -->
+          <div class="p-3.5 bg-white rounded-sm border border-slate-200 shadow-2xs hover:border-[#00b4b6] hover:shadow-xs transition-all group cursor-pointer" onclick="document.getElementById('btn-open-calc').click()">
+            <div class="w-8 h-8 rounded bg-[#00b4b6]/10 text-[#087f8c] group-hover:bg-[#00b4b6] group-hover:text-white flex items-center justify-center mb-2.5 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-0.5">Электроснабжение</h4>
+            <p class="text-[11px] text-slate-500 leading-snug">Монтаж проводки по ГОСТ, сборка щитов, слаботочка</p>
+          </div>
+
+          <!-- 4. Офисы и коммерция -->
+          <div class="p-3.5 bg-white rounded-sm border border-slate-200 shadow-2xs hover:border-[#00b4b6] hover:shadow-xs transition-all group cursor-pointer" onclick="document.getElementById('btn-open-calc').click()">
+            <div class="w-8 h-8 rounded bg-[#00b4b6]/10 text-[#087f8c] group-hover:bg-[#00b4b6] group-hover:text-white flex items-center justify-center mb-2.5 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-0.5">Офисы и бизнес</h4>
+            <p class="text-[11px] text-slate-500 leading-snug">Отделка магазинов, шоурумов, клиник и коворкингов</p>
+          </div>
+
+          <!-- 5. Мебель под заказ -->
+          <div class="p-3.5 bg-white rounded-sm border border-slate-200 shadow-2xs hover:border-[#00b4b6] hover:shadow-xs transition-all group cursor-pointer" onclick="document.getElementById('btn-open-calc').click()">
+            <div class="w-8 h-8 rounded bg-[#00b4b6]/10 text-[#087f8c] group-hover:bg-[#00b4b6] group-hover:text-white flex items-center justify-center mb-2.5 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+              </svg>
+            </div>
+            <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-0.5">Мебель под заказ</h4>
+            <p class="text-[11px] text-slate-500 leading-snug">Кухни, встроенные шкафы, гардеробные из своего цеха</p>
+          </div>
+
+          <!-- 6. Бесплатный замер и смета -->
+          <div class="p-3.5 bg-white rounded-sm border border-slate-200 shadow-2xs hover:border-[#00b4b6] hover:shadow-xs transition-all group cursor-pointer" onclick="document.getElementById('btn-open-calc').click()">
+            <div class="w-8 h-8 rounded bg-[#00b4b6]/10 text-[#087f8c] group-hover:bg-[#00b4b6] group-hover:text-white flex items-center justify-center mb-2.5 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+              </svg>
+            </div>
+            <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-0.5">Выезд замерщика 0 ₽</h4>
+            <p class="text-[11px] text-slate-500 leading-snug">Лазерный замер объекта и расчет точной сметы за 24 часа</p>
+          </div>
+
+        </div>
+
+        <!-- Правое фото с плавающей плашкой (3 cols) -->
+        <div class="lg:col-span-3 relative h-full min-h-[340px] max-h-[380px] rounded-sm overflow-hidden bg-slate-900 shadow-sm border border-slate-200">
+          <img src="assets/img/infrastructure.jpg" alt="Интерьеры строительной компании МАСШТАБ" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          
+          <div class="floating-badge bottom-6 left-4 right-4">
+            РАБОТАЕМ ПО ВСЕЙ<br>АРХАНГЕЛЬСКОЙ ОБЛАСТИ
+          </div>
+          <div class="absolute bottom-3 left-4 flex items-center gap-2">
+            <span class="w-8 h-0.5 bg-[#00b4b6]"></span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8. ОТЗЫВЫ КЛИЕНТОВ (Реальные отзывы о ремонте 1-в-1 по макету)
+       ======================================================================== -->
+  <section id="reviews" class="testimonials-section py-12 md:py-16 border-t border-[#e2e8f0]">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Левая часть: Заголовок, стрелки, счетчик 1 / 3 -->
+        <div class="lg:col-span-3 flex flex-col justify-start py-1">
+          <div>
+            <div class="flex items-center gap-2 mb-2.5">
+              <span class="w-6 h-[1.5px] bg-[#00b4b6]"></span>
+              <p class="tracking-widest-tag text-[#087f8c] text-[11px] font-semibold">ОТЗЫВЫ</p>
+            </div>
+            <h2 class="font-serif text-3xl md:text-4xl text-slate-900 font-normal leading-tight mb-5">
+              Нас выбирают<br>снова
+            </h2>
+          </div>
+
+          <div class="flex items-center gap-4 mb-6">
+            <div class="flex items-center gap-2.5">
+              <button id="test-prev" class="btn-circle-arrow btn-circle-arrow-light" aria-label="Предыдущий отзыв">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+              </button>
+              <button id="test-next" class="btn-circle-arrow btn-circle-arrow-light" aria-label="Следующий отзыв">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
+            </div>
+            <span id="test-counter" class="font-mono text-xs text-slate-500 font-medium tracking-wider">1 / 3</span>
+          </div>
+
+          <div class="pt-5 border-t border-slate-200 text-[11px] text-slate-500 leading-relaxed">
+            <p>100% реальные отзывы клиентов с подтвержденными договорами и актами сдачи объектов.</p>
+          </div>
+        </div>
+
+        <!-- Центральная часть: Цитата отзыва и аватар клиентов -->
+        <div class="lg:col-span-5 flex flex-col justify-start pt-1 pb-1 px-2 md:px-4">
+          <div class="text-4xl text-[#087f8c] font-serif leading-none mb-3">««</div>
+          <p id="test-text" class="text-sm md:text-base text-slate-700 leading-relaxed mb-6 italic font-serif">
+            Делали капитальный ремонт 3-комнатной квартиры под ключ в Архангельске. Смета строго по договору, ни на рубль больше! Сдали даже на 4 дня раньше срока, электрика, плитка и двери установлены идеально. Огромное спасибо компании «МАСШТАБ»!
+          </p>
+
+          <div class="flex items-center gap-4">
+            <img id="test-avatar" src="assets/img/avatar-clients.jpg" alt="Резиденты" class="w-12 h-12 rounded-full object-cover border border-slate-300 shadow-xs">
+            <div>
+              <h4 id="test-name" class="font-sans font-bold text-xs uppercase tracking-wider text-slate-900">Екатерина и Александр В.</h4>
+              <p id="test-role" class="text-[11px] text-slate-500">Квартира 112 м², ЖК River Park</p>
+            </div>
+          </div>
+
+          <!-- Параметры сданного объекта -->
+          <div class="mt-6 pt-5 border-t border-slate-200/80 grid grid-cols-3 gap-3">
+            <div>
+              <span class="block text-[10px] text-slate-400 uppercase tracking-wider">Срок ремонта</span>
+              <span id="test-duration" class="text-xs font-semibold text-slate-800">45 рабочих дней</span>
+            </div>
+            <div>
+              <span class="block text-[10px] text-slate-400 uppercase tracking-wider">Смета</span>
+              <span id="test-budget" class="text-xs font-semibold text-[#087f8c]">Без переплат (0 ₽)</span>
+            </div>
+            <div>
+              <span class="block text-[10px] text-slate-400 uppercase tracking-wider">Гарантия</span>
+              <span id="test-warranty" class="text-xs font-semibold text-slate-800">5 лет по договору</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Правое фото с плавающей плашкой (1-в-1 по макету) -->
+        <div class="lg:col-span-4 relative min-h-[420px] rounded-sm overflow-hidden bg-slate-900 shadow-md">
+          <img src="assets/img/testimonial-bg.jpg" alt="Уют и надежность" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          
+          <div class="floating-badge bottom-8 right-6">
+            ДОМ ТАМ,<br>ГДЕ УЮТ И НАДЕЖНОСТЬ
+          </div>
+          <div class="absolute bottom-4 right-6 flex items-center gap-2">
+            <span class="w-8 h-0.5 bg-[#00b4b6]"></span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8. ГЕОГРАФИЯ РАБОТ И КОНСУЛЬТАЦИЯ (1-в-1 по макету: Текст + Карта + Карточка)
+       ======================================================================== -->
+  <!-- ========================================================================
+       8. ГЕОГРАФИЯ РАБОТ И КОНСУЛЬТАЦИЯ (1-в-1 по макету: 50/50 Dual Split Block)
+       ======================================================================== -->
+  <section id="location" class="location-section py-12 md:py-16 border-t border-[#e2e8f0]">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-7 items-stretch">
+        
+        <!-- ЛЕВЫЙ БЛОК: Удобное расположение + Карта региона (1-в-1 по макету) -->
+        <div class="lg:col-span-6 bg-white border border-[#e2e8f0] rounded-sm p-6 md:p-8 flex flex-col justify-between shadow-xs">
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-stretch h-full">
+            
+            <!-- Текст слева -->
+            <div class="sm:col-span-5 flex flex-col justify-between py-1">
+              <div>
+                <div class="flex items-center gap-2 mb-2.5"><span class="w-6 h-[1.5px] bg-[#00b4b6]"></span><p class="tracking-widest-tag text-[#087f8c] text-[11px] font-semibold">УДОБНОЕ РАСПОЛОЖЕНИЕ</p></div>
+                <h2 class="font-serif text-2xl md:text-3xl text-slate-900 font-normal leading-tight mb-4">
+                  В центре<br>главного
+                </h2>
+                <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                  Выполняем ремонты на объектах по всей Архангельской области: Архангельск, Северодвинск, Новодвинск, коттеджные поселки и пригород. Мобильные инженеры выезжают на бесплатный замер в любую точку региона.
+                </p>
+              </div>
+
+              <div>
+                <a href="#contacts" class="btn-text-link btn-text-link-dark group text-left">
+                  <span>ПОКАЗАТЬ НА КАРТЕ</span>
+                  <svg class="w-4 h-4 text-slate-900 group-hover:text-[#087f8c] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Карта справа -->
+            <div class="sm:col-span-7 relative min-h-[300px] sm:min-h-full rounded-sm border border-[#cbd5e1] overflow-hidden bg-[#f4efe8]">
+              <svg viewBox="0 0 400 360" class="w-full h-full object-cover absolute inset-0" preserveAspectRatio="none">
+                <rect width="400" height="360" fill="#f8fafc" />
+                
+                <!-- Река Северная Двина и залив Белого моря -->
+                <path d="M-10,80 C60,110 120,180 180,160 C240,140 280,70 340,90 C380,105 410,80 420,70 L420,-10 L-10,-10 Z" fill="#e0f2fe" opacity="0.85" />
+                <path d="M180,160 C210,210 260,260 320,290 C360,310 400,340 420,360 L380,360 C320,320 260,280 210,220 C170,180 140,160 110,140" stroke="#e0f2fe" stroke-width="28" fill="none" opacity="0.8" />
+                
+                <!-- Сетка городских улиц и магистралей -->
+                <line x1="0" y1="90" x2="400" y2="90" stroke="#e2e8f0" stroke-width="1.5" />
+                <line x1="0" y1="170" x2="400" y2="170" stroke="#e2e8f0" stroke-width="2.5" />
+                <line x1="0" y1="250" x2="400" y2="250" stroke="#e2e8f0" stroke-width="1.5" />
+                <line x1="0" y1="310" x2="400" y2="310" stroke="#e2e8f0" stroke-width="2" />
+                
+                <line x1="80" y1="0" x2="80" y2="360" stroke="#e2e8f0" stroke-width="1.5" />
+                <line x1="160" y1="0" x2="160" y2="360" stroke="#e2e8f0" stroke-width="2.5" />
+                <line x1="240" y1="0" x2="240" y2="360" stroke="#e2e8f0" stroke-width="1.5" />
+                <line x1="320" y1="0" x2="320" y2="360" stroke="#e2e8f0" stroke-width="2" />
+                
+                <!-- Кварталы застройки -->
+                <rect x="90" y="180" width="60" height="60" fill="#f1f5f9" rx="1" />
+                <rect x="170" y="180" width="60" height="50" fill="#f1f5f9" rx="1" />
+                <rect x="250" y="110" width="60" height="50" fill="#f1f5f9" rx="1" />
+                <rect x="90" y="100" width="50" height="60" fill="#f1f5f9" rx="1" />
+                <rect x="250" y="260" width="60" height="40" fill="#f1f5f9" rx="1" />
+              </svg>
+
+              <!-- Пин 1: Офис / Архангельск -->
+              <div class="map-pin-btn absolute top-[28%] left-[64%] transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group z-20" data-pin="office">
+                <div class="flex items-center gap-1.5 bg-slate-900/95 text-white px-2 py-1 rounded-sm shadow-md border border-[#00b4b6]/60 group-hover:scale-105 group-hover:bg-[#087f8c] transition-all">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#00e5d4] pin-pulsing-beacon"></span>
+                  <div class="flex flex-col text-left">
+                    <span class="text-[9px] font-bold tracking-wider uppercase">ОФИС «МАСШТАБ»</span>
+                    <span class="text-[7.5px] text-slate-300">Троицкий пр.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Пин 2: ЖК River Park -->
+              <div class="map-pin-btn absolute top-[54%] left-[36%] transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group z-20" data-pin="riverpark">
+                <div class="flex items-center gap-1.5 bg-slate-900/95 text-white px-2 py-1 rounded-sm shadow-md border border-[#00b4b6]/60 group-hover:scale-105 group-hover:bg-[#087f8c] transition-all">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#00e5d4] pin-pulsing-beacon"></span>
+                  <div class="flex flex-col text-left">
+                    <span class="text-[9px] font-bold tracking-wider uppercase">АРХАНГЕЛЬСК</span>
+                    <span class="text-[7.5px] text-slate-300">ЖК River Park</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Пин 3: Северодвинск -->
+              <div class="map-pin-btn absolute top-[74%] left-[66%] transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group z-20" data-pin="whitecoast">
+                <div class="flex items-center gap-1.5 bg-slate-900/95 text-white px-2 py-1 rounded-sm shadow-md border border-[#00b4b6]/60 group-hover:scale-105 group-hover:bg-[#087f8c] transition-all">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#00e5d4] pin-pulsing-beacon"></span>
+                  <div class="flex flex-col text-left">
+                    <span class="text-[9px] font-bold tracking-wider uppercase">СЕВЕРОДВИНСК</span>
+                    <span class="text-[7.5px] text-slate-300">Коттедж у моря</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Всплывающий интерактивный тултип -->
+              <div id="map-tooltip" class="absolute bottom-3 left-3 right-3 bg-slate-900/95 backdrop-blur-md text-white p-2.5 rounded border border-white/20 shadow-2xl z-30 hidden flex-col">
+                <button id="map-tooltip-close" class="self-end text-xs text-slate-400 hover:text-white">&times;</button>
+                <h4 id="map-tooltip-title" class="font-sans font-bold text-xs uppercase tracking-wider text-[#00e5d4] mb-0.5">Офис</h4>
+                <p id="map-tooltip-address" class="text-[10px] font-medium text-slate-200 mb-1">Архангельск, Троицкий пр., 65</p>
+                <span id="map-tooltip-status" class="text-[8.5px] text-emerald-400 font-mono">Открыт пн-сб с 09:00</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ПРАВЫЙ БЛОК: Темная консультация + Мрамор с цитатой (1-в-1 по макету) -->
+        <div id="contacts" class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-12 rounded-sm overflow-hidden bg-[#0b1118] border border-white/10 shadow-xl">
+          
+          <!-- Левая часть карточки: Форма -->
+          <div class="sm:col-span-7 p-6 md:p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-2 mb-2"><span class="w-6 h-[1.5px] bg-[#00e5d4]"></span><p class="tracking-widest-tag text-[#00e5d4] text-[10.5px] font-semibold">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ</p></div>
+              <h3 class="font-serif text-2xl md:text-3xl text-white font-normal leading-tight mb-4">
+                Обсудим<br>ваш ремонт
+              </h3>
+
+              <form class="space-y-3">
+                <div>
+                  <input type="text" required placeholder="Ваше имя" class="form-input-dark py-2.5 px-3 text-xs w-full">
+                </div>
+                <div>
+                  <input type="tel" required placeholder="Телефон для связи" class="form-input-dark py-2.5 px-3 text-xs w-full">
+                </div>
+                <div>
+                  <input type="text" placeholder="Удобное время для звонка" class="form-input-dark py-2.5 px-3 text-xs w-full">
+                </div>
+
+                <div class="pt-2 flex items-center justify-between gap-3">
+                  <label class="flex items-center gap-2 cursor-pointer text-[10px] text-slate-400 select-none">
+                    <input type="checkbox" required checked class="w-3.5 h-3.5 rounded border-slate-700 text-[#00b4b6] focus:ring-0">
+                    <span>Я согласен с <a href="#" class="underline hover:text-white">политикой</a></span>
+                  </label>
+
+                  <button type="submit" class="btn-circle-arrow w-10 h-10 min-w-[40px] flex-shrink-0" aria-label="Отправить">
+                    <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Правая часть карточки: Темный мрамор и вертикальный текст (1-в-1 с макетом) -->
+          <div class="sm:col-span-5 relative min-h-[160px] sm:min-h-full flex items-center justify-center p-6 bg-slate-950 border-t sm:border-t-0 sm:border-l border-white/10 overflow-hidden">
+            <img src="assets/img/dark-marble.jpg" alt="Мрамор" class="absolute inset-0 w-full h-full object-cover opacity-50">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            
+            <div class="relative z-10 text-center sm:text-left">
+              <span class="font-serif uppercase text-xs md:text-sm text-slate-200 tracking-[0.16em] leading-relaxed block font-medium">
+                ВЕЛИКИЕ<br>ПЛАНЫ<br>НАЧИНАЮТСЯ<br>С РАЗГОВОРА
+              </span>
+              <div class="w-6 h-[1px] bg-[#00b4b6] mt-3 mx-auto sm:mx-0"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       11. ФУТЕР / FOOTER (ТЕМНЫЙ)
+       ======================================================================== -->
+  <footer class="footer-section py-14 px-4 md:px-10 text-xs">
+    <div class="max-w-[1400px] mx-auto">
+      
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-8 pb-10 border-b border-white/10">
+        
+        <!-- Логотип слева -->
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 flex items-center justify-center bg-[#0d141e] border border-white/10 rounded-sm">
+            <img src="assets/logo.png" alt="МАСШТАБ" class="w-6 h-6 object-contain">
+          </div>
+          <div class="flex flex-col text-left">
+            <span class="font-sans font-bold tracking-[0.2em] text-white text-sm uppercase">МАСШТАБ</span>
+            <span class="text-[8px] tracking-[0.24em] uppercase text-[#00b4b6]">Строительная компания</span>
+          </div>
+        </div>
+
+        <!-- Меню по центру -->
+        <nav class="flex flex-wrap items-center justify-center gap-6 md:gap-9 uppercase tracking-[0.14em] text-slate-400 font-medium">
+          <a href="#services" class="hover:text-white transition-colors">Услуги</a>
+          <a href="#projects" class="hover:text-white transition-colors">Наши работы</a>
+          <a href="#calculator" class="hover:text-white transition-colors">Цены и сметы</a>
+          <a href="#advantages" class="hover:text-white transition-colors">Преимущества</a>
+          <a href="#reviews" class="hover:text-white transition-colors">Отзывы</a>
+          <a href="#contacts" class="hover:text-white transition-colors">Контакты</a>
+        </nav>
+
+        <!-- Контакты и соцсети справа -->
+        <div class="flex flex-col sm:flex-row items-center gap-6">
+          <div class="text-center sm:text-right">
+            <a href="tel:+79115540050" class="font-semibold text-white tracking-wide block hover:text-[#00e5d4] transition-colors">+7 (911) 554-00-50</a>
+            <span class="text-[11px] text-slate-400">Архангельск, Северодвинск, Новодвинск</span>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+            <a href="https://t.me/" target="_blank" rel="noopener" class="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-slate-400 hover:text-white hover:border-[#00b4b6] transition-colors" aria-label="Telegram">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+            </a>
+            <a href="https://vk.com/" target="_blank" rel="noopener" class="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-slate-400 hover:text-white hover:border-[#00b4b6] transition-colors" aria-label="VK">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M15.684 0H8.316C2.992 0 0 2.992 0 8.316v7.368C0 21.008 2.992 24 8.316 24h7.368C21.008 24 24 21.008 24 15.684V8.316C24 2.992 21.008 0 15.684 0zm3.692 17.144h-1.744c-.66 0-.864-.524-2.056-1.716-1.04-1.012-1.5-1.144-1.756-1.144-.36 0-.464.104-.464.604v1.64c0 .416-.132.616-1.232.616-1.82 0-3.844-1.108-5.268-3.164-2.14-3.04-2.736-5.328-2.736-5.792 0-.256.104-.492.604-.492h1.744c.452 0 .62.208.796.696 1.012 2.68 2.456 5.032 3.092 5.032.236 0 .344-.108.344-.704v-2.74c-.072-1.228-.716-1.332-.716-1.768 0-.208.172-.416.444-.416h2.744c.38 0 .512.204.512.664v3.692c0 .38.168.512.284.512.236 0 .428-.132.868-.572 1.348-1.516 2.308-3.864 2.308-3.864.128-.276.34-.492.796-.492h1.744c.524 0 .636.268.524.664-.22 1.012-2.348 4.02-2.456 4.192-.22.34-.304.492 0 .896.22.296.96 1.012 1.452 1.58 1.136 1.304 1.836 2.4 2.052 2.704.22.304.12.632-.38.632z"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Копирайт -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between text-slate-500 text-[11px] gap-4">
+        <span>© 2026 Строительная компания «МАСШТАБ». Все права защищены.</span>
+        <span>Ремонт и отделка квартир, домов, офисов. Проектирование. Электроснабжение.</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       12. ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР СМЕТЫ (МОДАЛЬНОЕ ОКНО)
+       ======================================================================== -->
+  <div id="modal-calc" class="modal-backdrop">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" aria-label="Закрыть">&times;</button>
+      
+      <p class="tracking-widest-tag text-[#00b4b6] mb-1 text-[11px] font-semibold">ОНЛАЙН-РАСЧЕТ СМЕТЫ</p>
+      <h3 class="font-serif text-2xl md:text-3xl text-white font-normal mb-2">Калькулятор стоимости ремонта</h3>
+      <p class="text-xs text-slate-400 mb-6">Бесплатный расчет сметы с фиксированной ценой по договору без скрытых доплат</p>
+
+      <form class="space-y-6">
+        
+        <!-- Тип объекта -->
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Тип помещения</label>
+          <select id="calc-type" class="form-input-dark">
+            <option value="1.0">Квартира в новостройке (черновая отделка / стяжка)</option>
+            <option value="1.15">Вторичное жилье (капитальный ремонт с демонтажем)</option>
+            <option value="1.25">Коттедж или загородный дом под ключ</option>
+            <option value="1.1">Офис или коммерческое помещение</option>
+          </select>
+        </div>
+
+        <!-- Ползунок площади -->
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <label class="text-xs font-semibold uppercase tracking-wider text-slate-300">Площадь помещения</label>
+            <span id="calc-area-display" class="font-mono text-sm font-bold text-[#00e5d4]">85 м²</span>
+          </div>
+          <input type="range" id="calc-area-range" min="30" max="350" value="85" step="5" class="w-full accent-[#00b4b6] cursor-pointer">
+        </div>
+
+        <!-- Класс ремонта: эконом, комфорт, бизнес, премиум (из инфы заказчика) -->
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Класс отделки</label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            <label class="border border-white/10 p-2.5 rounded text-center cursor-pointer hover:border-[#00b4b6] transition-colors has-[:checked]:border-[#00b4b6] has-[:checked]:bg-[#00b4b6]/10">
+              <input type="radio" name="calc-tier" value="8500" class="sr-only">
+              <span class="block text-xs font-semibold text-white">Эконом</span>
+              <span class="block text-[10px] text-slate-400">от 8 500 ₽/м²</span>
+            </label>
+            <label class="border border-white/10 p-2.5 rounded text-center cursor-pointer hover:border-[#00b4b6] transition-colors has-[:checked]:border-[#00b4b6] has-[:checked]:bg-[#00b4b6]/10">
+              <input type="radio" name="calc-tier" value="14500" checked class="sr-only">
+              <span class="block text-xs font-semibold text-white">Комфорт</span>
+              <span class="block text-[10px] text-slate-400">от 14 500 ₽/м²</span>
+            </label>
+            <label class="border border-white/10 p-2.5 rounded text-center cursor-pointer hover:border-[#00b4b6] transition-colors has-[:checked]:border-[#00b4b6] has-[:checked]:bg-[#00b4b6]/10">
+              <input type="radio" name="calc-tier" value="22500" class="sr-only">
+              <span class="block text-xs font-semibold text-white">Бизнес</span>
+              <span class="block text-[10px] text-slate-400">от 22 500 ₽/м²</span>
+            </label>
+            <label class="border border-white/10 p-2.5 rounded text-center cursor-pointer hover:border-[#00b4b6] transition-colors has-[:checked]:border-[#00b4b6] has-[:checked]:bg-[#00b4b6]/10">
+              <input type="radio" name="calc-tier" value="34000" class="sr-only">
+              <span class="block text-xs font-semibold text-white">Премиум</span>
+              <span class="block text-[10px] text-slate-400">от 34 000 ₽/м²</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Дополнительные опции: Дизайн, Электроснабжение, Мебель -->
+        <div class="space-y-2">
+          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300">Включить в смету:</label>
+          <label class="flex items-center gap-3 text-xs text-slate-300 cursor-pointer">
+            <input type="checkbox" id="calc-opt-design" checked class="rounded border-slate-700 text-[#00b4b6] focus:ring-0">
+            <span>Авторский дизайн-проект с 3D-визуализацией (+2 200 ₽/м²)</span>
+          </label>
+          <label class="flex items-center gap-3 text-xs text-slate-300 cursor-pointer">
+            <input type="checkbox" id="calc-opt-electro" checked class="rounded border-slate-700 text-[#00b4b6] focus:ring-0">
+            <span>Электромонтаж и слаботочные сети (+3 500 ₽/м²)</span>
+          </label>
+          <label class="flex items-center gap-3 text-xs text-slate-300 cursor-pointer">
+            <input type="checkbox" id="calc-opt-furniture" class="rounded border-slate-700 text-[#00b4b6] focus:ring-0">
+            <span>Комплектация корпусной мебелью под заказ</span>
+          </label>
+        </div>
+
+        <!-- Итог расчета -->
+        <div class="bg-black/40 border border-[#00b4b6]/30 p-4 rounded flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <span class="text-[10px] text-slate-400 uppercase tracking-widest block">Ориентировочная стоимость:</span>
+            <span id="calc-result-price" class="font-serif text-2xl md:text-3xl text-[#00e5d4] font-semibold">1 419 500 ₽</span>
+          </div>
+          <div class="text-left sm:text-right">
+            <span class="text-[10px] text-slate-400 uppercase tracking-widest block">Срок выполнения:</span>
+            <span id="calc-result-days" class="font-mono text-sm text-slate-200 font-medium">98 рабочих дней</span>
+          </div>
+        </div>
+
+        <!-- Форма закрепления сметы -->
+        <div class="pt-2">
+          <p class="text-xs text-slate-400 mb-3">Оставьте контакты для получения детальной сметы и вызова замерщика:</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+            <input type="text" required placeholder="Ваше имя" class="form-input-dark text-xs">
+            <input type="tel" required placeholder="Телефон для сметы" class="form-input-dark text-xs">
+          </div>
+          <button type="submit" class="w-full btn-primary text-xs">
+            ЗАКРЕПИТЬ СМЕТУ И ЗАКАЗАТЬ ВЫЕЗД ЗАМЕРЩИКА 0 ₽
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       13. МОДАЛЬНОЕ ОКНО: ЗАКАЗАТЬ ЗВОНОК / ЗАМЕР
+       ======================================================================== -->
+  <div id="modal-call" class="modal-backdrop">
+    <div class="modal-dialog max-w-md">
+      <button class="modal-close-btn" aria-label="Закрыть">&times;</button>
+      
+      <p class="tracking-widest-tag text-[#00b4b6] mb-1 text-[11px] font-semibold">ВЫЕЗД ЗАМЕРЩИКА 0 ₽</p>
+      <h3 class="font-serif text-2xl text-white font-normal mb-2">Бесплатный замер</h3>
+      <p class="text-xs text-slate-400 mb-6">Главный инженер приедет на объект в удобное время и подготовит смету с фиксированной ценой</p>
+
+      <form class="space-y-4">
+        <div>
+          <input type="text" required placeholder="Ваше имя" class="form-input-dark">
+        </div>
+        <div>
+          <input type="tel" required placeholder="+7 (___) ___-__-__" class="form-input-dark">
+        </div>
+        <div>
+          <input type="text" placeholder="Удобное время для замера" class="form-input-dark">
+        </div>
+        <button type="submit" class="w-full btn-primary text-xs">
+          ВЫЗВАТЬ ЗАМЕРЩИКА БЕСПЛАТНО
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       13.5 МОДАЛЬНОЕ ОКНО: ПРИСОЕДИНЯЙСЯ К КОМАНДЕ (ИЗ СТОРИЗ 1)
+       ======================================================================== -->
+  <div id="modal-career" class="modal-backdrop">
+    <div class="modal-dialog max-w-lg">
+      <button class="modal-close-btn" onclick="document.getElementById('modal-career').classList.remove('active')" aria-label="Закрыть">&times;</button>
+      
+      <p class="tracking-widest-tag text-[#00b4b6] mb-1 text-[11px] font-semibold">КАРЬЕРА В «МАСШТАБ»</p>
+      <h3 class="font-serif text-2xl md:text-3xl text-white font-normal mb-2">Присоединяйся к команде</h3>
+      <p class="text-xs text-slate-400 mb-6">Мы расширяем штат и ищем профессионалов своего дела в Архангельске и Северодвинске</p>
+
+      <form class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">Желаемая должность / направление</label>
+          <select required class="form-input-dark text-xs">
+            <option value="foreman">Инженер-прораб / Начальник участка</option>
+            <option value="finisher">Мастер-отделочник (плитка, малярные работы, ГКЛ)</option>
+            <option value="electrician">Инженер-электрик / Электромонтажник</option>
+            <option value="designer">Дизайнер интерьеров / Архитектор</option>
+            <option value="estimator">Инженер-сметчик</option>
+          </select>
+        </div>
+
+        <div>
+          <input type="text" required placeholder="Ваше имя и фамилия" class="form-input-dark text-xs">
+        </div>
+
+        <div>
+          <input type="tel" required placeholder="Контактный телефон" class="form-input-dark text-xs">
+        </div>
+
+        <div>
+          <textarea rows="3" placeholder="Кратко об опыте работы и реализованных объектах" class="form-input-dark text-xs"></textarea>
+        </div>
+
+        <button type="submit" class="w-full btn-primary text-xs">
+          ОТПРАВИТЬ АНКЕТУ В СЛУЖБУ ПЕРСОНАЛА
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       14. МОБИЛЬНОЕ МЕНЮ (DRAWER)
+       ======================================================================== -->
+  <div id="mobile-drawer" class="modal-backdrop">
+    <div class="modal-dialog max-w-sm h-full max-h-screen rounded-none ml-auto p-8 flex flex-col justify-between bg-[#0b1118]">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-white/10 mb-8">
+          <div class="flex items-center gap-2">
+            <img src="assets/logo.png" alt="МАСШТАБ" class="w-7 h-7 object-contain">
+            <span class="font-bold tracking-widest text-white text-sm">МАСШТАБ</span>
+          </div>
+          <button id="mobile-drawer-close" class="text-2xl text-slate-400 hover:text-white">&times;</button>
+        </div>
+
+        <nav class="flex flex-col gap-6 font-serif text-xl text-white">
+          <a href="#services" class="hover:text-[#00e5d4] transition-colors">Услуги</a>
+          <a href="#projects" class="hover:text-[#00e5d4] transition-colors">Наши работы</a>
+          <a href="#advantages" class="hover:text-[#00e5d4] transition-colors">Преимущества</a>
+          <a href="#gallery" class="hover:text-[#00e5d4] transition-colors">Галерея</a>
+          <a href="#reviews" class="hover:text-[#00e5d4] transition-colors">Отзывы</a>
+          <a href="#location" class="hover:text-[#00e5d4] transition-colors">Расположение</a>
+          <a href="#contacts" class="hover:text-[#00e5d4] transition-colors">Контакты</a>
+        </nav>
+      </div>
+
+      <div class="pt-8 border-t border-white/10 space-y-4">
+        <a href="tel:+79115540050" class="block font-semibold text-white text-sm tracking-wide">+7 (911) 554-00-50</a>
+        <button id="btn-hero-calc" class="w-full py-3 bg-[#00b4b6] text-black text-xs uppercase font-bold tracking-wider rounded">
+          Рассчитать смету
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       15. ВСПЛЫВАЮЩИЙ TOAST ПРИ ОТПРАВКЕ
+       ======================================================================== -->
+  <div id="toast-success" class="toast-notification">
+    <div class="w-6 h-6 rounded-full bg-[#00b4b6] text-black flex items-center justify-center font-bold text-xs">✓</div>
+    <span class="toast-message text-xs font-medium">Заявка успешно отправлена!</span>
+  </div>
+
+  <!-- Vendor Motion Libraries (Lenis Smooth Scroll & GSAP ScrollTrigger) -->
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/vendor/lenis.min.js"></script>
+
+  <!-- JavaScript Application Logic -->
+  <script src="js/main.js"></script>
+</body>
+</html>

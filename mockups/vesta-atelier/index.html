@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>АТЕЛЬЕ VESTA — Архитектурная мебель и 3D-пространство резиденции</title>
+  <meta name="description" content="Штучная архитектурная мебель из массива дуба, ореха и травертина. Интерактивный 3D-павильон лофта, естественный суточный свет и прозрачная авторская спецификация.">
+
+  <!-- Фавиконка -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+
+  <!-- Стили -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Three.js (r128) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- Аналоговое зерно (SVG Noise) -->
+  <svg class="grain-overlay" aria-hidden="true">
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="saturate" values="0" />
+    </filter>
+    <rect width="100%" height="100%" filter="url(#grain)" />
+  </svg>
+
+  <!-- Интерактивный кинетический курсор -->
+  <div class="custom-cursor" id="customCursor">
+    <div class="custom-cursor-dot"></div>
+  </div>
+
+  <!-- =========================================================================
+       1. ВЕРХНЯЯ ИНФОРМАЦИОННАЯ СТРОКА СТАТУСА
+       ========================================================================= -->
+  <div class="top-notice-bar">
+    <div class="vesta-container top-notice-inner">
+      <div class="top-status-indicator">
+        <span class="status-pulse-dot"></span>
+        <span>МАСТЕРСКАЯ КОПЕНГАГЕН · САЛОН МИЛАН</span>
+      </div>
+      <div>
+        <span>СЛОТ ПРОИЗВОДСТВА: ОКТЯБРЬ 2026 // ШТУЧНЫЙ ТИРАЖ</span>
+      </div>
+      <div>
+        <button type="button" class="currency-toggle-quiet" id="currencyToggleBtn">RUB (₽)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       2. ШАПКА САЙТА (HEADER)
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="vesta-container site-header-inner">
+      <div class="brand-logotype">
+        <a href="#" class="brand-title-text">АТЕЛЬЕ VESTA</a>
+        <span class="brand-sub-tag">АРХИТЕКТУРНАЯ МЕБЕЛЬ // EST. 2026</span>
+      </div>
+
+      <nav class="site-nav-links" aria-label="Навигация по сайту">
+        <a href="#configurator" class="nav-link-item">01/ 3D Павильон</a>
+        <a href="#estimator" class="nav-link-item">02/ Спецификация</a>
+        <a href="#collection" class="nav-link-item">03/ Коллекция</a>
+        <a href="#craft" class="nav-link-item">04/ Ремесло</a>
+        <a href="#contact" class="nav-link-item">05/ Манифест</a>
+      </nav>
+
+      <div>
+        <button type="button" class="header-cta-btn" data-open-modal="booking">
+          <span>ОБСУДИТЬ ПРОЕКТ</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =======================================================================
+         3. ГЛАВНЫЙ ЭКРАН (HERO SECTION & ДИПТИХ)
+         ======================================================================= -->
+    <section class="hero-section">
+      <div class="vesta-container">
+        <div class="hero-editorial-grid">
+          <div class="hero-text-side">
+            <div class="hero-subtitle-tag">
+              АРХИТЕКТУРНАЯ СИСТЕМА ДЛЯ ЧАСТНЫХ РЕЗИДЕНЦИЙ
+            </div>
+
+            <h1 class="hero-h1-monument">
+              Архитектура тишины. <em>Мебель для вечности.</em>
+            </h1>
+
+            <p class="hero-narrative-copy">
+              Мы проектируем и изготавливаем штучную мебель для знаковых пространств. Каждый модуль собирается вручную из массива европейского белого дуба, американского ореха и римского травертина, выверенных под естественный свет и ритм современного интерьера.
+            </p>
+
+            <div class="hero-actions-row">
+              <a href="#configurator" class="btn-solid-dark">
+                <span>Открыть 3D-павильон</span>
+                <span aria-hidden>→</span>
+              </a>
+              <a href="#estimator" class="btn-outline-quiet">
+                <span>Рассчитать авторскую смету</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-visual-card">
+            <div class="hero-visual-photo">
+              <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=1200&auto=format&fit=crop" alt="Архитектурный интерьер резиденции" loading="eager">
+            </div>
+            <div class="hero-visual-caption">
+              <h4>Резиденция Нордик</h4>
+              <span>КОПЕНГАГЕН // ОБЪЕКТ 04</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         4. БЕГУЩАЯ СТРОКА МАТЕРИАЛОВ (QUIET MARQUEE)
+         ======================================================================= -->
+    <div class="marquee-ribbon-wrap" aria-hidden="true">
+      <div class="marquee-ribbon-track">
+        <div class="marquee-item"><span>МАССИВ ЕВРОПЕЙСКОГО БЕЛОГО ДУБА</span><span class="star-glyph">✦</span></div>
+        <div class="marquee-item"><span>ФАКТУРНОЕ БУКЛЕ ECRU</span><span class="star-glyph">✦</span></div>
+        <div class="marquee-item"><span>РИМСКИЙ ТРАВЕРТИН РУЧНОЙ ПОЛИРОВКИ</span><span class="star-glyph">✦</span></div>
+        <div class="marquee-item"><span>АНИЛИНОВАЯ СЕДЕЛЬНАЯ КОЖА</span><span class="star-glyph">✦</span></div>
+        <div class="marquee-item"><span>ШИПОВЫЕ СОПРЯЖЕНИЯ «ЛАСТОЧКИН ХВОСТ»</span><span class="star-glyph">✦</span></div>
+        <div class="marquee-item"><span>ШЛИФОВАННАЯ ЛАТУНЬ</span><span class="star-glyph">✦</span></div>
+        <div class="marquee-item"><span>МАССИВ ЕВРОПЕЙСКОГО БЕЛОГО ДУБА</span><span class="star-glyph">✦</span></div>
+        <div class="marquee-item"><span>ФАКТУРНОЕ БУКЛЕ ECRU</span><span class="star-glyph">✦</span></div>
+        <div class="marquee-item"><span>РИМСКИЙ ТРАВЕРТИН РУЧНОЙ ПОЛИРОВКИ</span><span class="star-glyph">✦</span></div>
+        <div class="marquee-item"><span>АНИЛИНОВАЯ СЕДЕЛЬНАЯ КОЖА</span><span class="star-glyph">✦</span></div>
+        <div class="marquee-item"><span>ШИПОВЫЕ СОПРЯЖЕНИЯ «ЛАСТОЧКИН ХВОСТ»</span><span class="star-glyph">✦</span></div>
+        <div class="marquee-item"><span>ШЛИФОВАННАЯ ЛАТУНЬ</span><span class="star-glyph">✦</span></div>
+      </div>
+    </div>
+
+    <!-- =======================================================================
+         5. ПОЛНОРАЗМЕРНЫЙ 3D-ПАВИЛЬОН ЛОФТА (ARCHITECTURAL 3D STAGE)
+         ======================================================================= -->
+    <section class="section-3d-stage" id="configurator">
+      <div class="vesta-container">
+        <div class="editorial-section-head">
+          <div>
+            <div class="editorial-section-tag">01 // ЖИВОЕ 3D-ПРОСТРАНСТВО</div>
+            <h2 class="editorial-section-title">Павильон резиденции</h2>
+          </div>
+          <p class="editorial-section-desc">
+            Оцените соразмерность и характер предметов в пространстве лофта. Управляйте естественным суточным светом, меняйте массив древесины и тестируйте обивки с любого ракурса.
+          </p>
+        </div>
+
+        <div class="stage-3d-container">
+          <!-- Верхний HUD -->
+          <div class="stage-top-hud">
+            <div class="stage-room-badge">
+              ЛОФТ РЕЗИДЕНЦИИ // 360° ОБЗОР
+            </div>
+
+            <div class="stage-camera-tabs">
+              <button type="button" class="cam-tab-btn active" data-view="lounge">Обзор гостиной</button>
+              <button type="button" class="cam-tab-btn" data-view="sofa">Зона дивана</button>
+              <button type="button" class="cam-tab-btn" data-view="table">Столик и кресло</button>
+              <button type="button" class="cam-tab-btn" data-view="plan">План сверху</button>
+            </div>
+          </div>
+
+          <!-- WebGL Canvas -->
+          <canvas class="stage-canvas-element" id="stageCanvas"></canvas>
+
+          <!-- Нижняя плавающая консоль управления -->
+          <div class="stage-bottom-console">
+            <!-- Палитра материалов -->
+            <div class="floating-tray-card">
+              <div class="floating-tray-title">МАССИВ ДЕРЕВА</div>
+              <div class="swatch-group-row">
+                <button type="button" class="swatch-circle-btn mat-oak active" data-category="wood" data-value="oak" title="Европейский дуб"></button>
+                <button type="button" class="swatch-circle-btn mat-walnut" data-category="wood" data-value="walnut" title="Американский орех"></button>
+                <button type="button" class="swatch-circle-btn mat-ash" data-category="wood" data-value="ash" title="Мореный ясень"></button>
+              </div>
+
+              <div class="floating-tray-title" style="margin-top: 14px;">ОБИВКА ТЕКСТИЛЬ</div>
+              <div class="swatch-group-row">
+                <button type="button" class="swatch-circle-btn mat-boucle active" data-category="fabric" data-value="boucle" title="Букле Ecru"></button>
+                <button type="button" class="swatch-circle-btn mat-leather" data-category="fabric" data-value="leather" title="Седельная кожа"></button>
+              </div>
+            </div>
+
+            <!-- Суточный свет -->
+            <div class="floating-tray-card">
+              <div class="floating-tray-title">РЕЖИМ ОСВЕЩЕНИЯ</div>
+              <div class="lighting-time-dock">
+                <button type="button" class="time-dock-pill active" data-time="daylight">☀️ Утренний свет</button>
+                <button type="button" class="time-dock-pill" data-time="golden">🌅 Золотой час</button>
+                <button type="button" class="time-dock-pill" data-time="nocturne">🌙 Вечерняя атмосфера</button>
+              </div>
+            </div>
+
+            <!-- Информационная карточка выбранного лота -->
+            <div class="stage-selected-object-box">
+              <div class="selected-obj-title">Диван VESTA Grand</div>
+              <div class="selected-obj-meta">280 × 170 см · Массив дуба и букле</div>
+              <div class="selected-obj-price" id="selectedPriceDisplay">545 000 ₽</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         6. АРХИТЕКТУРНЫЙ КАЛЬКУЛЯТОР-ДОСЬЕ (ESTIMATION DOSSIER)
+         ======================================================================= -->
+    <section class="section-calculator-dossier" id="estimator">
+      <div class="vesta-container">
+        <div class="editorial-section-head">
+          <div>
+            <div class="editorial-section-tag">02 // АВТОРСКАЯ СМЕТА</div>
+            <h2 class="editorial-section-title">Архитектурная спецификация</h2>
+          </div>
+          <p class="editorial-section-desc">
+            Прозрачный расчет себестоимости и трудозатрат мастерской. Укажите масштаб интерьера, массив древесины и ремесленные сопряжения для формирования официальной спецификации.
+          </p>
+        </div>
+
+        <div class="calc-architecture-grid">
+          <!-- Левая колонка: шаги конфигурации -->
+          <div class="calc-steps-wrapper">
+            
+            <!-- Шаг 01: Масштаб -->
+            <div class="calc-step-unit">
+              <div class="step-meta-row">
+                <span class="step-number-tag">ШАГ 01</span>
+                <span class="font-mono" style="font-size: 0.72rem; color: var(--text-muted);">МАСШТАБ ПРОСТРАНСТВА</span>
+              </div>
+              <h3 class="step-headline-text">Наполнение резиденции</h3>
+
+              <div class="calc-segmented-group" id="ensembleButtons">
+                <button type="button" class="calc-select-btn" data-val="solo">
+                  <span class="btn-title-main">Диван VESTA</span>
+                  <span class="btn-sub-caption">1 объект · 68 ч. работы</span>
+                </button>
+                <button type="button" class="calc-select-btn active" data-val="lounge">
+                  <span class="btn-title-main">Лаунж-комплект</span>
+                  <span class="btn-sub-caption">Диван + столик + кресло</span>
+                </button>
+                <button type="button" class="calc-select-btn" data-val="residence">
+                  <span class="btn-title-main">Полная резиденция</span>
+                  <span class="btn-sub-caption">Полный ансамбль с консолью</span>
+                </button>
+              </div>
+
+              <div class="calc-range-wrapper">
+                <div class="range-label-row">
+                  <span class="range-label-name">Площадь зоны гостиной:</span>
+                  <span class="range-current-val" id="areaValueReadout">36 м²</span>
+                </div>
+                <input type="range" min="18" max="80" value="36" step="2" class="clean-range-slider" id="areaRangeSlider">
+              </div>
+            </div>
+
+            <!-- Шаг 02: Массив -->
+            <div class="calc-step-unit">
+              <div class="step-meta-row">
+                <span class="step-number-tag">ШАГ 02</span>
+                <span class="font-mono" style="font-size: 0.72rem; color: var(--text-muted);">ПОРОДА МАССИВА</span>
+              </div>
+              <h3 class="step-headline-text">Массив благородного леса</h3>
+
+              <div class="calc-segmented-group" id="woodButtons">
+                <button type="button" class="calc-select-btn active" data-val="oak">
+                  <span class="btn-title-main">Белый дуб</span>
+                  <span class="btn-sub-caption">Радиальный распил (база)</span>
+                </button>
+                <button type="button" class="calc-select-btn" data-val="walnut">
+                  <span class="btn-title-main">Американский орех</span>
+                  <span class="btn-sub-caption">Шоколадный тон (+22%)</span>
+                </button>
+                <button type="button" class="calc-select-btn" data-val="ash">
+                  <span class="btn-title-main">Мореный ясень</span>
+                  <span class="btn-sub-caption">Глубокий графит (+14%)</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Шаг 03: Обивка -->
+            <div class="calc-step-unit">
+              <div class="step-meta-row">
+                <span class="step-number-tag">ШАГ 03</span>
+                <span class="font-mono" style="font-size: 0.72rem; color: var(--text-muted);">КАТЕГОРИЯ ОБИВКИ</span>
+              </div>
+              <h3 class="step-headline-text">Текстиль и натуральная кожа</h3>
+
+              <div class="calc-segmented-group" id="fabricButtons">
+                <button type="button" class="calc-select-btn active" data-val="boucle">
+                  <span class="btn-title-main">Букле Ecru</span>
+                  <span class="btn-sub-caption">Фактурная шерсть с вискозой</span>
+                </button>
+                <button type="button" class="calc-select-btn" data-val="linen">
+                  <span class="btn-title-main">Бельгийский лён</span>
+                  <span class="btn-sub-caption">Вываренный матовый текстиль</span>
+                </button>
+                <button type="button" class="calc-select-btn" data-val="leather">
+                  <span class="btn-title-main">Анилиновая кожа</span>
+                  <span class="btn-sub-caption">Коньячная седельная кожа</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Шаг 04: Столярные узлы -->
+            <div class="calc-step-unit">
+              <div class="step-meta-row">
+                <span class="step-number-tag">ШАГ 04</span>
+                <span class="font-mono" style="font-size: 0.72rem; color: var(--text-muted);">РЕМЕСЛЕННЫЕ УЗЛЫ</span>
+              </div>
+              <h3 class="step-headline-text">Ручная столярная доводка</h3>
+
+              <div class="craft-options-list">
+                <div class="craft-option-row checked" data-addon="dovetail">
+                  <div class="craft-check-side">
+                    <div class="craft-fake-box"></div>
+                    <span class="craft-title-text">Шиповые сопряжения «ласточкин хвост» ручной подрезки</span>
+                  </div>
+                  <span class="craft-cost-tag">+38 000 ₽ (14 ч.)</span>
+                </div>
+
+                <div class="craft-option-row" data-addon="butterfly">
+                  <div class="craft-check-side">
+                    <div class="craft-fake-box"></div>
+                    <span class="craft-title-text">Латунные клинья-бабочки в торцах столешницы</span>
+                  </div>
+                  <span class="craft-cost-tag">+46 000 ₽ (8 ч.)</span>
+                </div>
+
+                <div class="craft-option-row checked" data-addon="wireless">
+                  <div class="craft-check-side">
+                    <div class="craft-fake-box"></div>
+                    <span class="craft-title-text">Скрытая индукционная зарядка Qi в плите травертина</span>
+                  </div>
+                  <span class="craft-cost-tag">+29 000 ₽ (4 ч.)</span>
+                </div>
+
+                <div class="craft-option-row checked" data-addon="plaque">
+                  <div class="craft-check-side">
+                    <div class="craft-fake-box"></div>
+                    <span class="craft-title-text">Именная гравированная латунная табличка мастера</span>
+                  </div>
+                  <span class="craft-cost-tag">+15 000 ₽ (2 ч.)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Шаг 05: Логистика -->
+            <div class="calc-step-unit">
+              <div class="step-meta-row">
+                <span class="step-number-tag">ШАГ 05</span>
+                <span class="font-mono" style="font-size: 0.72rem; color: var(--text-muted);">ЛОГИСТИКА И СБОРКА</span>
+              </div>
+              <h3 class="step-headline-text">Передача готового объекта</h3>
+
+              <div class="calc-segmented-group" id="logisticsButtons">
+                <button type="button" class="calc-select-btn" data-val="pickup">
+                  <span class="btn-title-main">Самовывоз</span>
+                  <span class="btn-sub-caption">Мастерская ателье</span>
+                </button>
+                <button type="button" class="calc-select-btn active" data-val="whiteglove">
+                  <span class="btn-title-main">Архитектурный занос</span>
+                  <span class="btn-sub-caption">Сборка и расстановка</span>
+                </button>
+                <button type="button" class="calc-select-btn" data-val="freight">
+                  <span class="btn-title-main">Защитный кофр</span>
+                  <span class="btn-sub-caption">Климатический бокс</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Правая колонка: Сметный лист-досье -->
+          <div class="dossier-paper-sheet">
+            <div class="dossier-header-crest">
+              <div class="dossier-ref-number">СПЕЦИФИКАЦИЯ // #VESTA-2026-NORDIC</div>
+              <h4 class="dossier-firm-name">АТЕЛЬЕ VESTA</h4>
+            </div>
+
+            <div class="dossier-items-stack">
+              <div class="dossier-item-line">
+                <div class="dossier-name-side">
+                  <h5 id="dossierBaseTitle">Лаунж-комплект</h5>
+                  <p id="dossierBaseSpec">Белый дуб · Площадь 36 м²</p>
+                </div>
+                <div class="dossier-price-side" id="dossierBaseCost">780 000 ₽</div>
+              </div>
+
+              <div class="dossier-item-line">
+                <div class="dossier-name-side">
+                  <h5>Обивка мягких модулей</h5>
+                  <p id="dossierFabricSpec">Фактурное плотное букле Ecru</p>
+                </div>
+                <div class="dossier-price-side" id="dossierFabricCost">0 ₽</div>
+              </div>
+
+              <div class="dossier-item-line">
+                <div class="dossier-name-side">
+                  <h5>Ремесленные усложнения</h5>
+                  <p id="dossierAddonsSpec">3 выбранных узла ручной обработки</p>
+                </div>
+                <div class="dossier-price-side" id="dossierAddonsCost">82 000 ₽</div>
+              </div>
+
+              <div class="dossier-item-line">
+                <div class="dossier-name-side">
+                  <h5>Сервис и логистика</h5>
+                  <p id="dossierLogisticsSpec">Архитектурный занос, сборка и расстановка</p>
+                </div>
+                <div class="dossier-price-side" id="dossierLogisticsCost">42 000 ₽</div>
+              </div>
+            </div>
+
+            <div class="dossier-specs-summary">
+              <div class="spec-line">
+                <span>Объем труда мастеров:</span>
+                <span id="dossierHours">124 часа работы</span>
+              </div>
+              <div class="spec-line">
+                <span>Цикл изготовления:</span>
+                <span>6–8 недель</span>
+              </div>
+            </div>
+
+            <div class="dossier-grand-total">
+              <span class="total-title-label">Итоговая смета:</span>
+              <span class="total-digits-sum" id="dossierGrandTotal">904 000 ₽</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <button type="button" class="btn-solid-dark" data-open-modal="booking" style="width: 100%; justify-content: center;">
+                Забронировать слот производства
+              </button>
+              <button type="button" class="btn-outline-quiet" onclick="window.print()" style="width: 100%; justify-content: center;">
+                Распечатать спецификацию PDF
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         7. КАТАЛОГ КОЛЛЕКЦИИ (EDITORIAL MONOGRAPH GALLERY)
+         ======================================================================= -->
+    <section class="section-collection-monograph" id="collection">
+      <div class="vesta-container">
+        <div class="editorial-section-head">
+          <div>
+            <div class="editorial-section-tag">03 // МОНОГРАФИЯ ПРЕДМЕТОВ</div>
+            <h2 class="editorial-section-title">Коллекция 2026</h2>
+          </div>
+          <p class="editorial-section-desc">
+            Каждый объект рожден как скульптура для созерцания и тактильного покоя. Нажмите «Посмотреть в 3D», чтобы перенести камеру на объект в лофте.
+          </p>
+        </div>
+
+        <div class="gallery-filters-bar">
+          <button type="button" class="filter-tab-pill active" data-filter="all">Все объекты (06)</button>
+          <button type="button" class="filter-tab-pill" data-filter="seating">Мягкая мебель (02)</button>
+          <button type="button" class="filter-tab-pill" data-filter="tables">Столы и постаменты (02)</button>
+          <button type="button" class="filter-tab-pill" data-filter="lighting">Архитектурный свет (02)</button>
+        </div>
+
+        <div class="editorial-monograph-grid">
+          <!-- Лот 01: Диван VESTA Grand (Span 8) -->
+          <article class="monograph-lot-card col-span-8" data-category="seating">
+            <div class="lot-image-view">
+              <span class="lot-badge-number">ЛОТ 01 // ДИВАН</span>
+              <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=1200&auto=format&fit=crop" alt="Диван VESTA Grand" loading="lazy">
+            </div>
+            <div class="lot-details-body">
+              <div class="lot-title-row">
+                <h3>Модульный диван VESTA Grand</h3>
+                <span class="lot-price">от 545 000 ₽</span>
+              </div>
+              <p class="lot-narrative">Низкая архитектурная посадка с пуховым наполнением и монолитным плинтусом из массива европейского белого дуба радиального распила.</p>
+              <div class="lot-bottom-meta">
+                <span>280 × 170 × 68 СМ</span>
+                <a href="#configurator" class="btn-teleport-stage" data-piece="sofa">Посмотреть в 3D →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Лот 02: Кресло Klint (Span 4) -->
+          <article class="monograph-lot-card col-span-4" data-category="seating">
+            <div class="lot-image-view">
+              <span class="lot-badge-number">ЛОТ 02 // ЛАУНЖ</span>
+              <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=800&auto=format&fit=crop" alt="Кресло Klint" loading="lazy">
+            </div>
+            <div class="lot-details-body">
+              <div class="lot-title-row">
+                <h3>Кресло Klint Lounge</h3>
+                <span class="lot-price">218 000 ₽</span>
+              </div>
+              <p class="lot-narrative">Плавная эргономичная линия спинки из гнутого под паром ясеня для расслабленного чтения и созерцания.</p>
+              <div class="lot-bottom-meta">
+                <span>74 × 78 × 76 СМ</span>
+                <a href="#configurator" class="btn-teleport-stage" data-piece="chair">Посмотреть в 3D →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Лот 03: Постамент Arco Plinth (Span 4) -->
+          <article class="monograph-lot-card col-span-4" data-category="tables">
+            <div class="lot-image-view">
+              <span class="lot-badge-number">ЛОТ 03 // КАМЕНЬ</span>
+              <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=800&auto=format&fit=crop" alt="Столик из травертина Arco Plinth" loading="lazy">
+            </div>
+            <div class="lot-details-body">
+              <div class="lot-title-row">
+                <h3>Постамент Arco Plinth</h3>
+                <span class="lot-price">184 000 ₽</span>
+              </div>
+              <p class="lot-narrative">Монолитный блок из природного римского травертина. Матовая шелковистая полировка с сохранением природных каверн камня.</p>
+              <div class="lot-bottom-meta">
+                <span>140 × 75 × 32 СМ</span>
+                <a href="#configurator" class="btn-teleport-stage" data-piece="table">Посмотреть в 3D →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Лот 04: Торшер Nordic Arc (Span 8) -->
+          <article class="monograph-lot-card col-span-8" data-category="lighting">
+            <div class="lot-image-view">
+              <span class="lot-badge-number">ЛОТ 04 // СВЕТ</span>
+              <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?q=80&w=1200&auto=format&fit=crop" alt="Торшер Nordic Arc" loading="lazy">
+            </div>
+            <div class="lot-details-body">
+              <div class="lot-title-row">
+                <h3>Торшер Nordic Arc</h3>
+                <span class="lot-price">92 000 ₽</span>
+              </div>
+              <p class="lot-narrative">Противовес из черного мрамора Nero Marquina и выверенная траектория латунной трубки со сферическим рассеивателем теплого спектра.</p>
+              <div class="lot-bottom-meta">
+                <span>ВЫСОТА 195 СМ</span>
+                <a href="#configurator" class="btn-teleport-stage" data-piece="table">Посмотреть в 3D →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Лот 05: Низкая консоль Ovid (Span 6) -->
+          <article class="monograph-lot-card col-span-6" data-category="tables">
+            <div class="lot-image-view">
+              <span class="lot-badge-number">ЛОТ 05 // ХРАНЕНИЕ</span>
+              <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=900&auto=format&fit=crop" alt="Консоль Ovid" loading="lazy">
+            </div>
+            <div class="lot-details-body">
+              <div class="lot-title-row">
+                <h3>Низкая консоль Ovid</h3>
+                <span class="lot-price">392 000 ₽</span>
+              </div>
+              <p class="lot-narrative">Непрерывный рисунок волокон американского ореха по всему периметру. Раздвижные фасады и скрытая кабельная трассировка.</p>
+              <div class="lot-bottom-meta">
+                <span>220 × 48 × 58 СМ</span>
+                <span>ТИРАЖ 12 ЭКЗ.</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Лот 06: Табурет-постамент Brancusi (Span 6) -->
+          <article class="monograph-lot-card col-span-6" data-category="lighting">
+            <div class="lot-image-view">
+              <span class="lot-badge-number">ЛОТ 06 // СКУЛЬПТУРА</span>
+              <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=900&auto=format&fit=crop" alt="Табурет Brancusi" loading="lazy">
+            </div>
+            <div class="lot-details-body">
+              <div class="lot-title-row">
+                <h3>Постамент Brancusi</h3>
+                <span class="lot-price">78 000 ₽</span>
+              </div>
+              <p class="lot-narrative">Выточен из цельного ствола мореного комля дуба. Служит скульптурным придиванным столиком или посадочным местом.</p>
+              <div class="lot-bottom-meta">
+                <span>36 × 36 × 44 СМ</span>
+                <span>РУЧНОЕ ТОЧЕНИЕ</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         8. СТОЛЯРНОЕ РЕМЕСЛО (CRAFT PRINCIPLES)
+         ======================================================================= -->
+    <section class="section-craft-manifesto" id="craft">
+      <div class="vesta-container">
+        <div class="editorial-section-head">
+          <div>
+            <div class="editorial-section-tag">04 // СТОЛПЫ СТОЛЯРНОГО ДЕЛА</div>
+            <h2 class="editorial-section-title">Материальная честность</h2>
+          </div>
+          <p class="editorial-section-desc">
+            Мы отвергаем запланированное устаревание массовой индустрии. Столяры ателье работают по традициям датской и итальянской школ, доведенным до архитектурной чистоты.
+          </p>
+        </div>
+
+        <div class="craft-pillars-grid">
+          <div class="craft-pillar-card">
+            <div class="pillar-ordinal">I</div>
+            <div class="pillar-category-tag">ПРОИСХОЖДЕНИЕ // ЛЕС</div>
+            <h3 class="pillar-heading">Массив дуба зимней валки</h3>
+            <p class="pillar-body-text">
+              Каждое бревно отбирается вручную в морозы, когда дерево спит. Мы используем исключительно радиальный распил, обнажающий сердцевинные лучи и гарантирующий устойчивость геометрии к перепадам влажности.
+            </p>
+          </div>
+
+          <div class="craft-pillar-card">
+            <div class="pillar-ordinal">II</div>
+            <div class="pillar-category-tag">ИНЖЕНЕРИЯ // УЗЕЛ</div>
+            <h3 class="pillar-heading">Шиповые сопряжения без саморезов</h3>
+            <p class="pillar-body-text">
+              Металлические уголки со временем расшатывают массив. Мы собираем каркасы на глухой шип-паз и клинья-бабочки, позволяя древесным волокнам дышать и оставаться монолитом столетиями.
+            </p>
+          </div>
+
+          <div class="craft-pillar-card">
+            <div class="pillar-ordinal">III</div>
+            <div class="pillar-category-tag">БИОЛОГИЯ // ПАТИНА</div>
+            <h3 class="pillar-heading">Органическое масло и воск</h3>
+            <p class="pillar-body-text">
+              Мы не заливаем дерево мертвым полиуретановым лаком. Древесина полируется тремя слоями теплого льняного масла и пчелиного воска, образуя шелковистую живую патину, которая с годами становится благороднее.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         9. ТИХИЙ ПРИЗЫВ К АРХИТЕКТОРАМ (QUIET APPEAL)
+         ======================================================================= -->
+    <section class="section-quiet-appeal" id="contact">
+      <div class="vesta-container">
+        <div class="appeal-content-inner">
+          <h2 class="appeal-main-title">
+            Вы изучили сопряжения. <em>Теперь создайте свою резиденцию.</em>
+          </h2>
+          <p class="appeal-subtext">
+            Каждое изделие изготавливается на заказ с индивидуальной подгонкой размеров под чертежи архитекторов и частных заказчиков.
+          </p>
+          <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+            <button type="button" class="btn-solid-dark" data-open-modal="booking">
+              Обсудить проект с архитектором
+            </button>
+            <a href="#configurator" class="btn-outline-quiet">
+              Вернуться в 3D-павильон
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       10. АРХИТЕКТУРНЫЙ ПОДВАЛ
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="vesta-container">
+      <div class="footer-cols-grid">
+        <div class="footer-brand">
+          <h4>АТЕЛЬЕ VESTA</h4>
+          <p>Архитектурное мебельное ателье. Производство штучных коллекций в Дании и Италии для частных резиденций и знаковых пространств.</p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">НАВИГАЦИЯ</div>
+          <ul class="footer-links-menu">
+            <li><a href="#configurator">3D Павильон лофта</a></li>
+            <li><a href="#estimator">Авторская смета</a></li>
+            <li><a href="#collection">Коллекция 2026</a></li>
+            <li><a href="#craft">Материальная честность</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">МАСТЕРСКИЕ</div>
+          <ul class="footer-links-menu">
+            <li>Bredgade 42, Копенгаген</li>
+            <li>Via Solferino 18, Милан</li>
+            <li>Пн - Пт: 10:00 - 19:00</li>
+            <li>По предварительной записи</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">КОНСУЛЬТАЦИИ</div>
+          <p style="font-size: 0.88rem; color: var(--text-inverse-muted); margin-bottom: 14px;">Отправьте архитектурные чертежи ведущему конструктору ателье для согласования узлов и образцов.</p>
+          <a href="mailto:atelier@vesta-furniture.com" style="font-family: var(--font-mono); color: var(--accent-brass);">atelier@vesta-furniture.com</a>
+        </div>
+      </div>
+
+      <div class="footer-sub-bottom">
+        <span>© 2026 АТЕЛЬЕ VESTA. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</span>
+        <span>АРХИТЕКТУРНАЯ ВЕРСТКА · МУЗЕЙНЫЙ МИНИМАЛИЗМ</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       МОДАЛЬНОЕ ОКНО ЗАЯВКИ
+       ========================================================================= -->
+  <div class="modal-backdrop-layer" id="bookingModal">
+    <div class="modal-dialog-box">
+      <button type="button" class="btn-close-dialog" id="closeModalBtn" aria-label="Закрыть">✕</button>
+      <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 8px;">Обсудить проект</h3>
+      <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 24px;">Оставьте вводные данные пространства. Ведущий архитектор ателье изучит планировку и свяжется с вами в течение рабочего дня.</p>
+
+      <form id="bookingForm">
+        <div class="form-group-item">
+          <label>Ваше имя</label>
+          <input type="text" class="input-styled-field" required placeholder="Елена Ростова">
+        </div>
+        <div class="form-group-item">
+          <label>Контактный телефон или Telegram</label>
+          <input type="text" class="input-styled-field" required placeholder="+7 (999) 000-00-00 / @username">
+        </div>
+        <div class="form-group-item">
+          <label>Город объекта</label>
+          <input type="text" class="input-styled-field" placeholder="Москва / Санкт-Петербург / Дубай">
+        </div>
+        <div class="form-group-item">
+          <label>Предметы или материалы проекта</label>
+          <input type="text" class="input-styled-field" placeholder="Лаунж-комплект, американский орех и букле">
+        </div>
+        <button type="submit" class="btn-solid-dark" style="width: 100%; justify-content: center; margin-top: 10px;">
+          Отправить заявку в ателье
+        </button>
+      </form>
+
+      <div id="bookingSuccessBlock" style="display: none; padding: 24px 0; text-align: center;">
+        <h4 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--accent-terracotta); margin-bottom: 8px;">Заявка принята</h4>
+        <p style="font-size: 0.92rem; color: var(--text-secondary);">Ваше досье передано главному столяру мастерской. Мы свяжемся с вами для согласования чертежей.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Скрипты -->
+  <script src="js/configurator3d.js"></script>
+  <script src="js/calculator.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
