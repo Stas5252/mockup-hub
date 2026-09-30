@@ -95,3 +95,9 @@ dialog::backdrop{background:#ffffffe6;backdrop-filter:blur(6px)}
 
 .brand-composite{mask-size:60vw 35.96vw;-webkit-mask-size:60vw 35.96vw}.brand-outline{width:60vw;height:35.96vw}.brand-outline path,.brand-outline rect{fill:none;stroke:var(--copper);stroke-width:1.5px;vector-effect:non-scaling-stroke}
 @media(max-width:767px){.brand-composite{mask-size:86vw 51.55vw;-webkit-mask-size:86vw 51.55vw}.brand-outline{width:86vw;height:51.55vw}}
+
+/* Keep service photographs visible on touch screens and before hover. */
+.services .service-row .service-bg{opacity:1;pointer-events:none}
+.services .service-bg:after{background:linear-gradient(90deg,#ffffffe8 0%,#ffffffbd 38%,#ffffff8c 100%);transition:opacity .65s ease}
+@media(hover:hover) and (pointer:fine){.services .service-row:hover .service-bg:after,.services .service-row:focus-visible .service-bg:after{opacity:.84}}
+@media(max-width:767px){.services .service-bg:after{background:linear-gradient(180deg,#ffffffdf 0%,#ffffffb8 42%,#ffffff8c 100%)}.service-bg img{object-position:58% center}}
