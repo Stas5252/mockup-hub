@@ -26,7 +26,7 @@ jobs:
 
       - name: Capture desktop and mobile
         run: |
-          cat > /tmp/capture.cjs <<'EOF'
+          cat > capture.cjs <<'EOF'
           const { chromium } = require('playwright');
           const target = 'https://stas5252.github.io/mockup-hub/mockups/remont-ekt/index.html';
 
@@ -69,7 +69,7 @@ jobs:
             await browser.close();
           })().catch(err => { console.error(err); process.exit(1); });
           EOF
-          node /tmp/capture.cjs
+          node capture.cjs
 
       - uses: actions/upload-artifact@v4
         with:
