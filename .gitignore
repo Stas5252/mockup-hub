@@ -5,3 +5,11 @@ desktop.ini
 .vscode/
 .idea/
 *.log
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Test files & artifacts
+test_*.png
+test-*.js
