@@ -18,13 +18,13 @@ const MOCKUPS_DATA = [
   },
   {
     id: "letuchiy-korabl-final",
-    title: "ЛЕТУЧИЙ КОРАБЛЬ — Альтернативная концепция (Final)",
+    title: "ЛЕТУЧИЙ КОРАБЛЬ — White & Blue-Violet Edition (Final)",
     category: "Туризм & Отдых",
     folder: "letuchiy-korabl-final",
-    description: "Альтернативный концепт макета «Летучий корабль» с расширенным сплит-экраном, анимацией и презентацией туров.",
-    tags: ["Туризм", "Концепт", "GSAP", "Киров"],
+    description: "Концепция по официальному стилю korabl-kirov.ru: чистый белый и фирменный сине-фиолетовый (#393185), закреплённый pinned hero с расходящимися облаками и пословный скролл-текст в стиле findrealestate.com.",
+    tags: ["Туризм", "Киров", "White & Violet", "findrealestate", "GSAP", "Pinned Hero"],
     preview: "mockups/letuchiy-korabl-final/preview/desktop-1440.png",
-    featured: false,
+    featured: true,
     emoji: "🧭"
   },
   // ===================== СТРОИТЕЛЬСТВО & РЕМОНТ =====================
