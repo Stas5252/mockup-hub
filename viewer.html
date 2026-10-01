@@ -249,9 +249,17 @@
       siteSelect.appendChild(opt);
     });
 
-    // Определение стартового сайта из параметров URL (?site=furniture-modern)
+    // Определение стартового сайта из параметров URL (?site=letuchiy-korabl или ?id=letuchiy-korabl)
     const urlParams = new URLSearchParams(window.location.search);
-    const initialSite = urlParams.get("site") || (MOCKUPS_DATA[0] ? MOCKUPS_DATA[0].folder : "");
+    const requestedParam = urlParams.get("site") || urlParams.get("id");
+    let initialSite = "";
+    if (requestedParam) {
+      const match = MOCKUPS_DATA.find(m => m.folder === requestedParam || m.id === requestedParam);
+      if (match) initialSite = match.folder;
+    }
+    if (!initialSite && MOCKUPS_DATA[0]) {
+      initialSite = MOCKUPS_DATA[0].folder;
+    }
 
     if (initialSite) {
       siteSelect.value = initialSite;
