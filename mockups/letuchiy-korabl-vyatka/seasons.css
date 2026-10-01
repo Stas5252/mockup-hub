@@ -1,0 +1,43 @@
+.forest-scene{--season-ratio:1.777778}
+.forest-scene .scene-sticky{container-type:size;isolation:isolate}
+.forest-scene .scene-image{position:absolute;inset:0;transition:opacity .8s}
+.forest-scene .scene-overlay{z-index:1;background:linear-gradient(90deg,#11291fcb 0%,#13271938 65%),linear-gradient(0deg,#0f231de8,transparent 75%)}
+.forest-scene .scene-copy,.forest-scene .scene-caption{z-index:3}
+.season-landscapes{position:absolute;inset:0;opacity:0;transition:opacity .8s}
+.season-art-ready .season-landscapes{opacity:1}
+.season-art-ready .scene-image{opacity:0}
+.season-layer{--col:0;--row:0;--frame-w:max(100cqw,calc(100cqh * var(--season-ratio)));--frame-h:max(100cqh,calc(100cqw / var(--season-ratio)));position:absolute;inset:0;background-image:url('assets/forest-seasons.webp');background-size:calc(var(--frame-w) * 2) calc(var(--frame-h) * 2);background-position:calc((100cqw - var(--frame-w))/2 - var(--col) * var(--frame-w)) calc((100cqh - var(--frame-h))/2 - var(--row) * var(--frame-h));background-repeat:no-repeat;opacity:0;transition:opacity 1s ease}
+.season-layer.spring{--col:1}.season-layer.summer{--row:1}.season-layer.autumn{--col:1;--row:1}
+[data-season="winter"] .season-layer.winter,[data-season="spring"] .season-layer.spring,[data-season="summer"] .season-layer.summer,[data-season="autumn"] .season-layer.autumn{opacity:1}
+.season-panel{position:absolute;right:5vw;top:44px;width:425px;max-width:90%;padding:20px;border:1px solid #ffffff42;border-radius:16px;background:#14292070;backdrop-filter:blur(14px)}
+.season-kicker{display:flex;justify-content:space-between;align-items:center;font-size:10px;font-weight:500;letter-spacing:.13em;margin-bottom:16px;color:#fff}
+.season-kicker span{letter-spacing:0;color:#ffffffb3}
+.season-controls{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+.season-controls button{display:flex;align-items:center;justify-content:center;gap:7px;min-height:44px;border:1px solid transparent;border-radius:8px;background:transparent;color:#fff;font-size:13px;transition:background .25s,color .25s}
+.season-controls button:hover{background:#ffffff1f}
+.season-controls [aria-pressed="true"]{background:#fff;color:var(--blue);box-shadow:0 3px 12px #00000012}
+.season-icon{font-size:18px;line-height:1}
+.season-status{font-size:12px;line-height:1.5;margin-top:14px;color:#ffffffc9}
+.forest-scene .scene-detail{max-width:370px}
+.season-program-title{min-height:2.5em}
+.season-program-description{min-height:5.25em}
+.season-program-cta{background:#fff;color:var(--blue);border:0;margin-right:15px}
+.season-program-cta:hover{background:#f0ecff}
+.season-general-link{font-size:12px;border-bottom:1px solid #ffffff8a;display:inline-block;padding-bottom:4px;margin-top:12px}
+.season-art-note{position:absolute;right:5vw;bottom:30px;z-index:3;font-size:10px;color:#ffffffa3}
+.season-weather{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none}
+.season-weather i{position:absolute;top:-30px;left:var(--x);width:7px;height:7px;border-radius:50%;background:#fff;opacity:0;animation:seasonDrift 13s linear infinite;animation-delay:var(--delay);animation-play-state:paused;will-change:transform}
+.season-visible .season-weather i{animation-play-state:running}
+[data-season="winter"] .season-weather i{background:#fff;box-shadow:0 0 8px #ffffff70}
+[data-season="spring"] .season-weather i{width:8px;height:5px;border-radius:60% 0 60% 0;background:#ffdfeb}
+[data-season="summer"] .season-weather i{width:3px;height:3px;background:#fcf0ae;box-shadow:0 0 14px 4px #fff2a650;animation-duration:20s}
+[data-season="autumn"] .season-weather i{width:12px;height:8px;border-radius:85% 0 85% 0;background:#eeb665;animation-duration:16s}
+@keyframes seasonDrift{0%{transform:translate3d(0,-20px,0) rotate(0);opacity:0}12%{opacity:.65}85%{opacity:.5}100%{transform:translate3d(var(--drift),105cqh,0) rotate(240deg);opacity:0}}
+.season-dialog-close{position:absolute;right:16px;top:12px;background:none;border:0;font-size:32px}
+.season-facts{padding-left:20px;margin:24px 0;font-size:14px;line-height:1.8}
+.season-facts li+li{margin-top:10px}
+.season-source{display:inline-block;margin-top:20px;font-size:12px;line-height:1.6;text-decoration:underline;color:var(--blue)}
+.season-enquiry{width:100%}
+@media(max-width:960px) and (min-width:761px){.season-panel{width:365px;top:30px}.forest-scene .scene-copy{padding-top:130px}.forest-scene .scene-copy h2{font-size:66px}.forest-scene .scene-detail{max-width:300px}}
+@media(max-width:760px){.forest-scene .scene-sticky{height:1060px}.forest-scene .scene-copy{padding-top:45px;padding-bottom:85px}.forest-scene .scene-copy h2{font-size:46px}.season-panel{position:static;width:100%;max-width:100%;margin-top:24px;padding:15px;border-radius:12px}.season-kicker{font-size:9px;margin-bottom:12px}.season-controls button{font-size:12px;gap:5px}.season-icon{font-size:15px}.season-status{font-size:11px;margin-top:12px}.forest-scene .scene-detail{max-width:none;margin-top:auto}.season-program-title,.season-program-description{min-height:0}.season-general-link{display:block;width:max-content}.forest-scene .scene-caption{bottom:43px;font-size:9px}.season-art-note{left:24px;right:auto;bottom:23px;font-size:9px}.forest-scene .scene-overlay{background:linear-gradient(180deg,#0b241dab,transparent 50%,#0b241dec 85%)}}
+@media(prefers-reduced-motion:reduce){.season-weather{display:none}.season-layer,.season-landscapes,.forest-scene .scene-image{transition:none}}
