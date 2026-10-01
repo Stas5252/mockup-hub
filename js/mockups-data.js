@@ -6,13 +6,13 @@
 const MOCKUPS_DATA = [
   // ===================== ТУРИЗМ & ОТДЫХ =====================
   {
-    id: "letuchiy-korabl-final",
+    id: "letuchiy-korabl",
     title: "ЛЕТУЧИЙ КОРАБЛЬ — Центр активного отдыха и туризма (г. Киров)",
     category: "Туризм & Отдых",
-    folder: "letuchiy-korabl-final",
+    folder: "letuchiy-korabl",
     description: "Кинематографичный сайт-путешествие туроператора «Летучий корабль» (РТО 006776): многослойный параллакс Hero, сторителлинг 4 стихий («Заповедник сказок», сплавы, авторские туры, корпоративы), интерактивная карта маршрутов с 2007 года, каталог программ с фильтрами и Lenis + GSAP motion.",
     tags: ["Туризм", "Awwwards", "GSAP", "Lenis", "Параллакс", "Заповедник сказок", "Сплавы", "Киров"],
-    preview: "mockups/letuchiy-korabl-final/preview/desktop-1440.png",
+    preview: "mockups/letuchiy-korabl/preview/desktop-1440.png",
     featured: true,
     emoji: "⛵"
   },
@@ -215,6 +215,7 @@ const MOCKUPS_DATA = [
 // Список всех доступных категорий
 const CATEGORIES_LIST = [
   "Все",
+  "Туризм & Отдых",
   "Строительство & Ремонт",
   "Мебель",
   "Детские праздники",

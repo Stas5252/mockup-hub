@@ -13,3 +13,5 @@ node_modules/
 # Test files & artifacts
 test_*.png
 test-*.js
+mockups/*/desktop_*.png
+mockups/*/mobile_*.png

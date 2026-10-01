@@ -261,14 +261,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let obj = { val: 0 };
         gsap.to(obj, {
           val: target,
-          duration: 1.8,
+          duration: 2.2,
           ease: 'power2.out',
           onUpdate: () => {
             stat.textContent = Math.floor(obj.val).toLocaleString('ru-RU') + suffix;
           },
           onComplete: () => {
             stat.textContent = target.toLocaleString('ru-RU') + suffix;
-          }
+          },
         });
       },
     });
