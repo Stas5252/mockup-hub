@@ -16,6 +16,17 @@ const MOCKUPS_DATA = [
     featured: true,
     emoji: "⛵"
   },
+  {
+    id: "letuchiy-korabl-final",
+    title: "ЛЕТУЧИЙ КОРАБЛЬ — Альтернативная концепция (Final)",
+    category: "Туризм & Отдых",
+    folder: "letuchiy-korabl-final",
+    description: "Альтернативный концепт макета «Летучий корабль» с расширенным сплит-экраном, анимацией и презентацией туров.",
+    tags: ["Туризм", "Концепт", "GSAP", "Киров"],
+    preview: "mockups/letuchiy-korabl-final/preview/desktop-1440.png",
+    featured: false,
+    emoji: "🧭"
+  },
   // ===================== СТРОИТЕЛЬСТВО & РЕМОНТ =====================
   {
     id: "remont-ekt-motion",
