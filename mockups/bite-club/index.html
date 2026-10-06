@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BITE CLUB — роллы, пицца, бургеры</title>
+<meta name="description" content="Street-food concept with interactive catalog, cart and set builder.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f4efe4;--red:#ee2c22;--black:#111;--acid:#d8ff43;--line:rgba(17,17,17,.18)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--black);font-family:Manrope,Arial,sans-serif;overflow-x:hidden}button{font:inherit}a{text-decoration:none;color:inherit}
+nav{position:fixed;z-index:60;left:0;right:0;top:0;display:flex;justify-content:space-between;align-items:center;padding:18px 2.2vw;color:#fff;mix-blend-mode:difference}.logo{font-family:"Archivo Black";font-size:18px;letter-spacing:-.04em}.navlinks{display:flex;gap:25px;font-size:11px;text-transform:uppercase;letter-spacing:.11em}.cart-btn{background:none;border:1px solid currentColor;color:inherit;border-radius:50px;padding:9px 14px;cursor:pointer}
+.hero{height:100svh;position:relative;background:var(--red);overflow:hidden;display:grid;align-items:center}.hero-word{font-family:"Archivo Black";font-size:clamp(100px,18.6vw,285px);line-height:.72;letter-spacing:-.08em;color:var(--cream);margin:0 1.4vw;text-transform:uppercase;position:relative;z-index:2}.hero-word span{display:block}.hero-word span:last-child{text-align:right}
+.pizza{position:absolute;z-index:3;width:min(48vw,720px);aspect-ratio:1;border-radius:50%;left:50%;top:51%;transform:translate(-50%,-50%) rotate(-12deg);background:url("https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1100&q=90") center/cover;box-shadow:0 30px 70px rgba(0,0,0,.25);transition:transform .15s linear}.hero-sticker{position:absolute;z-index:4;right:7vw;top:17vh;width:126px;height:126px;border-radius:50%;background:var(--acid);display:grid;place-items:center;text-align:center;font-weight:800;font-size:12px;line-height:1.15;transform:rotate(8deg);text-transform:uppercase}.hero-bottom{position:absolute;left:2.2vw;right:2.2vw;bottom:22px;display:flex;justify-content:space-between;z-index:4;color:#fff;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.ticker{background:var(--black);color:var(--cream);overflow:hidden;padding:14px 0}.ticker div{font-family:"Archivo Black";white-space:nowrap;font-size:27px;animation:tick 20s linear infinite}.ticker span{margin-right:32px}@keyframes tick{to{transform:translateX(-50%)}}
+.catalog{padding:105px 2.2vw 120px}.head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:42px}.head h2{font-family:"Archivo Black";font-size:clamp(64px,10vw,150px);line-height:.8;letter-spacing:-.07em;margin:0;text-transform:uppercase}.head p{max-width:350px;font-size:13px;line-height:1.6}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 24px}.filter{border:1px solid var(--black);background:none;border-radius:50px;padding:10px 16px;cursor:pointer;font-size:12px;text-transform:uppercase}.filter.on{background:var(--black);color:white}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}.dish{position:relative;grid-column:span 4;min-height:560px;background:#ddd;overflow:hidden}.dish:nth-child(2){grid-column:span 5}.dish:nth-child(3){grid-column:span 3}.dish:nth-child(n+4){min-height:430px}.dish img{position:absolute;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}.dish:hover img{transform:scale(1.04)}.dish.hidden{display:none}
+.dish-meta{position:absolute;left:0;right:0;bottom:0;background:var(--cream);border-top:1px solid var(--black);padding:13px;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end}.dish-name{font-family:"Archivo Black";font-size:22px;line-height:.95;text-transform:uppercase;letter-spacing:-.04em}.dish-type{font-size:10px;margin-top:5px;text-transform:uppercase;letter-spacing:.1em;opacity:.55}.add{width:46px;height:46px;border-radius:50%;border:0;background:var(--black);color:#fff;font-size:22px;cursor:pointer;transition:.2s}.add:hover{background:var(--red);transform:rotate(90deg)}
+.builder{background:var(--acid);padding:110px 2.2vw}.builder-top{display:grid;grid-template-columns:1fr 1fr;align-items:end}.builder h2{font-family:"Archivo Black";font-size:clamp(70px,12vw,170px);line-height:.77;letter-spacing:-.075em;text-transform:uppercase;margin:0}.builder-copy{max-width:390px;justify-self:end;font-size:14px;line-height:1.65;margin-bottom:8px}
+.tray{margin-top:65px;border:3px solid var(--black);min-height:420px;border-radius:220px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:center;padding:34px;position:relative;background:#e8f871}.slot{aspect-ratio:1.35;border:1.5px dashed rgba(0,0,0,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}.slot.empty:after{content:"выберите блюдо";font-size:11px;text-transform:uppercase;letter-spacing:.12em;opacity:.45}.slot img{width:100%;height:100%;object-fit:cover}.tray-total{position:absolute;left:50%;bottom:-31px;transform:translateX(-50%);background:var(--black);color:#fff;border-radius:50px;padding:17px 26px;font-family:"Archivo Black";white-space:nowrap}
+.builder-options{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:58px}.build-pick{border:1px solid var(--black);background:transparent;border-radius:50px;padding:10px 14px;cursor:pointer}.build-pick.on{background:var(--red);color:white;border-color:var(--red)}
+.roulette{padding:100px 2.2vw;background:var(--red);color:#fff;display:grid;grid-template-columns:1fr 1fr;min-height:60vh;align-items:center}.roulette h3{font-family:"Archivo Black";font-size:clamp(64px,10vw,145px);line-height:.8;letter-spacing:-.07em;margin:0;text-transform:uppercase}.roulette-box{justify-self:center;width:min(420px,90vw);aspect-ratio:1;border:2px solid white;border-radius:50%;display:grid;place-items:center;text-align:center;padding:50px;position:relative}.roulette-box:before{content:"";position:absolute;inset:14px;border:1px dashed rgba(255,255,255,.6);border-radius:50%}.roulette-result{font-family:"Archivo Black";font-size:36px;line-height:.95;text-transform:uppercase;position:relative;z-index:2}.spin{position:absolute;bottom:35px;border:0;border-radius:50px;padding:12px 18px;background:var(--acid);cursor:pointer;z-index:3;font-weight:700}
+footer{background:var(--black);color:white;padding:70px 2.2vw 25px}.foot{font-family:"Archivo Black";font-size:clamp(90px,17vw,250px);line-height:.7;letter-spacing:-.08em}.foot-row{display:flex;justify-content:space-between;margin-top:70px;font-size:11px;text-transform:uppercase;letter-spacing:.1em}
+.drawer{position:fixed;z-index:100;top:0;right:0;width:min(430px,100%);height:100svh;background:var(--cream);border-left:1px solid #111;transform:translateX(102%);transition:transform .45s cubic-bezier(.2,.8,.2,1);padding:28px;display:flex;flex-direction:column}.drawer.open{transform:none}.drawer-head{display:flex;justify-content:space-between;align-items:center}.drawer-head h3{font-family:"Archivo Black";font-size:35px;margin:0;text-transform:uppercase}.close{border:0;background:none;font-size:32px;cursor:pointer}.cart-list{margin-top:35px;display:grid;gap:12px}.cart-item{border-top:1px solid var(--line);padding-top:14px;display:flex;justify-content:space-between}.drawer-total{margin-top:auto;border-top:2px solid #111;padding-top:18px;display:flex;justify-content:space-between;font-family:"Archivo Black";font-size:24px}
+@media(max-width:850px){.navlinks{display:none}.hero-word{font-size:26vw}.pizza{width:78vw}.hero-sticker{width:90px;height:90px;right:4vw;top:16vh;font-size:9px}.head{display:block}.head p{margin-top:25px}.grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.dish,.dish:nth-child(2),.dish:nth-child(3){min-width:82vw;min-height:530px;scroll-snap-align:start}.builder-top{grid-template-columns:1fr}.builder-copy{justify-self:start;margin-top:25px}.tray{grid-template-columns:1fr;min-height:850px;border-radius:180px;padding:28px}.slot{aspect-ratio:1.4}.roulette{grid-template-columns:1fr;gap:55px}.roulette-box{justify-self:start}.foot-row{gap:20px;flex-wrap:wrap}}
+</style>
+</head>
+<body>
+<nav><a class="logo" href="#top">BITE CLUB</a><div class="navlinks"><a href="#menu">Меню</a><a href="#combo">Собери стол</a><a href="#roulette">Рулетка</a></div><button class="cart-btn" id="cartBtn">Корзина · 0</button></nav>
+<main id="top">
+<section class="hero">
+  <h1 class="hero-word"><span>BITE</span><span>CLUB</span></h1>
+  <div class="pizza" id="pizza"></div>
+  <div class="hero-sticker">hot<br>fast<br>no boring</div>
+  <div class="hero-bottom"><span>Rolls · Pizza · Burgers</span><span>доставка 35–55 мин</span></div>
+</section>
+<div class="ticker"><div><span>NO SMALL BITES —</span><span>ROLLS / PIZZA / BURGERS —</span><span>NO SMALL BITES —</span><span>ROLLS / PIZZA / BURGERS —</span></div></div>
+
+<section class="catalog" id="menu">
+  <div class="head"><h2>Pick<br>your vice.</h2><p>Три кухни, один заказ. Большие фотографии, минимум интерфейса и всё нужное — прямо под пальцем.</p></div>
+  <div class="filters"><button class="filter on" data-filter="all">Все</button><button class="filter" data-filter="pizza">Пицца</button><button class="filter" data-filter="rolls">Роллы</button><button class="filter" data-filter="burger">Бургеры</button></div>
+  <div class="grid">
+    <article class="dish" data-cat="pizza"><img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=900&q=88" alt=""><div class="dish-meta"><div><div class="dish-name">Hot Honey</div><div class="dish-type">pizza · 32 cm · 690 ₽</div></div><button class="add" data-name="Hot Honey" data-price="690">+</button></div></article>
+    <article class="dish" data-cat="rolls"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1000&q=88" alt=""><div class="dish-meta"><div><div class="dish-name">Tokyo Burn</div><div class="dish-type">rolls · 8 pcs · 590 ₽</div></div><button class="add" data-name="Tokyo Burn" data-price="590">+</button></div></article>
+    <article class="dish" data-cat="burger"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=88" alt=""><div class="dish-meta"><div><div class="dish-name">Dirty Double</div><div class="dish-type">burger · double · 540 ₽</div></div><button class="add" data-name="Dirty Double" data-price="540">+</button></div></article>
+    <article class="dish" data-cat="pizza"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=88" alt=""><div class="dish-meta"><div><div class="dish-name">Red Devil</div><div class="dish-type">pizza · spicy · 760 ₽</div></div><button class="add" data-name="Red Devil" data-price="760">+</button></div></article>
+    <article class="dish" data-cat="rolls"><img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=900&q=88" alt=""><div class="dish-meta"><div><div class="dish-name">Salmon Club</div><div class="dish-type">rolls · 8 pcs · 640 ₽</div></div><button class="add" data-name="Salmon Club" data-price="640">+</button></div></article>
+    <article class="dish" data-cat="burger"><img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=900&q=88" alt=""><div class="dish-meta"><div><div class="dish-name">Melt Down</div><div class="dish-type">burger · cheese · 510 ₽</div></div><button class="add" data-name="Melt Down" data-price="510">+</button></div></article>
+  </div>
+</section>
+
+<section class="builder" id="combo">
+  <div class="builder-top"><h2>Build<br>the table.</h2><p class="builder-copy">Выберите три позиции. Они появятся на общем столе, а комбо автоматически получит скидку 12%.</p></div>
+  <div class="tray"><div class="slot empty" id="slot0"></div><div class="slot empty" id="slot1"></div><div class="slot empty" id="slot2"></div><div class="tray-total" id="trayTotal">Ваш стол · 0 ₽</div></div>
+  <div class="builder-options">
+    <button class="build-pick" data-name="Hot Honey" data-price="690" data-img="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=500&q=80">Hot Honey</button>
+    <button class="build-pick" data-name="Tokyo Burn" data-price="590" data-img="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=500&q=80">Tokyo Burn</button>
+    <button class="build-pick" data-name="Dirty Double" data-price="540" data-img="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80">Dirty Double</button>
+    <button class="build-pick" data-name="Red Devil" data-price="760" data-img="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80">Red Devil</button>
+  </div>
+</section>
+
+<section class="roulette" id="roulette">
+  <h3>Can't<br>decide?</h3>
+  <div class="roulette-box"><div class="roulette-result" id="rouletteResult">spin<br>me</div><button class="spin" id="spin">Крутить</button></div>
+</section>
+</main>
+<footer><div class="foot">BITE.</div><div class="foot-row"><span>Ежедневно 11:00—02:00</span><span>Доставка · Самовывоз</span><span>Concept / 2026</span></div></footer>
+
+<aside class="drawer" id="drawer"><div class="drawer-head"><h3>Your bites</h3><button class="close" id="close">×</button></div><div class="cart-list" id="cartList"></div><div class="drawer-total"><span>Итого</span><span id="cartTotal">0 ₽</span></div></aside>
+
+<script>
+var cart=[],tray=[];
+var cartBtn=document.getElementById("cartBtn"),drawer=document.getElementById("drawer"),cartList=document.getElementById("cartList"),cartTotal=document.getElementById("cartTotal");
+function renderCart(){var sum=cart.reduce(function(s,x){return s+x.price},0);cartBtn.textContent="Корзина · "+cart.length;cartTotal.textContent=sum.toLocaleString("ru-RU")+" ₽";cartList.innerHTML=cart.length?cart.map(function(x){return '<div class="cart-item"><span>'+x.name+'</span><b>'+x.price+' ₽</b></div>'}).join(""):'<p>Пока пусто. Добавьте что-нибудь опасно вкусное.</p>'}
+document.querySelectorAll(".add").forEach(function(b){b.onclick=function(){cart.push({name:b.dataset.name,price:+b.dataset.price});renderCart();b.textContent="✓";setTimeout(function(){b.textContent="+"},700)}});
+cartBtn.onclick=function(){drawer.classList.add("open")};document.getElementById("close").onclick=function(){drawer.classList.remove("open")};
+document.querySelectorAll(".filter").forEach(function(b){b.onclick=function(){document.querySelectorAll(".filter").forEach(function(x){x.classList.remove("on")});b.classList.add("on");var f=b.dataset.filter;document.querySelectorAll(".dish").forEach(function(d){d.classList.toggle("hidden",f!=="all"&&d.dataset.cat!==f)})}});
+function renderTray(){for(var i=0;i<3;i++){var el=document.getElementById("slot"+i);if(tray[i]){el.classList.remove("empty");el.innerHTML='<img src="'+tray[i].img+'" alt="">'}else{el.classList.add("empty");el.innerHTML=""}}var sum=Math.round(tray.reduce(function(s,x){return s+x.price},0)*.88);document.getElementById("trayTotal").textContent=tray.length===3?"Комбо −12% · "+sum.toLocaleString("ru-RU")+" ₽":"Ваш стол · "+sum.toLocaleString("ru-RU")+" ₽"}
+document.querySelectorAll(".build-pick").forEach(function(b){b.onclick=function(){var idx=tray.findIndex(function(x){return x.name===b.dataset.name});if(idx>=0){tray.splice(idx,1);b.classList.remove("on")}else if(tray.length<3){tray.push({name:b.dataset.name,price:+b.dataset.price,img:b.dataset.img});b.classList.add("on")}renderTray()}});
+var foods=["HOT HONEY","TOKYO BURN","DIRTY DOUBLE","RED DEVIL","SALMON CLUB","MELT DOWN"];
+document.getElementById("spin").onclick=function(){var out=document.getElementById("rouletteResult"),n=0;var timer=setInterval(function(){out.textContent=foods[Math.floor(Math.random()*foods.length)];n++;if(n>14){clearInterval(timer);out.textContent=foods[Math.floor(Math.random()*foods.length)]}},65)};
+window.addEventListener("scroll",function(){document.getElementById("pizza").style.transform="translate(-50%,-50%) rotate("+(-12+window.scrollY*.035)+"deg) scale("+(1+Math.min(window.scrollY/5000,.12))+")"});
+renderCart();renderTray();
+</script>
+</body>
+</html>
