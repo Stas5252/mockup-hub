@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BLOOM — цветочная мастерская</title>
+<meta name="description" content="Концепт цветочного магазина с каталогом и конструктором букета.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f2eee7;--ink:#161512;--wine:#8f2637;--sage:#66735c;--line:rgba(22,21,18,.18)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Manrope,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}button{font:inherit}.serif{font-family:"Cormorant Garamond",serif}
+.top{position:fixed;z-index:30;left:0;right:0;top:0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:24px 3vw;mix-blend-mode:difference;color:#fff}
+.brand{font-size:15px;letter-spacing:.24em;font-weight:600}.nav{display:flex;gap:26px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}.cart{justify-self:end;border:1px solid currentColor;border-radius:99px;padding:10px 15px;background:none;color:inherit}
+.hero{min-height:100svh;position:relative;display:flex;align-items:flex-end;padding:12vh 3vw 6vh;overflow:hidden}
+.hero-photo{position:absolute;inset:0 0 0 42%;background:url("https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1400&q=88") center/cover;clip-path:inset(0 0 0 0);transform:scale(1.03);transition:transform .2s linear}
+.hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(242,238,231,.12),transparent 40%)}
+.hero-copy{position:relative;z-index:2;max-width:68vw}.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:22px}.hero h1{font-size:clamp(80px,12.2vw,190px);font-weight:500;line-height:.72;letter-spacing:-.055em;margin:0}
+.hero h1 i{font-weight:500}.hero-note{margin:34px 0 0 38vw;max-width:350px;line-height:1.6;font-size:14px}
+.scroll-mark{position:absolute;left:3vw;bottom:24px;font-size:11px;text-transform:uppercase;letter-spacing:.14em;transform:rotate(-90deg);transform-origin:left bottom}
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:17px 0;background:#ece4da}.marquee-track{white-space:nowrap;font:500 31px/1 "Cormorant Garamond",serif;animation:run 24s linear infinite}.marquee span{margin-right:52px}@keyframes run{to{transform:translateX(-50%)}}
+.section{padding:120px 3vw}.section-head{display:grid;grid-template-columns:1fr 2fr;gap:30px;align-items:end;margin-bottom:62px}.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.15em}.section-title{font:500 clamp(48px,7vw,108px)/.92 "Cormorant Garamond",serif;letter-spacing:-.04em;margin:0}
+.categories{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}.cat{border:1px solid var(--line);background:transparent;border-radius:99px;padding:11px 17px;cursor:pointer}.cat.active{background:var(--ink);color:var(--paper)}
+.products{display:grid;grid-template-columns:1.15fr .85fr 1fr;gap:12px}.product{position:relative;min-height:560px;overflow:hidden;background:#ddd}.product:nth-child(2){min-height:440px;margin-top:92px}.product:nth-child(3){min-height:510px;margin-top:34px}
+.product img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .8s cubic-bezier(.2,.7,.2,1)}.product:hover img{transform:scale(1.035)}
+.product-info{position:absolute;left:14px;right:14px;bottom:14px;background:rgba(242,238,231,.92);backdrop-filter:blur(8px);padding:15px;display:flex;justify-content:space-between;align-items:flex-end}.product-name{font:600 27px/1 "Cormorant Garamond",serif}.product-meta{font-size:11px;margin-top:5px;opacity:.66}.price{font-size:13px}
+.builder{background:#1a1916;color:#f5f1ea;padding:120px 3vw;min-height:100vh}.builder-grid{display:grid;grid-template-columns:.8fr 1.25fr 1fr;gap:4vw;align-items:center}.builder-intro h2{font:500 clamp(54px,7vw,104px)/.82 "Cormorant Garamond",serif;margin:0 0 28px;letter-spacing:-.05em}.builder-intro p{font-size:13px;line-height:1.7;max-width:260px;color:#bfb9af}
+.bouquet-stage{height:650px;position:relative;border-radius:50% 50% 45% 45%;overflow:hidden;background:#cabfb2}.bouquet-stage img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(.97);transition:filter .35s,transform .5s}.bouquet-stage:after{content:"";position:absolute;inset:0;border:1px solid rgba(255,255,255,.22);border-radius:inherit;pointer-events:none}.bouquet-label{position:absolute;left:18px;top:18px;background:#f5f1ea;color:#171612;padding:10px 12px;font-size:11px;letter-spacing:.08em;text-transform:uppercase}.bouquet-count{position:absolute;right:18px;bottom:18px;width:76px;height:76px;border-radius:50%;background:var(--wine);display:grid;place-items:center;font:500 30px "Cormorant Garamond",serif}
+.controls{border-top:1px solid rgba(255,255,255,.18)}.ctrl{padding:24px 0;border-bottom:1px solid rgba(255,255,255,.18)}.ctrl-title{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#9e988f;margin-bottom:14px}.choices{display:flex;gap:8px;flex-wrap:wrap}.choice{border:1px solid rgba(255,255,255,.23);background:transparent;color:#fff;padding:11px 13px;border-radius:999px;cursor:pointer;transition:.25s}.choice.on{background:#f5f1ea;color:#171612}.total{display:flex;justify-content:space-between;align-items:flex-end;margin-top:32px}.total small{display:block;color:#999289;margin-bottom:5px}.total b{font:500 42px "Cormorant Garamond",serif}.cta{border:0;background:var(--wine);color:white;border-radius:99px;padding:16px 22px;cursor:pointer}
+.editorial{display:grid;grid-template-columns:1fr 1fr;min-height:86vh}.editorial-photo{background:url("https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=1200&q=85") center/cover}.editorial-copy{display:flex;flex-direction:column;justify-content:space-between;padding:7vw 5vw;background:#ded4c6}.editorial-copy blockquote{font:500 clamp(50px,6vw,96px)/.9 "Cormorant Garamond",serif;letter-spacing:-.045em;margin:0}.editorial-copy p{max-width:430px;line-height:1.7;font-size:14px}
+footer{padding:56px 3vw 24px;display:grid;grid-template-columns:1fr auto;gap:50px;border-top:1px solid var(--line)}.foot-logo{font:500 clamp(64px,11vw,170px)/.8 "Cormorant Garamond",serif;letter-spacing:-.055em}.foot-links{display:flex;gap:30px;align-self:end;font-size:12px;text-transform:uppercase;letter-spacing:.1em}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}.reveal.in{opacity:1;transform:none}
+@media(max-width:900px){.top{grid-template-columns:1fr auto}.nav{display:none}.hero{padding-top:110px;align-items:flex-start}.hero-photo{inset:36% 0 0 18%}.hero-copy{max-width:100%}.hero h1{font-size:25vw}.hero-note{margin:40px 0 0;width:70%;font-size:13px}.section{padding:88px 18px}.section-head{grid-template-columns:1fr}.products{display:flex;overflow:auto;scroll-snap-type:x mandatory;gap:10px}.product,.product:nth-child(2),.product:nth-child(3){min-width:82vw;min-height:520px;margin:0;scroll-snap-align:start}.builder{padding:88px 18px}.builder-grid{grid-template-columns:1fr}.builder-intro p{max-width:100%}.bouquet-stage{height:500px;margin:20px 0}.editorial{grid-template-columns:1fr}.editorial-photo{min-height:65vh}.editorial-copy{min-height:70vh;padding:60px 20px}.foot-links{display:none}footer{grid-template-columns:1fr}.foot-logo{font-size:22vw}}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#home">BLOOM.</a>
+  <nav class="nav"><a href="#shop">Каталог</a><a href="#builder">Конструктор</a><a href="#story">О нас</a></nav>
+  <button class="cart">Корзина · 0</button>
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="hero-photo" id="heroPhoto"></div>
+  <div class="hero-copy">
+    <div class="eyebrow">Цветочная мастерская · каждый день</div>
+    <h1 class="serif">Say it<br><i>with flowers.</i></h1>
+    <p class="hero-note">Собираем букеты не по шаблону, а по настроению. Выберите готовый или соберите свой — цена меняется сразу.</p>
+  </div>
+  <div class="scroll-mark">листайте</div>
+</section>
+
+<div class="marquee"><div class="marquee-track"><span>моно-букеты</span><span>композиции</span><span>корзины</span><span>сезонные цветы</span><span>моно-букеты</span><span>композиции</span><span>корзины</span><span>сезонные цветы</span></div></div>
+
+<section class="section" id="shop">
+  <div class="section-head reveal">
+    <div class="kicker">01 / витрина</div>
+    <h2 class="section-title">Цветы как<br>часть интерьера.</h2>
+  </div>
+  <div class="categories">
+    <button class="cat active">Все</button><button class="cat">Моно</button><button class="cat">Композиции</button><button class="cat">Корзины</button>
+  </div>
+  <div class="products">
+    <article class="product reveal"><img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1000&q=85" alt=""><div class="product-info"><div><div class="product-name">Blush No. 03</div><div class="product-meta">пионовидная роза · эвкалипт</div></div><div class="price">4 900 ₽</div></div></article>
+    <article class="product reveal"><img src="https://images.unsplash.com/photo-1494336934272-f9efcedfc8d7?auto=format&fit=crop&w=900&q=85" alt=""><div class="product-info"><div><div class="product-name">White Noise</div><div class="product-meta">моно · сезонная коллекция</div></div><div class="price">3 600 ₽</div></div></article>
+    <article class="product reveal"><img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1000&q=85" alt=""><div class="product-info"><div><div class="product-name">Garden Basket</div><div class="product-meta">корзина · садовые цветы</div></div><div class="price">6 200 ₽</div></div></article>
+  </div>
+</section>
+
+<section class="builder" id="builder">
+  <div class="builder-grid">
+    <div class="builder-intro reveal">
+      <div class="kicker">02 / конструктор</div>
+      <h2>Собери<br><i>свой.</i></h2>
+      <p>Выберите цветы, упаковку и характер букета. Конструктор пересчитает стоимость прямо здесь.</p>
+    </div>
+    <div class="bouquet-stage reveal">
+      <img id="bouquetImg" src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=1000&q=86" alt="Букет">
+      <div class="bouquet-label">live preview</div>
+      <div class="bouquet-count" id="bouquetCount">15</div>
+    </div>
+    <div class="controls reveal">
+      <div class="ctrl"><div class="ctrl-title">Цветы</div><div class="choices">
+        <button class="choice on flower" data-price="170" data-name="Розы">Розы</button>
+        <button class="choice flower" data-price="230" data-name="Пионы">Пионы</button>
+        <button class="choice flower" data-price="140" data-name="Тюльпаны">Тюльпаны</button>
+        <button class="choice flower" data-price="90" data-name="Эвкалипт">Эвкалипт</button>
+      </div></div>
+      <div class="ctrl"><div class="ctrl-title">Размер</div><div class="choices">
+        <button class="choice size" data-count="9" data-mult="1">S · 9</button>
+        <button class="choice size on" data-count="15" data-mult="1.45">M · 15</button>
+        <button class="choice size" data-count="25" data-mult="2.05">L · 25</button>
+      </div></div>
+      <div class="ctrl"><div class="ctrl-title">Упаковка</div><div class="choices">
+        <button class="choice pack on" data-pack="0">Матовая</button>
+        <button class="choice pack" data-pack="450">Шёлк +450</button>
+        <button class="choice pack" data-pack="850">Корзина +850</button>
+      </div></div>
+      <div class="total"><div><small>Ваш букет</small><b id="totalPrice">4 198 ₽</b></div><button class="cta" id="addBouquet">Добавить</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="editorial" id="story">
+  <div class="editorial-photo"></div>
+  <div class="editorial-copy">
+    <div class="kicker">03 / philosophy</div>
+    <blockquote>Не букет.<br><i>Жест.</i></blockquote>
+    <p>Каждая композиция собирается в день доставки. Мы работаем с сезонными цветами и оставляем в букете немного воздуха — чтобы он жил, а не выглядел собранным по каталогу.</p>
+  </div>
+</section>
+</main>
+
+<footer><div class="foot-logo">BLOOM.</div><div class="foot-links"><a href="#shop">Каталог</a><a href="#builder">Конструктор</a><a href="#">Instagram</a></div></footer>
+
+<script>
+var price=170,sizeMult=1.45,count=15,pack=0,cart=0;
+var total=document.getElementById("totalPrice"),countEl=document.getElementById("bouquetCount");
+function update(){var sum=Math.round(price*count*sizeMult+pack+500);total.textContent=sum.toLocaleString("ru-RU")+" ₽";countEl.textContent=count}
+document.querySelectorAll(".flower").forEach(function(b){b.onclick=function(){document.querySelectorAll(".flower").forEach(function(x){x.classList.remove("on")});b.classList.add("on");price=+b.dataset.price;update();document.getElementById("bouquetImg").style.transform="scale(1.025)";setTimeout(function(){document.getElementById("bouquetImg").style.transform=""},240)}});
+document.querySelectorAll(".size").forEach(function(b){b.onclick=function(){document.querySelectorAll(".size").forEach(function(x){x.classList.remove("on")});b.classList.add("on");count=+b.dataset.count;sizeMult=+b.dataset.mult;update()}});
+document.querySelectorAll(".pack").forEach(function(b){b.onclick=function(){document.querySelectorAll(".pack").forEach(function(x){x.classList.remove("on")});b.classList.add("on");pack=+b.dataset.pack;update()}});
+document.getElementById("addBouquet").onclick=function(){cart++;document.querySelector(".cart").textContent="Корзина · "+cart;this.textContent="Добавлено";var self=this;setTimeout(function(){self.textContent="Добавить"},900)};
+document.querySelectorAll(".cat").forEach(function(b){b.onclick=function(){document.querySelectorAll(".cat").forEach(function(x){x.classList.remove("active")});b.classList.add("active")}});
+var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add("in")})},{threshold:.14});document.querySelectorAll(".reveal").forEach(function(el){io.observe(el)});
+window.addEventListener("scroll",function(){var y=window.scrollY;document.getElementById("heroPhoto").style.transform="scale("+(1.03+y*.000035)+") translateY("+(y*.035)+"px)"});
+update();
+</script>
+</body>
+</html>
