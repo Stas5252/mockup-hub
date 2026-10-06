@@ -88,7 +88,7 @@ try {
   await click('.pack[data-extra="900"]');
   assert.equal(await text("#price"), "12 775 ₽");
   await click("#addBtn");
-  await click('.product-add[data-name="Powder Rose"]');
+  await click('.product-add[data-name="Пудровая роза"]');
   await click("#cartBtn");
   assert.equal(await text("#bloomCartTotal"), "17 675 ₽");
   await click(".dialog-item button");
@@ -104,7 +104,7 @@ try {
   console.log("PASS BLOOM: builder pricing, cart totals/removal, filters");
 
   await open("bite-club");
-  await click('.add[data-name="Hot Honey"]');
+  await click('.add[data-name="Острый мёд"]');
   await click("#cartBtn");
   assert.equal(await text("#cartTotal"), "690 ₽");
   await click(".remove");
@@ -117,10 +117,10 @@ try {
   );
   await page.keyboard.press("Escape");
   assert.equal(await page.$eval("#drawer", (e) => e.inert), true);
-  for (const name of ["Hot Honey", "Tokyo Burn", "Dirty Double"])
+  for (const name of ["Острый мёд", "Жаркий Токио", "Двойной чиз"])
     await click(`.pick[data-name="${name}"]`);
   assert.equal(await text("#trayPrice"), "Комбо −12% · 1 602 ₽");
-  await click('.pick[data-name="Red Devil"]');
+  await click('.pick[data-name="Красный дьявол"]');
   assert.equal(await text("#trayPrice"), "Комбо −12% · 1 602 ₽");
   await click("#tableAdd");
   assert.equal(await text("#cartTotal"), "1 602 ₽");
@@ -131,11 +131,11 @@ try {
   await page.waitForFunction(() => !document.getElementById("spin").disabled);
   assert.ok(
     [
-      "Hot Honey",
-      "Tokyo Burn",
-      "Dirty Double",
-      "Red Devil",
-      "Salmon Club",
+      "Острый мёд",
+      "Жаркий Токио",
+      "Двойной чиз",
+      "Красный дьявол",
+      "Лосось и авокадо",
     ].includes(await text("#result")),
   );
   await click("#rouletteOrder");
@@ -146,7 +146,7 @@ try {
 
   await open("aeris-hotel");
   await click('.mood-btn[data-key="family"]');
-  assert.equal(await text("#recTitle"), "Aeris House");
+  assert.equal(await text("#recTitle"), "Дом у моря");
   assert.equal(await text("#recPrice"), "27 900 ₽");
   await page.$eval("#arrival", (el) => {
     el.value = "2026-12-12";
@@ -159,7 +159,7 @@ try {
   await click("#book button");
   assert.equal(await text(".room-price b"), "38 700 ₽");
   await click(".room-book");
-  assert.equal(await text("#bookingRoom"), "Dune Deluxe");
+  assert.equal(await text("#bookingRoom"), "Делюкс «Дюна»");
   assert.ok((await text("#bookingDetails")).includes("38 700 ₽ за 3 ночи"));
   await page.keyboard.press("Escape");
   await page.$eval("#arrival", (el) => {

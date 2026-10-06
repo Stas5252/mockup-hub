@@ -14,7 +14,7 @@
     list.replaceChildren();
     if (!cart.length) {
       const p = document.createElement("p");
-      p.textContent = "Пока пусто. Самое время выбрать первый bite.";
+      p.textContent = "Пока пусто. Самое время выбрать первое блюдо.";
       p.style.cssText = "font-size:12px;line-height:1.8;margin-top:24px";
       list.append(p);
     }

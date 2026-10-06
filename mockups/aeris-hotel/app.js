@@ -1,25 +1,25 @@
 (() => {
   const rooms = {
     quiet: {
-      title: "Dune Deluxe",
+      title: "Делюкс «Дюна»",
       note: "тихий сад · терраса · тишина",
       price: 12900,
       img: "assets/dune-deluxe.webp",
     },
     spa: {
-      title: "Sea Suite",
-      note: "ванна · доступ в spa · вид на море",
+      title: "Морской люкс",
+      note: "ванна · доступ в спа · вид на море",
       price: 18400,
       img: "assets/sea-suite.webp",
     },
     romance: {
-      title: "Sunset Suite",
+      title: "Люкс «Закат»",
       note: "закат · ванна · завтрак в номере",
       price: 21900,
       img: "assets/photo-1566665797739-1674de7a421a.jpg",
     },
     family: {
-      title: "Aeris House",
+      title: "Дом у моря",
       note: "две спальни · терраса · кухня",
       price: 27900,
       img: "assets/photo-1600607687920-4e2a09cf159d.jpg",

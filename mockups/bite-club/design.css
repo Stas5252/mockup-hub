@@ -197,7 +197,7 @@ body {
   margin-bottom: 50px;
 }
 .menu-head h2 {
-  font: 700 clamp(100px, 12.5vw, 190px)/0.9 var(--display);
+  font: 700 clamp(84px, 9.8vw, 148px)/0.9 var(--display);
   text-transform: uppercase;
   letter-spacing: -0.055em;
   margin: 0;
@@ -387,7 +387,7 @@ body {
   color: #17171450;
 }
 .tray:before {
-  content: "THE GOOD COMPANY CLUB";
+  content: "ДЛЯ ХОРОШЕЙ КОМПАНИИ";
   position: absolute;
   left: 50%;
   top: 34px;
@@ -485,7 +485,7 @@ body {
   justify-content: space-between;
 }
 .roulette h2 {
-  font: 700 clamp(90px, 11.7vw, 176px)/0.9 var(--display);
+  font: 700 clamp(70px, 8.4vw, 128px)/0.9 var(--display);
   text-transform: uppercase;
   letter-spacing: -0.06em;
   margin: 0;
@@ -769,7 +769,7 @@ body {
     margin-bottom: 30px;
   }
   .menu-head h2 {
-    font-size: 20vw;
+    font-size: 16vw;
     line-height: 0.95;
   }
   .menu-head p {
@@ -834,7 +834,7 @@ body {
     gap: 25px;
   }
   .build h2 {
-    font-size: 22vw;
+    font-size: 18vw;
   }
   .build-head p {
     justify-self: start;
@@ -878,7 +878,7 @@ body {
     padding: 65px 20px 50px;
   }
   .roulette h2 {
-    font-size: 23vw;
+    font-size: 19vw;
   }
   .roulette p {
     margin-top: 25px;

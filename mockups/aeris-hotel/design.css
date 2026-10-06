@@ -25,7 +25,7 @@ body {
   letter-spacing: 0.16em;
 }
 .logo:after {
-  content: "SLOW STAY HOTEL";
+  content: "ОТЕЛЬ У МОРЯ";
   display: block;
   font: 400 7px Manrope;
   letter-spacing: 0.25em;
@@ -799,15 +799,19 @@ body {
     padding: 75px 20px;
   }
   .offers-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
     margin-bottom: 35px;
   }
   .offers h2 {
     font-size: 21vw;
   }
   .offers-head .eyebrow {
-    max-width: 60px;
+    order: -1;
+    max-width: none;
     line-height: 1.7;
-    text-align: right;
+    text-align: left;
   }
   .offers-grid {
     grid-template-columns: 1fr;
