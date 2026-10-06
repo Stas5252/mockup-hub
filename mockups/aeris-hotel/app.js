@@ -22,7 +22,7 @@
       title: "Дом у моря",
       note: "две спальни · терраса · кухня",
       price: 27900,
-      img: "assets/photo-1600607687920-4e2a09cf159d.jpg",
+      img: "assets/private-house.webp",
     },
   };
   const money = (n) => n.toLocaleString("ru-RU") + " ₽";
@@ -44,6 +44,12 @@
         const r = rooms[b.dataset.key],
           img = document.getElementById("recImg");
         img.src = r.img;
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          img.animate([{ opacity: 0.35 }, { opacity: 1 }], {
+            duration: 650,
+            easing: "ease-out",
+          });
+        }
         img.alt = r.title;
         document.getElementById("recTitle").textContent = r.title;
         document.getElementById("recNote").textContent = r.note;

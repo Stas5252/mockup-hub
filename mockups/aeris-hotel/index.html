@@ -3,28 +3,27 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>AERIS — отель для неспешного отдыха</title>
-    <meta name="theme-color" content="#eee8de" />
+    <title>AERIS — искусство неспешного отдыха</title>
+    <meta name="theme-color" content="#f4f0e8" />
+    <meta
+      name="description"
+      content="Камерный отель у моря. 24 номера, тишина, спа и ваш собственный ритм отдыха. Откройте AERIS и найдите свой номер."
+    />
     <link rel="stylesheet" href="../_shared/fonts.css?v=3" />
     <link rel="stylesheet" href="../_shared/base.css?v=3" />
-    <link rel="stylesheet" href="design.css?v=4" />
+    <link rel="stylesheet" href="design.css?v=6" />
     <link rel="preload" as="image" href="assets/hero-coast.jpg" />
   </head>
   <body>
     <header class="nav">
-      <a class="logo" href="#top">AERIS</a>
-      <nav class="navlinks">
-        <a href="#rooms">Номера</a><a href="#mood">Подобрать</a
-        ><a href="#offers">Предложения</a>
-      </nav>
-      <button
-        class="book-small"
-        onclick="
-          document.getElementById('book').scrollIntoView({ behavior: 'smooth' })
-        "
+      <a class="logo" href="#top" aria-label="AERIS — на главную"
+        >AERIS<span>Искусство быть здесь</span></a
       >
-        Забронировать
-      </button>
+      <nav class="navlinks">
+        <a href="#about">О месте</a><a href="#rooms">Номера</a
+        ><a href="#mood">Ваш отдых</a><a href="#offers">Предложения</a>
+      </nav>
+      <a class="book-small" href="#book">Выбрать даты <span>↗</span></a>
     </header>
     <main id="top">
       <section class="hero">
@@ -35,20 +34,34 @@
           id="heroMedia"
           data-parallax
           role="img"
-          aria-label="Тихое побережье, бескрайнее море и бассейн отеля AERIS"
+          aria-label="Средиземноморское побережье и бассейн камерного отеля AERIS"
         ></div>
         <div class="hero-inner">
-          <div class="hero-title-label">Тихое место / свой ритм</div>
-          <h1>Здесь время<br /><em>не спешит.</em></h1>
-          <div class="hero-copy-side">
-            <div class="eyebrow">Тихое побережье / 24 номера</div>
-            <p>
-              Море за окном. Тишина внутри.<br />24 номера и ни одной причины
-              спешить.
-            </p>
+          <div class="hero-title-label">
+            <span>Камерный отель у моря</span
+            ><span class="hero-star"
+              ><svg viewBox="0 0 80 80" fill="none" aria-hidden="true">
+                <circle cx="40" cy="40" r="15" />
+                <circle cx="40" cy="40" r="26" stroke-dasharray="1 8" />
+                <path
+                  d="M40 2v15M40 63v15M2 40h15M63 40h15M13 13l11 11M56 56l11 11M13 67l11-11M56 24l11-11"
+                /></svg></span
+            ><span>24 номера · бесконечный горизонт</span>
+          </div>
+          <h1>AERIS</h1>
+          <div class="hero-story">
+            <h2>Искусство<br /><em>быть здесь.</em></h2>
+            <div class="hero-copy-side">
+              <p>
+                Море за окном. Тишина внутри.<br />Место, где ваше время<br />принадлежит
+                только вам.
+              </p>
+              <a class="hero-scroll" href="#about"
+                >Почувствовать место <span>↓</span></a
+              >
+            </div>
           </div>
         </div>
-        <a class="hero-scroll" href="#rooms">Откройте AERIS</a>
         <form class="booking-bar" id="book">
           <div class="field">
             <label for="arrival">Заезд</label
@@ -82,100 +95,142 @@
           <button>Найти номер</button>
         </form>
       </section>
-      <section class="intro">
-        <div class="eyebrow">01 / неспешный отдых</div>
-        <h2 class="reveal">Место, где можно<br />просто <em>быть.</em></h2>
-        <div class="intro-foot">
-          <p>
-            Утро начинается позже. Телефон остаётся в номере. Свет меняется
-            вместе с небом, а расписание помещается в одну строчку: завтрак,
-            вода, спа, сон.
-          </p>
-          <div class="stat">
-            <b>24</b
-            ><span>номера · каждый с отдельным<br />характером и видом</span>
+      <section class="intro" id="about">
+        <div class="intro-visual reveal">
+          <img
+            src="assets/pool-detail.webp"
+            alt="Солнечные блики на воде и ступени из натурального камня"
+          />
+          <div class="intro-inset">
+            <img
+              src="assets/dune-deluxe.webp"
+              alt="Лён, тёплый свет и натуральные материалы в номере"
+            /><span>Тёплый свет. Натуральный лён.</span>
+          </div>
+          <span class="photo-note">Маленькие детали. Большое чувство.</span>
+        </div>
+        <div class="intro-content">
+          <div class="eyebrow">01 / философия места</div>
+          <h2 class="reveal">Роскошь<br />ничего<br /><em>не успевать.</em></h2>
+          <div class="intro-foot">
+            <p>
+              Утро начинается с солнца, а не с будильника. Телефон остаётся в
+              номере. В расписании — только море, завтрак на террасе и всё то,
+              на что обычно не хватает времени.
+            </p>
+            <div class="stat">
+              <svg viewBox="0 0 80 80" fill="none" aria-hidden="true">
+                <circle cx="40" cy="40" r="15" />
+                <circle cx="40" cy="40" r="26" stroke-dasharray="1 8" />
+                <path
+                  d="M40 2v15M40 63v15M2 40h15M63 40h15M13 13l11 11M56 56l11 11M13 67l11-11M56 24l11-11"
+                />
+              </svg>
+              <div>
+                <b>24</b><span>номера с характером.<br />Один — ваш.</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
       <section class="rooms" id="rooms">
         <div class="rooms-head">
-          <h2>Номера.</h2>
           <div>
+            <div class="eyebrow">02 / коллекция пространств</div>
+            <h2>Ваше место<br /><em>под солнцем.</em></h2>
+          </div>
+          <div class="rooms-note">
+            <p>Три способа остаться.<br />И ни одной причины спешить.</p>
             <span>от 12 900 ₽ / ночь</span>
-            <p
+            <div
               class="booking-summary"
               id="bookingSummary"
               aria-live="polite"
-            ></p>
+            ></div>
           </div>
         </div>
         <div class="room-list">
           <article class="room reveal" data-price="12900">
-            <div class="room-no">01</div>
-            <div class="room-details">
-              <div class="room-name">Делюкс «Дюна»</div>
-              <div class="room-meta">32 м² · большая кровать · терраса</div>
-              <p class="room-description">
-                Лёгкий морской бриз, натуральный лён и ваша терраса для
-                неспешных утренних кофе.
-              </p>
+            <div class="room-no">
+              <span>01 / 03</span><span>Утро в саду</span>
             </div>
             <div class="room-image">
               <img
                 src="assets/dune-deluxe.webp"
-                alt="Светлый Делюкс «Дюна» с отдельной террасой"
+                alt="Делюкс «Дюна» — пространство для отдыха в AERIS"
               />
+            </div>
+            <div class="room-details">
+              <div class="room-name">Делюкс «Дюна»</div>
+              <div class="room-meta">32 м² · большая кровать · терраса</div>
+            </div>
+            <div class="room-caption">
+              <p class="room-description">
+                Лёгкий морской бриз, натуральный лён и терраса для неспешных
+                утренних кофе.
+              </p>
             </div>
             <div class="room-price">
               <div><b>12 900 ₽</b><span class="rate-label">за ночь</span></div>
-              <button class="room-book" aria-label="Выбрать Делюкс «Дюна»">
-                ↗
+              <button
+                class="room-book"
+                aria-label="Выбрать номер Делюкс «Дюна»"
+              >
+                Выбрать номер <span>↗</span>
               </button>
             </div>
           </article>
           <article class="room reveal" data-price="18400">
-            <div class="room-no">02</div>
+            <div class="room-no">
+              <span>02 / 03</span><span>Открытый горизонт</span>
+            </div>
+            <div class="room-image">
+              <img
+                src="assets/sea-suite.webp"
+                alt="Морской люкс — пространство для отдыха в AERIS"
+              />
+            </div>
             <div class="room-details">
               <div class="room-name">Морской люкс</div>
               <div class="room-meta">47 м² · вид на море · ванна</div>
+            </div>
+            <div class="room-caption">
               <p class="room-description">
                 Просыпайтесь под шум моря. Открытый горизонт, глубокая ванна и
                 пространство для двоих.
               </p>
             </div>
-            <div class="room-image">
-              <img
-                src="assets/sea-suite.webp"
-                alt="Морской люкс с видом на море"
-              />
-            </div>
             <div class="room-price">
               <div><b>18 400 ₽</b><span class="rate-label">за ночь</span></div>
-              <button class="room-book" aria-label="Выбрать Морской люкс">
-                ↗
+              <button class="room-book" aria-label="Выбрать номер Морской люкс">
+                Выбрать номер <span>↗</span>
               </button>
             </div>
           </article>
           <article class="room reveal" data-price="27900">
-            <div class="room-no">03</div>
+            <div class="room-no">
+              <span>03 / 03</span><span>Только ваш мир</span>
+            </div>
+            <div class="room-image">
+              <img
+                src="assets/private-house.webp"
+                alt="Дом у моря — пространство для отдыха в AERIS"
+              />
+            </div>
             <div class="room-details">
               <div class="room-name">Дом у моря</div>
               <div class="room-meta">74 м² · отдельный дом · терраса</div>
+            </div>
+            <div class="room-caption">
               <p class="room-description">
                 Ваш собственный дом у воды. Две спальни, большая терраса и место
                 для всей семьи.
               </p>
             </div>
-            <div class="room-image">
-              <img
-                src="assets/photo-1600607687920-4e2a09cf159d.jpg"
-                alt="Интерьер и отдых в AERIS"
-              />
-            </div>
             <div class="room-price">
               <div><b>27 900 ₽</b><span class="rate-label">за ночь</span></div>
-              <button class="room-book" aria-label="Выбрать Дом у моря">
-                ↗
+              <button class="room-book" aria-label="Выбрать номер Дом у моря">
+                Выбрать номер <span>↗</span>
               </button>
             </div>
           </article>
@@ -184,26 +239,34 @@
       <section class="mood" id="mood">
         <div class="mood-grid">
           <div class="mood-copy">
-            <div class="eyebrow">02 / ваш сценарий отдыха</div>
-            <h2>Как вы хотите<br /><em>исчезнуть?</em></h2>
+            <div class="eyebrow">03 / персональный сценарий</div>
+            <h2>Ваш ритм.<br /><em>Ваш AERIS.</em></h2>
+            <p class="mood-description">
+              Прислушайтесь к себе. Мы подберём пространство, которое совпадёт с
+              вашим настроением.
+            </p>
             <div class="mood-buttons">
               <button class="mood-btn on" aria-pressed="true" data-key="quiet">
-                Тишина</button
+                <span class="mood-number">01</span><span>Тишина</span></button
               ><button class="mood-btn" aria-pressed="false" data-key="spa">
-                Спа</button
+                <span class="mood-number">02</span
+                ><span>Спа и забота о себе</span></button
               ><button class="mood-btn" aria-pressed="false" data-key="romance">
-                Вдвоём</button
+                <span class="mood-number">03</span
+                ><span>Только вдвоём</span></button
               ><button class="mood-btn" aria-pressed="false" data-key="family">
-                Семья
+                <span class="mood-number">04</span><span>Всей семьёй</span>
               </button>
             </div>
           </div>
           <div class="recommend reveal">
-            <img
-              id="recImg"
-              src="assets/dune-deluxe.webp"
-              alt="Светлый Делюкс «Дюна» с отдельной террасой"
-            />
+            <div class="rec-image">
+              <img
+                id="recImg"
+                src="assets/dune-deluxe.webp"
+                alt="Делюкс «Дюна» с отдельной террасой"
+              />
+            </div>
             <div class="rec-card">
               <div>
                 <div class="rec-title" id="recTitle">Делюкс «Дюна»</div>
@@ -220,42 +283,86 @@
       </section>
       <section class="offers" id="offers">
         <div class="offers-head">
-          <h2>Поводы<br />остаться.</h2>
-          <div class="eyebrow">03 / предложения</div>
+          <div>
+            <div class="eyebrow">04 / особые приглашения</div>
+            <h2>Ещё немного<br /><em>для себя.</em></h2>
+          </div>
+          <p>Иногда лучший план —<br />остаться на день дольше.</p>
         </div>
         <div class="offers-grid">
           <article class="offer reveal">
-            <img src="assets/hero-coast.jpg" alt="Интерьер и отдых в AERIS" />
-            <div class="offer-badge">−20%</div>
+            <div class="offer-image">
+              <img
+                src="assets/private-house.webp"
+                alt="Терраса отеля с видом на море"
+              />
+              <div class="offer-badge">
+                <b>−20%</b><span>четвёртая ночь</span>
+              </div>
+            </div>
             <div class="offer-copy">
+              <span class="offer-index">01 / больше времени</span>
               <h3>Останьтесь подольше</h3>
               <p>Четвёртая ночь дешевле при бронировании от трёх ночей.</p>
+              <a href="#book">Выбрать свои даты <span>↗</span></a>
             </div>
           </article>
           <article class="offer reveal">
-            <img
-              src="assets/spa.webp"
-              alt="Вечерний бассейн спа при свете свечей"
-            />
+            <div class="offer-image">
+              <img
+                src="assets/spa.webp"
+                alt="Тихий вечер в спа при свете свечей"
+              />
+            </div>
             <div class="offer-copy">
-              <h3>Вечерний спа</h3>
-              <p>Спа после 21:00 только для гостей отеля.</p>
+              <span class="offer-index">02 / вечерний ритуал</span>
+              <h3>Когда мир затихает</h3>
+              <p>
+                Тёплая вода, мягкий свет и спа после 21:00 — только для гостей
+                отеля.
+              </p>
+              <a href="#mood">Найти свой сценарий <span>↗</span></a>
             </div>
           </article>
         </div>
       </section>
       <section class="manifesto">
-        <blockquote>
-          Останьтесь.<br /><em>Отпустите всё лишнее.</em
-          ><small>AERIS · отель для неспешного отдыха</small>
-        </blockquote>
+        <div class="manifesto-copy">
+          <div class="eyebrow">До встречи у моря</div>
+          <blockquote>
+            Выдохните.<br /><em>Вы уже<br />на месте.</em>
+          </blockquote>
+          <a href="#book" class="text-link">Остаться в AERIS <span>↗</span></a>
+        </div>
+        <div class="manifesto-image reveal">
+          <img
+            src="assets/pool-detail.webp"
+            alt="Солнечные блики на воде и тёплый натуральный камень"
+          /><span>Неспешный отдых начинается здесь.</span>
+        </div>
       </section>
     </main>
     <footer class="footer">
-      <div class="footer-word">AERIS</div>
+      <div class="footer-top">
+        <div>
+          <svg viewBox="0 0 80 80" fill="none" aria-hidden="true">
+            <circle cx="40" cy="40" r="15" />
+            <circle cx="40" cy="40" r="26" stroke-dasharray="1 8" />
+            <path
+              d="M40 2v15M40 63v15M2 40h15M63 40h15M13 13l11 11M56 56l11 11M13 67l11-11M56 24l11-11"
+            />
+          </svg>
+          <p>Море. Свет. Тишина.<br />Всё остальное подождёт.</p>
+        </div>
+        <nav aria-label="Навигация внизу страницы">
+          <a href="#rooms">Номера</a><a href="#mood">Ваш отдых</a
+          ><a href="#book">Выбрать даты ↗</a>
+        </nav>
+      </div>
+      <div class="footer-word" aria-hidden="true">AERIS</div>
       <div class="footer-row">
-        <span>Номера / Спа / Завтраки</span><span>Тихое место / свой ритм</span
-        ><span>Неспешный отдых / 2026</span>
+        <span>Камерный отель у моря</span><span>Искусство быть здесь</span
+        ><span>AERIS © 2026</span>
       </div>
     </footer>
     <dialog class="dialog" id="bookingDialog" aria-labelledby="bookingRoom">
@@ -293,6 +400,6 @@
     </dialog>
     <div class="toast" id="toast" role="status">Свободные номера найдены</div>
     <script src="../_shared/motion.js?v=3" defer></script>
-    <script src="app.js?v=4" defer></script>
+    <script src="app.js?v=6" defer></script>
   </body>
 </html>
