@@ -237,6 +237,21 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
 
+      // Keep the placeholder as a fallback for missing preview images.
+      if (mockup.preview) {
+        const image = document.createElement("img");
+        image.className = "card-preview-image";
+        image.alt = mockup.title;
+        image.loading = "lazy";
+        image.decoding = "async";
+        image.addEventListener("load", () => {
+          card.querySelector(".card-mockup-placeholder").hidden = true;
+        });
+        image.addEventListener("error", () => image.remove());
+        image.src = mockup.preview;
+        card.querySelector(".card-media").prepend(image);
+      }
+
       // Обработчики для карточки
       const copyBtn = card.querySelector(".btn-copy");
       copyBtn.addEventListener("click", (e) => {

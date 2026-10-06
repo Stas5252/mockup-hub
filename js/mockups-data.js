@@ -12,7 +12,7 @@ const MOCKUPS_DATA = [
     folder: "bloom-flower",
     description: "Editorial e-commerce концепт цветочного магазина: крупная типографика, воздушный каталог и интерактивный конструктор букета с выбором цветов, размера, упаковки и живым пересчётом цены.",
     tags: ["Цветы", "Awwwards", "Каталог", "Конструктор", "E-commerce", "Анимации"],
-    preview: "",
+    preview: "mockups/bloom-flower/preview/desktop.webp?v=3",
     featured: true,
     emoji: "BL"
   },
@@ -23,7 +23,7 @@ const MOCKUPS_DATA = [
     folder: "bite-club",
     description: "Street-food концепт с кинетическим hero, фильтруемым каталогом, рабочей корзиной, конструктором комбо «Собери стол» со скидкой и интерактивной Food Roulette.",
     tags: ["Доставка", "Роллы", "Пицца", "Бургеры", "Корзина", "Awwwards"],
-    preview: "",
+    preview: "mockups/bite-club/preview/desktop.webp?v=3",
     featured: true,
     emoji: "BC"
   },
@@ -34,7 +34,7 @@ const MOCKUPS_DATA = [
     folder: "aeris-hotel",
     description: "Cinematic luxury-концепт отеля: hero с раскрытием-шторами, строка бронирования, каталог номеров с ценами, персональный подбор номера по сценарию отдыха и блок специальных предложений.",
     tags: ["Отель", "Luxury", "Номера", "Бронирование", "Акции", "Awwwards"],
-    preview: "",
+    preview: "mockups/aeris-hotel/preview/desktop.webp?v=3",
     featured: true,
     emoji: "AE"
   },
