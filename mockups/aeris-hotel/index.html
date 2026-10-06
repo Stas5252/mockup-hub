@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AERIS — slow stay hotel</title>
+<meta name="description" content="Luxury hotel concept with rooms, offers and interactive stay selector.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--sand:#e9e0d2;--ink:#171714;--cream:#f6f2eb;--olive:#686959;--line:rgba(23,23,20,.2)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Manrope,Arial,sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}button,input{font:inherit}
+.nav{position:fixed;z-index:60;left:0;right:0;top:0;padding:21px 2.5vw;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;color:white;mix-blend-mode:difference}.logo{font:500 21px "Cormorant Garamond",serif;letter-spacing:.22em}.links{display:flex;gap:26px;font-size:10px;letter-spacing:.13em;text-transform:uppercase}.book-mini{justify-self:end;border:1px solid currentColor;border-radius:99px;background:none;color:inherit;padding:9px 14px;text-transform:uppercase;font-size:10px;letter-spacing:.12em}
+.hero{height:100svh;position:relative;overflow:hidden;background:#777}.hero-img{position:absolute;inset:0;background:url("https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1800&q=90") center/cover;transform:scale(1.08);animation:heroZoom 10s ease-out forwards}@keyframes heroZoom{to{transform:scale(1)}}.veil{position:absolute;top:0;bottom:0;width:50%;background:#151512;z-index:20;animation:curtain 1.4s .25s cubic-bezier(.77,0,.18,1) forwards}.veil.left{left:0}.veil.right{right:0}@keyframes curtain{to{width:0}}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.13),rgba(0,0,0,.36))}
+.hero-copy{position:absolute;z-index:4;left:2.5vw;right:2.5vw;bottom:12vh;color:white;display:grid;grid-template-columns:1.4fr .6fr;align-items:end}.hero h1{font:500 clamp(80px,12vw,180px)/.76 "Cormorant Garamond",serif;letter-spacing:-.05em;margin:0}.hero h1 i{display:block}.hero-copy p{max-width:350px;line-height:1.7;font-size:13px;margin:0 0 8px auto}
+.booking{position:absolute;z-index:6;bottom:0;left:2.5vw;right:2.5vw;background:rgba(246,242,235,.95);color:var(--ink);display:grid;grid-template-columns:1fr 1fr .7fr auto;backdrop-filter:blur(12px)}.book-field{padding:17px 20px;border-right:1px solid var(--line)}.book-field label{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.15em;margin-bottom:6px;opacity:.58}.book-field input{border:0;background:none;padding:0;width:100%;outline:none;color:var(--ink)}.booking button{border:0;background:var(--ink);color:white;padding:0 28px;cursor:pointer;text-transform:uppercase;font-size:10px;letter-spacing:.13em}
+.intro{padding:120px 2.5vw 140px;display:grid;grid-template-columns:.55fr 1.45fr;gap:6vw}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.16em}.intro h2{font:500 clamp(60px,8.2vw,126px)/.88 "Cormorant Garamond",serif;letter-spacing:-.045em;margin:0}.intro h2 i{font-weight:500}.intro-note{grid-column:2;display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-top:38px}.intro-note p{font-size:13px;line-height:1.8;max-width:440px}.number{font:500 52px "Cormorant Garamond",serif}
+.rooms{background:#1d1e1a;color:#f2ede5;padding:100px 2.5vw}.rooms-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:42px}.rooms-head h2{font:500 clamp(64px,9vw,130px)/.8 "Cormorant Garamond",serif;margin:0;letter-spacing:-.05em}.rooms-head span{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:#aaa99f}
+.room-list{display:grid;gap:1px;background:rgba(255,255,255,.15)}.room{background:#1d1e1a;display:grid;grid-template-columns:80px 1fr 1.2fr 170px;align-items:center;min-height:190px;padding:16px 0;transition:.35s}.room:hover{background:#24251f}.room-no{text-align:center;font:500 25px "Cormorant Garamond",serif;color:#85857b}.room-name{font:500 42px/1 "Cormorant Garamond",serif}.room-tags{font-size:10px;text-transform:uppercase;letter-spacing:.11em;color:#999a90;margin-top:8px}.room-image{height:158px;overflow:hidden}.room-image img{width:100%;height:100%;object-fit:cover;transition:.65s}.room:hover img{transform:scale(1.04)}.room-price{text-align:right;padding-right:10px;font-size:12px}.room-price b{display:block;font:500 26px "Cormorant Garamond",serif;margin-bottom:5px}
+.selector{padding:120px 2.5vw;background:var(--sand)}.selector-grid{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center}.selector h2{font:500 clamp(58px,8vw,114px)/.84 "Cormorant Garamond",serif;margin:0 0 30px;letter-spacing:-.045em}.moods{display:flex;gap:8px;flex-wrap:wrap}.mood{border:1px solid var(--ink);background:none;border-radius:50px;padding:11px 16px;cursor:pointer}.mood.on{background:var(--ink);color:white}.recommend{position:relative;min-height:620px;overflow:hidden}.recommend img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s,transform .6s}.recommend:hover img{transform:scale(1.02)}.rec-card{position:absolute;left:20px;right:20px;bottom:20px;background:rgba(246,242,235,.94);backdrop-filter:blur(12px);padding:18px;display:flex;justify-content:space-between;align-items:flex-end}.rec-title{font:500 34px "Cormorant Garamond",serif}.rec-note{font-size:10px;text-transform:uppercase;letter-spacing:.1em;opacity:.6;margin-top:4px}.rec-price{font-size:12px;text-align:right}
+.offers{padding:110px 2.5vw}.offers-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:45px}.offers h2{font:500 clamp(62px,8vw,115px)/.8 "Cormorant Garamond",serif;letter-spacing:-.05em;margin:0}.offers-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.offer{min-height:520px;position:relative;overflow:hidden}.offer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.7s}.offer:hover img{transform:scale(1.035)}.offer:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.5))}.offer-copy{position:absolute;z-index:2;left:22px;right:22px;bottom:22px;color:white}.offer-copy h3{font:500 46px/1 "Cormorant Garamond",serif;margin:0 0 8px}.offer-copy p{font-size:12px;margin:0}.offer-badge{position:absolute;z-index:2;right:18px;top:18px;width:92px;height:92px;background:var(--cream);color:var(--ink);border-radius:50%;display:grid;place-items:center;text-align:center;font:500 23px "Cormorant Garamond",serif}
+.manifesto{min-height:85vh;background:#6c6c5e;color:white;display:grid;place-items:center;text-align:center;padding:60px 5vw}.manifesto blockquote{font:500 clamp(64px,10vw,150px)/.8 "Cormorant Garamond",serif;letter-spacing:-.05em;margin:0}.manifesto small{display:block;font:400 11px Manrope,sans-serif;text-transform:uppercase;letter-spacing:.16em;margin-top:34px}
+footer{padding:60px 2.5vw 24px;background:#171714;color:#e7e1d6}.foot-logo{font:500 clamp(80px,15vw,220px)/.7 "Cormorant Garamond",serif;letter-spacing:-.04em}.foot-row{display:flex;justify-content:space-between;margin-top:70px;font-size:10px;text-transform:uppercase;letter-spacing:.11em;color:#aaa79e}
+.toast{position:fixed;z-index:100;left:50%;bottom:24px;transform:translate(-50%,100px);background:#171714;color:white;padding:14px 20px;border-radius:50px;font-size:11px;text-transform:uppercase;letter-spacing:.1em;transition:.35s}.toast.show{transform:translate(-50%,0)}
+@media(max-width:880px){.nav{grid-template-columns:1fr auto}.links{display:none}.hero-copy{grid-template-columns:1fr;bottom:23vh}.hero h1{font-size:24vw}.hero-copy p{margin:20px 0 0;width:80%}.booking{left:12px;right:12px;grid-template-columns:1fr 1fr}.book-field:nth-child(3){display:none}.booking button{grid-column:1/3;padding:15px}.intro{grid-template-columns:1fr;padding:90px 18px}.intro-note{grid-column:1;grid-template-columns:1fr}.rooms{padding:90px 18px}.room{grid-template-columns:45px 1fr 100px;min-height:150px}.room-image{display:none}.room-name{font-size:34px}.selector{padding:90px 18px}.selector-grid{grid-template-columns:1fr}.recommend{min-height:540px;margin-top:30px}.offers{padding:90px 18px}.offers-grid{grid-template-columns:1fr}.offer{min-height:490px}.foot-row{gap:18px;flex-wrap:wrap}}
+</style>
+</head>
+<body>
+<header class="nav"><a href="#top" class="logo">AERIS</a><nav class="links"><a href="#rooms">Номера</a><a href="#offers">Предложения</a><a href="#mood">Ваш отдых</a></nav><button class="book-mini" onclick="document.getElementById('booking').scrollIntoView()">Забронировать</button></header>
+
+<main id="top">
+<section class="hero">
+  <div class="veil left"></div><div class="veil right"></div>
+  <div class="hero-img" id="heroImg"></div>
+  <div class="hero-copy"><h1>Stay<br><i>somewhere else.</i></h1><p>Небольшой отель у воды, где день не нужно планировать. 24 номера, тишина, длинные завтраки и spa до полуночи.</p></div>
+  <form class="booking" id="booking" onsubmit="event.preventDefault();showToast('Свободные номера найдены')">
+    <div class="book-field"><label>Заезд</label><input type="date" value="2026-10-12"></div>
+    <div class="book-field"><label>Выезд</label><input type="date" value="2026-10-15"></div>
+    <div class="book-field"><label>Гости</label><input value="2 взрослых" readonly></div>
+    <button>Найти номер</button>
+  </form>
+</section>
+
+<section class="intro">
+  <div class="eyebrow">01 / slow stay</div>
+  <h2>Место, которое<br>ничего от вас <i>не требует.</i></h2>
+  <div class="intro-note"><p>Утро начинается позже. Телефон остаётся в номере. Вода рядом, завтрак до 13:00, а свет в комнатах меняется вместе с небом.</p><div><div class="number">24</div><p>номера — каждый с отдельным характером и видом.</p></div></div>
+</section>
+
+<section class="rooms" id="rooms">
+  <div class="rooms-head"><h2>Rooms.</h2><span>от 12 900 ₽ / ночь</span></div>
+  <div class="room-list">
+    <article class="room"><div class="room-no">01</div><div><div class="room-name">Dune Deluxe</div><div class="room-tags">32 м² · king · терраса</div></div><div class="room-image"><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1000&q=86" alt=""></div><div class="room-price"><b>12 900 ₽</b>за ночь</div></article>
+    <article class="room"><div class="room-no">02</div><div><div class="room-name">Sea Suite</div><div class="room-tags">47 м² · sea view · bath</div></div><div class="room-image"><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1000&q=86" alt=""></div><div class="room-price"><b>18 400 ₽</b>за ночь</div></article>
+    <article class="room"><div class="room-no">03</div><div><div class="room-name">Aeris House</div><div class="room-tags">74 м² · private · terrace</div></div><div class="room-image"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=86" alt=""></div><div class="room-price"><b>27 900 ₽</b>за ночь</div></article>
+  </div>
+</section>
+
+<section class="selector" id="mood">
+  <div class="selector-grid">
+    <div><div class="eyebrow">02 / choose your stay</div><h2>Как вы хотите<br><i>исчезнуть?</i></h2><div class="moods"><button class="mood on" data-key="quiet">Тишина</button><button class="mood" data-key="spa">Spa</button><button class="mood" data-key="romance">Вдвоём</button><button class="mood" data-key="family">Семья</button></div></div>
+    <div class="recommend"><img id="recImg" src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1100&q=87" alt=""><div class="rec-card"><div><div class="rec-title" id="recTitle">Dune Deluxe</div><div class="rec-note" id="recNote">тишина · верхний этаж · терраса</div></div><div class="rec-price" id="recPrice">от 12 900 ₽<br>за ночь</div></div></div>
+  </div>
+</section>
+
+<section class="offers" id="offers">
+  <div class="offers-head"><h2>Reasons<br>to stay.</h2><div class="eyebrow">03 / offers</div></div>
+  <div class="offers-grid">
+    <article class="offer"><img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=88" alt=""><div class="offer-badge">−20%</div><div class="offer-copy"><h3>Stay a little longer</h3><p>Скидка при бронировании от трёх ночей.</p></div></article>
+    <article class="offer"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=88" alt=""><div class="offer-copy"><h3>Late spa</h3><p>Spa после 21:00 только для гостей отеля.</p></div></article>
+  </div>
+</section>
+
+<section class="manifesto"><blockquote>Check in.<br><i>Check out of everything.</i><small>AERIS — slow stay hotel</small></blockquote></section>
+</main>
+
+<footer><div class="foot-logo">AERIS</div><div class="foot-row"><span>Rooms · Spa · Breakfast</span><span>+7 000 000 00 00</span><span>Concept / 2026</span></div></footer>
+<div class="toast" id="toast">Свободные номера найдены</div>
+
+<script>
+var recs={
+quiet:{title:"Dune Deluxe",note:"тишина · верхний этаж · терраса",price:"от 12 900 ₽",img:"https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1100&q=87"},
+spa:{title:"Sea Suite",note:"ванна · spa access · sea view",price:"от 18 400 ₽",img:"https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1100&q=87"},
+romance:{title:"Sunset Suite",note:"закат · ванна · breakfast in room",price:"от 21 900 ₽",img:"https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1100&q=87"},
+family:{title:"Aeris House",note:"2 спальни · терраса · кухня",price:"от 27 900 ₽",img:"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1100&q=87"}
+};
+document.querySelectorAll(".mood").forEach(function(b){b.onclick=function(){document.querySelectorAll(".mood").forEach(function(x){x.classList.remove("on")});b.classList.add("on");var r=recs[b.dataset.key],img=document.getElementById("recImg");img.style.opacity=".15";setTimeout(function(){img.src=r.img;img.style.opacity="1"},220);document.getElementById("recTitle").textContent=r.title;document.getElementById("recNote").textContent=r.note;document.getElementById("recPrice").innerHTML=r.price+"<br>за ночь"}});
+function showToast(t){var el=document.getElementById("toast");el.textContent=t;el.classList.add("show");setTimeout(function(){el.classList.remove("show")},2200)}
+window.addEventListener("scroll",function(){var y=window.scrollY;document.getElementById("heroImg").style.transform="scale("+(1+Math.min(y/9000,.08))+") translateY("+(y*.04)+"px)"});
+</script>
+</body>
+</html>
