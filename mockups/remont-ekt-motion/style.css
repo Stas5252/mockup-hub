@@ -121,3 +121,19 @@ dialog::backdrop{background:#ffffffe6;backdrop-filter:blur(6px)}
 .portfolio-telegram .button{font-size:13px;padding:17px 25px;min-height:52px}
 @media(max-width:1100px){.review-platforms{align-items:flex-start;flex-direction:column;gap:23px}.review-platforms-copy{max-width:580px}}
 @media(max-width:767px){.facts .fact-word strong{font-size:36px}.reviews .eyebrow{margin-bottom:20px}.reviews .title{margin-bottom:20px}.reviews-intro{font-size:15px;line-height:1.65;margin-bottom:32px}.review-platforms{margin-top:32px;padding-top:24px;gap:21px}.review-platforms-copy p{font-size:17px;margin-bottom:7px}.review-platforms-copy>span{font-size:12px}.review-platform-buttons{width:100%;flex-direction:column;gap:10px}.review-platforms .button{width:100%;white-space:normal;text-align:left;justify-content:space-between;min-height:54px;font-size:13px;padding:16px 20px}.portfolio-telegram{grid-template-columns:minmax(0,1fr);gap:25px;margin-top:34px;padding-top:27px}.portfolio-telegram .eyebrow{margin-bottom:15px}.portfolio-telegram h3{font-size:31px}.portfolio-telegram-copy{font-size:14px;margin-top:16px}.portfolio-telegram .button{justify-self:start;font-size:12px;padding:16px 21px;min-height:50px}}
+
+/* All company numbers and direct messenger contacts. */
+.footer-phone{min-height:44px;display:inline-flex;align-items:center}
+.footer-secondary-phones{display:flex;flex-direction:column;gap:0;margin-top:-7px}
+.footer-secondary-phones a{display:inline-flex;align-items:center;min-height:44px;font-size:16px;line-height:1.3;letter-spacing:-.02em}
+.footer-secondary-phones a:hover,.footer-phone:hover{color:var(--copper)}
+.footer-contact>a[href^="mailto:"]{font-size:14px}
+.footer-messengers{margin-top:22px}
+.messenger-links{display:flex;flex-direction:column;align-items:flex-start;gap:3px}
+.messenger-links .text-link{display:inline-flex;gap:9px;align-items:center;min-height:44px;font-size:13px}
+.footer-messengers .messenger-number{font-size:11px;line-height:1.6;margin-top:14px}
+.dialog-messengers{margin-top:24px;padding-top:19px;border-top:1px solid var(--line)}
+.dialog-messengers>p{font-size:12px;line-height:1.5;margin-bottom:10px}
+.direct-chat-links{display:flex;flex-wrap:wrap;gap:5px 20px}
+.direct-chat-links .text-link{display:inline-flex;align-items:center;gap:7px;font-size:12px;min-height:44px}
+@media(max-width:767px){.footer-secondary-phones a{font-size:16px}.footer-contact>a[href^="mailto:"]{font-size:13px}.footer-messengers{margin-top:19px}.messenger-links .text-link{font-size:13px}.direct-chat-links{gap:3px 15px}.direct-chat-links .text-link{font-size:12px}.dialog-messengers{margin-top:21px;padding-top:17px}}
