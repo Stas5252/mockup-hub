@@ -101,3 +101,23 @@ dialog::backdrop{background:#ffffffe6;backdrop-filter:blur(6px)}
 .services .service-bg:after{background:linear-gradient(90deg,#ffffffe8 0%,#ffffffbd 38%,#ffffff8c 100%);transition:opacity .65s ease}
 @media(hover:hover) and (pointer:fine){.services .service-row:hover .service-bg:after,.services .service-row:focus-visible .service-bg:after{opacity:.84}}
 @media(max-width:767px){.services .service-bg:after{background:linear-gradient(180deg,#ffffffdf 0%,#ffffffb8 42%,#ffffff8c 100%)}.service-bg img{object-position:58% center}}
+
+/* Reviews and real object photographs: proof has a clear path to its source. */
+.facts .fact-word strong{font-size:clamp(36px,3.5vw,66px)}
+.reviews .eyebrow{margin-bottom:28px}
+.reviews .title{margin-bottom:24px}
+.reviews-intro{max-width:610px;font-size:17px;line-height:1.65;margin-bottom:52px;text-wrap:pretty}
+.review-platforms{gap:30px;justify-content:space-between;align-items:center;padding-top:30px}
+.review-platforms-copy{max-width:350px}
+.review-platforms-copy p{font-size:17px;line-height:1.4;margin-bottom:8px}
+.review-platforms-copy>span{display:block;font-size:13px;line-height:1.6}
+.review-platform-buttons{display:flex;flex-wrap:wrap;gap:12px}
+.review-platforms .button{padding:16px 23px;border:1px solid var(--warm-line);font-size:13px;min-height:50px}
+.review-platforms .button:hover{border-color:var(--copper)}
+.portfolio-telegram{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:38px;margin-top:58px;padding-top:36px;border-top:1px solid var(--line)}
+.portfolio-telegram .eyebrow{margin-bottom:18px}
+.portfolio-telegram h3{font-size:clamp(28px,3.2vw,48px);line-height:1.12;letter-spacing:-.04em;font-weight:500}
+.portfolio-telegram-copy{max-width:600px;font-size:15px;line-height:1.65;margin-top:18px;text-wrap:pretty}
+.portfolio-telegram .button{font-size:13px;padding:17px 25px;min-height:52px}
+@media(max-width:1100px){.review-platforms{align-items:flex-start;flex-direction:column;gap:23px}.review-platforms-copy{max-width:580px}}
+@media(max-width:767px){.facts .fact-word strong{font-size:36px}.reviews .eyebrow{margin-bottom:20px}.reviews .title{margin-bottom:20px}.reviews-intro{font-size:15px;line-height:1.65;margin-bottom:32px}.review-platforms{margin-top:32px;padding-top:24px;gap:21px}.review-platforms-copy p{font-size:17px;margin-bottom:7px}.review-platforms-copy>span{font-size:12px}.review-platform-buttons{width:100%;flex-direction:column;gap:10px}.review-platforms .button{width:100%;white-space:normal;text-align:left;justify-content:space-between;min-height:54px;font-size:13px;padding:16px 20px}.portfolio-telegram{grid-template-columns:minmax(0,1fr);gap:25px;margin-top:34px;padding-top:27px}.portfolio-telegram .eyebrow{margin-bottom:15px}.portfolio-telegram h3{font-size:31px}.portfolio-telegram-copy{font-size:14px;margin-top:16px}.portfolio-telegram .button{justify-self:start;font-size:12px;padding:16px 21px;min-height:50px}}
