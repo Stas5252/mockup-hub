@@ -137,3 +137,8 @@ dialog::backdrop{background:#ffffffe6;backdrop-filter:blur(6px)}
 .direct-chat-links{display:flex;flex-wrap:wrap;gap:5px 20px}
 .direct-chat-links .text-link{display:inline-flex;align-items:center;gap:7px;font-size:12px;min-height:44px}
 @media(max-width:767px){.footer-secondary-phones a{font-size:16px}.footer-contact>a[href^="mailto:"]{font-size:13px}.footer-messengers{margin-top:19px}.messenger-links .text-link{font-size:13px}.direct-chat-links{gap:3px 15px}.direct-chat-links .text-link{font-size:12px}.dialog-messengers{margin-top:21px;padding-top:17px}}
+
+/* Certificate belongs to the director's portrait caption. */
+.control-portrait .certificate{font-size:14px;font-weight:400;line-height:1.55;margin-top:18px;max-width:none;color:var(--ink);text-wrap:pretty}
+.control-interior img{object-position:center 54%}
+@media(max-width:767px){.control-portrait figcaption{font-size:13px;line-height:1.45}.control-portrait figcaption>span{font-size:11px;line-height:1.45}.control-portrait .certificate{font-size:12px;line-height:1.55;margin-top:14px}}
