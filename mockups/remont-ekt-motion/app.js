@@ -124,6 +124,18 @@ const projects = [
     "aspect": 0.75,
     "width": 960,
     "height": 1280
+  },
+  {
+    "id": "11-largest-bar-counter",
+    "title": "Самая большая барная стойка в Екатеринбурге",
+    "location": "Екатеринбург",
+    "category": "commercial",
+    "label": "Ресторан",
+    "image": "portfolio/11-largest-bar-counter.webp",
+    "description": "Барная стойка из стеклоблоков с золотистой подсветкой. Реальная фотография объекта в процессе работ.",
+    "aspect": 1.333333,
+    "width": 1280,
+    "height": 960
   }
 ];
 // Text, names, dates and ratings are transcribed from the supplied company site.
