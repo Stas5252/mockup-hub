@@ -5,13 +5,126 @@ let smoothScroll=null;
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const pad=n=>String(n).padStart(2,'0');
 const projects = [
-  {id:'modern',title:'Современная квартира',location:'Екатеринбург',category:'apartment',label:'Квартира',image:'projmain-daylight',description:'Современная квартира в Екатеринбурге. Натуральное дерево, выразительная фактура камня и внимание к деталям.',checked:true},
-  {id:'koltsovsky',title:'ЖК «Новый Кольцовский»',location:'Екатеринбург · 3-комнатная квартира',category:'new',label:'Новостройка',image:'hero-daylight',description:'3-комнатная квартира в ЖК «Новый Кольцовский». Готовое пространство для жизни с уютной кухней-гостиной.'},
-  {id:'studio',title:'Светлая студия, 42 м²',location:'Екатеринбург · ул. Малышева',category:'apartment',label:'Квартира',image:'svc1',description:'Студия 42 м² на улице Малышева. Косметический ремонт и светлая отделка.'},
-  {id:'house',title:'Дом в Берёзовском, 180 м²',location:'Берёзовский · Частный дом',category:'house',label:'Частный дом',image:'svc3',description:'Загородный дом 180 м² в Берёзовском. Тёплые натуральные оттенки и спокойное пространство для отдыха.'},
-  {id:'spa',title:'Место для тишины',location:'Спа-зона с хаммамом · Частный дом',category:'house',label:'Частный дом',image:'cta-daylight',description:'Спа-зона с хаммамом в частном доме. Работа с камнем, фактурами и деталями отделки.'},
-  {id:'restaurant',title:'Кухня ресторана',location:'Екатеринбург · ул. Радищева',category:'commercial',label:'Коммерческое помещение',image:'svc2-daylight',description:'Кухня ресторана под ключ на улице Радищева. Комплексный подход к коммерческому пространству.'},
-  {id:'office',title:'Офис для IT-команды, 120 м²',location:'Екатеринбург · Кольцовский тракт',category:'commercial',label:'Коммерческое помещение',image:'svc1',description:'Офис 120 м² для IT-команды на Кольцовском тракте.'}
+  {
+    "id": "01-modern-apartment",
+    "title": "Современная квартира",
+    "location": "",
+    "category": "apartment",
+    "label": "Квартира",
+    "image": "portfolio/01-modern-apartment.webp",
+    "description": "Большое зеркало с подсветкой, деревянный пол ёлочкой, светлая стена и дверь. Фотография объекта РЕМОНТ-ЕКТ.",
+    "aspect": 0.749219,
+    "width": 959,
+    "height": 1280
+  },
+  {
+    "id": "02-cozy-living-room",
+    "title": "Уютная гостиная",
+    "location": "",
+    "category": "apartment",
+    "label": "Гостиная",
+    "image": "portfolio/02-cozy-living-room.webp",
+    "description": "Большой серый диван, светлая фактурная стена и шторы. Фотография объекта РЕМОНТ-ЕКТ.",
+    "aspect": 1.333333,
+    "width": 1280,
+    "height": 960
+  },
+  {
+    "id": "03-bedroom-workspace",
+    "title": "Рабочее место в спальне",
+    "location": "",
+    "category": "apartment",
+    "label": "Спальня",
+    "image": "portfolio/03-bedroom-workspace.webp",
+    "description": "Деревянный рабочий стол с подсветкой, светлое кресло, серые шторы и зеркальный шкаф. Фотография объекта РЕМОНТ-ЕКТ.",
+    "aspect": 0.749219,
+    "width": 959,
+    "height": 1280
+  },
+  {
+    "id": "04-cozy-childrens-room",
+    "title": "Уютная детская",
+    "location": "",
+    "category": "apartment",
+    "label": "Детская",
+    "image": "portfolio/04-cozy-childrens-room.webp",
+    "description": "Синее кресло у синей стены, светлый рабочий стол, шторы и край кровати на переднем плане. Фотография объекта РЕМОНТ-ЕКТ.",
+    "aspect": 0.749219,
+    "width": 959,
+    "height": 1280
+  },
+  {
+    "id": "05-place-for-quiet",
+    "title": "Место для тишины",
+    "location": "",
+    "category": "apartment",
+    "label": "Зона отдыха",
+    "image": "portfolio/05-place-for-quiet.webp",
+    "description": "Гидромассажная ванна с фиолетовой подсветкой и фактурной стеной. Фотография объекта РЕМОНТ-ЕКТ.",
+    "aspect": 1.333333,
+    "width": 1280,
+    "height": 960
+  },
+  {
+    "id": "06-bright-bedroom",
+    "title": "Светлая спальня",
+    "location": "",
+    "category": "apartment",
+    "label": "Спальня",
+    "image": "portfolio/06-bright-bedroom.webp",
+    "description": "Светлая комната с деревянным полом ёлочкой, телевизором, подвесной тумбой и балконной дверью. Фотография объекта РЕМОНТ-ЕКТ.",
+    "aspect": 0.749219,
+    "width": 959,
+    "height": 1280
+  },
+  {
+    "id": "07-spacious-bathroom",
+    "title": "Просторная ванна",
+    "location": "",
+    "category": "apartment",
+    "label": "Ванная комната",
+    "image": "portfolio/07-spacious-bathroom.webp",
+    "description": "Светлая ванная комната: ванна слева с тёплой подсветкой, шкаф в центре, раковина и зеркало справа. Фотография объекта РЕМОНТ-ЕКТ.",
+    "aspect": 0.749219,
+    "width": 959,
+    "height": 1280
+  },
+  {
+    "id": "08-cozy-hallway",
+    "title": "Уютный коридор",
+    "location": "",
+    "category": "apartment",
+    "label": "Коридор",
+    "image": "portfolio/08-cozy-hallway.webp",
+    "description": "Коридор с деревянными рейками, высоким зеркалом, входной дверью и подвесными светильниками-кольцами. Фотография объекта РЕМОНТ-ЕКТ.",
+    "aspect": 0.450781,
+    "width": 577,
+    "height": 1280
+  },
+  {
+    "id": "09-restaurant-entrance",
+    "title": "Вход в ресторан",
+    "location": "",
+    "category": "commercial",
+    "label": "Ресторан",
+    "image": "portfolio/09-restaurant-entrance.webp",
+    "description": "Лестница ресторана с ковровыми узорами на стенах и потолке, яркой росписью и неоновыми фигурами. Фотография объекта РЕМОНТ-ЕКТ.",
+    "aspect": 0.75,
+    "width": 960,
+    "height": 1280
+  },
+  {
+    "id": "10-restaurant-communal-table",
+    "title": "Коммунальный стол в ресторане",
+    "location": "",
+    "category": "commercial",
+    "label": "Ресторан",
+    "image": "portfolio/10-restaurant-communal-table.webp",
+    "description": "Длинный общий стол в ресторане, деревянные стулья и фиолетовая подсветка. Фотография объекта РЕМОНТ-ЕКТ.",
+    "aspect": 0.75,
+    "width": 960,
+    "height": 1280
+  }
 ];
 // Text, names, dates and ratings are transcribed from the supplied company site.
 // Review photos were not supplied. The adjacent photo is explicitly portfolio imagery.
@@ -33,7 +146,8 @@ $$('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('dialog')
 $$('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target!==d)return;const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close()}));
 $$('[data-request]').forEach(b=>b.addEventListener('click',()=>{closeMenu();if(detail.open)detail.close();openDialog(request)}));
 $$('[data-privacy]').forEach(b=>b.addEventListener('click',()=>openDialog(privacy)));
-function showDetail(title,label,text,image){$('#detail-title').textContent=title;$('#detail-label').textContent=label;$('#detail-text').textContent=text;$('.detail-image img').src='assets/'+image+'.jpg';$('.detail-image img').alt=title;openDialog(detail)}
+const assetSrc=image=>'assets/'+(/\.(webp|jpg|png)$/i.test(image)?image:image+'.jpg');
+function showDetail(title,label,text,image){detail.classList.toggle('is-real-photo',image.startsWith('portfolio/'));$('#detail-title').textContent=title;$('#detail-label').textContent=label;$('#detail-text').textContent=text;$('.detail-image img').src=assetSrc(image);$('.detail-image img').alt=title;openDialog(detail)}
 $$('[data-service]').forEach(b=>b.addEventListener('click',()=>{const s=services[+b.dataset.service];showDetail(s.title,s.price,s.text,s.image);$('#request-form [name=message]').value='Интересует '+s.title.toLowerCase()+'.'}));
 $('#request-form').addEventListener('submit',e=>{e.preventDefault();const data=new FormData(e.currentTarget);const message=['Здравствуйте! Хочу обсудить ремонт.',`Имя: ${data.get('name').trim()}`,`Помещение: ${data.get('type')}`,data.get('area')?`Площадь: ${data.get('area')} м²`:'',data.get('message')?.trim()].filter(Boolean).join('\n');window.open('https://wa.me/79221960645?text='+encodeURIComponent(message),'_blank','noopener,noreferrer')});
 const menuButton=$('.menu-button'),menu=$('#mobile-menu');
@@ -53,10 +167,15 @@ let reviewDown=null;$('.review-slider').addEventListener('pointerdown',e=>{revie
 const gallery=$('.gallery-window'),track=$('.gallery-track'),scene=$('.gallery-scene');let galleryTween=null,galleryTrigger=null,visibleProjects=projects,galleryIndex=0,drag=null,suppressClick=false;const isDesktop=()=>innerWidth>=768&&!reduced;
 function galleryMax(){return Math.max(0,track.scrollWidth-innerWidth)}
 
-function updateGallery(progress){const max=galleryMax(),x=isDesktop()?progress*max:gallery.scrollLeft;let idx=0,min=Infinity;[...track.children].forEach((el,i)=>{const d=Math.abs(el.offsetLeft-parseFloat(getComputedStyle(gallery).width)*.052-x);if(d<min){idx=i;min=d}});galleryIndex=idx;$('.gallery-index').textContent=pad(idx+1)+' / '+pad(visibleProjects.length);$('.gallery-progress span').style.transform=`scaleX(${visibleProjects.length===1?1:Math.max(.08,progress)})`}
+function updateGallery(progress){if(!visibleProjects.length){$('.gallery-index').textContent='00 / 00';$('.gallery-progress span').style.transform='scaleX(0)';return}const max=galleryMax(),x=isDesktop()?progress*max:gallery.scrollLeft;let idx=0,min=Infinity;[...track.children].forEach((el,i)=>{const d=Math.abs(el.offsetLeft-parseFloat(getComputedStyle(gallery).width)*.052-x);if(d<min){idx=i;min=d}});galleryIndex=idx;$('.gallery-index').textContent=pad(idx+1)+' / '+pad(visibleProjects.length);$('.gallery-progress span').style.transform=`scaleX(${visibleProjects.length===1?1:Math.max(.08,progress)})`}
 function configureGallery(){if(galleryTrigger){galleryTrigger.kill();galleryTrigger=null}if(galleryTween){galleryTween.kill();galleryTween=null}gsap.set(track,{clearProps:'transform'});gallery.scrollLeft=0;if(isDesktop()&&galleryMax()>0){scene.style.height=Math.max(innerHeight*2,galleryMax()*.45+innerHeight)+'px';galleryTween=gsap.to(track,{x:()=>-galleryMax(),ease:'none',scrollTrigger:{trigger:scene,start:'top top',end:'bottom bottom',scrub:.35,invalidateOnRefresh:true,onUpdate:s=>updateGallery(s.progress)}});galleryTrigger=galleryTween.scrollTrigger}else{scene.style.height='auto';updateGallery(0)}ScrollTrigger.refresh();smoothScroll?.resize()}
-function renderProjects(filter='all'){visibleProjects=projects.filter(p=>filter==='all'||p.category===filter);track.replaceChildren();visibleProjects.forEach(p=>{const b=document.createElement('button');b.className='project';b.innerHTML=`<div class="project-image"><img src="assets/${p.image}.jpg" alt="" draggable="false" loading="lazy"></div><div class="project-meta"><div><h3></h3><p></p></div><span aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></div>`;$('img',b).alt=p.title;$('h3',b).textContent=p.title;$('p',b).textContent=p.label+' · '+p.location;b.setAttribute('aria-label','Открыть проект: '+p.title);b.addEventListener('click',e=>{if(suppressClick){e.preventDefault();return}showDetail(p.title,p.label+' · '+p.location,p.description,p.image)});if(!reduced){b.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')gsap.to($('img',b),{scale:1.045,duration:1,ease:'power3.out'})});b.addEventListener('pointerleave',()=>gsap.to($('img',b),{scale:1,duration:1,ease:'power3.out'}))}track.append(b)});galleryIndex=0;$('.gallery-index').textContent='01 / '+pad(visibleProjects.length);configureGallery()}
-function galleryTo(i){i=Math.max(0,Math.min(visibleProjects.length-1,i));const el=track.children[i];if(isDesktop()&&galleryTrigger){const offset=Math.max(0,Math.min(galleryMax(),el.offsetLeft-parseFloat(getComputedStyle(track).paddingLeft)));const top=galleryTrigger.start+(galleryTrigger.end-galleryTrigger.start)*(offset/galleryMax());smoothScroll?smoothScroll.scrollTo(top,{duration:1.1}):window.scrollTo({top,behavior:reduced?'instant':'smooth'})}else gallery.scrollTo({left:el.offsetLeft-parseFloat(getComputedStyle(track).paddingLeft),behavior:reduced?'instant':'smooth'});galleryIndex=i}
+function renderProjects(filter='all'){
+ visibleProjects=projects.filter(p=>filter==='all'||p.category===filter);track.replaceChildren();scene.classList.toggle('is-empty',!visibleProjects.length);$$('[data-gallery-dir]').forEach(b=>b.disabled=!visibleProjects.length);
+ visibleProjects.forEach(p=>{const b=document.createElement('button');b.className='project real-project';b.dataset.projectId=p.id;b.style.setProperty('--photo-aspect',p.aspect);b.innerHTML=`<div class="project-image"><img src="${assetSrc(p.image)}" alt="" width="${p.width}" height="${p.height}" draggable="false" loading="lazy"></div><div class="project-meta"><div><h3></h3><p></p></div><span aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></div>`;$('img',b).alt=p.title;$('h3',b).textContent=p.title;const label=[p.label,p.location].filter(Boolean).join(' · ');$('p',b).textContent=label;b.setAttribute('aria-label','Открыть проект: '+p.title);b.addEventListener('click',e=>{if(suppressClick){e.preventDefault();return}showDetail(p.title,label,p.description,p.image)});if(!reduced){b.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')gsap.to($('img',b),{scale:1.045,duration:1,ease:'power3.out'})});b.addEventListener('pointerleave',()=>gsap.to($('img',b),{scale:1,duration:1,ease:'power3.out'}))}track.append(b)});
+ if(!visibleProjects.length){const empty=document.createElement('div');empty.className='gallery-empty';empty.innerHTML='<p>В этой категории пока нет фотографий на сайте.</p><a class="button outline" href="https://t.me/remontekt" target="_blank" rel="noopener noreferrer">Наши работы в Telegram <span>↗</span></a>';track.append(empty)}
+ galleryIndex=0;$('.gallery-index').textContent=(visibleProjects.length?'01':'00')+' / '+pad(visibleProjects.length);configureGallery();
+}
+function galleryTo(i){if(!visibleProjects.length)return;i=Math.max(0,Math.min(visibleProjects.length-1,i));const el=track.children[i];if(isDesktop()&&galleryTrigger){const offset=Math.max(0,Math.min(galleryMax(),el.offsetLeft-parseFloat(getComputedStyle(track).paddingLeft)));const top=galleryTrigger.start+(galleryTrigger.end-galleryTrigger.start)*(offset/galleryMax());smoothScroll?smoothScroll.scrollTo(top,{duration:1.1}):window.scrollTo({top,behavior:reduced?'instant':'smooth'})}else gallery.scrollTo({left:el.offsetLeft-parseFloat(getComputedStyle(track).paddingLeft),behavior:reduced?'instant':'smooth'});galleryIndex=i}
 $$('[data-gallery-dir]').forEach(b=>b.addEventListener('click',()=>galleryTo(galleryIndex+ +b.dataset.galleryDir)));
 gallery.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();galleryTo(galleryIndex+(e.key==='ArrowRight'?1:-1))}});
 gallery.addEventListener('scroll',()=>{if(!isDesktop())updateGallery(gallery.scrollLeft/Math.max(1,galleryMax()))},{passive:true});
