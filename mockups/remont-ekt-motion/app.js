@@ -160,6 +160,18 @@ const projects = [
     "aspect": 0.5625,
     "width": 720,
     "height": 1280
+  },
+  {
+    "id": "14-water-manifold",
+    "title": "Сборка коллекторной группы ХВС, ГВС",
+    "location": "",
+    "category": "apartment",
+    "label": "Инженерные системы",
+    "image": "portfolio/14-water-manifold.webp",
+    "description": "Коллекторная группа для холодного и горячего водоснабжения. Реальная фотография инженерного узла на объекте РЕМОНТ-ЕКТ.",
+    "aspect": 0.5625,
+    "width": 720,
+    "height": 1280
   }
 ];
 // Text, names, dates and ratings are transcribed from the supplied company site.
