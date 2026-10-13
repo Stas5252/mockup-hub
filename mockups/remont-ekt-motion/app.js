@@ -47,10 +47,10 @@ const projects = [
     "location": "",
     "category": "apartment",
     "label": "Детская",
-    "image": "portfolio/04-cozy-childrens-room.webp",
+    "image": "portfolio/04-cozy-childrens-room-hq.jpg",
     "description": "Синее кресло у синей стены, светлый рабочий стол, шторы и край кровати на переднем плане. Фотография объекта РЕМОНТ-ЕКТ.",
-    "aspect": 0.749219,
-    "width": 959,
+    "aspect": 0.75,
+    "width": 960,
     "height": 1280
   },
   {
@@ -59,7 +59,7 @@ const projects = [
     "location": "",
     "category": "apartment",
     "label": "Зона отдыха",
-    "image": "portfolio/05-place-for-quiet.webp",
+    "image": "portfolio/05-place-for-quiet-hq.jpg",
     "description": "Гидромассажная ванна с фиолетовой подсветкой и фактурной стеной. Фотография объекта РЕМОНТ-ЕКТ.",
     "aspect": 1.333333,
     "width": 1280,
@@ -71,10 +71,10 @@ const projects = [
     "location": "",
     "category": "apartment",
     "label": "Спальня",
-    "image": "portfolio/06-bright-bedroom.webp",
+    "image": "portfolio/06-bright-bedroom-hq.jpg",
     "description": "Светлая комната с деревянным полом ёлочкой, телевизором, подвесной тумбой и балконной дверью. Фотография объекта РЕМОНТ-ЕКТ.",
-    "aspect": 0.749219,
-    "width": 959,
+    "aspect": 0.666406,
+    "width": 853,
     "height": 1280
   },
   {
@@ -83,10 +83,10 @@ const projects = [
     "location": "",
     "category": "apartment",
     "label": "Ванная комната",
-    "image": "portfolio/07-spacious-bathroom.webp",
+    "image": "portfolio/07-spacious-bathroom-hq.jpg",
     "description": "Светлая ванная комната: ванна слева с тёплой подсветкой, шкаф в центре, раковина и зеркало справа. Фотография объекта РЕМОНТ-ЕКТ.",
-    "aspect": 0.749219,
-    "width": 959,
+    "aspect": 0.75,
+    "width": 960,
     "height": 1280
   },
   {
@@ -95,10 +95,10 @@ const projects = [
     "location": "",
     "category": "apartment",
     "label": "Коридор",
-    "image": "portfolio/08-cozy-hallway.webp",
+    "image": "portfolio/08-cozy-hallway-hq.jpg",
     "description": "Коридор с деревянными рейками, высоким зеркалом, входной дверью и подвесными светильниками-кольцами. Фотография объекта РЕМОНТ-ЕКТ.",
-    "aspect": 0.450781,
-    "width": 577,
+    "aspect": 0.5625,
+    "width": 720,
     "height": 1280
   },
   {
@@ -107,7 +107,7 @@ const projects = [
     "location": "",
     "category": "commercial",
     "label": "Ресторан",
-    "image": "portfolio/09-restaurant-entrance.webp",
+    "image": "portfolio/09-restaurant-entrance-hq.jpg",
     "description": "Лестница ресторана с ковровыми узорами на стенах и потолке, яркой росписью и неоновыми фигурами. Фотография объекта РЕМОНТ-ЕКТ.",
     "aspect": 0.75,
     "width": 960,
