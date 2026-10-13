@@ -148,6 +148,18 @@ const projects = [
     "aspect": 0.75,
     "width": 960,
     "height": 1280
+  },
+  {
+    "id": "13-neptun-leak-protection",
+    "title": "Система от протечки Нептун",
+    "location": "",
+    "category": "apartment",
+    "label": "Инженерные системы",
+    "image": "portfolio/13-neptun-leak-protection.webp",
+    "description": "Система защиты от протечек «Нептун» и разводка водоснабжения. Реальная фотография инженерного узла на объекте РЕМОНТ-ЕКТ.",
+    "aspect": 0.5625,
+    "width": 720,
+    "height": 1280
   }
 ];
 // Text, names, dates and ratings are transcribed from the supplied company site.
