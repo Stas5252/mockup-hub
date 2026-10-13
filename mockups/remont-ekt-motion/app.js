@@ -172,6 +172,18 @@ const projects = [
     "aspect": 0.5625,
     "width": 720,
     "height": 1280
+  },
+  {
+    "id": "15-electrical-heart",
+    "title": "Новое электросердце на объекте",
+    "location": "",
+    "category": "apartment",
+    "label": "Инженерные системы",
+    "image": "portfolio/15-electrical-heart.webp",
+    "description": "Сборка и установка электрического щита на объекте. Реальные фотографии работ РЕМОНТ-ЕКТ.",
+    "aspect": 0.5625,
+    "width": 720,
+    "height": 1280
   }
 ];
 // Text, names, dates and ratings are transcribed from the supplied company site.
