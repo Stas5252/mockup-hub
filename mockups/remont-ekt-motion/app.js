@@ -119,7 +119,7 @@ const projects = [
     "location": "",
     "category": "commercial",
     "label": "Ресторан",
-    "image": "portfolio/10-restaurant-communal-table.webp",
+    "image": "portfolio/10-restaurant-communal-table-v2.webp",
     "description": "Длинный общий стол в ресторане, деревянные стулья и фиолетовая подсветка. Фотография объекта РЕМОНТ-ЕКТ.",
     "aspect": 0.75,
     "width": 960,
@@ -136,6 +136,18 @@ const projects = [
     "aspect": 1.333333,
     "width": 1280,
     "height": 960
+  },
+  {
+    "id": "12-modern-kitchen",
+    "title": "Современная кухня",
+    "location": "",
+    "category": "apartment",
+    "label": "Кухня",
+    "image": "portfolio/12-modern-kitchen.webp",
+    "description": "Светлая кухня с деревянными фасадами, каменной столешницей и встроенной подсветкой. Фотография объекта РЕМОНТ-ЕКТ.",
+    "aspect": 0.75,
+    "width": 960,
+    "height": 1280
   }
 ];
 // Text, names, dates and ratings are transcribed from the supplied company site.
