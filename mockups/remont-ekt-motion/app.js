@@ -200,7 +200,7 @@ const services=[{title:'Косметический ремонт',image:'svc1',pr
 // Real company data is transcribed from the site supplied by the owner.
 $('#year').textContent=new Date().getFullYear();
 const request=$('#request-dialog'),detail=$('#detail-dialog');
-const openDialog=d=>{if(!d.open)d.showModal();smoothScroll?.stop()};
+const openDialog=d=>{if(!d.open)d.showModal();smoothScroll?.stop();if(d.id==='request-dialog'&&requestIsLive)prepareRequestToken().catch(()=>{})};
 $$('dialog').forEach(d=>{d.setAttribute('data-lenis-prevent','');d.addEventListener('close',()=>{if(!$('dialog[open]'))smoothScroll?.start()})});
 $$('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('dialog').close()));
 $$('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target!==d)return;const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close()}));
@@ -208,15 +208,37 @@ $$('[data-request]').forEach(b=>b.addEventListener('click',()=>{closeMenu();if(d
 const assetSrc=image=>'assets/'+(/\.(webp|jpg|png)$/i.test(image)?image:image+'.jpg');
 function showDetail(title,label,text,image){detail.classList.toggle('is-real-photo',image.startsWith('portfolio/'));$('#detail-title').textContent=title;$('#detail-label').textContent=label;$('#detail-text').textContent=text;$('.detail-image img').src=assetSrc(image);$('.detail-image img').alt=title;openDialog(detail)}
 $$('[data-service]').forEach(b=>b.addEventListener('click',()=>{const s=services[+b.dataset.service];showDetail(s.title,s.price,s.text,s.image);$('#request-form [name=message]').value='Интересует '+s.title.toLowerCase()+'.'}));
-// Drafts never leave the page automatically; outbound links contain no form data.
+// Production submits only to its own PHP handler; the GitHub mockup remains local.
 const requestForm=$('#request-form'),requestDraft=$('#request-draft'),draftText=$('#request-draft-text'),draftStatus=$('.draft-status');
-const consentVersion='2026-10-14';
-requestForm.addEventListener('submit',e=>{
+const consentVersion='2026-10-14-mail',requestIsLive=['remontekt.ru','localhost','127.0.0.1'].includes(location.hostname);
+const requestStatus=$('#request-status'),requestSuccess=$('#request-success'),requestSubmit=requestForm.querySelector('[type=submit]');
+let requestToken=null,requestTokenPromise=null,requestBusy=false;
+async function prepareRequestToken(){
+ if(requestToken&&Date.now()-requestToken.receivedAt<3300000)return requestToken;
+ if(requestTokenPromise)return requestTokenPromise;
+ requestTokenPromise=(async()=>{const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),15000);try{const response=await fetch('request.php',{cache:'no-store',credentials:'omit',signal:controller.signal});const result=await response.json();if(!response.ok||!result.token||result.consentVersion!==consentVersion)throw Error(result.message||'Форма временно недоступна. Напишите на dom196@list.ru.');return requestToken={...result,receivedAt:Date.now()}}finally{clearTimeout(timer)}})();
+ try{return await requestTokenPromise}finally{requestTokenPromise=null}
+}
+if(!requestIsLive){requestSubmit.firstChild.textContent='Подготовить сообщение ';$('.form-note',requestForm).firstChild.textContent='В макете текст готовится на вашем устройстве. Отправка заявок работает на remontekt.ru. '}
+requestForm.addEventListener('submit',async e=>{
  e.preventDefault();if(!requestForm.reportValidity())return;
+ if(requestBusy)return;
  const data=new FormData(requestForm),name=String(data.get('name')||'').trim();
  if(!name){requestForm.elements.name.setCustomValidity('Укажите имя');requestForm.reportValidity();return}
+ if(requestIsLive){
+  requestBusy=true;requestSubmit.disabled=true;requestForm.setAttribute('aria-busy','true');requestStatus.hidden=false;requestStatus.textContent='Отправляем заявку…';
+  try{
+   const token=await prepareRequestToken();await new Promise(resolve=>setTimeout(resolve,Math.max(0,2100-(Date.now()-token.receivedAt))));
+   const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),20000);let response,result;
+   try{response=await fetch('request.php',{method:'POST',credentials:'omit',headers:{'Content-Type':'application/json'},signal:controller.signal,body:JSON.stringify({token:token.token,requestId:token.requestId,consentVersion,name,contact:String(data.get('contact')||'').trim(),type:String(data.get('type')||''),area:String(data.get('area')||''),message:String(data.get('message')||'').trim(),consent:data.get('consent')==='on',website:String(data.get('website')||'')})});result=await response.json()}finally{clearTimeout(timer)}
+   if(!response.ok||result.ok!==true){if([403,409].includes(response.status))requestToken=null;throw Error(result.message||'Не удалось отправить заявку. Попробуйте позже.')}
+   requestForm.reset();requestForm.hidden=true;requestSuccess.hidden=false;$('#request-success-title').focus();requestToken=null;
+  }catch(error){requestStatus.textContent=error.name==='AbortError'||error instanceof TypeError?'Отправка не подтверждена. Повторите попытку: одна и та же заявка не отправится дважды. Или напишите на dom196@list.ru.':error.message}
+  finally{requestBusy=false;requestSubmit.disabled=false;requestForm.removeAttribute('aria-busy')}
+  return;
+ }
  const preparedAt=new Date().toISOString(),consentUrl=new URL(`consent-${consentVersion}.html`,location.href).href;
- draftText.value=['Здравствуйте! Хочу обсудить ремонт.',`Имя: ${name}`,`Помещение: ${data.get('type')}`,data.get('area')?`Площадь: ${data.get('area')} м²`:'',String(data.get('message')||'').trim(),'','Даю ИП Мягкову Евгению Игоревичу (ИНН 741304668607) согласие на обработку указанных в обращении персональных данных для ответа и подготовки предложения.',`Согласие: ${consentUrl}; редакция ${consentVersion}.`,`Отметка о согласии при подготовке сообщения: ${preparedAt}.`].filter(x=>x!==''&&x!=null).join('\n');
+ draftText.value=['Здравствуйте! Хочу обсудить ремонт.',`Имя: ${name}`,`Контакт: ${data.get('contact')}`,`Помещение: ${data.get('type')}`,data.get('area')?`Площадь: ${data.get('area')} м²`:'',String(data.get('message')||'').trim(),'','Даю ИП Мягкову Евгению Игоревичу (ИНН 741304668607) согласие на обработку указанных в обращении персональных данных для ответа и подготовки предложения.',`Согласие: ${consentUrl}; редакция ${consentVersion}.`,`Отметка о согласии при подготовке сообщения: ${preparedAt}.`].filter(x=>x!==''&&x!=null).join('\n');
  requestForm.hidden=true;requestDraft.hidden=false;draftStatus.textContent='';$('#request-draft-title').focus();
 });
 requestForm.elements.name.addEventListener('input',()=>requestForm.elements.name.setCustomValidity(''));
@@ -225,7 +247,8 @@ $('[data-copy-draft]').addEventListener('click',async()=>{
  catch{draftText.focus();draftText.select();draftStatus.textContent='Не удалось скопировать автоматически. Текст выделен — скопируйте его вручную.'}
 });
 $('[data-edit-draft]').addEventListener('click',()=>{requestDraft.hidden=true;requestForm.hidden=false;draftText.value='';draftStatus.textContent='';requestForm.elements.name.focus()});
-requestForm.addEventListener('reset',()=>{draftText.value='';draftStatus.textContent='';requestForm.elements.name.setCustomValidity('')});
+requestForm.addEventListener('reset',()=>{draftText.value='';draftStatus.textContent='';requestStatus.hidden=true;requestStatus.textContent='';requestForm.elements.name.setCustomValidity('')});
+$('[data-new-request]').addEventListener('click',()=>{requestSuccess.hidden=true;requestForm.hidden=false;requestToken=null;requestForm.elements.name.focus();prepareRequestToken().catch(()=>{})});
 const menuButton=$('.menu-button'),menu=$('#mobile-menu');
 function closeMenu(){document.body.classList.remove('menu-open');menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Открыть меню');menu.inert=true;if(!$('dialog[open]'))smoothScroll?.start()}
 menuButton.addEventListener('click',()=>{const open=!document.body.classList.contains('menu-open');document.body.classList.toggle('menu-open',open);menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню');menu.inert=!open;if(open){smoothScroll?.stop();menu.querySelector('a').focus()}});
