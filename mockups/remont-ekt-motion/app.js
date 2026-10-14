@@ -199,17 +199,33 @@ const reviews = [
 const services=[{title:'Косметический ремонт',image:'svc1',price:'от 15 000 ₽/м²',text:'Освежим интерьер быстро и качественно. Перед началом работ согласуем перечень, стоимость и сроки. Точная смета — после бесплатного замера.'},{title:'Капитальный ремонт',image:'svc2-daylight',price:'от 25 000 ₽/м²',text:'Полная замена инженерных сетей и комплексный подход. Собственные бригады, контроль ключевых этапов и гарантия на все виды работ. Стоимость фиксируем в договоре.'},{title:'Дизайн-проект',image:'svc3',price:'от 35 000 ₽/м²',text:'Продуманное пространство до начала ремонта. Обсудим планировку, отделку и ваши пожелания. Состав работ и точную стоимость согласуем после знакомства с объектом.'}];
 // Real company data is transcribed from the site supplied by the owner.
 $('#year').textContent=new Date().getFullYear();
-const request=$('#request-dialog'),detail=$('#detail-dialog'),privacy=$('#privacy-dialog');
+const request=$('#request-dialog'),detail=$('#detail-dialog');
 const openDialog=d=>{if(!d.open)d.showModal();smoothScroll?.stop()};
 $$('dialog').forEach(d=>{d.setAttribute('data-lenis-prevent','');d.addEventListener('close',()=>{if(!$('dialog[open]'))smoothScroll?.start()})});
 $$('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('dialog').close()));
 $$('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target!==d)return;const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close()}));
 $$('[data-request]').forEach(b=>b.addEventListener('click',()=>{closeMenu();if(detail.open)detail.close();openDialog(request)}));
-$$('[data-privacy]').forEach(b=>b.addEventListener('click',()=>openDialog(privacy)));
 const assetSrc=image=>'assets/'+(/\.(webp|jpg|png)$/i.test(image)?image:image+'.jpg');
 function showDetail(title,label,text,image){detail.classList.toggle('is-real-photo',image.startsWith('portfolio/'));$('#detail-title').textContent=title;$('#detail-label').textContent=label;$('#detail-text').textContent=text;$('.detail-image img').src=assetSrc(image);$('.detail-image img').alt=title;openDialog(detail)}
 $$('[data-service]').forEach(b=>b.addEventListener('click',()=>{const s=services[+b.dataset.service];showDetail(s.title,s.price,s.text,s.image);$('#request-form [name=message]').value='Интересует '+s.title.toLowerCase()+'.'}));
-$('#request-form').addEventListener('submit',e=>{e.preventDefault();const data=new FormData(e.currentTarget);const message=['Здравствуйте! Хочу обсудить ремонт.',`Имя: ${data.get('name').trim()}`,`Помещение: ${data.get('type')}`,data.get('area')?`Площадь: ${data.get('area')} м²`:'',data.get('message')?.trim()].filter(Boolean).join('\n');window.open('https://wa.me/79221960645?text='+encodeURIComponent(message),'_blank','noopener,noreferrer')});
+// Drafts never leave the page automatically; outbound links contain no form data.
+const requestForm=$('#request-form'),requestDraft=$('#request-draft'),draftText=$('#request-draft-text'),draftStatus=$('.draft-status');
+const consentVersion='2026-10-14';
+requestForm.addEventListener('submit',e=>{
+ e.preventDefault();if(!requestForm.reportValidity())return;
+ const data=new FormData(requestForm),name=String(data.get('name')||'').trim();
+ if(!name){requestForm.elements.name.setCustomValidity('Укажите имя');requestForm.reportValidity();return}
+ const preparedAt=new Date().toISOString(),consentUrl=new URL(`consent-${consentVersion}.html`,location.href).href;
+ draftText.value=['Здравствуйте! Хочу обсудить ремонт.',`Имя: ${name}`,`Помещение: ${data.get('type')}`,data.get('area')?`Площадь: ${data.get('area')} м²`:'',String(data.get('message')||'').trim(),'','Даю ИП Мягкову Евгению Игоревичу (ИНН 741304668607) согласие на обработку указанных в обращении персональных данных для ответа и подготовки предложения.',`Согласие: ${consentUrl}; редакция ${consentVersion}.`,`Отметка о согласии при подготовке сообщения: ${preparedAt}.`].filter(x=>x!==''&&x!=null).join('\n');
+ requestForm.hidden=true;requestDraft.hidden=false;draftStatus.textContent='';$('#request-draft-title').focus();
+});
+requestForm.elements.name.addEventListener('input',()=>requestForm.elements.name.setCustomValidity(''));
+$('[data-copy-draft]').addEventListener('click',async()=>{
+ try{await navigator.clipboard.writeText(draftText.value);draftStatus.textContent='Текст скопирован. Вставьте его в письмо или сообщение.'}
+ catch{draftText.focus();draftText.select();draftStatus.textContent='Не удалось скопировать автоматически. Текст выделен — скопируйте его вручную.'}
+});
+$('[data-edit-draft]').addEventListener('click',()=>{requestDraft.hidden=true;requestForm.hidden=false;draftText.value='';draftStatus.textContent='';requestForm.elements.name.focus()});
+requestForm.addEventListener('reset',()=>{draftText.value='';draftStatus.textContent='';requestForm.elements.name.setCustomValidity('')});
 const menuButton=$('.menu-button'),menu=$('#mobile-menu');
 function closeMenu(){document.body.classList.remove('menu-open');menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Открыть меню');menu.inert=true;if(!$('dialog[open]'))smoothScroll?.start()}
 menuButton.addEventListener('click',()=>{const open=!document.body.classList.contains('menu-open');document.body.classList.toggle('menu-open',open);menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню');menu.inert=!open;if(open){smoothScroll?.stop();menu.querySelector('a').focus()}});
