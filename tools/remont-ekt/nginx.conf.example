@@ -1,0 +1,51 @@
+# Adapt document root and certificate paths to the real provider. Not for Apache.
+server {
+ listen 80;
+ listen [::]:80;
+ server_name remontekt.ru www.remontekt.ru;
+ location ^~ /.well-known/acme-challenge/ {
+  root /var/www/remontekt.ru;
+  try_files $uri =404;
+ }
+ location / { return 301 https://remontekt.ru$request_uri; }
+}
+server {
+ listen 443 ssl;
+ listen [::]:443 ssl;
+ server_name www.remontekt.ru;
+ ssl_certificate /etc/letsencrypt/live/remontekt.ru/fullchain.pem;
+ ssl_certificate_key /etc/letsencrypt/live/remontekt.ru/privkey.pem;
+ return 301 https://remontekt.ru$request_uri;
+}
+server {
+ listen 443 ssl;
+ listen [::]:443 ssl;
+ server_name remontekt.ru;
+ root /var/www/remontekt.ru;
+ index index.html;
+ ssl_certificate /etc/letsencrypt/live/remontekt.ru/fullchain.pem;
+ ssl_certificate_key /etc/letsencrypt/live/remontekt.ru/privkey.pem;
+ autoindex off;
+ gzip on;
+ gzip_vary on;
+ gzip_types text/css application/javascript application/json application/xml image/svg+xml;
+ add_header X-Content-Type-Options nosniff always;
+ add_header Referrer-Policy no-referrer always;
+ add_header X-Frame-Options DENY always;
+ add_header Permissions-Policy 'camera=(), microphone=(), geolocation=()' always;
+ add_header Content-Security-Policy-Report-Only "{{CSP}}" always;
+ error_page 404 /404.html;
+ location = /404.html { internal; }
+ location = /index.html {
+  # Redirect an explicit request, not the internal directory-index lookup.
+  if ($request_uri ~ "^/index\.html(?:\?|$)") { return 301 https://remontekt.ru/$is_args$args; }
+  expires -1;
+  try_files $uri =404;
+ }
+ location ~ /(?:HOSTING\.md|SHA256SUMS|nginx\.conf\.example)$ { deny all; }
+ location ^~ /.well-known/acme-challenge/ { try_files $uri =404; }
+ location ~ /\. { deny all; }
+ location ~* \.(?:jpg|jpeg|png|webp|svg|woff2)$ { expires 7d; try_files $uri =404; }
+ location ~* \.(?:css|js)$ { expires 1h; try_files $uri =404; }
+ location / { expires -1; try_files $uri $uri/ =404; }
+}

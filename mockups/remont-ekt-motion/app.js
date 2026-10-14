@@ -234,20 +234,20 @@ $$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const target=$(a.ge
 // Reviews are real text from the owner's original site. The photo is a clearly
 // labelled portfolio image, not a fabricated photograph of a reviewer.
 const reviewTrack=$('.review-track'),reviewDots=$('.review-dots');let reviewIndex=0;
-reviews.forEach((r,i)=>{const el=document.createElement('article');el.className='review';el.innerHTML='<blockquote></blockquote><p class="review-name"></p><p class="review-source"></p><p class="review-rating" aria-label="Рейтинг 5 из 5">★★★★★<span>5,0</span></p>';$('blockquote',el).textContent='«'+r.text+'»';$('.review-name',el).textContent=r.name;$('.review-source',el).textContent='2ГИС · '+r.displayDate;reviewTrack.append(el);const b=document.createElement('button');b.textContent=i+1;b.setAttribute('aria-label','Отзыв '+(i+1)+': '+r.name);b.addEventListener('click',()=>setReview(i));reviewDots.append(b)});
+$$('button',reviewDots).forEach((b,i)=>b.addEventListener('click',()=>setReview(i)));
 function setReview(i){reviewIndex=(i+reviews.length)%reviews.length;reviewTrack.style.transform=`translateX(-${reviewIndex*100}%)`;$$('button',reviewDots).forEach((b,j)=>{b.classList.toggle('active',j===reviewIndex);b.setAttribute('aria-pressed',String(j===reviewIndex))});$$('.review').forEach((el,j)=>el.setAttribute('aria-hidden',String(j!==reviewIndex)))}
 setReview(0);$$('[data-review-dir]').forEach(b=>b.addEventListener('click',()=>setReview(reviewIndex+ +b.dataset.reviewDir)));$('.review-slider').addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();setReview(reviewIndex+(e.key==='ArrowRight'?1:-1))}});
 let reviewDown=null;$('.review-slider').addEventListener('pointerdown',e=>{reviewDown={x:e.clientX,y:e.clientY}});$('.review-slider').addEventListener('pointerup',e=>{if(!reviewDown)return;const dx=e.clientX-reviewDown.x,dy=e.clientY-reviewDown.y;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy))setReview(reviewIndex+(dx<0?1:-1));reviewDown=null});$('.review-slider').addEventListener('pointercancel',()=>reviewDown=null);
 // The portfolio is a sticky scroll scene on desktop and a native swipe gallery
 // on phones. Both expose arrow buttons, keyboard navigation and project dialogs.
-const gallery=$('.gallery-window'),track=$('.gallery-track'),scene=$('.gallery-scene');let galleryTween=null,galleryTrigger=null,visibleProjects=projects,galleryIndex=0,drag=null,suppressClick=false;const isDesktop=()=>innerWidth>=768&&!reduced;
+const gallery=$('.gallery-window'),track=$('.gallery-track'),scene=$('.gallery-scene');let galleryTween=null,galleryTrigger=null,visibleProjects=projects,galleryIndex=0,drag=null,suppressClick=false;const isDesktop=()=>innerWidth>=768&&!reduced&&typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined';
 function galleryMax(){return Math.max(0,track.scrollWidth-innerWidth)}
 
 function updateGallery(progress){if(!visibleProjects.length){$('.gallery-index').textContent='00 / 00';$('.gallery-progress span').style.transform='scaleX(0)';return}const max=galleryMax(),x=isDesktop()?progress*max:gallery.scrollLeft;let idx=0,min=Infinity;[...track.children].forEach((el,i)=>{const d=Math.abs(el.offsetLeft-parseFloat(getComputedStyle(gallery).width)*.052-x);if(d<min){idx=i;min=d}});galleryIndex=idx;$('.gallery-index').textContent=pad(idx+1)+' / '+pad(visibleProjects.length);$('.gallery-progress span').style.transform=`scaleX(${visibleProjects.length===1?1:Math.max(.08,progress)})`}
-function configureGallery(){if(galleryTrigger){galleryTrigger.kill();galleryTrigger=null}if(galleryTween){galleryTween.kill();galleryTween=null}gsap.set(track,{clearProps:'transform'});gallery.scrollLeft=0;if(isDesktop()&&galleryMax()>0){scene.style.height=Math.max(innerHeight*2,galleryMax()*.45+innerHeight)+'px';galleryTween=gsap.to(track,{x:()=>-galleryMax(),ease:'none',scrollTrigger:{trigger:scene,start:'top top',end:'bottom bottom',scrub:.35,invalidateOnRefresh:true,onUpdate:s=>updateGallery(s.progress)}});galleryTrigger=galleryTween.scrollTrigger}else{scene.style.height='auto';updateGallery(0)}ScrollTrigger.refresh();smoothScroll?.resize()}
-function renderProjects(filter='all'){
- visibleProjects=projects.filter(p=>filter==='all'||p.category===filter);track.replaceChildren();scene.classList.toggle('is-empty',!visibleProjects.length);$$('[data-gallery-dir]').forEach(b=>b.disabled=!visibleProjects.length);
- visibleProjects.forEach(p=>{const b=document.createElement('button');b.className='project real-project';b.dataset.projectId=p.id;b.style.setProperty('--photo-aspect',p.aspect);b.innerHTML=`<div class="project-image"><img src="${assetSrc(p.image)}" alt="" width="${p.width}" height="${p.height}" draggable="false" loading="lazy"></div><div class="project-meta"><div><h3></h3><p></p></div><span aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></div>`;$('img',b).alt=p.title;$('h3',b).textContent=p.title;const label=[p.label,p.location].filter(Boolean).join(' · ');$('p',b).textContent=label;b.setAttribute('aria-label','Открыть проект: '+p.title);b.addEventListener('click',e=>{if(suppressClick){e.preventDefault();return}showDetail(p.title,label,p.description,p.image)});if(!reduced){b.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')gsap.to($('img',b),{scale:1.045,duration:1,ease:'power3.out'})});b.addEventListener('pointerleave',()=>gsap.to($('img',b),{scale:1,duration:1,ease:'power3.out'}))}track.append(b)});
+function configureGallery(){if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined'){scene.style.height='auto';updateGallery(0);return}if(galleryTrigger){galleryTrigger.kill();galleryTrigger=null}if(galleryTween){galleryTween.kill();galleryTween=null}gsap.set(track,{clearProps:'transform'});gallery.scrollLeft=0;if(isDesktop()&&galleryMax()>0){scene.style.height=Math.max(innerHeight*2,galleryMax()*.45+innerHeight)+'px';galleryTween=gsap.to(track,{x:()=>-galleryMax(),ease:'none',scrollTrigger:{trigger:scene,start:'top top',end:'bottom bottom',scrub:.35,invalidateOnRefresh:true,onUpdate:s=>updateGallery(s.progress)}});galleryTrigger=galleryTween.scrollTrigger}else{scene.style.height='auto';updateGallery(0)}ScrollTrigger.refresh();smoothScroll?.resize()}
+function renderProjects(filter='all',hydrate=false){
+ visibleProjects=projects.filter(p=>filter==='all'||p.category===filter);if(!hydrate)track.replaceChildren();scene.classList.toggle('is-empty',!visibleProjects.length);$$('[data-gallery-dir]').forEach(b=>b.disabled=!visibleProjects.length);
+ visibleProjects.forEach(p=>{const b=hydrate?track.querySelector(`[data-project-id="${p.id}"]`):document.createElement('button');b.className='project real-project';b.dataset.projectId=p.id;b.style.setProperty('--photo-aspect',p.aspect);if(!hydrate)b.innerHTML=`<div class="project-image"><img src="${assetSrc(p.image)}" alt="" width="${p.width}" height="${p.height}" draggable="false" loading="lazy"></div><div class="project-meta"><div><h3></h3><p></p></div><span aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></div>`;$('img',b).alt='';$('h3',b).textContent=p.title;const label=[p.label,p.location].filter(Boolean).join(' · ');$('p',b).textContent=label;$('h3',b).id='project-'+p.id+'-title';$('p',b).id='project-'+p.id+'-meta';b.removeAttribute('aria-label');b.removeAttribute('aria-labelledby');b.addEventListener('click',e=>{if(suppressClick){e.preventDefault();return}showDetail(p.title,label,p.description,p.image)});if(!reduced){b.addEventListener('pointerenter',e=>{if(typeof gsap!=='undefined'&&e.pointerType==='mouse')gsap.to($('img',b),{scale:1.045,duration:1,ease:'power3.out'})});b.addEventListener('pointerleave',()=>{if(typeof gsap!=='undefined')gsap.to($('img',b),{scale:1,duration:1,ease:'power3.out'})})}if(!hydrate)track.append(b)});
  if(!visibleProjects.length){const empty=document.createElement('div');empty.className='gallery-empty';empty.innerHTML='<p>В этой категории пока нет фотографий на сайте.</p><a class="button outline" href="https://t.me/remontekt" target="_blank" rel="noopener noreferrer">Наши работы в Telegram <span>↗</span></a>';track.append(empty)}
  galleryIndex=0;$('.gallery-index').textContent=(visibleProjects.length?'01':'00')+' / '+pad(visibleProjects.length);configureGallery();
 }
@@ -261,19 +261,24 @@ function endDrag(){if(drag?.moved)setTimeout(()=>suppressClick=false,150);drag=n
 $$('[data-filter]').forEach(b=>b.addEventListener('click',()=>{const sceneTop=scene.getBoundingClientRect().top+scrollY;$$('[data-filter]').forEach(x=>{x.classList.toggle('active',x===b);x.setAttribute('aria-pressed',String(x===b))});renderProjects(b.dataset.filter);if(scrollY>sceneTop&&isDesktop())window.scrollTo(0,sceneTop)}));
 // Motion is scoped to dedicated layers so mouse offsets never fight scroll
 // transforms. All assets and GSAP are local: no animation CDN dependency.
-gsap.registerPlugin(ScrollTrigger);ScrollTrigger.config({ignoreMobileResize:true});
-if(!reduced&&innerWidth>=768&&typeof Lenis!=='undefined'){smoothScroll=new Lenis({lerp:.1,smoothWheel:true,wheelMultiplier:.85});smoothScroll.on('scroll',ScrollTrigger.update);gsap.ticker.add(time=>smoothScroll.raf(time*1000));gsap.ticker.lagSmoothing(0);}
+let motionAvailable=false;
+// Set up below-the-fold effects shortly before they are visible.
+// This keeps the initial viewport responsive without changing those effects.
+const deferredEffects=new Map();
+const effectObserver=new IntersectionObserver(entries=>{
+ let changed=false;
+ for(const entry of entries){if(!entry.isIntersecting)continue;const callbacks=deferredEffects.get(entry.target);if(!callbacks)continue;deferredEffects.delete(entry.target);effectObserver.unobserve(entry.target);callbacks.forEach(run=>run());changed=true}
+ if(changed&&motionAvailable)ScrollTrigger.refresh();
+},{rootMargin:'100% 0px'});
+function deferEffect(el,run){if(!el)return;const callbacks=deferredEffects.get(el)||[];callbacks.push(run);deferredEffects.set(el,callbacks);effectObserver.observe(el)}
 async function initialiseMotion(){
- try{const svg=await fetch('assets/brand-mask.svg').then(r=>r.text());$('.brand-outline').innerHTML=svg}catch{}
- if(!reduced){
+ // The brand outline is already present in HTML; no request gates the intro.
+ if(motionAvailable&&!reduced){
   // The concrete shell, renovated room and furniture use one fixed 3:2
   // artboard. Camera motion is shared; near/far mouse offsets remain separate.
-  await Promise.all($$('.hero img').map(img=>img.decode().catch(()=>{})));
+  // Start the same intro immediately; hidden room layers decode independently.
   const paths=$$('.brand-outline path');paths.forEach(p=>{const l=p.getTotalLength();p.style.strokeDasharray=l;p.style.strokeDashoffset=l});
-  const intro=gsap.timeline({defaults:{ease:'expo.out'}});
-  intro.from('.hero-line>span',{yPercent:115,duration:1.8,stagger:.12},0)
-    .from('.hero-content p,.hero-actions',{y:20,opacity:0,duration:1.3,stagger:.12},.45)
-    .from('.apartment-intro',{scale:1.075,duration:4},0);
+  // The identical entrance timings run as compositor CSS animations in HTML.
   const chapters=[['01','Без отделки'],['02','Преображение'],['03','Готово для жизни']];
   const heroMotion=gsap.matchMedia();
   heroMotion.add({mobile:'(max-width: 767px)',desktop:'(min-width: 768px)'},context=>{
@@ -299,19 +304,37 @@ async function initialiseMotion(){
     updateApartment(0);
   });
   // Word shading reproduces FIND's scroll-dependent typographic rhythm.
-  $$('.reading').forEach(el=>{const palette=getComputedStyle(document.documentElement);const endColor=palette.getPropertyValue('--ink').trim();const startColor=palette.getPropertyValue('--muted').trim();const walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);nodes.forEach(n=>{const fragment=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(w=>{if(!w)return;if(/^\s+$/.test(w))fragment.append(document.createTextNode(w));else{const s=document.createElement('span');s.className='read-word';s.textContent=w;fragment.append(s)}});n.replaceWith(fragment)});const words=$$('.read-word',el);gsap.fromTo(words,{color:startColor},{color:endColor,stagger:{amount:1},duration:.5,ease:'none',scrollTrigger:{trigger:el,start:'top 90%',end:'bottom 40%',scrub:.25}})});
-  $$('.image-reveal').forEach(el=>gsap.fromTo(el,{clipPath:'inset(18% 0 18% 0)'},{clipPath:'inset(0% 0 0% 0)',ease:'power2.out',duration:1.6,scrollTrigger:{trigger:el,start:'top 90%',toggleActions:'play none none none'}}));
-  $$('.about-image,.control-interior,.review-photo').forEach(el=>gsap.fromTo($('img',el),{yPercent:-4,scale:1.04},{yPercent:4,scale:1,ease:'none',scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:.3}}));
-  gsap.fromTo('.about-image',{width:()=>innerWidth<768?'100%':'83.4%'},{width:'100%',ease:'none',scrollTrigger:{trigger:'.about-image',start:'top 85%',end:'bottom 65%',scrub:.3}});
-  gsap.fromTo('.image-chevron:not(:first-child)',{xPercent:-10,scale:.8,opacity:.1},{xPercent:0,scale:1,opacity:1,stagger:.2,duration:1,ease:'power1.out',scrollTrigger:{trigger:'.image-arrows',start:'top bottom',end:'center center',scrub:1.4}});
-  $$('.image-chevron img').forEach((el,i)=>gsap.fromTo(el,{yPercent:-6},{yPercent:6+(i*2),ease:'none',scrollTrigger:{trigger:'.image-arrows',start:'top bottom',end:'bottom top',scrub:.3}}));
-  gsap.to('.steps-line span',{scaleY:1,ease:'none',scrollTrigger:{trigger:'.steps',start:'top 75%',end:'bottom 55%',scrub:.3}});
-  gsap.fromTo('.outro-bg img',{yPercent:-8,scale:1.12},{yPercent:8,scale:1,ease:'none',scrollTrigger:{trigger:'.outro',start:'top bottom',end:'bottom top',scrub:.3}});
+  $$('.reading').forEach(el=>deferEffect(el,()=>{const palette=getComputedStyle(document.documentElement);const endColor=palette.getPropertyValue('--ink').trim();const startColor=palette.getPropertyValue('--muted').trim();const walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);nodes.forEach(n=>{const fragment=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(w=>{if(!w)return;if(/^\s+$/.test(w))fragment.append(document.createTextNode(w));else{const s=document.createElement('span');s.className='read-word';s.textContent=w;fragment.append(s)}});n.replaceWith(fragment)});const words=$$('.read-word',el);gsap.fromTo(words,{color:startColor},{color:endColor,stagger:{amount:1},duration:.5,ease:'none',scrollTrigger:{trigger:el,start:'top 90%',end:'bottom 40%',scrub:.25}})}));
+  $$('.image-reveal').forEach(el=>deferEffect(el,()=>gsap.fromTo(el,{clipPath:'inset(18% 0 18% 0)'},{clipPath:'inset(0% 0 0% 0)',ease:'power2.out',duration:1.6,scrollTrigger:{trigger:el,start:'top 90%',toggleActions:'play none none none'}})));
+  $$('.about-image,.control-interior,.review-photo').forEach(el=>deferEffect(el,()=>gsap.fromTo($('img',el),{yPercent:-4,scale:1.04},{yPercent:4,scale:1,ease:'none',scrollTrigger:{trigger:el,start:'top bottom',end:'bottom top',scrub:.3}})));
+  deferEffect($('.about-image'),()=>gsap.fromTo('.about-image',{width:()=>innerWidth<768?'100%':'83.4%'},{width:'100%',ease:'none',scrollTrigger:{trigger:'.about-image',start:'top 85%',end:'bottom 65%',scrub:.3}}));
+  deferEffect($('.image-arrows'),()=>gsap.fromTo('.image-chevron:not(:first-child)',{xPercent:-10,scale:.8,opacity:.1},{xPercent:0,scale:1,opacity:1,stagger:.2,duration:1,ease:'power1.out',scrollTrigger:{trigger:'.image-arrows',start:'top bottom',end:'center center',scrub:1.4}}));
+  $$('.image-chevron img').forEach((el,i)=>deferEffect($('.image-arrows'),()=>gsap.fromTo(el,{yPercent:-6},{yPercent:6+(i*2),ease:'none',scrollTrigger:{trigger:'.image-arrows',start:'top bottom',end:'bottom top',scrub:.3}})));
+  deferEffect($('.steps'),()=>gsap.to('.steps-line span',{scaleY:1,ease:'none',scrollTrigger:{trigger:'.steps',start:'top 75%',end:'bottom 55%',scrub:.3}}));
+  deferEffect($('.outro'),()=>gsap.fromTo('.outro-bg img',{yPercent:-8,scale:1.12},{yPercent:8,scale:1,ease:'none',scrollTrigger:{trigger:'.outro',start:'top bottom',end:'bottom top',scrub:.3}}));
   const mm=gsap.matchMedia();mm.add('(min-width: 768px)',()=>{const layers=$$('.hero .mouse-layer').map(el=>({el,x:gsap.quickTo(el,'x',{duration:1.4,ease:'power3.out'}),y:gsap.quickTo(el,'y',{duration:1.4,ease:'power3.out'}),depth:+el.dataset.depth}));const move=e=>{if(e.pointerType!=='mouse'||scrollY>innerHeight*4)return;const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;layers.forEach(l=>{l.x(x*l.depth);l.y(y*l.depth)})};const leave=()=>layers.forEach(l=>{l.x(0);l.y(0)});$('.hero-sticky').addEventListener('pointermove',move);$('.hero-sticky').addEventListener('pointerleave',leave);$$('.magnetic').forEach(b=>{const x=gsap.quickTo(b,'x',{duration:.45,ease:'power3.out'}),y=gsap.quickTo(b,'y',{duration:.45,ease:'power3.out'});const handler=e=>{if(e.pointerType!=='mouse')return;const r=b.getBoundingClientRect();x((e.clientX-r.left-r.width/2)*.13);y((e.clientY-r.top-r.height/2)*.18)};const reset=()=>{x(0);y(0)};b.addEventListener('pointermove',handler);b.addEventListener('pointerleave',reset)});return()=>{$('.hero-sticky').removeEventListener('pointermove',move);$('.hero-sticky').removeEventListener('pointerleave',leave)}});
  }
  if(reduced){$('.apartment-phase-index').textContent='03';$('.apartment-phase-text').textContent='Готово для жизни';$('.hero').dataset.phase='after'}
- renderProjects();await document.fonts.ready;ScrollTrigger.refresh();window.dispatchEvent(new Event('site-ready'));
+ configureGallery();await document.fonts.ready;if(motionAvailable)ScrollTrigger.refresh();window.dispatchEvent(new Event('site-ready'));
 }
-initialiseMotion();
+// Static content and controls are usable before optional motion is downloaded.
+renderProjects('all',true);
+const loadScript=src=>new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=src;script.onload=resolve;script.onerror=reject;document.head.append(script)});
+const afterPaint=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+async function bootMotion(){
+ if(reduced){$('.apartment-phase-index').textContent='03';$('.apartment-phase-text').textContent='Готово для жизни';$('.hero').dataset.phase='after';configureGallery();await document.fonts.ready;window.dispatchEvent(new Event('site-ready'));return}
+ await afterPaint();
+ try{
+  await Promise.all(['vendor/gsap.min.js','vendor/ScrollTrigger.min.js',...(!reduced&&innerWidth>=768?['vendor/lenis.min.js']:[])].map(loadScript));
+  motionAvailable=typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined';
+  if(!motionAvailable)throw new Error('Motion unavailable');
+  gsap.registerPlugin(ScrollTrigger);ScrollTrigger.config({ignoreMobileResize:true});
+  if(!reduced&&innerWidth>=768&&typeof Lenis!=='undefined'){smoothScroll=new Lenis({lerp:.1,smoothWheel:true,wheelMultiplier:.85});smoothScroll.on('scroll',ScrollTrigger.update);gsap.ticker.add(time=>smoothScroll.raf(time*1000));gsap.ticker.lagSmoothing(0)}
+  await initialiseMotion();
+ }catch{
+  motionAvailable=false;document.documentElement.classList.add('motion-fallback');configureGallery();window.dispatchEvent(new Event('site-ready'));
+ }
+}
+bootMotion();
 let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(configureGallery,250)});
-window.addEventListener('load',()=>ScrollTrigger.refresh());
+window.addEventListener('load',()=>{if(motionAvailable)ScrollTrigger.refresh()});
