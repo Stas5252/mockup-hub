@@ -157,11 +157,11 @@ dialog::backdrop{background:#ffffffe6;backdrop-filter:blur(6px)}
 .gallery-controls .circle-button:disabled{opacity:.4;cursor:default}
 @media(max-width:767px){.project.real-project,.project.real-project:nth-child(even){width:calc(100vw - var(--gutter)*2);max-width:none}.project.real-project .project-image,.project.real-project:nth-child(even) .project-image{height:min(calc((100vw - var(--gutter)*2)/var(--photo-aspect)),62svh);min-height:0;background:var(--soft)}.detail-dialog.is-real-photo .detail-image{height:min(58svh,620px)}.gallery-empty{font-size:16px;padding:26px 0 20px}.gallery-empty .button{font-size:12px}}
 
-/* Slightly larger hero instructions, preserving the original layout. */
-.apartment-hero .hero-scroll{font-size:13px}
-.apartment-hero .apartment-phase{font-size:18px}
-.apartment-hero .apartment-phase-index{font-size:12px}
-.apartment-hero .apartment-caption-note{font-size:11px}
+/* Slightly larger, heavier hero instructions in the original layout. */
+.apartment-hero .hero-scroll{font-size:13px;font-weight:600}
+.apartment-hero .apartment-phase{font-size:18px;font-weight:700}
+.apartment-hero .apartment-phase-index{font-size:12px;font-weight:600}
+.apartment-hero .apartment-caption-note{font-size:11px;font-weight:600}
 @media(max-width:767px){
  .apartment-hero .hero-scroll{font-size:11px;gap:8px;max-width:calc((100% - var(--gutter)*2 - 12px)/2)}
  .apartment-hero .hero-scroll>span:first-child{max-width:none;min-width:0}
