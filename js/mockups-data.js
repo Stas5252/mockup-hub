@@ -4,6 +4,23 @@
  */
 
 const MOCKUPS_DATA = [
+  {
+      "id": "mobix-premium",
+      "title": "MOBIX — Ближе к твоему миру",
+      "category": "Электроника & Apple",
+      "folder": "mobix-premium",
+      "description": "Apple-inspired концепт: светлый однотонный фон, типографика Inter, заставка, анимированная витрина, переключение устройств, каталог по категориям и демонстрационная корзина.",
+      "tags": [
+          "Apple",
+          "Premium",
+          "Анимации",
+          "Каталог",
+          "ImageGen"
+      ],
+      "preview": "mockups/mobix-premium/preview.png",
+      "featured": true,
+      "emoji": "MB"
+  },
   // ===================== НОВЫЕ AWWWARDS-КОНЦЕПТЫ =====================
   {
     id: "bloom-flower",
