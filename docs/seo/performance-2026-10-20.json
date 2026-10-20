@@ -1,0 +1,835 @@
+{
+  "date": "2026-10-20",
+  "scope": "single comparative mobile lab snapshots; not field Core Web Vitals or proof of rankings",
+  "before": {
+    "fetchTime": "2026-10-20T19:34:02.525Z",
+    "url": "http://127.0.0.1:3011/",
+    "labPerformanceScore": 44,
+    "automatedSEOChecks": 100,
+    "FCPms": 2313,
+    "LCPms": 7147,
+    "TBTms": 2034,
+    "CLS": 0,
+    "transferredBytes": 1867693,
+    "requests": 21,
+    "settings": {
+      "output": [
+        "json",
+        "html"
+      ],
+      "maxWaitForFcp": 30000,
+      "maxWaitForLoad": 45000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "auditMode": false,
+      "gatherMode": false,
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ],
+      "disableStorageReset": false,
+      "debugNavigation": false,
+      "channel": "cli",
+      "usePassiveGathering": false,
+      "disableFullPageScreenshot": false,
+      "skipAboutBlank": false,
+      "blankPage": "about:blank",
+      "ignoreStatusCode": false,
+      "locale": "en-US",
+      "blockedUrlPatterns": null,
+      "additionalTraceCategories": null,
+      "extraHeaders": null,
+      "precomputedLanternData": null,
+      "onlyAudits": null,
+      "onlyCategories": [
+        "performance",
+        "seo"
+      ],
+      "skipAudits": null
+    }
+  },
+  "after": {
+    "fetchTime": "2026-10-20T19:46:16.688Z",
+    "url": "http://127.0.0.1:3014/",
+    "labPerformanceScore": 58,
+    "automatedSEOChecks": 100,
+    "FCPms": 1365,
+    "LCPms": 5260,
+    "TBTms": 811,
+    "CLS": 0,
+    "transferredBytes": 1140808,
+    "requests": 16,
+    "settings": {
+      "output": [
+        "json",
+        "html"
+      ],
+      "maxWaitForFcp": 30000,
+      "maxWaitForLoad": 45000,
+      "pauseAfterFcpMs": 1000,
+      "pauseAfterLoadMs": 1000,
+      "networkQuietThresholdMs": 1000,
+      "cpuQuietThresholdMs": 1000,
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "throttlingMethod": "simulate",
+      "screenEmulation": {
+        "mobile": true,
+        "width": 412,
+        "height": 823,
+        "deviceScaleFactor": 1.75,
+        "disabled": false
+      },
+      "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+      "auditMode": false,
+      "gatherMode": false,
+      "clearStorageTypes": [
+        "file_systems",
+        "shader_cache",
+        "service_workers",
+        "cache_storage"
+      ],
+      "disableStorageReset": false,
+      "debugNavigation": false,
+      "channel": "cli",
+      "usePassiveGathering": false,
+      "disableFullPageScreenshot": false,
+      "skipAboutBlank": false,
+      "blankPage": "about:blank",
+      "ignoreStatusCode": false,
+      "locale": "en-US",
+      "blockedUrlPatterns": null,
+      "additionalTraceCategories": null,
+      "extraHeaders": null,
+      "precomputedLanternData": null,
+      "onlyAudits": null,
+      "onlyCategories": [
+        "performance",
+        "seo"
+      ],
+      "skipAudits": null
+    }
+  },
+  "visual": [
+    {
+      "width": 390,
+      "hero": "identical geometry and phase states",
+      "overflow": 0
+    },
+    {
+      "width": 1440,
+      "hero": "identical geometry and phase states",
+      "overflow": 0
+    }
+  ],
+  "browser": [
+    {
+      "width": 1440,
+      "height": 900,
+      "projects": 15,
+      "reviews": 6,
+      "errors": [],
+      "bad": [],
+      "overflow": 0
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "projects": 15,
+      "reviews": 6,
+      "errors": [],
+      "bad": [],
+      "overflow": 0
+    },
+    {
+      "width": 320,
+      "height": 640,
+      "projects": 15,
+      "reviews": 6,
+      "errors": [],
+      "bad": [],
+      "overflow": 0
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "projects": 15,
+      "reviews": 6,
+      "errors": [],
+      "bad": [],
+      "overflow": 0
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "reducedMotion": "reduce",
+      "projects": 15,
+      "reviews": 6,
+      "errors": [],
+      "bad": [],
+      "overflow": 0
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "javaScriptEnabled": false,
+      "projects": 15,
+      "reviews": 6,
+      "errors": [],
+      "bad": [],
+      "overflow": 0
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "blockMotion": true,
+      "projects": 15,
+      "reviews": 6,
+      "errors": [],
+      "bad": [],
+      "overflow": 0
+    }
+  ],
+  "rootCauseChecks": {
+    "staticGalleryRewrites": {
+      "before": 30,
+      "after": 0
+    },
+    "explicitStartupRefreshesWithLoadedFonts": {
+      "before": 3,
+      "after": 1
+    },
+    "offscreenDecorativeFontRequestsDuringHero": {
+      "before": 1,
+      "after": 0
+    }
+  },
+  "mainCopyAndOriginalAssets": "unchanged",
+  "mailHandlerAndFrozenConsents": "unchanged",
+  "accountsAndSearchSubmissions": "deferred by owner",
+  "productionBefore": {
+    "fetchTime": "2026-10-20T19:09:57.294Z",
+    "labPerformanceScore": 46,
+    "automatedSEOChecks": 100,
+    "FCPms": 2137,
+    "LCPms": 7364,
+    "TBTms": 879,
+    "CLS": 0,
+    "transferredBytes": 1699000,
+    "requests": 21
+  },
+  "productionAfter": {
+    "fetchTime": "2026-10-20T19:51:29.622Z",
+    "labPerformanceScore": 74,
+    "automatedSEOChecks": 100,
+    "FCPms": 1848,
+    "LCPms": 4689,
+    "TBTms": 201,
+    "CLS": 0,
+    "transferredBytes": 970206,
+    "requests": 16
+  },
+  "liveHTTP": {
+    "pages": [
+      {
+        "url": "https://remontekt.ru/",
+        "status": 200,
+        "bytes": 48694,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/uslugi/",
+        "status": 200,
+        "bytes": 11326,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/",
+        "status": 200,
+        "bytes": 23884,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/uslugi/kapitalnyy-remont/",
+        "status": 200,
+        "bytes": 19011,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/uslugi/kosmeticheskiy-remont/",
+        "status": 200,
+        "bytes": 18429,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/uslugi/remont-novostroyki/",
+        "status": 200,
+        "bytes": 17987,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/uslugi/remont-vtorichnogo-zhilya/",
+        "status": 200,
+        "bytes": 18005,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/uslugi/remont-kommercheskih-pomeshcheniy/",
+        "status": 200,
+        "bytes": 18421,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/etapy-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 21790,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/gidroizolyatsiya-vannoy/",
+        "status": 200,
+        "bytes": 22331,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/kak-proverit-smetu/",
+        "status": 200,
+        "bytes": 21198,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/kollektornaya-razvodka-vody/",
+        "status": 200,
+        "bytes": 22109,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/kosmeticheskiy-ili-kapitalnyy-remont/",
+        "status": 200,
+        "bytes": 22543,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/oshibki-remonta-vannoy/",
+        "status": 200,
+        "bytes": 22249,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/osveshchenie-kvartiry/",
+        "status": 200,
+        "bytes": 21939,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/podgotovka-kvartiry-k-remontu/",
+        "status": 200,
+        "bytes": 21486,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/priemka-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 21805,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/remont-restorana-etapy/",
+        "status": 200,
+        "bytes": 22298,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/rozetki-pered-remontom/",
+        "status": 200,
+        "bytes": 22266,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/s-chego-nachat-remont-novostroyki/",
+        "status": 200,
+        "bytes": 21811,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/sroki-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 21679,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/stoimost-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 23032,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/zashchita-ot-protechek-neptun/",
+        "status": 200,
+        "bytes": 22409,
+        "hash": "match",
+        "csp": "enforced"
+      }
+    ],
+    "redirects": [
+      {
+        "path": "index.html",
+        "status": 301,
+        "location": "https://remontekt.ru/"
+      },
+      {
+        "path": "sovety/index.html",
+        "status": 301,
+        "location": "https://remontekt.ru/sovety/"
+      },
+      {
+        "path": "sovety/stoimost-remonta-kvartiry/index.html",
+        "status": 301,
+        "location": "https://remontekt.ru/sovety/stoimost-remonta-kvartiry/"
+      },
+      {
+        "path": "uslugi/kapitalnyy-remont/index.html",
+        "status": 301,
+        "location": "https://remontekt.ru/uslugi/kapitalnyy-remont/"
+      },
+      {
+        "path": "sovety",
+        "status": 301,
+        "location": "https://remontekt.ru/sovety/"
+      },
+      {
+        "path": "uslugi/kapitalnyy-remont",
+        "status": 301,
+        "location": "https://remontekt.ru/uslugi/kapitalnyy-remont/"
+      },
+      {
+        "url": "https://www.remontekt.ru/sovety/",
+        "status": 301,
+        "location": "https://remontekt.ru/sovety/"
+      },
+      {
+        "url": "http://remontekt.ru/sovety/",
+        "status": 301,
+        "location": "https://remontekt.ru:443/sovety/"
+      }
+    ],
+    "404": "passed",
+    "assetsAndFrozenConsent": "passed",
+    "formGet": "passed; no POST and no email sent"
+  },
+  "localCrawl": {
+    "pages": 23,
+    "resources": 66,
+    "errors": [],
+    "responses": [
+      {
+        "path": "/",
+        "status": 200,
+        "bytes": 48694
+      },
+      {
+        "path": "/app.js",
+        "status": 200,
+        "bytes": 37957
+      },
+      {
+        "path": "/apple-touch-icon.png",
+        "status": 200,
+        "bytes": 4868
+      },
+      {
+        "path": "/assets/apartment-after.webp",
+        "status": 200,
+        "bytes": 292408
+      },
+      {
+        "path": "/assets/apartment-backplate.webp",
+        "status": 200,
+        "bytes": 246738
+      },
+      {
+        "path": "/assets/apartment-before.webp",
+        "status": 200,
+        "bytes": 280350
+      },
+      {
+        "path": "/assets/cta-daylight.jpg",
+        "status": 200,
+        "bytes": 139727
+      },
+      {
+        "path": "/assets/evgeniy.webp",
+        "status": 200,
+        "bytes": 73180
+      },
+      {
+        "path": "/assets/font-0.woff2",
+        "status": 200,
+        "bytes": 19588
+      },
+      {
+        "path": "/assets/font-2.woff2",
+        "status": 200,
+        "bytes": 19664
+      },
+      {
+        "path": "/assets/font-3.woff2",
+        "status": 200,
+        "bytes": 19744
+      },
+      {
+        "path": "/assets/hero-daylight.jpg",
+        "status": 200,
+        "bytes": 194626
+      },
+      {
+        "path": "/assets/logo.svg",
+        "status": 200,
+        "bytes": 2498
+      },
+      {
+        "path": "/assets/personal-control-hq.jpg",
+        "status": 200,
+        "bytes": 93084
+      },
+      {
+        "path": "/assets/portfolio/01-modern-apartment-hq.jpg",
+        "status": 200,
+        "bytes": 183251
+      },
+      {
+        "path": "/assets/portfolio/02-cozy-living-room-hq.jpg",
+        "status": 200,
+        "bytes": 252554
+      },
+      {
+        "path": "/assets/portfolio/03-bedroom-workspace-hq.jpg",
+        "status": 200,
+        "bytes": 211396
+      },
+      {
+        "path": "/assets/portfolio/04-cozy-childrens-room-hq.jpg",
+        "status": 200,
+        "bytes": 209957
+      },
+      {
+        "path": "/assets/portfolio/05-place-for-quiet-hq.jpg",
+        "status": 200,
+        "bytes": 260140
+      },
+      {
+        "path": "/assets/portfolio/06-bright-bedroom-hq.jpg",
+        "status": 200,
+        "bytes": 208112
+      },
+      {
+        "path": "/assets/portfolio/07-spacious-bathroom-hq.jpg",
+        "status": 200,
+        "bytes": 174423
+      },
+      {
+        "path": "/assets/portfolio/08-cozy-hallway-hq.jpg",
+        "status": 200,
+        "bytes": 156842
+      },
+      {
+        "path": "/assets/portfolio/09-restaurant-entrance-hq.jpg",
+        "status": 200,
+        "bytes": 504552
+      },
+      {
+        "path": "/assets/portfolio/10-restaurant-communal-table-hq.jpg",
+        "status": 200,
+        "bytes": 273423
+      },
+      {
+        "path": "/assets/portfolio/11-largest-bar-counter-hq.jpg",
+        "status": 200,
+        "bytes": 387562
+      },
+      {
+        "path": "/assets/portfolio/12-modern-kitchen-hq.jpg",
+        "status": 200,
+        "bytes": 266045
+      },
+      {
+        "path": "/assets/portfolio/13-neptun-leak-protection.webp",
+        "status": 200,
+        "bytes": 218636
+      },
+      {
+        "path": "/assets/portfolio/14-water-manifold.webp",
+        "status": 200,
+        "bytes": 179272
+      },
+      {
+        "path": "/assets/portfolio/15-electrical-heart.webp",
+        "status": 200,
+        "bytes": 125424
+      },
+      {
+        "path": "/assets/projmain-daylight.jpg",
+        "status": 200,
+        "bytes": 278348
+      },
+      {
+        "path": "/assets/svc1.jpg",
+        "status": 200,
+        "bytes": 19848
+      },
+      {
+        "path": "/assets/svc2-daylight.jpg",
+        "status": 200,
+        "bytes": 309746
+      },
+      {
+        "path": "/assets/svc3.jpg",
+        "status": 200,
+        "bytes": 30195
+      },
+      {
+        "path": "/company.html",
+        "status": 200,
+        "bytes": 4093
+      },
+      {
+        "path": "/consent-2026-10-14-mail.html",
+        "status": 200,
+        "bytes": 8055
+      },
+      {
+        "path": "/consent.html",
+        "status": 200,
+        "bytes": 8128
+      },
+      {
+        "path": "/cookies.html",
+        "status": 200,
+        "bytes": 5455
+      },
+      {
+        "path": "/editorial.css",
+        "status": 200,
+        "bytes": 10945
+      },
+      {
+        "path": "/editorial.js",
+        "status": 200,
+        "bytes": 921
+      },
+      {
+        "path": "/favicon.ico",
+        "status": 200,
+        "bytes": 2788
+      },
+      {
+        "path": "/favicon.png",
+        "status": 200,
+        "bytes": 3212
+      },
+      {
+        "path": "/favicon.svg",
+        "status": 200,
+        "bytes": 461
+      },
+      {
+        "path": "/privacy.html",
+        "status": 200,
+        "bytes": 18244
+      },
+      {
+        "path": "/sovety/",
+        "status": 200,
+        "bytes": 23884
+      },
+      {
+        "path": "/sovety/etapy-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 21790
+      },
+      {
+        "path": "/sovety/gidroizolyatsiya-vannoy/",
+        "status": 200,
+        "bytes": 22331
+      },
+      {
+        "path": "/sovety/kak-proverit-smetu/",
+        "status": 200,
+        "bytes": 21198
+      },
+      {
+        "path": "/sovety/kollektornaya-razvodka-vody/",
+        "status": 200,
+        "bytes": 22109
+      },
+      {
+        "path": "/sovety/kosmeticheskiy-ili-kapitalnyy-remont/",
+        "status": 200,
+        "bytes": 22543
+      },
+      {
+        "path": "/sovety/oshibki-remonta-vannoy/",
+        "status": 200,
+        "bytes": 22249
+      },
+      {
+        "path": "/sovety/osveshchenie-kvartiry/",
+        "status": 200,
+        "bytes": 21939
+      },
+      {
+        "path": "/sovety/podgotovka-kvartiry-k-remontu/",
+        "status": 200,
+        "bytes": 21486
+      },
+      {
+        "path": "/sovety/priemka-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 21805
+      },
+      {
+        "path": "/sovety/remont-restorana-etapy/",
+        "status": 200,
+        "bytes": 22298
+      },
+      {
+        "path": "/sovety/rozetki-pered-remontom/",
+        "status": 200,
+        "bytes": 22266
+      },
+      {
+        "path": "/sovety/s-chego-nachat-remont-novostroyki/",
+        "status": 200,
+        "bytes": 21811
+      },
+      {
+        "path": "/sovety/sroki-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 21679
+      },
+      {
+        "path": "/sovety/stoimost-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 23032
+      },
+      {
+        "path": "/sovety/zashchita-ot-protechek-neptun/",
+        "status": 200,
+        "bytes": 22409
+      },
+      {
+        "path": "/style.css",
+        "status": 200,
+        "bytes": 46646
+      },
+      {
+        "path": "/uslugi/",
+        "status": 200,
+        "bytes": 11326
+      },
+      {
+        "path": "/uslugi/kapitalnyy-remont/",
+        "status": 200,
+        "bytes": 19011
+      },
+      {
+        "path": "/uslugi/kosmeticheskiy-remont/",
+        "status": 200,
+        "bytes": 18429
+      },
+      {
+        "path": "/uslugi/remont-kommercheskih-pomeshcheniy/",
+        "status": 200,
+        "bytes": 18421
+      },
+      {
+        "path": "/uslugi/remont-novostroyki/",
+        "status": 200,
+        "bytes": 17987
+      },
+      {
+        "path": "/uslugi/remont-vtorichnogo-zhilya/",
+        "status": 200,
+        "bytes": 18005
+      }
+    ]
+  },
+  "published": "https://remontekt.ru/",
+  "liveBrowser": [
+    {
+      "width": 390,
+      "motion": "passed",
+      "filters": "passed",
+      "projectDialog": "passed",
+      "requestDeepLink": "passed",
+      "consent": "unchecked",
+      "errors": [],
+      "bad": [],
+      "posts": [],
+      "csp": []
+    },
+    {
+      "width": 1440,
+      "motion": "passed",
+      "filters": "passed",
+      "projectDialog": "passed",
+      "requestDeepLink": "passed",
+      "consent": "unchecked",
+      "errors": [],
+      "bad": [],
+      "posts": [],
+      "csp": []
+    }
+  ]
+}
