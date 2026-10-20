@@ -1,0 +1,61 @@
+{
+  "checkedAt": "2026-10-20T23:41:10.021910+00:00",
+  "method": "Read-only HTTP requests from this environment; bot User-Agent simulation is not proof of access from a real search crawler IP.",
+  "pages": [
+    {
+      "url": "https://remontekt.ru/",
+      "userAgent": "Mozilla/5.0",
+      "status": 200,
+      "bodyHash": "009d70e5dd8dad7af8a7bba845fe28a8958fb5afca8a5c5602d89e231956ca69",
+      "indexable": true
+    },
+    {
+      "url": "https://remontekt.ru/",
+      "userAgent": "Googlebot",
+      "status": 200,
+      "bodyHash": "009d70e5dd8dad7af8a7bba845fe28a8958fb5afca8a5c5602d89e231956ca69",
+      "indexable": true
+    },
+    {
+      "url": "https://remontekt.ru/",
+      "userAgent": "YandexBot",
+      "status": 200,
+      "bodyHash": "009d70e5dd8dad7af8a7bba845fe28a8958fb5afca8a5c5602d89e231956ca69",
+      "indexable": true
+    },
+    {
+      "url": "https://remontekt.ru/uslugi/remont-kommercheskih-pomeshcheniy/",
+      "userAgent": "Mozilla/5.0",
+      "status": 200,
+      "bodyHash": "589b17decc27e973ff8257968e9b84611f4745be72db6c9ff336566513e97699",
+      "indexable": true
+    },
+    {
+      "url": "https://remontekt.ru/uslugi/remont-kommercheskih-pomeshcheniy/",
+      "userAgent": "Googlebot",
+      "status": 200,
+      "bodyHash": "589b17decc27e973ff8257968e9b84611f4745be72db6c9ff336566513e97699",
+      "indexable": true
+    },
+    {
+      "url": "https://remontekt.ru/uslugi/remont-kommercheskih-pomeshcheniy/",
+      "userAgent": "YandexBot",
+      "status": 200,
+      "bodyHash": "589b17decc27e973ff8257968e9b84611f4745be72db6c9ff336566513e97699",
+      "indexable": true
+    }
+  ],
+  "robots": "User-agent: *\nAllow: /\nSitemap: https://remontekt.ru/sitemap.xml\n",
+  "sitemap": {
+    "status": 200,
+    "urls": 23,
+    "contentType": "text/xml"
+  },
+  "trackingQueryCanonical": "root HTTPS URL",
+  "api": {
+    "status": 200,
+    "robots": "noindex, nofollow",
+    "cache": "no-store, max-age=0",
+    "postRequests": 0
+  }
+}
