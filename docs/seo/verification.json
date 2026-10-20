@@ -1,0 +1,596 @@
+{
+  "date": "2026-10-20",
+  "production": "https://remontekt.ru/",
+  "articles": 15,
+  "servicePages": 5,
+  "sitemapURLs": 23,
+  "mappedPhrases": 61,
+  "keywordVolumes": "not measured",
+  "localCrawl": {
+    "pages": 23,
+    "resources": 65,
+    "errors": [],
+    "responses": [
+      {
+        "path": "/",
+        "status": 200,
+        "bytes": 48608
+      },
+      {
+        "path": "/app.js",
+        "status": 200,
+        "bytes": 37666
+      },
+      {
+        "path": "/apple-touch-icon.png",
+        "status": 200,
+        "bytes": 4868
+      },
+      {
+        "path": "/assets/apartment-after.webp",
+        "status": 200,
+        "bytes": 292408
+      },
+      {
+        "path": "/assets/apartment-backplate.webp",
+        "status": 200,
+        "bytes": 246738
+      },
+      {
+        "path": "/assets/apartment-before.webp",
+        "status": 200,
+        "bytes": 280350
+      },
+      {
+        "path": "/assets/cta-daylight.jpg",
+        "status": 200,
+        "bytes": 139727
+      },
+      {
+        "path": "/assets/evgeniy.webp",
+        "status": 200,
+        "bytes": 73180
+      },
+      {
+        "path": "/assets/font-0.woff2",
+        "status": 200,
+        "bytes": 19588
+      },
+      {
+        "path": "/assets/font-3.woff2",
+        "status": 200,
+        "bytes": 19744
+      },
+      {
+        "path": "/assets/hero-daylight.jpg",
+        "status": 200,
+        "bytes": 194626
+      },
+      {
+        "path": "/assets/logo.svg",
+        "status": 200,
+        "bytes": 2498
+      },
+      {
+        "path": "/assets/personal-control-hq.jpg",
+        "status": 200,
+        "bytes": 93084
+      },
+      {
+        "path": "/assets/portfolio/01-modern-apartment-hq.jpg",
+        "status": 200,
+        "bytes": 183251
+      },
+      {
+        "path": "/assets/portfolio/02-cozy-living-room-hq.jpg",
+        "status": 200,
+        "bytes": 252554
+      },
+      {
+        "path": "/assets/portfolio/03-bedroom-workspace-hq.jpg",
+        "status": 200,
+        "bytes": 211396
+      },
+      {
+        "path": "/assets/portfolio/04-cozy-childrens-room-hq.jpg",
+        "status": 200,
+        "bytes": 209957
+      },
+      {
+        "path": "/assets/portfolio/05-place-for-quiet-hq.jpg",
+        "status": 200,
+        "bytes": 260140
+      },
+      {
+        "path": "/assets/portfolio/06-bright-bedroom-hq.jpg",
+        "status": 200,
+        "bytes": 208112
+      },
+      {
+        "path": "/assets/portfolio/07-spacious-bathroom-hq.jpg",
+        "status": 200,
+        "bytes": 174423
+      },
+      {
+        "path": "/assets/portfolio/08-cozy-hallway-hq.jpg",
+        "status": 200,
+        "bytes": 156842
+      },
+      {
+        "path": "/assets/portfolio/09-restaurant-entrance-hq.jpg",
+        "status": 200,
+        "bytes": 504552
+      },
+      {
+        "path": "/assets/portfolio/10-restaurant-communal-table-hq.jpg",
+        "status": 200,
+        "bytes": 273423
+      },
+      {
+        "path": "/assets/portfolio/11-largest-bar-counter-hq.jpg",
+        "status": 200,
+        "bytes": 387562
+      },
+      {
+        "path": "/assets/portfolio/12-modern-kitchen-hq.jpg",
+        "status": 200,
+        "bytes": 266045
+      },
+      {
+        "path": "/assets/portfolio/13-neptun-leak-protection.webp",
+        "status": 200,
+        "bytes": 218636
+      },
+      {
+        "path": "/assets/portfolio/14-water-manifold.webp",
+        "status": 200,
+        "bytes": 179272
+      },
+      {
+        "path": "/assets/portfolio/15-electrical-heart.webp",
+        "status": 200,
+        "bytes": 125424
+      },
+      {
+        "path": "/assets/projmain-daylight.jpg",
+        "status": 200,
+        "bytes": 278348
+      },
+      {
+        "path": "/assets/svc1.jpg",
+        "status": 200,
+        "bytes": 19848
+      },
+      {
+        "path": "/assets/svc2-daylight.jpg",
+        "status": 200,
+        "bytes": 309746
+      },
+      {
+        "path": "/assets/svc3.jpg",
+        "status": 200,
+        "bytes": 30195
+      },
+      {
+        "path": "/company.html",
+        "status": 200,
+        "bytes": 4093
+      },
+      {
+        "path": "/consent-2026-10-14-mail.html",
+        "status": 200,
+        "bytes": 8055
+      },
+      {
+        "path": "/consent.html",
+        "status": 200,
+        "bytes": 8128
+      },
+      {
+        "path": "/cookies.html",
+        "status": 200,
+        "bytes": 5455
+      },
+      {
+        "path": "/editorial.css",
+        "status": 200,
+        "bytes": 10945
+      },
+      {
+        "path": "/editorial.js",
+        "status": 200,
+        "bytes": 921
+      },
+      {
+        "path": "/favicon.ico",
+        "status": 200,
+        "bytes": 2788
+      },
+      {
+        "path": "/favicon.png",
+        "status": 200,
+        "bytes": 3212
+      },
+      {
+        "path": "/favicon.svg",
+        "status": 200,
+        "bytes": 461
+      },
+      {
+        "path": "/privacy.html",
+        "status": 200,
+        "bytes": 18244
+      },
+      {
+        "path": "/sovety/",
+        "status": 200,
+        "bytes": 23886
+      },
+      {
+        "path": "/sovety/etapy-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 21792
+      },
+      {
+        "path": "/sovety/gidroizolyatsiya-vannoy/",
+        "status": 200,
+        "bytes": 22333
+      },
+      {
+        "path": "/sovety/kak-proverit-smetu/",
+        "status": 200,
+        "bytes": 21200
+      },
+      {
+        "path": "/sovety/kollektornaya-razvodka-vody/",
+        "status": 200,
+        "bytes": 22111
+      },
+      {
+        "path": "/sovety/kosmeticheskiy-ili-kapitalnyy-remont/",
+        "status": 200,
+        "bytes": 22545
+      },
+      {
+        "path": "/sovety/oshibki-remonta-vannoy/",
+        "status": 200,
+        "bytes": 22251
+      },
+      {
+        "path": "/sovety/osveshchenie-kvartiry/",
+        "status": 200,
+        "bytes": 21941
+      },
+      {
+        "path": "/sovety/podgotovka-kvartiry-k-remontu/",
+        "status": 200,
+        "bytes": 21488
+      },
+      {
+        "path": "/sovety/priemka-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 21807
+      },
+      {
+        "path": "/sovety/remont-restorana-etapy/",
+        "status": 200,
+        "bytes": 22300
+      },
+      {
+        "path": "/sovety/rozetki-pered-remontom/",
+        "status": 200,
+        "bytes": 22268
+      },
+      {
+        "path": "/sovety/s-chego-nachat-remont-novostroyki/",
+        "status": 200,
+        "bytes": 21813
+      },
+      {
+        "path": "/sovety/sroki-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 21681
+      },
+      {
+        "path": "/sovety/stoimost-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 23034
+      },
+      {
+        "path": "/sovety/zashchita-ot-protechek-neptun/",
+        "status": 200,
+        "bytes": 22411
+      },
+      {
+        "path": "/style.css",
+        "status": 200,
+        "bytes": 46327
+      },
+      {
+        "path": "/uslugi/",
+        "status": 200,
+        "bytes": 11328
+      },
+      {
+        "path": "/uslugi/kapitalnyy-remont/",
+        "status": 200,
+        "bytes": 19013
+      },
+      {
+        "path": "/uslugi/kosmeticheskiy-remont/",
+        "status": 200,
+        "bytes": 18431
+      },
+      {
+        "path": "/uslugi/remont-kommercheskih-pomeshcheniy/",
+        "status": 200,
+        "bytes": 18423
+      },
+      {
+        "path": "/uslugi/remont-novostroyki/",
+        "status": 200,
+        "bytes": 17989
+      },
+      {
+        "path": "/uslugi/remont-vtorichnogo-zhilya/",
+        "status": 200,
+        "bytes": 18007
+      }
+    ]
+  },
+  "liveHTTP": {
+    "pages": [
+      {
+        "url": "https://remontekt.ru/",
+        "status": 200,
+        "bytes": 48608,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/uslugi/",
+        "status": 200,
+        "bytes": 11328,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/",
+        "status": 200,
+        "bytes": 23886,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/uslugi/kapitalnyy-remont/",
+        "status": 200,
+        "bytes": 19013,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/uslugi/kosmeticheskiy-remont/",
+        "status": 200,
+        "bytes": 18431,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/uslugi/remont-novostroyki/",
+        "status": 200,
+        "bytes": 17989,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/uslugi/remont-vtorichnogo-zhilya/",
+        "status": 200,
+        "bytes": 18007,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/uslugi/remont-kommercheskih-pomeshcheniy/",
+        "status": 200,
+        "bytes": 18423,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/etapy-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 21792,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/gidroizolyatsiya-vannoy/",
+        "status": 200,
+        "bytes": 22333,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/kak-proverit-smetu/",
+        "status": 200,
+        "bytes": 21200,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/kollektornaya-razvodka-vody/",
+        "status": 200,
+        "bytes": 22111,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/kosmeticheskiy-ili-kapitalnyy-remont/",
+        "status": 200,
+        "bytes": 22545,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/oshibki-remonta-vannoy/",
+        "status": 200,
+        "bytes": 22251,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/osveshchenie-kvartiry/",
+        "status": 200,
+        "bytes": 21941,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/podgotovka-kvartiry-k-remontu/",
+        "status": 200,
+        "bytes": 21488,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/priemka-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 21807,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/remont-restorana-etapy/",
+        "status": 200,
+        "bytes": 22300,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/rozetki-pered-remontom/",
+        "status": 200,
+        "bytes": 22268,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/s-chego-nachat-remont-novostroyki/",
+        "status": 200,
+        "bytes": 21813,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/sroki-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 21681,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/stoimost-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 23034,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/zashchita-ot-protechek-neptun/",
+        "status": 200,
+        "bytes": 22411,
+        "hash": "match",
+        "csp": "enforced"
+      }
+    ],
+    "redirects": [
+      {
+        "path": "index.html",
+        "status": 301,
+        "location": "https://remontekt.ru/"
+      },
+      {
+        "path": "sovety/index.html",
+        "status": 301,
+        "location": "https://remontekt.ru/sovety/"
+      },
+      {
+        "path": "sovety/stoimost-remonta-kvartiry/index.html",
+        "status": 301,
+        "location": "https://remontekt.ru/sovety/stoimost-remonta-kvartiry/"
+      },
+      {
+        "path": "uslugi/kapitalnyy-remont/index.html",
+        "status": 301,
+        "location": "https://remontekt.ru/uslugi/kapitalnyy-remont/"
+      },
+      {
+        "path": "sovety",
+        "status": 301,
+        "location": "https://remontekt.ru/sovety/"
+      },
+      {
+        "path": "uslugi/kapitalnyy-remont",
+        "status": 301,
+        "location": "https://remontekt.ru/uslugi/kapitalnyy-remont/"
+      },
+      {
+        "url": "https://www.remontekt.ru/sovety/",
+        "status": 301,
+        "location": "https://remontekt.ru/sovety/"
+      },
+      {
+        "url": "http://remontekt.ru/sovety/",
+        "status": 301,
+        "location": "https://remontekt.ru:443/sovety/"
+      }
+    ],
+    "404": "passed",
+    "assetsAndFrozenConsent": "passed",
+    "formGet": "passed; no POST and no email sent"
+  },
+  "browser": {
+    "report": [
+      {
+        "width": 1440,
+        "pages": 6,
+        "errors": [],
+        "bad": [],
+        "csp": [],
+        "filters": "passed",
+        "formEntry": "passed",
+        "overflow": 0
+      },
+      {
+        "width": 390,
+        "pages": 6,
+        "errors": [],
+        "bad": [],
+        "csp": [],
+        "filters": "passed",
+        "formEntry": "passed",
+        "overflow": 0
+      },
+      {
+        "width": 320,
+        "pages": 6,
+        "errors": [],
+        "bad": [],
+        "csp": [],
+        "filters": "passed",
+        "formEntry": "passed",
+        "overflow": 0
+      }
+    ],
+    "noJS": "passed"
+  },
+  "normalMotionFormEntry": [
+    390,
+    1440
+  ],
+  "nested404Browser": "passed",
+  "mainDesignAndCopy": "preserved except authorized hub links",
+  "mailHandlerAndFrozenConsents": "unchanged",
+  "searchAccounts": "deferred by owner",
+  "newSearchSubmissions": "not sent",
+  "emailTest": "GET only; no email sent"
+}

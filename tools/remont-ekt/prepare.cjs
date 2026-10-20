@@ -3,6 +3,7 @@
 // Optional production export: node tools/remont-ekt/prepare.cjs --output /path/to/site
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'../..'),site=path.join(root,'mockups/remont-ekt-motion');
+const {generate,scriptHashes}=require('./seo/generate.cjs');
 const app=fs.readFileSync(path.join(site,'app.js'),'utf8');
 const data=vm.runInNewContext(app.slice(app.indexOf('const projects ='),app.indexOf('const services='))+'\nJSON.stringify({projects,reviews})');
 const {projects,reviews}=JSON.parse(data);
@@ -24,6 +25,7 @@ html=fill(html,'gallery-track',cards);
 html=fill(html,'review-track',slides);
 html=fill(html,'review-dots',dots,' role="group" aria-label="Выбрать отзыв"');
 fs.writeFileSync(path.join(site,'index.html'),html);
+generate(site,false);
 const arg=process.argv.indexOf('--output');
 if(arg!==-1){
  if(!process.argv[arg+1])throw Error('--output needs a directory');
@@ -46,11 +48,19 @@ if(arg!==-1){
  const meta=`<link rel="canonical" href="${canonical}"><meta property="og:url" content="${canonical}"><meta property="og:site_name" content="РЕМОНТ-ЕКТ"><meta property="og:image" content="${origin}/assets/hero-daylight.jpg"><meta property="og:image:width" content="1536"><meta property="og:image:height" content="1024"><meta property="og:image:alt" content="Интерьер квартиры из портфолио РЕМОНТ-ЕКТ"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">${json}</script>`;
  fs.writeFileSync(path.join(output,'index.html'),html.replace('<meta name="robots" content="noindex,follow">','<meta name="robots" content="index,follow">').replace('</head>',meta+'</head>'));
  fs.writeFileSync(path.join(output,'robots.txt'),'User-agent: *\nAllow: /\nSitemap: '+origin+'/sitemap.xml\n');
- fs.writeFileSync(path.join(output,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>'+canonical+'</loc></url></urlset>\n');
+ const editorialUrls=generate(output,true);
+ fs.writeFileSync(path.join(output,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+[canonical,...editorialUrls].map(url=>'<url><loc>'+url+'</loc><lastmod>2026-10-20</lastmod></url>').join('')+'</urlset>\n');
  const errorPage=fs.readFileSync(path.join(site,'company.html'),'utf8').replace(/<title>[^<]*<\/title>/,'<title>404 — РЕМОНТ-ЕКТ</title>').replace(/<main[\s\S]*?<\/main>/,'<main class="legal-main container" id="document"><p class="eyebrow">404</p><h1>Страница не найдена</h1><p><a href="./">РЕМОНТ-ЕКТ — главная</a></p></main>');
- fs.writeFileSync(path.join(output,'404.html'),errorPage);
- const hash=crypto.createHash('sha256').update(json).digest('base64');
- const csp=`default-src 'self'; script-src 'self' 'sha256-${hash}'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests`;
+ // ErrorDocument may be served at any depth. Keep fragment links local while
+ // resolving its styles, logo and home navigation from the site root.
+ const rootErrorPage=errorPage.replace(/\b(href|src)="([^\"]*)"/g,(all,attribute,url)=>{
+  if(/^(?:[a-z]+:|\/|#)/i.test(url))return all;
+  const absolute='/'+url.replace(/^(?:\.\/|index\.html)/,'');
+  return `${attribute}="${absolute}"`;
+ });
+ fs.writeFileSync(path.join(output,'404.html'),rootErrorPage);
+ const hashes=scriptHashes(output).map(hash=>`'sha256-${hash}'`).join(' ');
+ const csp=`default-src 'self'; script-src 'self' ${hashes}; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests`;
  fs.copyFileSync(path.join(__dirname,'apache.htaccess'),path.join(output,'.htaccess'));
  fs.writeFileSync(path.join(output,'.htaccess'),fs.readFileSync(path.join(output,'.htaccess'),'utf8').replace('{{CSP}}',csp));
  fs.copyFileSync(path.join(__dirname,'nginx.conf.example'),path.join(output,'nginx.conf.example'));

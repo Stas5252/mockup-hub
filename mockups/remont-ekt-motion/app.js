@@ -361,3 +361,8 @@ async function bootMotion(){
 bootMotion();
 let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(configureGallery,250)});
 window.addEventListener('load',()=>{if(motionAvailable)ScrollTrigger.refresh()});
+
+// Service and article pages enter the existing form without sending customer data.
+function openRequestFromHash(){if(location.hash==='#request'){closeMenu();openDialog(request)}}
+openRequestFromHash();window.addEventListener('hashchange',openRequestFromHash);
+window.addEventListener('site-ready',()=>{if(request.open)smoothScroll?.stop()});
