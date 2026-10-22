@@ -90,7 +90,7 @@ try {
   await page.keyboard.press("Escape");
   assert.equal(await page.$eval("#privacy-dialog", (e) => e.open), false);
   await page.goto(base, { waitUntil: "networkidle0" });
-  await page.type("#searchInput", "Про Цветы");
+  await page.type("#searchInput", "Pro Цветы");
   assert.equal(
     await page.$$eval(".mockup-card", (els) => els.length),
     1,
