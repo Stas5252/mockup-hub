@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#20201e" />
+    <meta
+      name="description"
+      content="Про Цветы — букеты и композиции для моментов, которые хочется запомнить. Цветы, которым не нужны слова."
+    />
+    <title>Про Цветы — цветы, которым не нужны слова</title>
+    <link rel="icon" type="image/svg+xml" href="assets/orchid.svg" />
+    <link rel="preload" as="image" href="assets/hero.webp" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#works">Перейти к букетам</a>
+    <header class="header" id="top">
+      <div class="header-inner container">
+        <a class="brand" href="#top" aria-label="Про Цветы — на главную"
+          ><img src="assets/orchid.svg" width="76" height="58" alt="" /><span
+            >Про Цветы</span
+          ></a
+        >
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-controls="main-nav"
+          aria-expanded="false"
+          aria-label="Открыть меню"
+        >
+          <span></span><span></span>
+        </button>
+        <nav class="nav-links" id="main-nav" aria-label="Основная навигация">
+          <a href="#works">Букеты</a><a href="#about">О нас</a
+          ><a href="#offer">Акции</a><a href="#contacts">Контакты</a>
+        </nav>
+        <a class="button header-cta" href="#contact">Оставить заявку</a>
+      </div>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <img
+          class="hero-image"
+          src="assets/hero.webp"
+          alt="Нежный букет из розовых пионов, роз и белых орхидей"
+          fetchpriority="high"
+          width="1536"
+          height="1024"
+        />
+        <div class="hero-shade"></div>
+        <div class="hero-inner container">
+          <div class="hero-copy">
+            <h1 id="hero-title">
+              <span>Цветы,</span><span class="second-line">которым</span
+              ><span>не нужны</span><em>слова</em>
+            </h1>
+            <img
+              class="hero-orchid"
+              src="assets/orchid.svg"
+              width="150"
+              height="116"
+              alt=""
+            />
+            <div class="hairline"></div>
+            <p>
+              Букеты и композиции<br />для моментов, которые<br />хочется
+              запомнить
+            </p>
+            <a class="button hero-cta" href="#works"
+              >Выбрать букет <span aria-hidden="true">⟶</span></a
+            >
+          </div>
+          <div
+            class="hero-pagination"
+            aria-label="Выбор букета на первом экране"
+          >
+            <div class="slide-numbers">
+              <button
+                type="button"
+                class="slide-number active"
+                data-slide="0"
+                aria-label="Букет 1"
+                aria-pressed="true"
+              >
+                01</button
+              ><span class="slide-line"></span
+              ><button
+                type="button"
+                class="slide-number"
+                data-slide="1"
+                aria-label="Букет 2"
+                aria-pressed="false"
+              >
+                02</button
+              ><button
+                type="button"
+                class="slide-number"
+                data-slide="2"
+                aria-label="Букет 3"
+                aria-pressed="false"
+              >
+                03
+              </button>
+            </div>
+            <div class="slide-arrows">
+              <button
+                type="button"
+                data-direction="-1"
+                aria-label="Предыдущий букет"
+              >
+                ‹</button
+              ><button
+                type="button"
+                data-direction="1"
+                aria-label="Следующий букет"
+              >
+                ›
+              </button>
+            </div>
+          </div>
+          <div class="hero-note">
+            <span>Больше<br />чем<br />просто<br />цветы</span>
+          </div>
+        </div>
+      </section>
+      <section
+        class="offer"
+        id="offer"
+        aria-label="Скидка 15 процентов каждую среду и воскресенье"
+      >
+        <div class="offer-art">
+          <img
+            class="offer-flowers left"
+            src="assets/flowers.png"
+            width="360"
+            height="500"
+            alt=""
+            loading="lazy"
+          /><img
+            class="offer-flowers right"
+            src="assets/flowers.png"
+            width="360"
+            height="500"
+            alt=""
+            loading="lazy"
+          />
+        </div>
+        <div class="offer-inner">
+          <p class="offer-days">Каждую среду<br />и воскресенье</p>
+          <div class="offer-rule"></div>
+          <p class="offer-amount">−15<span>%</span></p>
+          <p class="offer-description">на готовые букеты<br />и композиции</p>
+        </div>
+      </section>
+      <section class="works" id="works" aria-labelledby="works-title">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Наши работы</p>
+            <h2 id="works-title">Букеты с характером</h2>
+            <p class="section-subtitle">
+              Несколько любимых работ <span aria-hidden="true">───</span>
+            </p>
+            <span class="heading-ornament" aria-hidden="true">⌁</span>
+          </div>
+          <div class="works-grid">
+            <button
+              class="work-card"
+              type="button"
+              data-bouquet="Нежные букеты"
+            >
+              <span class="work-image"
+                ><img
+                  src="assets/work-1.webp"
+                  alt="Букет нежных пудровых роз в светлой упаковке"
+                  width="640"
+                  height="820"
+                  loading="lazy" /></span
+              ><span class="work-label"
+                >Нежные букеты <span aria-hidden="true">⟶</span></span
+              >
+            </button>
+            <button
+              class="work-card"
+              type="button"
+              data-bouquet="Авторские композиции"
+            >
+              <span class="work-image"
+                ><img
+                  src="assets/work-2.webp"
+                  alt="Авторская композиция с садовыми розами и сезонными цветами"
+                  width="640"
+                  height="820"
+                  loading="lazy" /></span
+              ><span class="work-label"
+                >Авторские композиции <span aria-hidden="true">⟶</span></span
+              >
+            </button>
+            <button
+              class="work-card"
+              type="button"
+              data-bouquet="Для особенного случая"
+            >
+              <span class="work-image"
+                ><img
+                  src="assets/work-3.webp"
+                  alt="Пышный букет розовых пионов для особенного случая"
+                  width="640"
+                  height="820"
+                  loading="lazy" /></span
+              ><span class="work-label"
+                >Для особенного случая <span aria-hidden="true">⟶</span></span
+              >
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="about" id="about" aria-labelledby="about-title">
+        <img
+          class="about-image"
+          src="assets/about.webp"
+          alt="Руки флориста, собирающего нежный букет на рабочем столе"
+          width="1536"
+          height="1024"
+          loading="lazy"
+        />
+        <div class="about-shade"></div>
+        <div class="container about-inner">
+          <p class="eyebrow">Наш подход</p>
+          <h2 id="about-title">Красота<br /><em>в деталях</em></h2>
+          <div class="about-divider"></div>
+          <p class="about-description">
+            Мы уделяем внимание каждой<br class="desktop-break" />
+            мелочи — от выбора свежих цветов<br class="desktop-break" />
+            до финальной упаковки. В наших<br class="desktop-break" />
+            букетах важна не только красота,<br class="desktop-break" />
+            но и эмоции, которые они создают.
+          </p>
+        </div>
+      </section>
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <img
+          class="contact-flowers"
+          src="assets/flowers.png"
+          alt=""
+          width="600"
+          height="830"
+          loading="lazy"
+        />
+        <div class="contact-handwritten" aria-hidden="true">
+          Цветы<br />для ваших<br />особенных<br />моментов<img
+            src="assets/orchid.svg"
+            width="110"
+            height="85"
+            alt=""
+          />
+        </div>
+        <div class="contact-content">
+          <p class="eyebrow">Свяжитесь с нами</p>
+          <h2 id="contact-title">
+            Оставьте заявку —<br />мы поможем выбрать<br /><em>цветы</em>
+          </h2>
+          <form id="enquiry">
+            <div class="form-row">
+              <label class="sr-only" for="name">Ваше имя</label
+              ><input
+                id="name"
+                name="name"
+                autocomplete="given-name"
+                placeholder="Ваше имя"
+                required
+                maxlength="80"
+              /><label class="sr-only" for="phone">Телефон</label
+              ><input
+                id="phone"
+                name="phone"
+                type="tel"
+                autocomplete="tel"
+                placeholder="Телефон"
+                pattern="[+0-9()\s\-]{10,25}"
+                title="Укажите телефон: от 10 до 25 символов, цифры, +, пробелы, скобки или дефис"
+                required
+                maxlength="25"
+              />
+            </div>
+            <label class="sr-only" for="message">Пожелания к букету</label
+            ><textarea
+              id="message"
+              name="message"
+              placeholder="Пожелания к букету"
+              rows="3"
+              maxlength="1000"
+            ></textarea
+            ><button class="button form-submit" type="submit">
+              Отправить заявку <span aria-hidden="true">⟶</span></button
+            ><label class="consent"
+              ><input name="consent" type="checkbox" required /><span
+                >Я согласен(на) на обработку персональных данных</span
+              ></label
+            >
+            <p class="form-note">
+              Демонстрационная форма. Заявки не отправляются.
+            </p>
+            <p id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+        <img
+          class="contact-corner"
+          src="assets/flowers.png"
+          alt=""
+          width="300"
+          height="420"
+          loading="lazy"
+        />
+      </section>
+    </main>
+    <footer class="footer" id="contacts">
+      <img
+        class="footer-flowers"
+        src="assets/flowers.png"
+        width="270"
+        height="370"
+        alt=""
+        loading="lazy"
+      />
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a class="brand" href="#top" aria-label="Про Цветы — на главную"
+              ><img
+                src="assets/orchid.svg"
+                width="76"
+                height="58"
+                alt=""
+              /><span>Про Цветы</span></a
+            >
+            <p>Букеты и композиции<br />для особенных моментов</p>
+          </div>
+          <nav class="footer-nav" aria-label="Навигация в подвале">
+            <a href="#works">Букеты</a><a href="#about">О нас</a
+            ><a href="#offer">Акции</a><a href="#contact">Контакты</a>
+          </nav>
+          <div class="footer-contacts">
+            <p class="eyebrow">Контакты</p>
+            <a class="footer-contact-link" href="#contact"
+              >Подобрать ваш букет <span aria-hidden="true">⟶</span></a
+            >
+            <p>Начнём с ваших пожеланий</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© ПроЦветы. Все права сохранены.</p>
+          <button class="privacy-link" type="button">
+            Политика конфиденциальности
+          </button>
+        </div>
+      </div>
+    </footer>
+    <dialog id="privacy-dialog" aria-labelledby="privacy-title">
+      <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
+      <p class="eyebrow">Про Цветы</p>
+      <h2 id="privacy-title">О ваших данных</h2>
+      <p>
+        Вы просматриваете демонстрационный макет. Сведения из формы не
+        отправляются на сервер, не сохраняются и не передаются третьим лицам.
+      </p>
+      <p>
+        После подключения приёма заявок здесь должна быть размещена политика
+        оператора персональных данных с его реквизитами, целями и условиями
+        обработки.
+      </p>
+    </dialog>
+  </body>
+</html>

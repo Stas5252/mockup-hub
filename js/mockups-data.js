@@ -5,6 +5,17 @@
 
 const MOCKUPS_DATA = [
   {
+    id: "pro-cvety",
+    title: "Про Цветы — Цветы, которым не нужны слова",
+    category: "Цветы",
+    folder: "pro-cvety",
+    description: "Романтичный макет цветочной мастерской по референсу: тёмный первый экран, пудрово-розовые акценты, коллекция букетов и форма подбора. Форма работает в демонстрационном режиме.",
+    tags: ["Цветы", "Букеты", "Флористика", "Лендинг", "Адаптивный"],
+    preview: "mockups/pro-cvety/preview/desktop.webp",
+    featured: true,
+    emoji: "🌸"
+  },
+  {
       "id": "mobix-premium",
       "title": "MOBIX — Ближе к твоему миру",
       "category": "Электроника & Apple",
