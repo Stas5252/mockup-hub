@@ -200,7 +200,7 @@ const services=[{title:'Косметический ремонт',image:'svc1',pr
 // Real company data is transcribed from the site supplied by the owner.
 $('#year').textContent=new Date().getFullYear();
 const request=$('#request-dialog'),detail=$('#detail-dialog');
-const openDialog=d=>{if(!d.open)d.showModal();smoothScroll?.stop();if(d.id==='request-dialog'&&requestIsLive)prepareRequestToken().catch(()=>{})};
+const openDialog=d=>{if(!d.open){d.showModal();if(d.id==='request-dialog')window.dispatchEvent(new Event('remontekt:request-open'))}smoothScroll?.stop();if(d.id==='request-dialog'&&requestIsLive)prepareRequestToken().catch(()=>{})};
 $$('dialog').forEach(d=>{d.setAttribute('data-lenis-prevent','');d.addEventListener('close',()=>{if(!$('dialog[open]'))smoothScroll?.start()})});
 $$('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('dialog').close()));
 $$('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target!==d)return;const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close()}));
@@ -226,12 +226,14 @@ requestForm.addEventListener('submit',async e=>{
  const data=new FormData(requestForm),name=String(data.get('name')||'').trim();
  if(!name){requestForm.elements.name.setCustomValidity('Укажите имя');requestForm.reportValidity();return}
  if(requestIsLive){
+  window.dispatchEvent(new Event('remontekt:form-submit'));
   requestBusy=true;requestSubmit.disabled=true;requestForm.setAttribute('aria-busy','true');requestStatus.hidden=false;requestStatus.textContent='Отправляем заявку…';
   try{
    const token=await prepareRequestToken();await new Promise(resolve=>setTimeout(resolve,Math.max(0,2100-(Date.now()-token.receivedAt))));
    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),20000);let response,result;
    try{response=await fetch('request.php',{method:'POST',credentials:'omit',headers:{'Content-Type':'application/json'},signal:controller.signal,body:JSON.stringify({token:token.token,requestId:token.requestId,consentVersion,name,contact:String(data.get('contact')||'').trim(),type:String(data.get('type')||''),area:String(data.get('area')||''),message:String(data.get('message')||'').trim(),consent:data.get('consent')==='on',website:String(data.get('website')||'')})});result=await response.json()}finally{clearTimeout(timer)}
    if(!response.ok||result.ok!==true){if([403,409].includes(response.status))requestToken=null;throw Error(result.message||'Не удалось отправить заявку. Попробуйте позже.')}
+   window.dispatchEvent(new Event('remontekt:lead-success'));
    requestForm.reset();requestForm.hidden=true;requestSuccess.hidden=false;$('#request-success-title').focus();requestToken=null;
   }catch(error){requestStatus.textContent=error.name==='AbortError'||error instanceof TypeError?'Отправка не подтверждена. Повторите попытку: одна и та же заявка не отправится дважды. Или напишите на dom196@list.ru.':error.message}
   finally{requestBusy=false;requestSubmit.disabled=false;requestForm.removeAttribute('aria-busy')}

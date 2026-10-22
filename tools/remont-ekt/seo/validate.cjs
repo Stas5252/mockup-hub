@@ -15,6 +15,8 @@ for(const item of [...articles,...services]){
  assert(!titles.has(item.title),'Unique visible titles');titles.add(item.title);
  assert(item.description.length>=70&&item.description.length<=240,item.slug+' description');
  assert(item.seoTitle&&item.keywords.length>=2,item.slug+' search mapping');
+ for(const date of [item.published,item.modified].filter(Boolean))assert(/^\d{4}-\d{2}-\d{2}$/.test(date)&&new Date(date).toISOString().slice(0,10)===date,item.slug+' valid date');
+ assert(!item.modified||item.modified>=item.published,item.slug+' modification follows publication');
  assert(item.sections.length>=6,item.slug+' standalone sections');
  const headings=new Set(item.sections.map(s=>s.id));assert.equal(headings.size,item.sections.length,item.slug+' unique anchors');
  assert(item.sections.every(s=>s.title&&s.paragraphs?.length>=1),item.slug+' paragraphs');

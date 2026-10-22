@@ -1,0 +1,771 @@
+{
+  "checkedAt": "2026-10-22",
+  "schemaOrg": [
+    {
+      "url": "https://remontekt.ru/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 1,
+      "types": [
+        "City",
+        "Country",
+        "HomeAndConstructionBusiness",
+        "OpeningHoursSpecification",
+        "PostalAddress",
+        "PropertyValue",
+        "WebSite"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/uslugi/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "BreadcrumbList",
+        "CollectionPage",
+        "ItemList",
+        "ListItem",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/sovety/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "BreadcrumbList",
+        "CollectionPage",
+        "ItemList",
+        "ListItem",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/uslugi/kapitalnyy-remont/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "BreadcrumbList",
+        "City",
+        "HomeAndConstructionBusiness",
+        "ListItem",
+        "Service",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/uslugi/kosmeticheskiy-remont/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "BreadcrumbList",
+        "City",
+        "HomeAndConstructionBusiness",
+        "ListItem",
+        "Service",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/uslugi/remont-novostroyki/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "BreadcrumbList",
+        "City",
+        "HomeAndConstructionBusiness",
+        "ListItem",
+        "Service",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/uslugi/remont-vtorichnogo-zhilya/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "BreadcrumbList",
+        "City",
+        "HomeAndConstructionBusiness",
+        "ListItem",
+        "Service",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/uslugi/remont-kommercheskih-pomeshcheniy/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "BreadcrumbList",
+        "City",
+        "HomeAndConstructionBusiness",
+        "ListItem",
+        "Service",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/sovety/etapy-remonta-kvartiry/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "Article",
+        "BreadcrumbList",
+        "ImageObject",
+        "ListItem",
+        "Organization",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/sovety/gidroizolyatsiya-vannoy/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "Article",
+        "BreadcrumbList",
+        "ImageObject",
+        "ListItem",
+        "Organization",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/sovety/kak-proverit-smetu/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "Article",
+        "BreadcrumbList",
+        "ImageObject",
+        "ListItem",
+        "Organization",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/sovety/kollektornaya-razvodka-vody/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "Article",
+        "BreadcrumbList",
+        "ImageObject",
+        "ListItem",
+        "Organization",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/sovety/kosmeticheskiy-ili-kapitalnyy-remont/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "Article",
+        "BreadcrumbList",
+        "ImageObject",
+        "ListItem",
+        "Organization",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/sovety/oshibki-remonta-vannoy/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "Article",
+        "BreadcrumbList",
+        "ImageObject",
+        "ListItem",
+        "Organization",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/sovety/osveshchenie-kvartiry/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "Article",
+        "BreadcrumbList",
+        "ImageObject",
+        "ListItem",
+        "Organization",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/sovety/podgotovka-kvartiry-k-remontu/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "Article",
+        "BreadcrumbList",
+        "ImageObject",
+        "ListItem",
+        "Organization",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/sovety/priemka-remonta-kvartiry/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "Article",
+        "BreadcrumbList",
+        "ImageObject",
+        "ListItem",
+        "Organization",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/sovety/remont-restorana-etapy/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "Article",
+        "BreadcrumbList",
+        "ImageObject",
+        "ListItem",
+        "Organization",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/sovety/rozetki-pered-remontom/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "Article",
+        "BreadcrumbList",
+        "ImageObject",
+        "ListItem",
+        "Organization",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/sovety/s-chego-nachat-remont-novostroyki/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "Article",
+        "BreadcrumbList",
+        "ImageObject",
+        "ListItem",
+        "Organization",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/sovety/sroki-remonta-kvartiry/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "Article",
+        "BreadcrumbList",
+        "ImageObject",
+        "ListItem",
+        "Organization",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/sovety/stoimost-remonta-kvartiry/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "Article",
+        "BreadcrumbList",
+        "ImageObject",
+        "ListItem",
+        "Organization",
+        "Thing"
+      ]
+    },
+    {
+      "url": "https://remontekt.ru/sovety/zashchita-ot-protechek-neptun/",
+      "status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "objects": 2,
+      "types": [
+        "Article",
+        "BreadcrumbList",
+        "ImageObject",
+        "ListItem",
+        "Organization",
+        "Thing"
+      ]
+    }
+  ],
+  "richResults": {
+    "status": "blocked by service login requirement",
+    "message": "Something went wrong / Log in and try again",
+    "url": "https://search.google.com/test/rich-results"
+  },
+  "browser": [
+    {
+      "width": 1440,
+      "height": 900,
+      "projects": 15,
+      "reviews": 6,
+      "errors": [],
+      "bad": [],
+      "overflow": 0
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "projects": 15,
+      "reviews": 6,
+      "errors": [],
+      "bad": [],
+      "overflow": 0
+    },
+    {
+      "width": 320,
+      "height": 640,
+      "projects": 15,
+      "reviews": 6,
+      "errors": [],
+      "bad": [],
+      "overflow": 0
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "projects": 15,
+      "reviews": 6,
+      "errors": [],
+      "bad": [],
+      "overflow": 0
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "reducedMotion": "reduce",
+      "projects": 15,
+      "reviews": 6,
+      "errors": [],
+      "bad": [],
+      "overflow": 0
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "javaScriptEnabled": false,
+      "projects": 15,
+      "reviews": 6,
+      "errors": [],
+      "bad": [],
+      "overflow": 0
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "blockMotion": true,
+      "projects": 15,
+      "reviews": 6,
+      "errors": [],
+      "bad": [],
+      "overflow": 0
+    }
+  ],
+  "visual": [
+    {
+      "width": 390,
+      "hero": "identical geometry and phase states",
+      "overflow": 0
+    },
+    {
+      "width": 1440,
+      "hero": "identical geometry and phase states",
+      "overflow": 0
+    }
+  ],
+  "crawl": {
+    "pages": 23,
+    "resources": 68,
+    "errors": []
+  },
+  "preservation": {
+    "assetFilesCompared": 55,
+    "allIdentical": true,
+    "unchanged": [
+      "style.css",
+      "editorial.css",
+      "request.php",
+      "consent-2026-10-14.html",
+      "consent-2026-10-14-mail.html"
+    ]
+  },
+  "references": [
+    {
+      "url": "https://neptunsale.ru/neptun-support-master",
+      "status": 200,
+      "finalUrl": "https://neptunsale.ru/neptun-support-master"
+    },
+    {
+      "url": "https://sst.ru/press/about-us/reliable-protection-from-water-leaks/",
+      "status": 200,
+      "finalUrl": "https://sst.ru/press/about-us/reliable-protection-from-water-leaks/"
+    },
+    {
+      "url": "https://valtec.ru/document/technical/techdoc/technical-scheme.html",
+      "status": 200,
+      "finalUrl": "https://valtec.ru/document/technical/techdoc/technical-scheme.html"
+    },
+    {
+      "url": "https://www.iek.ru/solutions/cards/detail/kvartira/",
+      "status": 200,
+      "finalUrl": "https://www.iek.ru/solutions/cards/detail/kvartira/"
+    },
+    {
+      "url": "https://www.knauf.ru/service/blog/kak-vypolnit-gidroizoljaciju-sanuzla-bez-oshibok/",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "analytics": {
+    "configured": false,
+    "ids": null,
+    "sdkLoaded": false,
+    "adapterTests": "passed",
+    "interceptedFailureSuccessFlow": "passed; no real email"
+  },
+  "publication": "activated; all 23 live HTML hashes, canonical redirects, enforced CSP, 404, proof/consent/assets and form GET passed",
+  "liveHTTP": {
+    "pages": [
+      {
+        "url": "https://remontekt.ru/",
+        "status": 200,
+        "bytes": 49059,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/uslugi/",
+        "status": 200,
+        "bytes": 11439,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/",
+        "status": 200,
+        "bytes": 23997,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/uslugi/kapitalnyy-remont/",
+        "status": 200,
+        "bytes": 19130,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/uslugi/kosmeticheskiy-remont/",
+        "status": 200,
+        "bytes": 18548,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/uslugi/remont-novostroyki/",
+        "status": 200,
+        "bytes": 18106,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/uslugi/remont-vtorichnogo-zhilya/",
+        "status": 200,
+        "bytes": 18124,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/uslugi/remont-kommercheskih-pomeshcheniy/",
+        "status": 200,
+        "bytes": 18540,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/etapy-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 21909,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/gidroizolyatsiya-vannoy/",
+        "status": 200,
+        "bytes": 22450,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/kak-proverit-smetu/",
+        "status": 200,
+        "bytes": 21317,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/kollektornaya-razvodka-vody/",
+        "status": 200,
+        "bytes": 22228,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/kosmeticheskiy-ili-kapitalnyy-remont/",
+        "status": 200,
+        "bytes": 22662,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/oshibki-remonta-vannoy/",
+        "status": 200,
+        "bytes": 22368,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/osveshchenie-kvartiry/",
+        "status": 200,
+        "bytes": 22058,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/podgotovka-kvartiry-k-remontu/",
+        "status": 200,
+        "bytes": 21605,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/priemka-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 21924,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/remont-restorana-etapy/",
+        "status": 200,
+        "bytes": 22417,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/rozetki-pered-remontom/",
+        "status": 200,
+        "bytes": 22385,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/s-chego-nachat-remont-novostroyki/",
+        "status": 200,
+        "bytes": 21930,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/sroki-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 21798,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/stoimost-remonta-kvartiry/",
+        "status": 200,
+        "bytes": 23151,
+        "hash": "match",
+        "csp": "enforced"
+      },
+      {
+        "url": "https://remontekt.ru/sovety/zashchita-ot-protechek-neptun/",
+        "status": 200,
+        "bytes": 22528,
+        "hash": "match",
+        "csp": "enforced"
+      }
+    ],
+    "redirects": [
+      {
+        "path": "index.html",
+        "status": 301,
+        "location": "https://remontekt.ru/"
+      },
+      {
+        "path": "sovety/index.html",
+        "status": 301,
+        "location": "https://remontekt.ru/sovety/"
+      },
+      {
+        "path": "sovety/stoimost-remonta-kvartiry/index.html",
+        "status": 301,
+        "location": "https://remontekt.ru/sovety/stoimost-remonta-kvartiry/"
+      },
+      {
+        "path": "uslugi/kapitalnyy-remont/index.html",
+        "status": 301,
+        "location": "https://remontekt.ru/uslugi/kapitalnyy-remont/"
+      },
+      {
+        "path": "sovety",
+        "status": 301,
+        "location": "https://remontekt.ru/sovety/"
+      },
+      {
+        "path": "uslugi/kapitalnyy-remont",
+        "status": 301,
+        "location": "https://remontekt.ru/uslugi/kapitalnyy-remont/"
+      },
+      {
+        "url": "https://www.remontekt.ru/sovety/",
+        "status": 301,
+        "location": "https://remontekt.ru/sovety/"
+      },
+      {
+        "url": "http://remontekt.ru/sovety/",
+        "status": 301,
+        "location": "https://remontekt.ru:443/sovety/"
+      }
+    ],
+    "404": "passed",
+    "assetsAndFrozenConsent": "passed",
+    "formGet": "passed; no POST and no email sent"
+  },
+  "liveBrowser": [
+    {
+      "width": 390,
+      "motion": "passed",
+      "filters": "passed",
+      "projectDialog": "passed",
+      "requestDeepLink": "passed",
+      "consent": "unchecked",
+      "errors": [],
+      "bad": [],
+      "posts": [],
+      "csp": []
+    },
+    {
+      "width": 1440,
+      "motion": "passed",
+      "filters": "passed",
+      "projectDialog": "passed",
+      "requestDeepLink": "passed",
+      "consent": "unchecked",
+      "errors": [],
+      "bad": [],
+      "posts": [],
+      "csp": []
+    }
+  ],
+  "tests": {
+    "nodeTestRunner": "9/9 passed (6 publication + 3 metadata)",
+    "sourceValidation": "passed",
+    "productionBuild": "passed",
+    "analyticsPrivacy": "passed",
+    "analyticsInterceptedFormFlow": "passed",
+    "performanceStartup": "passed",
+    "freshCodeReview": "one Important robots-header issue fixed RED→GREEN; full suite passed",
+    "realEmailSent": false
+  },
+  "lighthouse": {
+    "performance": 96.0,
+    "seoAutomated": 100,
+    "largest-contentful-paint": 1908.969,
+    "first-contentful-paint": 1731.469,
+    "total-blocking-time": 152,
+    "cumulative-layout-shift": 5.446866129088692e-05,
+    "total-byte-weight": 971610,
+    "scope": "Single production mobile lab run on 2026-10-22; not field p75 or proof of a causal improvement versus earlier snapshots."
+  },
+  "indexNow": {
+    "mode": "submitted",
+    "status": 202,
+    "keyVerificationPending": true,
+    "urls": [
+      "https://remontekt.ru/",
+      "https://remontekt.ru/uslugi/",
+      "https://remontekt.ru/sovety/",
+      "https://remontekt.ru/uslugi/kapitalnyy-remont/",
+      "https://remontekt.ru/uslugi/kosmeticheskiy-remont/",
+      "https://remontekt.ru/uslugi/remont-novostroyki/",
+      "https://remontekt.ru/uslugi/remont-vtorichnogo-zhilya/",
+      "https://remontekt.ru/uslugi/remont-kommercheskih-pomeshcheniy/",
+      "https://remontekt.ru/sovety/etapy-remonta-kvartiry/",
+      "https://remontekt.ru/sovety/gidroizolyatsiya-vannoy/",
+      "https://remontekt.ru/sovety/kak-proverit-smetu/",
+      "https://remontekt.ru/sovety/kollektornaya-razvodka-vody/",
+      "https://remontekt.ru/sovety/kosmeticheskiy-ili-kapitalnyy-remont/",
+      "https://remontekt.ru/sovety/oshibki-remonta-vannoy/",
+      "https://remontekt.ru/sovety/osveshchenie-kvartiry/",
+      "https://remontekt.ru/sovety/podgotovka-kvartiry-k-remontu/",
+      "https://remontekt.ru/sovety/priemka-remonta-kvartiry/",
+      "https://remontekt.ru/sovety/remont-restorana-etapy/",
+      "https://remontekt.ru/sovety/rozetki-pered-remontom/",
+      "https://remontekt.ru/sovety/s-chego-nachat-remont-novostroyki/",
+      "https://remontekt.ru/sovety/sroki-remonta-kvartiry/",
+      "https://remontekt.ru/sovety/stoimost-remonta-kvartiry/",
+      "https://remontekt.ru/sovety/zashchita-ot-protechek-neptun/"
+    ],
+    "repeatCheck": "unchanged, zero URLs, zero new submission"
+  }
+}

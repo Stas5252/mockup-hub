@@ -3,7 +3,7 @@
 // Optional production export: node tools/remont-ekt/prepare.cjs --output /path/to/site
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'../..'),site=path.join(root,'mockups/remont-ekt-motion');
-const {generate,scriptHashes}=require('./seo/generate.cjs');
+const {generate,scriptHashes,pageDates}=require('./seo/generate.cjs');
 const app=fs.readFileSync(path.join(site,'app.js'),'utf8');
 const data=vm.runInNewContext(app.slice(app.indexOf('const projects ='),app.indexOf('const services='))+'\nJSON.stringify({projects,reviews})');
 const {projects,reviews}=JSON.parse(data);
@@ -44,12 +44,12 @@ if(arg!==-1){
   openingHoursSpecification:{'@type':'OpeningHoursSpecification',dayOfWeek:['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],opens:'09:00',closes:'21:00'},
   sameAs:['https://t.me/remontekt','https://2gis.ru/ekaterinburg/geo/70000001006578256','https://yandex.ru/navi/org/remont_yekt/216407043353']
  };
- const json=JSON.stringify(schema).replace(/</g,'\\u003c');
- const meta=`<link rel="canonical" href="${canonical}"><meta property="og:url" content="${canonical}"><meta property="og:site_name" content="РЕМОНТ-ЕКТ"><meta property="og:image" content="${origin}/assets/hero-daylight.jpg"><meta property="og:image:width" content="1536"><meta property="og:image:height" content="1024"><meta property="og:image:alt" content="Интерьер квартиры из портфолио РЕМОНТ-ЕКТ"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">${json}</script>`;
+ const json=JSON.stringify({'@context':'https://schema.org','@graph':[schema,{'@type':'WebSite','@id':canonical+'#website',url:canonical,name:'РЕМОНТ-ЕКТ',inLanguage:'ru-RU',publisher:{'@id':canonical+'#business'}}]}).replace(/</g,'\\u003c');
+ const meta=`<link rel="canonical" href="${canonical}"><meta property="og:url" content="${canonical}"><meta property="og:site_name" content="РЕМОНТ-ЕКТ"><meta property="og:image" content="${origin}/assets/hero-daylight.jpg"><meta property="og:image:width" content="1593"><meta property="og:image:height" content="987"><meta property="og:image:alt" content="Светлый интерьер на главной странице РЕМОНТ-ЕКТ"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">${json}</script>`;
  fs.writeFileSync(path.join(output,'index.html'),html.replace('<meta name="robots" content="noindex,follow">','<meta name="robots" content="index,follow">').replace('</head>',meta+'</head>'));
  fs.writeFileSync(path.join(output,'robots.txt'),'User-agent: *\nAllow: /\nSitemap: '+origin+'/sitemap.xml\n');
  const editorialUrls=generate(output,true);
- fs.writeFileSync(path.join(output,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+[canonical,...editorialUrls].map(url=>'<url><loc>'+url+'</loc><lastmod>2026-10-20</lastmod></url>').join('')+'</urlset>\n');
+ fs.writeFileSync(path.join(output,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+[canonical,...editorialUrls].map(url=>'<url><loc>'+url+'</loc>'+(pageDates()[new URL(url).pathname]?'<lastmod>'+pageDates()[new URL(url).pathname]+'</lastmod>':'')+'</url>').join('')+'</urlset>\n');
  const errorPage=fs.readFileSync(path.join(site,'company.html'),'utf8').replace(/<title>[^<]*<\/title>/,'<title>404 — РЕМОНТ-ЕКТ</title>').replace(/<main[\s\S]*?<\/main>/,'<main class="legal-main container" id="document"><p class="eyebrow">404</p><h1>Страница не найдена</h1><p><a href="./">РЕМОНТ-ЕКТ — главная</a></p></main>');
  // ErrorDocument may be served at any depth. Keep fragment links local while
  // resolving its styles, logo and home navigation from the site root.
