@@ -1,0 +1,368 @@
+{
+  "checkedAt": "2026-10-23",
+  "pages": [
+    {
+      "url": "https://remontekt.ru/",
+      "status": 200,
+      "title": "Ремонт квартир в Екатеринбурге под ключ — РЕМОНТ-ЕКТ",
+      "description": "Ремонт квартир, домов и коммерческих помещений в Екатеринбурге с 2015 года. Смета в договоре, собственные бригады и личный контроль. Обсудите ваш объект.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/uslugi/",
+      "status": 200,
+      "title": "Услуги по ремонту в Екатеринбурге — РЕМОНТ-ЕКТ",
+      "description": "Услуги РЕМОНТ-ЕКТ в Екатеринбурге: капитальный и косметический ремонт, новостройки, вторичное жильё и коммерческие помещения. Обсудите свой объект.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/uslugi/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/sovety/",
+      "status": 200,
+      "title": "Советы по ремонту квартиры — РЕМОНТ-ЕКТ",
+      "description": "Планирование ремонта, смета, сроки, приёмка, электрика и сантехника. Практические материалы РЕМОНТ-ЕКТ с фотографиями реальных объектов.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/sovety/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/uslugi/kapitalnyy-remont/",
+      "status": 200,
+      "title": "Капитальный ремонт квартир в Екатеринбурге — РЕМОНТ-ЕКТ",
+      "description": "Капитальный ремонт квартиры в Екатеринбурге: подготовка оснований, инженерные сети и отделка. Обсудите объект, замер и подробную смету с РЕМОНТ-ЕКТ.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/uslugi/kapitalnyy-remont/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/uslugi/kosmeticheskiy-remont/",
+      "status": 200,
+      "title": "Косметический ремонт квартир в Екатеринбурге — РЕМОНТ-ЕКТ",
+      "description": "Косметический ремонт квартиры в Екатеринбурге: обновление отделки с сохранением пригодных элементов. Узнайте состав работ и обсудите смету с РЕМОНТ-ЕКТ.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/uslugi/kosmeticheskiy-remont/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/uslugi/remont-novostroyki/",
+      "status": 200,
+      "title": "Ремонт квартир в новостройках Екатеринбурга — РЕМОНТ-ЕКТ",
+      "description": "Ремонт новостройки в Екатеринбурге: подготовка задания, инженерия, основания и чистовая отделка. Обсудите с РЕМОНТ-ЕКТ план квартиры и расчёт работ.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/uslugi/remont-novostroyki/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/uslugi/remont-vtorichnogo-zhilya/",
+      "status": 200,
+      "title": "Ремонт квартир во вторичном жилье в Екатеринбурге — РЕМОНТ-ЕКТ",
+      "description": "Ремонт вторичной квартиры в Екатеринбурге: обследование исходного состояния, демонтаж, инженерные задачи и отделка. Обсудите объект и смету с РЕМОНТ-ЕКТ.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/uslugi/remont-vtorichnogo-zhilya/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/uslugi/remont-kommercheskih-pomeshcheniy/",
+      "status": 200,
+      "title": "Ремонт коммерческих помещений в Екатеринбурге — РЕМОНТ-ЕКТ",
+      "description": "Ремонт коммерческих помещений в Екатеринбурге: отделка и инженерные задачи под формат бизнеса. Реальные фотографии ресторанных объектов РЕМОНТ-ЕКТ.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/uslugi/remont-kommercheskih-pomeshcheniy/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/sovety/etapy-remonta-kvartiry/",
+      "status": 200,
+      "title": "Этапы ремонта квартиры: от обмеров до приёмки — РЕМОНТ-ЕКТ",
+      "description": "Разбираем последовательность ремонта квартиры, зависимость отделки от инженерных работ и контрольные точки, которые стоит согласовать с подрядчиком.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/sovety/etapy-remonta-kvartiry/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/sovety/gidroizolyatsiya-vannoy/",
+      "status": 200,
+      "title": "Гидроизоляция ванной: что проверить заказчику — РЕМОНТ-ЕКТ",
+      "description": "Зачем нужна гидроизоляция под отделкой, как проверяют совместимость материалов, примыкания и проходы труб и что фиксируют до укладки плитки.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/sovety/gidroizolyatsiya-vannoy/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/sovety/kak-proverit-smetu/",
+      "status": 200,
+      "title": "Как проверить смету на ремонт квартиры — РЕМОНТ-ЕКТ",
+      "description": "Проверка сметы без строительного опыта: единицы измерения, объёмы, состав операций, материалы, дополнительные работы и сопоставимость предложений.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/sovety/kak-proverit-smetu/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/sovety/kollektornaya-razvodka-vody/",
+      "status": 200,
+      "title": "Коллекторная разводка ХВС и ГВС: что нужно знать — РЕМОНТ-ЕКТ",
+      "description": "Как устроена коллекторная разводка воды, когда она уместна и что согласовать по размещению оборудования, доступу, маркировке и обслуживанию узла.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/sovety/kollektornaya-razvodka-vody/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/sovety/kosmeticheskiy-ili-kapitalnyy-remont/",
+      "status": 200,
+      "title": "Косметический или капитальный ремонт: что выбрать — РЕМОНТ-ЕКТ",
+      "description": "Как определить нужный объём ремонта по состоянию оснований, электрики и водоснабжения. Отличия косметического и капитального ремонта на примерах задач.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/sovety/kosmeticheskiy-ili-kapitalnyy-remont/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/sovety/oshibki-remonta-vannoy/",
+      "status": 200,
+      "title": "Ошибки при ремонте ванной: что предусмотреть заранее — РЕМОНТ-ЕКТ",
+      "description": "Планировка, хранение, доступ к коммуникациям, вентиляция и стыки материалов: частые ошибки ремонта ванной, которые проще предупредить до отделки.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/sovety/oshibki-remonta-vannoy/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/sovety/osveshchenie-kvartiry/",
+      "status": 200,
+      "title": "Как продумать освещение квартиры до ремонта — РЕМОНТ-ЕКТ",
+      "description": "Рабочий, общий и вечерний свет: как связать освещение квартиры с планировкой, мебелью, выключателями и доступом к оборудованию подсветки.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/sovety/osveshchenie-kvartiry/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/sovety/podgotovka-kvartiry-k-remontu/",
+      "status": 200,
+      "title": "Как подготовить квартиру к началу ремонта — РЕМОНТ-ЕКТ",
+      "description": "Что подготовить до выхода бригады: доступ, вещи, документы, обмеры, решения по мебели, условия дома и рабочую связь с подрядчиком.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/sovety/podgotovka-kvartiry-k-remontu/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/sovety/priemka-remonta-kvartiry/",
+      "status": 200,
+      "title": "Что проверять при приёмке ремонта квартиры — РЕМОНТ-ЕКТ",
+      "description": "Практический список для приёмки ремонта: этапные проверки, поверхности, двери, сантехника, электрика, документы и фиксация замечаний.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/sovety/priemka-remonta-kvartiry/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/sovety/remont-restorana-etapy/",
+      "status": 200,
+      "title": "Ремонт ресторана: отделка, инженерия и этапы работ — РЕМОНТ-ЕКТ",
+      "description": "С чего начинать ремонт ресторана: задачи бизнеса, технологическое оборудование, инженерные сети, материалы и согласование графика перед открытием.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/sovety/remont-restorana-etapy/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/sovety/rozetki-pered-remontom/",
+      "status": 200,
+      "title": "Как спланировать розетки перед ремонтом квартиры — РЕМОНТ-ЕКТ",
+      "description": "План розеток от мебели и техники: кухня, спальня, рабочее место и бытовые сценарии. Какие исходные данные передать электрику до начала отделки.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/sovety/rozetki-pered-remontom/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/sovety/s-chego-nachat-remont-novostroyki/",
+      "status": 200,
+      "title": "С чего начать ремонт квартиры в новостройке — РЕМОНТ-ЕКТ",
+      "description": "План подготовки ремонта новостройки: исходное состояние квартиры, обмеры, мебель, инженерные решения, смета и последовательность согласований.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/sovety/s-chego-nachat-remont-novostroyki/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/sovety/sroki-remonta-kvartiry/",
+      "status": 200,
+      "title": "Сколько длится ремонт квартиры и от чего зависят сроки — РЕМОНТ-ЕКТ",
+      "description": "Как планируют сроки ремонта: состояние квартиры, технологические паузы, поставки, решения заказчика и связь графика работ с закупкой материалов.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/sovety/sroki-remonta-kvartiry/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/sovety/stoimost-remonta-kvartiry/",
+      "status": 200,
+      "title": "Сколько стоит ремонт квартиры в Екатеринбурге — РЕМОНТ-ЕКТ",
+      "description": "Из чего складывается стоимость ремонта квартиры: состав сметы, материалы, инженерия и сравнение предложений подрядчиков в Екатеринбурге.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/sovety/stoimost-remonta-kvartiry/"
+      ],
+      "issues": []
+    },
+    {
+      "url": "https://remontekt.ru/sovety/zashchita-ot-protechek-neptun/",
+      "status": 200,
+      "title": "Защита от протечек «Нептун»: как выбрать систему — РЕМОНТ-ЕКТ",
+      "description": "Из чего состоит защита от протечек Neptun, как подобрать совместимые краны и датчики, предусмотреть питание, доступ и проверку работоспособности.",
+      "h1": 1,
+      "canonical": [
+        "https://remontekt.ru/sovety/zashchita-ot-protechek-neptun/"
+      ],
+      "issues": []
+    }
+  ],
+  "issues": [],
+  "incomingLinks": {
+    "https://remontekt.ru/": 114,
+    "https://remontekt.ru/uslugi/": 49,
+    "https://remontekt.ru/sovety/": 60,
+    "https://remontekt.ru/uslugi/kapitalnyy-remont/": 8,
+    "https://remontekt.ru/uslugi/kosmeticheskiy-remont/": 3,
+    "https://remontekt.ru/uslugi/remont-novostroyki/": 4,
+    "https://remontekt.ru/uslugi/remont-vtorichnogo-zhilya/": 3,
+    "https://remontekt.ru/uslugi/remont-kommercheskih-pomeshcheniy/": 2,
+    "https://remontekt.ru/sovety/etapy-remonta-kvartiry/": 5,
+    "https://remontekt.ru/sovety/gidroizolyatsiya-vannoy/": 3,
+    "https://remontekt.ru/sovety/kak-proverit-smetu/": 4,
+    "https://remontekt.ru/sovety/kollektornaya-razvodka-vody/": 4,
+    "https://remontekt.ru/sovety/kosmeticheskiy-ili-kapitalnyy-remont/": 6,
+    "https://remontekt.ru/sovety/oshibki-remonta-vannoy/": 4,
+    "https://remontekt.ru/sovety/osveshchenie-kvartiry/": 6,
+    "https://remontekt.ru/sovety/podgotovka-kvartiry-k-remontu/": 3,
+    "https://remontekt.ru/sovety/priemka-remonta-kvartiry/": 5,
+    "https://remontekt.ru/sovety/remont-restorana-etapy/": 2,
+    "https://remontekt.ru/sovety/rozetki-pered-remontom/": 3,
+    "https://remontekt.ru/sovety/s-chego-nachat-remont-novostroyki/": 5,
+    "https://remontekt.ru/sovety/sroki-remonta-kvartiry/": 3,
+    "https://remontekt.ru/sovety/stoimost-remonta-kvartiry/": 5,
+    "https://remontekt.ru/sovety/zashchita-ot-protechek-neptun/": 5
+  },
+  "maxDepth": 2,
+  "robots": "User-agent: *\nAllow: /\nSitemap: https://remontekt.ru/sitemap.xml\n",
+  "analytics": "local config disabled; no provider IDs",
+  "scope": "HTTP/HTML/link structure; not proof of search engine indexing or real traffic",
+  "keywordMapDriftCorrected": [
+    {
+      "query": "ремонт квартир Екатеринбург",
+      "url": "https://remontekt.ru/",
+      "field": "Description"
+    },
+    {
+      "query": "Ремонт-ЕКТ",
+      "url": "https://remontekt.ru/",
+      "field": "Description"
+    },
+    {
+      "query": "ремонт и отделка квартир Екатеринбург",
+      "url": "https://remontekt.ru/",
+      "field": "Description"
+    },
+    {
+      "query": "ремонт квартир Екб",
+      "url": "https://remontekt.ru/",
+      "field": "Description"
+    },
+    {
+      "query": "ремонт квартир под ключ Екатеринбург",
+      "url": "https://remontekt.ru/",
+      "field": "Description"
+    }
+  ],
+  "remainingKeywordMapDrift": [],
+  "connections": {
+    "searchconsole": false,
+    "googleanalytics4": false,
+    "yandex_metrica": false,
+    "yandex_webmaster": "No authenticated management tool/session available"
+  },
+  "universalSeoMaster": {
+    "found": false,
+    "searched": [
+      "available skill catalog",
+      "workspace skills and project instructions"
+    ],
+    "fallback": "Existing user-supplied 17-stage SEO brief; did not claim named skill applied"
+  },
+  "publicSearch": {
+    "queries": [
+      "site:remontekt.ru",
+      "\"remontekt.ru\" \"ремонт\"",
+      "\"РЕМОНТ-ЕКТ\" \"Тверитина\""
+    ],
+    "result": "Company directories found; domain indexing not established by available search results. Not proof of absence from Google/Yandex.",
+    "sources": [
+      "https://rting.ru/ekaterinburg/co/remont-ekt/453528",
+      "https://ekaterinburg.spravka.city/company/remont-ekt"
+    ]
+  },
+  "lighthouse": {
+    "performance": 73,
+    "seoAutomated": 100,
+    "lcpMs": 3421,
+    "tbtMs": 570,
+    "cls": 0,
+    "scope": "Single mobile production lab run; not field CWV or proof of rankings.",
+    "warnings": [
+      "The tested device appears to have a slower CPU than  Lighthouse expects. This can negatively affect your performance score. Learn more about [calibrating an appropriate CPU slowdown multiplier](https://github.com/GoogleChrome/lighthouse/blob/main/docs/throttling.md#cpu-throttling)."
+    ],
+    "benchmarkIndex": 383.5
+  },
+  "sourceTests": "9/9 Node tests + source validation and production build passed",
+  "lighthouseRepeat": {
+    "performance": 37,
+    "seoAutomated": 100,
+    "lcpMs": 4927,
+    "tbtMs": 71764,
+    "cls": 0,
+    "scope": "Repeat with no parallel test suite; still a single lab run, not field CWV.",
+    "warnings": [
+      "The tested device appears to have a slower CPU than  Lighthouse expects. This can negatively affect your performance score. Learn more about [calibrating an appropriate CPU slowdown multiplier](https://github.com/GoogleChrome/lighthouse/blob/main/docs/throttling.md#cpu-throttling)."
+    ],
+    "benchmarkIndex": 705
+  },
+  "speedFinding": "Laboratory results are not stable. Repeat explicitly warned about slower-than-expected CPU; calibration/independent field measurements required before attributing regression to the website. Raw scores retained, not presented as stable production CWV."
+}
