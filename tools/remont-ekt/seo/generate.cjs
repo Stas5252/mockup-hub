@@ -51,6 +51,15 @@ function generate(site,production=false){
  for(const [r,html]of pages){const dir=path.join(site,r);fs.mkdirSync(dir,{recursive:true});fs.writeFileSync(path.join(dir,'index.html'),html)}
  return pages.map(([r])=>url(r));
 }
+function homeArticles(){
+ const selection=[['stoimost-remonta-kvartiry',1],['s-chego-nachat-remont-novostroyki',0],['priemka-remonta-kvartiry',0]];
+ const cards=selection.map(([slug,photoIndex])=>{
+  const item=articleMap.get(slug);if(!item)throw Error('Missing featured article: '+slug);
+  const photo=item.images[photoIndex];
+  return `<article class="home-article"><a class="home-article-link" href="sovety/${e(slug)}/"><div class="home-article-photo"><img src="assets/${e(photo.src)}" alt="${e(photo.alt)}" width="${photo.width}" height="${photo.height}" loading="lazy" decoding="async"></div><h3>${e(item.title)}</h3><span class="home-article-more">Читать статью <span aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></svg></span></span></a></article>`;
+ }).join('');
+ return `<section class="home-articles section container" id="articles" aria-labelledby="articles-title"><div class="split-heading"><p class="eyebrow">Полезные статьи</p><h2 class="title" id="articles-title">Советы<br><span>по ремонту.</span></h2></div><div class="home-articles-grid">${cards}</div><div class="home-articles-all"><a class="button" href="sovety/">Смотреть все <span aria-hidden="true">→</span></a></div></section>`;
+}
 function pageDates(){
  const result={...JSON.parse(fs.readFileSync(path.join(__dirname,'site-dates.json'),'utf8'))};
  for(const [type,items] of [['sovety',articles],['uslugi',services]]){
@@ -67,5 +76,5 @@ function scriptHashes(site){
  const hashes=new Set();for(const f of files)for(const match of fs.readFileSync(f,'utf8').matchAll(/<script\b(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g))hashes.add(crypto.createHash('sha256').update(match[1]).digest('base64'));
  return [...hashes];
 }
-module.exports={generate,scriptHashes,pageDates,articles,services};
+module.exports={generate,scriptHashes,pageDates,homeArticles,articles,services};
 if(require.main===module){const site=path.resolve(__dirname,'../../../mockups/remont-ekt-motion');console.log('Generated',generate(site,false).length,'preview editorial pages.');}

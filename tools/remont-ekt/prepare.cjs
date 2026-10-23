@@ -3,7 +3,7 @@
 // Optional production export: node tools/remont-ekt/prepare.cjs --output /path/to/site
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'../..'),site=path.join(root,'mockups/remont-ekt-motion');
-const {generate,scriptHashes,pageDates}=require('./seo/generate.cjs');
+const {generate,scriptHashes,pageDates,homeArticles}=require('./seo/generate.cjs');
 const app=fs.readFileSync(path.join(site,'app.js'),'utf8');
 const data=vm.runInNewContext(app.slice(app.indexOf('const projects ='),app.indexOf('const services='))+'\nJSON.stringify({projects,reviews})');
 const {projects,reviews}=JSON.parse(data);
@@ -24,6 +24,9 @@ let html=fs.readFileSync(path.join(site,'index.html'),'utf8');
 html=fill(html,'gallery-track',cards);
 html=fill(html,'review-track',slides);
 html=fill(html,'review-dots',dots,' role="group" aria-label="Выбрать отзыв"');
+const featured=/<!-- home-articles:start -->[\s\S]*?<!-- home-articles:end -->/;
+if(!featured.test(html))throw Error('Missing featured articles slot');
+html=html.replace(featured,'<!-- home-articles:start -->\n'+homeArticles()+'\n<!-- home-articles:end -->');
 fs.writeFileSync(path.join(site,'index.html'),html);
 generate(site,false);
 const arg=process.argv.indexOf('--output');
