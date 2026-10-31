@@ -7,7 +7,7 @@ const temp=fs.mkdtempSync(path.join(os.tmpdir(),'remontekt-seo-test-'));
 try{
  execFileSync(process.execPath,[path.resolve(__dirname,'../prepare.cjs'),'--output',temp],{stdio:'pipe'});
  const sitemap=fs.readFileSync(path.join(temp,'sitemap.xml'),'utf8');const urls=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1]);
- assert.equal(urls.length,23,'Home, 2 hubs, 5 services and 15 articles');assert.equal(new Set(urls).size,23);
+ const expectedCount=1+expected.length;assert.equal(urls.length,expectedCount,'Home, hubs, services and all articles');assert.equal(new Set(urls).size,expectedCount);
  assert(!/privacy|consent|request\.php|company|\.txt|\?/.test(urls.join('\n')),'No non-indexable pages or proof files');
  const names=new Set();for(const route of expected){
   const prod=fs.readFileSync(path.join(temp,route,'index.html'),'utf8'),preview=fs.readFileSync(path.join(site,route,'index.html'),'utf8');
@@ -28,5 +28,7 @@ try{
  assert(notFound.includes('href="#document"'),'404 skip link remains local');
  assert(notFound.includes('href="/" aria-label="На главную'),'404 home link resolves to site root');
  assert(fs.readFileSync(path.join(temp,'index.html'),'utf8').includes('href="sovety/"'),'Home discovers article hub');
- console.log('PASS: 22 generated pages, preview/production robots, unique titles, canonical sitemap, CSP and nested links.');
+ const articleCount=expected.filter(route=>/^sovety\/[^/]+\/$/.test(route)).length;
+ assert(fs.readFileSync(path.join(temp,'sovety/index.html'),'utf8').includes('Материалов: '+articleCount),'Visible article count follows the actual catalogue');
+ console.log('PASS: all generated pages, preview/production robots, unique titles, canonical sitemap, CSP and nested links.');
 }finally{fs.rmSync(temp,{recursive:true,force:true})}

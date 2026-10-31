@@ -124,7 +124,8 @@
   ],
   "related": [
     "osveshchenie-kvartiry",
-    "s-chego-nachat-remont-novostroyki"
+    "s-chego-nachat-remont-novostroyki",
+    "elektroschit-uzo-otdelnye-linii"
   ],
   "sources": [
     {
@@ -132,5 +133,6 @@
       "url": "https://www.iek.ru/solutions/cards/detail/kvartira/"
     }
   ],
-  "published": "2026-10-20"
+  "published": "2026-10-20",
+  "modified": "2026-10-31"
 }

@@ -1,0 +1,102 @@
+{
+  "date": "2026-10-31",
+  "domain": "https://remontekt.ru",
+  "article_url": "https://remontekt.ru/sovety/elektroschit-uzo-otdelnye-linii/",
+  "published": true,
+  "sitemap_urls": 24,
+  "article_count": 16,
+  "new_csp_hashes": 3,
+  "old_csp_hashes_retained": true,
+  "checks": [
+    {
+      "path": "/sovety/index.html",
+      "status": 200,
+      "sha256": "56f3198e710121266dcd3d0a6aada0f1da4de300ae2fdfbcdf5fa456bc6b4255"
+    },
+    {
+      "path": "/sovety/rozetki-pered-remontom/index.html",
+      "status": 200,
+      "sha256": "a263112e192bb877c89853b6667f5edaac2e677a343b5e0cb6f35f0cfc42f253"
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "sha256": "ff48633a5f26b02e9c2c085f6773d0320e3ec090417296d96ddbffbbf5426cd2"
+    },
+    {
+      "path": "/sovety/elektroschit-uzo-otdelnye-linii/index.html",
+      "status": 200,
+      "sha256": "1dd160199e1abccb9726b418d7c56a34166d8b22da8316c603f20442e2a2c797"
+    }
+  ],
+  "unchanged_files": [
+    "",
+    "style.css",
+    "app.js",
+    "editorial.css",
+    "editorial.js",
+    "analytics.js",
+    "analytics-config.js",
+    "consent-2026-10-14.html",
+    "consent-2026-10-14-mail.html"
+  ],
+  "tests": {
+    "content_validation": "passed",
+    "production_build": "passed",
+    "node_tests": {
+      "passed": 9,
+      "failed": 0
+    },
+    "catalogue_count_regression": "RED before replacing the hard-coded count; GREEN after deriving it from data",
+    "browser_local": [
+      {
+        "width": 390,
+        "h1": "Электрощит в квартире: УЗО, стабилизатор и отдельные линии для техники",
+        "overflow": false,
+        "images": true,
+        "toc": true,
+        "filtered": "Материалов: 7",
+        "errors": []
+      },
+      {
+        "width": 1440,
+        "h1": "Электрощит в квартире: УЗО, стабилизатор и отдельные линии для техники",
+        "overflow": false,
+        "images": true,
+        "toc": true,
+        "filtered": "Материалов: 7",
+        "errors": []
+      }
+    ],
+    "browser_live": [
+      {
+        "width": 390,
+        "h1": "Электрощит в квартире: УЗО, стабилизатор и отдельные линии для техники",
+        "overflow": false,
+        "images": true,
+        "toc": true,
+        "filtered": "Материалов: 7",
+        "errors": []
+      },
+      {
+        "width": 1440,
+        "h1": "Электрощит в квартире: УЗО, стабилизатор и отдельные линии для техники",
+        "overflow": false,
+        "images": true,
+        "toc": true,
+        "filtered": "Материалов: 7",
+        "errors": []
+      }
+    ]
+  },
+  "independent_review": "No critical or important findings; reviewer did not evaluate physical installation safety or live deployment.",
+  "photos": "Previously supplied panel and kitchen portfolio photographs; new owner photographs pending.",
+  "source_urls": [
+    "https://keaz.ru/company/press-center/blog/2025/2904-differencialniy-avtomat-princip-raboti-kak-vibrat-ustroystvo-naznachenie",
+    "https://www.iek.ru/promo/voltage-regulator/"
+  ],
+  "measured_search_volume": null,
+  "accounts_and_tracking": "Not connected or enabled by this update.",
+  "backup": "Full host-side backup outside active document root and local copies retained.",
+  "deployment_verification_note": "First attempt restored originals after a verifier used case-sensitive header lookup. Lowercase response header confirmed; verifier corrected; final publication and CSP checks passed."
+}

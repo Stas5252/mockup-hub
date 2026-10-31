@@ -3,12 +3,12 @@ const fs=require('node:fs'),path=require('node:path'),assert=require('node:asser
 const base=__dirname,site=path.resolve(base,'../../../mockups/remont-ekt-motion');
 const articleDir=path.join(base,'content');
 const files=fs.existsSync(articleDir)?fs.readdirSync(articleDir).filter(f=>f.endsWith('.json')):[];
-assert.equal(files.length,15,'Fifteen substantive article files must exist');
+assert(files.length>=15,'Keep at least the original fifteen substantive articles');
 const articles=files.map(f=>JSON.parse(fs.readFileSync(path.join(articleDir,f),'utf8')));
 const services=JSON.parse(fs.readFileSync(path.join(base,'services.json'),'utf8'));
 assert.equal(services.length,5,'Five distinct service landing pages');
 const slugs=new Set(articles.map(a=>a.slug)),serviceSlugs=new Set(services.map(s=>s.slug));
-assert.equal(slugs.size,15,'Unique article routes');assert.equal(serviceSlugs.size,5);
+assert.equal(slugs.size,files.length,'Unique article routes');assert.equal(serviceSlugs.size,5);
 const titles=new Set();
 for(const item of [...articles,...services]){
  assert(/^[a-z0-9-]+$/.test(item.slug),item.slug);
@@ -31,4 +31,4 @@ for(const item of [...articles,...services]){
   assert(item.related.length>=2&&item.related.every(s=>slugs.has(s)&&s!==item.slug),item.slug+' related articles');
  }
 }
-console.log('PASS: 15 articles, 5 services, unique routes/headings, substantive text, original photos, related links.');
+console.log(`PASS: ${articles.length} articles, 5 services, unique routes/headings, substantive text, original photos, related links.`);

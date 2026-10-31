@@ -40,3 +40,10 @@ Completion release: full host/local backup, staged and activated new REG root, a
 Homepage article preview: user requested three existing articles and a Смотреть все link directly on main. Added scoped static section after process, before outro, using source article titles/images/URLs and generator-owned markers. Desktop row, mobile vertical cards. Browser 1440/768/390/320 and no-JS navigation pass; image/font/CSS/JS/PHP/consent and all 22 editorial-page preservation checked. Scoped CSS only; SVG arrows avoid the unsupported arrow glyph in existing font. New REG release backed up/staged/activated; root/CSS/sitemap match live export. IndexNow notified changed home only. Live normal-motion article and all-articles navigation passed at 390/1440 with no JS/CSP errors. IndexNow returned HTTP 200 for the single changed home URL.
 
 SEO FULL/CHECKUP requested: named UNIVERSAL SEO MASTER not found after complete skill-catalog and filesystem lookup; applied existing user brief, no false skill claim. Fresh 23-page HTTP/HTML crawl zero tested violations, depth<=2, no orphan pages. Five stale CSV home descriptions synchronized, website unchanged. Source/build and 9 tests pass. New lab snapshot in checkup JSON. Windsor shows no connected SEO/analytics sources; general web search insufficient to prove indexing. Requested real verification codes/IDs asynchronously; no external accounts, tracking or results fabricated.
+
+
+## 2026-10-31 — электрический щит
+
+Одна новая статья (engineering), взаимная ссылка из материала о розетках, вычисляемый счётчик: 16 статей / 24 sitemap URL. Пять новых немеренных запросов в карте намерений (71). Использованы существующие фото; новые фото владельца ожидаются. Дизайн и главная не менялись. Validate/build + 9 Node tests PASS, локальный Chromium 390/1440 PASS, независимый review без важных замечаний. Подробности live-проверок: electrical-article-2026-10-31.json. Резервные копии вне действующей публичной папки сохранены.
+
+Ruling: существующий шаблон и настоящие старые фотографии использованы до получения новых — публикация не зависит от ожидаемых файлов; фотографии можно заменить позже.
