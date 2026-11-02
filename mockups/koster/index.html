@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Костёр — ресторан блюд на мангале и тёплых встреч в Самаре.">
+  <title>Костёр — ресторан с душой огня</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header"><div class="header-inner wrap">
+  <a class="logo" href="#home" aria-label="Костёр — на главную">Костёр<span>♨</span></a>
+  <nav class="nav" aria-label="Основная навигация"><a href="#menu">Меню</a><a href="#banquets">Банкеты</a><a href="#about">О ресторане</a><a href="#gallery">Галерея</a><a href="#contacts">Контакты</a></nav>
+  <div class="header-actions"><a class="phone" href="tel:+78463332211">↗ +7 (846) 333-22-11</a><button class="button button-small" data-book>Забронировать стол</button></div>
+  <button class="hamburger" aria-label="Открыть меню" aria-expanded="false">☰</button>
+</div></header>
+<main id="app"></main>
+<footer class="footer"><div class="wrap footer-inner"><div><a class="logo" href="#home">Костёр<span>♨</span></a><p>Ресторан &nbsp;|&nbsp; Шашлык &nbsp;|&nbsp; Банкеты</p></div><div class="footer-info"><span>⌾ &nbsp; г. Самара, ул. Ново-Садовая, 24</span><a href="tel:+78463332211">⌕ &nbsp; +7 (846) 333-22-11</a><span>◷ &nbsp; Ежедневно с 11:00 до 00:00</span></div><div class="socials"><a href="https://t.me/" aria-label="Telegram">➤</a><a href="https://vk.com/" aria-label="ВКонтакте">VK</a><a href="https://instagram.com/" aria-label="Instagram">◎</a></div></div></footer>
+<dialog id="booking"><form method="dialog" class="modal"><button type="button" class="modal-close" aria-label="Закрыть">×</button><p class="eyebrow">До встречи у огня</p><h2>Забронировать стол</h2><p>Оставьте ваши контакты, и мы свяжемся с вами для уточнения деталей.</p><label>Ваше имя<input required name="name" placeholder="Как к вам обращаться"></label><label>Телефон<input required name="phone" type="tel" placeholder="+7 (___) ___-__-__"></label><button type="submit" class="button wide">Оставить заявку <span>→</span></button><small>Демонстрационная форма макета</small></form></dialog>
+<div class="toast" role="status"></div>
+<script src="menu.js"></script><script src="app.js"></script>
+</body></html>
+

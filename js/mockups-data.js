@@ -5,6 +5,22 @@
 
 const MOCKUPS_DATA = [
   {
+    "id": "koster",
+    "title": "Костёр — ресторан и банкеты",
+    "category": "Рестораны & Кафе",
+    "folder": "koster",
+    "description": "Атмосферный сайт ресторана: блюда на мангале, меню, банкеты, галерея и контакты.",
+    "tags": [
+      "Ресторан",
+      "Меню",
+      "Банкеты",
+      "Мангал"
+    ],
+    "preview": "mockups/koster/preview.png",
+    "featured": true,
+    "emoji": "🔥"
+  },
+  {
     id: "pro-cvety",
     title: "Pro Цветы — Цветы, которым не нужны слова",
     category: "Цветы",
