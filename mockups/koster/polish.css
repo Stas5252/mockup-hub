@@ -24,7 +24,7 @@ body{background:var(--bg);-webkit-font-smoothing:antialiased}
 .split-photo{min-height:360px}
 .dish,.hall{background:#17130f;border-color:#3a2c21;border-radius:7px}
 .dish img{height:185px}.dish-info{min-height:95px;padding:15px 16px}.dish-name{font-weight:500;color:#eee2d5}.dish-price{letter-spacing:.01em}
-.add,.circle{display:grid;place-items:center;font-family:Arial,sans-serif;font-weight:300}
+.circle{display:grid;place-items:center;font-family:Arial,sans-serif;font-weight:300}
 .menu-section h2{display:flex;align-items:center;gap:12px}
 .menu-section h2 .menu-flame{width:24px;height:24px;display:inline-flex;margin:0;color:#dfac78}
 .menu-hero{min-height:280px}.menu-section{padding-top:38px}.menu-section .dish img{height:190px}
@@ -39,3 +39,6 @@ body{background:var(--bg);-webkit-font-smoothing:antialiased}
 [id]{scroll-margin-top:100px}
 @media(max-width:1000px){.menu-section .dish img{height:170px}}
 @media(max-width:700px){.header{height:70px}.hero-home{min-height:560px}.hero-home .hero-copy{padding:70px 0 48px}.hero h1{letter-spacing:-.04em}.features-grid{padding:28px 0}.feature-icon{width:27px;height:27px}.dish img,.menu-section .dish img{height:132px}.menu-hero{min-height:300px}.menu-section h2{font-size:24px}.contact-list{margin-top:22px}.map a{right:10px;bottom:10px}[id]{scroll-margin-top:82px}}
+
+/* Dish cards are an informational menu: name and price only. */
+.dish-info{display:flex;flex-direction:column;justify-content:space-between;gap:8px}.dish-name{max-width:100%}

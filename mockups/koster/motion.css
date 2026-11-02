@@ -38,7 +38,7 @@
   .text-link:hover { color: #fff1df; border-color: #eac69e; }
   .button span { transition: transform .25s ease; }
   .button:hover span { transform: translateX(4px); }
-  .circle, .add, .socials a {
+  .circle, .socials a {
     transition: color .25s ease, background-color .25s ease, border-color .25s ease;
   }
   .circle:hover, .socials a:hover {
