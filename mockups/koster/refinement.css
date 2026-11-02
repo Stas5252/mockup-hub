@@ -1,0 +1,96 @@
+/* Balanced scale and spacing across the restaurant site. */
+:root{--bg:#100e0c;--panel:#18130f;--line:#35291f;--cream:#f3e2d0;--accent:#e8c19a}
+body{font-size:16px;line-height:1.58}
+.wrap{width:min(1240px,calc(100% - 96px))}
+.header{height:82px}
+.header-inner{gap:36px}
+.logo{font-size:31px;line-height:1}
+.logo .logo-flame{width:24px;height:28px}
+.nav{gap:30px}
+.nav a{font-size:14px;white-space:nowrap}
+.phone{font-size:13px;padding:10px 15px}
+.button{min-height:50px;font-size:14px;padding:0 23px;gap:20px}
+.button-small{min-height:42px;font-size:12px;padding:0 16px}
+.hero-home,body[data-page="home"] .hero-home{min-height:560px}
+.hero-home .hero-copy{padding:68px 0;max-width:480px}
+.hero h1{font-size:clamp(76px,7vw,100px);line-height:.91;margin-bottom:24px}
+.hero h1 span{font-size:.65em;line-height:1.05}
+.hero p,.page-hero p{font-size:17px;line-height:1.6;max-width:410px;margin-bottom:28px}
+.hero-home .hero-image{inset:0;background-position:center right;overflow:hidden}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;pointer-events:none;opacity:0;transition:opacity .5s ease}.hero-video.is-ready{opacity:1}
+.hero-home:before{background:linear-gradient(0deg,#100e0c 0%,rgba(16,14,12,.12) 17%,transparent 42%),linear-gradient(90deg,#100e0c 0%,rgba(16,14,12,.95) 21%,rgba(16,14,12,.56) 46%,rgba(16,14,12,.02) 80%)}
+.features-grid{padding:26px 0}
+.feature{font-size:14px;line-height:1.45;padding:0 14px}
+.feature-icon{width:30px;height:30px;margin-bottom:10px}
+body[data-page="home"] .banquet-promo{min-height:390px;display:flex;align-items:center}
+body[data-page="home"] .banquet-promo .wrap,body[data-page="home"] #app > .section > .wrap{width:min(1240px,calc(100% - 96px))}
+body[data-page="home"] #app > .section{min-height:0;display:block;padding:74px 0}
+.split-photo{min-height:390px}
+.split-copy{padding:76px 0;max-width:420px}
+.split-copy p,.application> .wrap>p{font-size:16px;line-height:1.65;margin:20px 0 24px}
+.section{padding:74px 0}
+.section-head{margin-bottom:26px}
+.section h2,.section-head h2,.split-copy h2,.page-title{font-size:clamp(40px,3.35vw,48px);line-height:1}
+.text-link{font-size:14px}
+.cards{gap:18px}
+.dish img,body[data-page="home"] .dish img{height:205px}
+.dish-info{min-height:105px;padding:16px 17px}
+.dish-name{font-size:15px;line-height:1.4;min-height:0}
+.dish-price{font-size:15px;margin-top:12px}
+.gallery-grid{gap:16px}
+.gallery-grid img,body[data-page="home"] .gallery-grid img{height:250px}
+.review{padding:24px}
+.review p{font-size:15px;line-height:1.6;min-height:68px}
+.review-bottom{font-size:13px}
+.page-hero{min-height:375px}
+.page-hero .hero-copy{padding:58px 0}
+.page-hero h1{font-size:clamp(64px,5.6vw,82px);line-height:.96}
+.breadcrumbs{font-size:13px;margin-bottom:22px}
+.menu-hero{min-height:310px}
+.tabs{gap:6px;padding-top:26px}
+.tab{font-size:14px;padding:11px 16px}
+.menu-section{padding-top:40px}
+.menu-section h2{font-size:35px;line-height:1.1}
+.menu-section .dish img{height:205px}
+.hall img{height:220px}
+.hall h3{font-size:25px}.hall p{font-size:14px}
+.contact-list{font-size:15px}
+.footer{padding:42px 0}
+.footer p,.footer-info{font-size:12px;line-height:1.6}
+.application.section{background:linear-gradient(90deg,#120f0c 42%,rgba(18,15,12,.68)),url('assets/fire.jpg') center/cover}
+.application-form input,.application-form select,.application-form textarea,.modal input{font-size:16px}
+.application-form small,.modal small{font-size:12px}
+@media(max-width:1100px){.wrap,body[data-page="home"] .banquet-promo .wrap,body[data-page="home"] #app > .section > .wrap{width:calc(100% - 64px)}.header-inner{gap:24px}.nav{gap:18px}.header-actions .phone{display:none}.cards,.menu-section .cards{gap:14px}}
+@media(max-width:700px){
+  body{font-size:15px}.wrap,body[data-page="home"] .banquet-promo .wrap,body[data-page="home"] #app > .section > .wrap{width:calc(100% - 36px)}
+  .header{height:70px}.logo{font-size:28px}.nav a{font-size:15px}.hamburger{font-size:25px}
+  .hero-home,body[data-page="home"] .hero-home{min-height:570px}
+  .hero-home .hero-copy{padding:100px 0 46px;max-width:330px}
+  .hero h1{font-size:64px;line-height:.92}.hero h1 span{font-size:.64em}
+  .hero p,.page-hero p{font-size:15px;line-height:1.55}
+  .hero-home .hero-image{background-position:62% center}.hero-video{object-position:62% center}
+  .hero-home:before{background:linear-gradient(0deg,#100e0c 0%,rgba(16,14,12,.87) 24%,rgba(16,14,12,.4) 55%,rgba(16,14,12,.08) 100%)}
+  .actions{gap:10px}.button{font-size:13px;min-height:48px;padding:0 16px;gap:12px}
+  .features-grid{padding:27px 0;row-gap:24px}.feature{font-size:13px}
+  body[data-page="home"] .banquet-promo{min-height:370px}
+  .split-photo{min-height:350px}.split-copy{padding:64px 0;max-width:280px}.split-copy p{font-size:15px;line-height:1.55}
+  body[data-page="home"] #app > .section,.section{min-height:0;padding:52px 0}
+  .section h2,.section-head h2,.split-copy h2,.page-title{font-size:37px;line-height:1.02}
+  .section-head{gap:10px;margin-bottom:20px}.text-link{font-size:12px}
+  .cards,.menu-section .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .dish img,body[data-page="home"] .dish img,.menu-section .dish img{height:145px}
+  .dish-info{min-height:100px;padding:12px}.dish-name{font-size:13px;line-height:1.35}.dish-price{font-size:14px;margin-top:8px}
+  .gallery-grid,body[data-page="home"] .gallery-grid{gap:8px}.gallery-grid img,body[data-page="home"] .gallery-grid img{height:145px}
+  .review{padding:18px}.review p{font-size:14px;min-height:0}.review-bottom{font-size:12px}
+  .page-hero{min-height:370px}.page-hero h1{font-size:58px}.menu-hero{min-height:300px}
+  .breadcrumbs{font-size:12px}.tab{font-size:13px}.menu-section h2{font-size:29px}
+  .hall h3{font-size:23px}.hall p,.contact-list{font-size:14px}.footer-info{font-size:12px}
+  .application.section{background:linear-gradient(90deg,rgba(18,15,12,.96),rgba(18,15,12,.7)),url('assets/fire.jpg') center/cover}
+}
+@media(max-width:360px){.dish img,body[data-page="home"] .dish img,.menu-section .dish img{height:125px}.dish-name{font-size:12px}.section-head h2{font-size:32px}}
+@media(prefers-reduced-motion:reduce){.hero-video{display:none}}
+@media (min-width:701px) and (max-width:900px){
+  .header-actions{display:none}.hamburger{display:block;margin-left:auto}
+  .nav{display:none;position:absolute;top:82px;left:0;right:0;padding:24px 32px;background:#15110e;flex-direction:column;align-items:stretch;gap:18px;border-bottom:1px solid #59412f}
+  .nav.open{display:flex}.nav a{font-size:15px}
+}
