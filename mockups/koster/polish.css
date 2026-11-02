@@ -42,3 +42,35 @@ body{background:var(--bg);-webkit-font-smoothing:antialiased}
 
 /* Dish cards are an informational menu: name and price only. */
 .dish-info{display:flex;flex-direction:column;justify-content:space-between;gap:8px}.dish-name{max-width:100%}
+
+/* Local typefaces: a quieter serif and clear supporting text. */
+@font-face{font-family:Koster Serif;src:url('fonts/CormorantGaramond-500-cyrillic.woff2') format('woff2');font-style:normal;font-weight:400 700;font-display:swap;unicode-range:U+0400-052F,U+2DE0-2DFF,U+A640-A69F}
+@font-face{font-family:Koster Serif;src:url('fonts/CormorantGaramond-500-latin.woff2') format('woff2');font-style:normal;font-weight:400 700;font-display:swap;unicode-range:U+0000-03FF,U+2000-206F,U+20AC,U+2122}
+@font-face{font-family:Koster Sans;src:url('fonts/Manrope-400-cyrillic.woff2') format('woff2');font-style:normal;font-weight:400 600;font-display:swap;unicode-range:U+0400-052F,U+2DE0-2DFF,U+A640-A69F}
+@font-face{font-family:Koster Sans;src:url('fonts/Manrope-400-latin.woff2') format('woff2');font-style:normal;font-weight:400 600;font-display:swap;unicode-range:U+0000-03FF,U+2000-206F,U+20AC,U+2122}
+@font-face{font-family:Koster Sans;src:url('fonts/Manrope-700-cyrillic.woff2') format('woff2');font-style:normal;font-weight:700;font-display:swap;unicode-range:U+0400-052F,U+2DE0-2DFF,U+A640-A69F}
+@font-face{font-family:Koster Sans;src:url('fonts/Manrope-700-latin.woff2') format('woff2');font-style:normal;font-weight:700;font-display:swap;unicode-range:U+0000-03FF,U+2000-206F,U+20AC,U+2122}
+body{font-family:Koster Sans,Arial,sans-serif}
+.logo,.hero h1,.page-hero h1,.section h2,.section-head h2,.split-copy h2,.page-title,.menu-section h2,.hall h3,.modal h2{font-family:Koster Serif,Georgia,serif;font-weight:500;letter-spacing:-.01em}
+.logo{font-size:30px;letter-spacing:-.015em}
+.hero h1,.page-hero h1{font-size:clamp(66px,7.1vw,104px);line-height:.91;letter-spacing:-.015em}
+.hero h1 span{font-size:.64em;letter-spacing:-.01em;line-height:1}
+.page-hero h1{font-size:clamp(62px,6.1vw,88px)}
+.section h2,.section-head h2,.split-copy h2,.page-title{font-size:clamp(38px,3.5vw,50px);line-height:.98}
+.menu-section h2{font-size:34px}.hall h3{font-size:25px}.modal h2{font-size:42px}
+
+/* The photograph fades into the same colour as the surrounding sections. */
+.hero{background:#100e0c}
+.hero-home .hero-image{inset:0;background-position:center right;mask-image:linear-gradient(90deg,transparent 7%,rgba(0,0,0,.12) 25%,#000 53%)}
+.hero-home:before{background:linear-gradient(0deg,#100e0c 0%,rgba(16,14,12,.08) 23%,transparent 50%),linear-gradient(90deg,#100e0c 0%,rgba(16,14,12,.94) 19%,rgba(16,14,12,.4) 48%,transparent 78%)}
+.banquet-promo:before{background:linear-gradient(0deg,#100e0c 0%,transparent 22%,transparent 77%,#100e0c 100%),linear-gradient(90deg,#100e0c 2%,rgba(16,14,12,.91) 26%,rgba(16,14,12,.25) 66%,rgba(16,14,12,.06) 100%)}
+
+/* One primary idea per screen; blocks can grow when content needs room. */
+body[data-page="home"] .hero-home{min-height:max(520px,calc(100svh - 220px))}
+body[data-page="home"] .banquet-promo{min-height:calc(100svh - 88px);display:flex;align-items:center}
+body[data-page="home"] #app > .section{min-height:calc(100svh - 88px);display:flex;align-items:center}
+body[data-page="home"] .banquet-promo .wrap,body[data-page="home"] #app > .section > .wrap{width:min(1320px,calc(100% - 96px))}
+body[data-page="home"] .gallery-grid img{height:clamp(230px,33vh,390px)}
+body[data-page="home"] .dish img{height:clamp(185px,26vh,300px)}
+@media(max-width:1000px){body[data-page="home"] .banquet-promo .wrap,body[data-page="home"] #app > .section > .wrap{width:calc(100% - 48px)}}
+@media(max-width:700px){.logo{font-size:27px}.hero h1{font-size:72px;line-height:.9;letter-spacing:-.015em}.page-hero h1{font-size:62px}.section h2,.section-head h2,.split-copy h2{font-size:38px}.menu-section h2{font-size:29px}.hero-home .hero-image{background-position:62% center;mask-image:linear-gradient(90deg,rgba(0,0,0,.24),#000 55%)}.hero-home:before{background:linear-gradient(0deg,#100e0c 0%,rgba(16,14,12,.91) 16%,rgba(16,14,12,.45) 47%,rgba(16,14,12,.08) 100%)}.banquet-promo:before{background:linear-gradient(0deg,#100e0c 0%,transparent 26%,transparent 75%,#100e0c 100%),linear-gradient(90deg,#100e0c 0%,rgba(16,14,12,.82) 45%,rgba(16,14,12,.2) 100%)}body[data-page="home"] .hero-home{min-height:calc(100svh - 70px)}body[data-page="home"] .banquet-promo{min-height:calc(100svh - 70px)}body[data-page="home"] #app > .section{min-height:calc(100svh - 70px);padding:56px 0}body[data-page="home"] .banquet-promo .wrap,body[data-page="home"] #app > .section > .wrap{width:calc(100% - 36px)}body[data-page="home"] .dish img{height:132px}body[data-page="home"] .gallery-grid img{height:155px}}
