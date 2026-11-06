@@ -107,10 +107,9 @@ if(enquirySelect){const slug=new URLSearchParams(location.search).get('model'),r
 
 // Scroll choreography: photographs open, type travels, the selected object turns gently.
 if(!reduce.matches&&'IntersectionObserver' in window){document.documentElement.classList.add('motion-enabled');const reveal=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');reveal.unobserve(e.target)}}),{threshold:.08});$$('[data-reveal]').forEach((el,i)=>{if(el.classList.contains('product-card'))el.style.setProperty('--reveal-delay',`${i%4*65}ms`);reveal.observe(el)})}
-const story=$('.brand-story'),spotlight=$('.spotlight'),head=$('.over-hero'),hero=$('.hero');let scrollFrame=0;
+const story=$('.brand-story'),spotlight=$('.spotlight'),head=$('.over-hero');let scrollFrame=0;
 function renderScroll(){const vh=innerHeight;
  if(!reduce.matches){
-  if(hero&&scrollY<hero.offsetHeight)hero.style.setProperty('--hero-scroll-y',scrollY*.1+'px');
   if(story){const r=story.getBoundingClientRect();if(r.bottom>0&&r.top<vh){const t=clamp((vh-r.top)/(vh+r.height),0,1);story.style.setProperty('--story-inset',Math.max(0,9-t*20)+'%');story.style.setProperty('--story-y',(t-.5)*-40+'px');story.style.setProperty('--story-type-x',(8-t*18)+'%')}}
   if(spotlight){const r=spotlight.getBoundingClientRect();if(r.bottom>0&&r.top<vh){const t=clamp((vh-r.top)/(vh+r.height),0,1);spotlight.style.setProperty('--product-y',(t-.5)*-20+'px');spotlight.style.setProperty('--product-angle',(-4+t*8)+'deg')}}
  }

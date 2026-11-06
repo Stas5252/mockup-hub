@@ -9,7 +9,7 @@ function updateText(n,animate){const p=items[n],name=document.querySelector('#he
  if(animate&&!UI.reduced.matches){name.animate([{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'translateY(0)'}],{duration:700,easing:'cubic-bezier(.19,1,.22,1)'});counter.animate([{opacity:.2},{opacity:1}],{duration:500})}
 }
 async function change(index,direction=0,focus=false){
- const n=wrapped(index);desired=n;const ticket=++request;try{await photos[n].decode()}catch{UI.toast('Не удалось загрузить фото. Попробуйте другой принт.');return}if(ticket!==request)return;
+ const n=wrapped(index);desired=n;const ticket=++request;try{await photos[n].querySelector("img").decode()}catch{UI.toast('Не удалось загрузить фото. Попробуйте другой принт.');return}if(ticket!==request)return;
  const previous=current,changed=previous!==n,dir=direction||((n-previous+items.length)%items.length<items.length/2?1:-1);
  const incoming=photos[n], outgoing=photos[previous];
  photos.forEach((photo,i)=>{
@@ -22,12 +22,10 @@ async function change(index,direction=0,focus=false){
   outgoing.classList.add('is-outgoing');
   const start=dir>0?'polygon(0 100%,100% 88%,100% 100%,0 100%)':'polygon(0 0,100% 0,100% 12%,0 0)';
   const transition=incoming.animate([
-   {clipPath:start,transform:'scale(1.055)',opacity:.65},
-   {clipPath:'polygon(0 0,100% 0,100% 100%,0 100%)',transform:'scale(1)',opacity:1}
+   {clipPath:start},
+   {clipPath:'polygon(0 0,100% 0,100% 100%,0 100%)'}
   ],{duration:780,easing:'cubic-bezier(.22,.8,.22,1)'});
   transition.id='hero-change';
-  const fade=outgoing.animate([{opacity:1},{opacity:1,offset:.58},{opacity:0}],{duration:780,easing:'ease-out'});
-  fade.id='hero-change';
   transition.finished.then(()=>outgoing.classList.remove('is-outgoing'),()=>{});
  }
 
@@ -47,5 +45,4 @@ document.addEventListener('monceree:select',e=>{if(e.detail.origin!=='hero'&&e.d
 // The initial and restored selection is ready before any visitor interaction.
 document.documentElement.dataset.heroReady='true';
 slots(current);updateText(current,false);photos.forEach((im,i)=>{im.classList.toggle('is-current',i===current);im.setAttribute('aria-hidden',String(i!==current))});
-if(matchMedia('(hover:hover) and (pointer:fine)').matches&&!UI.reduced.matches){let raf=0,mx=0,my=0;hero.addEventListener('pointermove',e=>{mx=(e.clientX/innerWidth-.5)*-7;my=(e.clientY/innerHeight-.5)*-5;if(!raf)raf=requestAnimationFrame(()=>{hero.style.setProperty('--hero-x',mx+'px');hero.style.setProperty('--hero-y',my+'px');raf=0})});hero.addEventListener('pointerleave',()=>{hero.style.setProperty('--hero-x','0px');hero.style.setProperty('--hero-y','0px')})}
 })();
