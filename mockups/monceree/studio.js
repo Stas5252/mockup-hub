@@ -2,7 +2,9 @@
 'use strict';
 const items=window.MONCEREE||[],reduce=matchMedia('(prefers-reduced-motion: reduce)'),$=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
-const photo=(p,look=false)=>(!look&&p.photo)||'/mockup-hub/mockups/monceree/assets/'+(look?'look-':'')+p.slug+'.webp';
+const highDetailLooks=new Set(['look-ornament','look-graphic','look-pink','look-toile']);
+const imagePath=name=>'/mockup-hub/mockups/monceree/assets/'+name+(highDetailLooks.has(name)?'-hd':'')+'.webp';
+const photo=(p,look=false)=>look?imagePath('look-'+p.slug):(p.photo||imagePath(p.slug));
 let selected=0;try{selected=clamp(Number(sessionStorage.getItem('monceree-print'))||0,0,items.length-1)}catch{}
 const images=new WeakMap();
 async function imageSwap(el,src,alt,animate=true){
@@ -36,7 +38,7 @@ $('[data-close-menu]')?.addEventListener('click',closeMenu);menu?.addEventListen
 menu?.addEventListener('close',()=>menuTrigger?.setAttribute('aria-expanded','false'));
 $$('a',menu||document.createElement('div')).forEach(a=>a.addEventListener('click',()=>{menu?.close();menuTrigger?.setAttribute('aria-expanded','false');lock()}));
 $$('[data-menu-image]').forEach(a=>{
- const preview=()=>imageSwap($('.menu-photo img'),'/mockup-hub/mockups/monceree/assets/'+a.dataset.menuImage+'.webp',a.textContent.trim(),true);
+ const preview=()=>imageSwap($('.menu-photo img'),imagePath(a.dataset.menuImage),a.textContent.trim(),true);
  a.addEventListener('pointerenter',e=>{if(e.pointerType!=='touch')preview()});a.addEventListener('focus',preview);
 });
 
@@ -46,7 +48,7 @@ function refreshSpotlight(animate=true){
  const p=items[selected];if(!p)return;const stage=$('.spotlight-stage');if($('#home-order'))$('#home-order').href='/mockup-hub/mockups/monceree/contacts/?model='+p.slug;if(!stage)return;
  stage.classList.toggle('is-look',spotlightView==='look');
  const cutout=$('.spotlight-bag');cutout.className='spotlight-bag bag-cutout '+(selected<4?'original':'extra')+' pos-'+selected%4;cutout.setAttribute('aria-label',p.name+', вид спереди');cutout.setAttribute('aria-hidden',String(spotlightView==='look'));if(animate&&!reduce.matches)cutout.animate([{opacity:0,transform:'scale(.94) rotate(-5deg)'},{opacity:1,transform:'scale(1) rotate(0deg)'}],{duration:750,easing:'cubic-bezier(.19,1,.22,1)'});$('#spotlight-image').setAttribute('aria-hidden',String(spotlightView!=='look'));
- imageSwap($('#spotlight-image'),'/mockup-hub/mockups/monceree/assets/'+(spotlightView==='look'?'look-':'')+p.slug+'.webp',p.name+(spotlightView==='look'?' на модели':' крупным планом'),animate);
+ imageSwap($('#spotlight-image'),photo(p,spotlightView==='look'),p.name+(spotlightView==='look'?' на модели':' крупным планом'),animate);
  const heading=$('#spotlight-name'),words=p.name.split(' '),accent=document.createElement('em');accent.textContent=words.pop();heading.replaceChildren();if(words.length)heading.append(document.createTextNode(words.join(' ')),document.createElement('br'));heading.append(accent);$('#spotlight-number').textContent=p.number;$('#spotlight-desc').textContent=p.description;
  $('#spotlight-page').href='/mockup-hub/mockups/monceree/product/'+p.slug+'/';$('#spotlight-order').href='/mockup-hub/mockups/monceree/contacts/?model='+p.slug;
  if($('#home-order'))$('#home-order').href='/mockup-hub/mockups/monceree/contacts/?model='+p.slug;
@@ -87,7 +89,7 @@ if(product){const i=Number(product.dataset.product);setSelected(i,'page');
 }
 const zoomDialog=$('#image-dialog');let zoomOrigin;
 function openImage(src,alt,look,origin){zoomOrigin=origin;zoomDialog.classList.toggle('is-look',look);imageSwap($('#large-image'),src,alt,false);openDialog(zoomDialog)}
-$('[data-zoom-selected]')?.addEventListener('click',e=>{const p=items[selected];openImage('/mockup-hub/mockups/monceree/assets/'+(spotlightView==='look'?'look-':'')+p.slug+'.webp',p.name,spotlightView==='look',e.currentTarget)});
+$('[data-zoom-selected]')?.addEventListener('click',e=>{const p=items[selected];openImage(photo(p,spotlightView==='look'),p.name,spotlightView==='look',e.currentTarget)});
 $('[data-zoom-gallery]')?.addEventListener('click',e=>{const p=items[Number(product.dataset.product)];openImage(photo(p,galleryView==='look'),p.name+(galleryView==='look'?' на модели':''),galleryView==='look',e.currentTarget)});
 function closeImage(){closeDialog(zoomDialog,zoomOrigin)}
 $('[data-close-image]')?.addEventListener('click',e=>{e.stopPropagation();closeImage()});zoomDialog?.addEventListener('click',closeImage);zoomDialog?.addEventListener('cancel',e=>{e.preventDefault();closeImage()});
