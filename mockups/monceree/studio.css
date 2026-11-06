@@ -132,3 +132,15 @@ img.brand-source,.card-photo img.brand-source,.dialog-media>img.brand-source,.pr
 }
 .hero-wheel .wheel-item[data-slot='-1'],.hero-wheel .wheel-item[data-slot='1']{opacity:.48}
 .hero-wheel .wheel-item[data-slot='0']{filter:none}
+
+/* A fixed portrait above the changing bag and strap. */
+.hero-portrait{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.hero-scene .hero-look{mask-image:linear-gradient(to bottom,transparent 31%,#000 39% 94%,transparent 100%)}
+@supports (mask-composite:intersect){
+.hero-scene .hero-look{
+ mask-image:
+  linear-gradient(to bottom,transparent 31%,#000 39% 94%,transparent 100%),
+  linear-gradient(to right,transparent 0%,#000 7% 66%,transparent 89%);
+ mask-composite:intersect;
+}
+}
