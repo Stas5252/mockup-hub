@@ -41,7 +41,7 @@ function refreshSpotlight(animate=true){
  const cutout=$('.spotlight-bag');cutout.className='spotlight-bag bag-cutout '+(selected<4?'original':'extra')+' pos-'+selected%4;cutout.setAttribute('aria-label',p.name+', вид спереди');cutout.setAttribute('aria-hidden',String(spotlightView==='look'));if(animate&&!reduce.matches)cutout.animate([{opacity:0,transform:'scale(.94) rotate(-5deg)'},{opacity:1,transform:'scale(1) rotate(0deg)'}],{duration:750,easing:'cubic-bezier(.19,1,.22,1)'});$('#spotlight-image').setAttribute('aria-hidden',String(spotlightView!=='look'));
  imageSwap($('#spotlight-image'),'/mockup-hub/mockups/monceree/assets/'+(spotlightView==='look'?'look-':'')+p.slug+'.webp',p.name+(spotlightView==='look'?' на модели':' крупным планом'),animate);
  const heading=$('#spotlight-name'),words=p.name.split(' '),accent=document.createElement('em');accent.textContent=words.pop();heading.replaceChildren();if(words.length)heading.append(document.createTextNode(words.join(' ')),document.createElement('br'));heading.append(accent);$('#spotlight-number').textContent=p.number;$('#spotlight-desc').textContent=p.description;
- $('#spotlight-page').href='/mockup-hub/mockups/monceree/product/'+p.slug+'/mockup-hub/mockups/monceree/';$('#spotlight-order').href='/mockup-hub/mockups/monceree/contacts/?model='+p.slug;
+ $('#spotlight-page').href='/mockup-hub/mockups/monceree/product/'+p.slug+'/';$('#spotlight-order').href='/mockup-hub/mockups/monceree/contacts/?model='+p.slug;
  if($('#home-order'))$('#home-order').href='/mockup-hub/mockups/monceree/contacts/?model='+p.slug;
  $$('.spotlight-switch button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.spotlightView===spotlightView)));
  $('.spotlight-switch').dataset.view=spotlightView;
@@ -61,7 +61,7 @@ function updateQuick(animate=true){
  const p=items[quick];if(!p)return;if(!p.look)quickView='product';$$('[data-dialog-view=look]').forEach(b=>b.hidden=!p.look);
  $('.dialog-media')?.classList.toggle('is-look',quickView==='look');
  imageSwap($('#dialog-image'),photo(p,quickView==='look'),p.name+(quickView==='look'?' на модели':''),animate);
- $('#dialog-name').textContent=p.name;$('#dialog-description').textContent=p.description;$('#dialog-page').href='/mockup-hub/mockups/monceree/product/'+p.slug+'/mockup-hub/mockups/monceree/';$('#dialog-order').href='/mockup-hub/mockups/monceree/contacts/?model='+p.slug;
+ $('#dialog-name').textContent=p.name;$('#dialog-description').textContent=p.description;$('#dialog-page').href='/mockup-hub/mockups/monceree/product/'+p.slug+'/';$('#dialog-order').href='/mockup-hub/mockups/monceree/contacts/?model='+p.slug;
  $$('[data-dialog-select]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.dialogSelect)===quick)));
  $$('[data-dialog-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.dialogView===quickView)));
  $('.dialog-media .view-switch').dataset.view=quickView;
