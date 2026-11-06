@@ -92,7 +92,7 @@ img.brand-source,.card-photo img.brand-source,.dialog-media>img.brand-source,.pr
  .hero-media{inset:0 0 166px;transform:none}
  .hero-look{object-position:50% 46%}
  .hero-look.is-portrait{object-position:50% 51%}
- .hero-gradient{background:linear-gradient(0deg,#241b15 0 24%,transparent 44%),linear-gradient(180deg,#241b1545,transparent 20%)}
+ .hero-gradient{background:linear-gradient(0deg,#241b15 0 166px,#241b1500 188px),linear-gradient(180deg,#241b1554,transparent 26%)}
  .hero-copy{bottom:118px;max-width:calc(100% - 2 * var(--page-gutter));left:var(--page-gutter)}
  .hero h1{font-size:clamp(34px,9vw,45px);line-height:.98}
  .hero-wheel{top:calc(52% - 85px);--step:70px;height:282px}
@@ -125,3 +125,10 @@ img.brand-source,.card-photo img.brand-source,.dialog-media>img.brand-source,.pr
 @media(max-width:700px){
  .hero-scene{height:max(100cqh,calc(100cqw * 1.355));right:auto;left:50%;transform:translateX(-50%);mask-image:none}
 }
+
+/* Keep the bag at the hip clear of the caption shading. */
+@media(min-width:701px){
+ .hero-gradient{background:linear-gradient(90deg,#534332aa,transparent 48%),linear-gradient(0deg,#21180cbb,transparent 112px),linear-gradient(180deg,#35251344,transparent 23%)}
+}
+.hero-wheel .wheel-item[data-slot='-1'],.hero-wheel .wheel-item[data-slot='1']{opacity:.48}
+.hero-wheel .wheel-item[data-slot='0']{filter:none}
