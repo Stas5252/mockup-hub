@@ -4,6 +4,23 @@
  */
 
 const MOCKUPS_DATA = [
+{
+  "id": "monceree",
+  "title": "MONCEREE — авторские сумки ручной работы",
+  "category": "Мода & Аксессуары",
+  "folder": "monceree",
+  "description": "Сайт белорусского бренда: анимированная витрина, 14 моделей, фотографии сумок, история автора, каталог и страницы изделий.",
+  "tags": [
+    "Сумки",
+    "Ручная работа",
+    "Мода",
+    "Анимации",
+    "Каталог"
+  ],
+  "preview": "mockups/monceree/assets/look-ornament.webp",
+  "featured": true,
+  "emoji": "M"
+},
   {
     "id": "koster",
     "title": "Костёр — ресторан и банкеты",
