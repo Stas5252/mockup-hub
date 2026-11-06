@@ -68,3 +68,14 @@ img.brand-source,.card-photo img.brand-source,.dialog-media>img.brand-source,.pr
 .source-label{font-size:9px;padding:12px 20px;opacity:.7}.image-dialog img.brand-source{width:min(85vw,75svh);height:min(85vw,75svh);object-fit:cover!important}.product-variants{flex-wrap:wrap}.dialog-variants{grid-template-columns:repeat(7,minmax(0,1fr))}.view-switch button[hidden]{display:none}
 
 .product-variants{grid-template-columns:repeat(7,minmax(0,1fr))}
+
+/* Keep the previous photograph visible beneath the incoming frame. */
+.hero-look.is-current{z-index:2;transition:none}
+.hero-look.is-outgoing{opacity:1;z-index:1;transition:none}
+.hero-look:not(.is-current):not(.is-outgoing){transition:none}
+.wheel-item .real-thumb{width:80%;height:78%;margin:auto;border:1px solid #fff5;border-radius:6px;box-shadow:0 6px 18px #0004}
+@media (prefers-reduced-motion:reduce){.hero-look{clip-path:none!important;transition:none!important}}
+@media (min-width:701px){
+ .hero-look.is-portrait{width:min(100%,84svh);right:12%;object-position:center 51%;mask-image:linear-gradient(90deg,transparent,#000 18%,#000 84%,transparent)}
+}
+.product-image-stage.is-look>img[src*="look-"]{object-fit:contain}

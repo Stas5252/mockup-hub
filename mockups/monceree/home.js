@@ -1,6 +1,6 @@
 (()=>{
 'use strict';
-const UI=window.MoncereeUI,items=window.MONCEREE.slice(0,8);if(!UI||!items)return;
+const UI=window.MoncereeUI,items=window.MONCEREE;if(!UI||!items)return;
 const hero=document.querySelector('.hero'),photos=[...document.querySelectorAll('.hero-look')],wheel=document.querySelector('.wheel-window'),buttons=[...document.querySelectorAll('[data-wheel]')];if(!hero||!wheel)return;
 let current=UI.selected<items.length?UI.selected:0,desired=current,request=0,wheelCooldown=0,wheelSum=0;
 function wrapped(n){return(n%items.length+items.length)%items.length}
@@ -11,12 +11,26 @@ function updateText(n,animate){const p=items[n],name=document.querySelector('#he
 async function change(index,direction=0,focus=false){
  const n=wrapped(index);desired=n;const ticket=++request;try{await photos[n].decode()}catch{UI.toast('Не удалось загрузить фото. Попробуйте другой принт.');return}if(ticket!==request)return;
  const previous=current,changed=previous!==n,dir=direction||((n-previous+items.length)%items.length<items.length/2?1:-1);
- photos.forEach((im,i)=>{im.classList.toggle('is-current',i===n);im.setAttribute('aria-hidden',String(i!==n))});
+ const incoming=photos[n], outgoing=photos[previous];
+ photos.forEach((photo,i)=>{
+  photo.getAnimations().filter(animation=>animation.id==='hero-change').forEach(animation=>animation.cancel());
+  photo.classList.toggle('is-current',i===n);
+  photo.classList.remove('is-outgoing');
+  photo.setAttribute('aria-hidden',String(i!==n));
+ });
  if(changed&&!UI.reduced.matches){
-  [photos[previous],photos[n]].forEach(im=>im.getAnimations().filter(a=>a.id==='hero-change').forEach(a=>a.cancel()));
-  const outgoing=photos[previous].animate([{opacity:1,transform:'scale(1)'},{opacity:0,transform:`scale(1.035) translateY(${-dir*18}px)`}],{duration:750,easing:'cubic-bezier(.2,.7,.2,1)'});outgoing.id='hero-change';
-  const incoming=photos[n].animate([{opacity:0,transform:`scale(1.055) translateY(${dir*20}px)`,filter:'blur(3px)'},{opacity:1,transform:'scale(1)',filter:'blur(0px)'}],{duration:1100,easing:'cubic-bezier(.19,1,.22,1)'});incoming.id='hero-change';
+  outgoing.classList.add('is-outgoing');
+  const start=dir>0?'polygon(0 100%,100% 88%,100% 100%,0 100%)':'polygon(0 0,100% 0,100% 12%,0 0)';
+  const transition=incoming.animate([
+   {clipPath:start,transform:'scale(1.055)',opacity:.65},
+   {clipPath:'polygon(0 0,100% 0,100% 100%,0 100%)',transform:'scale(1)',opacity:1}
+  ],{duration:780,easing:'cubic-bezier(.22,.8,.22,1)'});
+  transition.id='hero-change';
+  const fade=outgoing.animate([{opacity:1},{opacity:1,offset:.58},{opacity:0}],{duration:780,easing:'ease-out'});
+  fade.id='hero-change';
+  transition.finished.then(()=>outgoing.classList.remove('is-outgoing'),()=>{});
  }
+
  current=n;slots(n);updateText(n,changed);UI.setSelected(n,'hero');if(focus)buttons[n].focus({preventScroll:true});
 }
 let pointerStart=null,dragged=false;
